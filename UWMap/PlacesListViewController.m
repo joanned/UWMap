@@ -6,13 +6,13 @@
 //  Copyright (c) 2014 Joanne Deng. All rights reserved.
 //
 
-#import "SecondViewController.h"
+#import "PlacesListViewController.h"
 
-@interface SecondViewController ()
+@interface PlacesListViewController ()
 
 @end
 
-@implementation SecondViewController
+@implementation PlacesListViewController
 
 - (void)viewDidLoad
 {

@@ -14,14 +14,15 @@
 		47F37CD719DCE4C6009577E9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 47F37CD619DCE4C6009577E9 /* main.m */; };
 		47F37CDB19DCE4C6009577E9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 47F37CDA19DCE4C6009577E9 /* AppDelegate.m */; };
 		47F37CDE19DCE4C6009577E9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47F37CDC19DCE4C6009577E9 /* Main.storyboard */; };
-		47F37CE119DCE4C6009577E9 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47F37CE019DCE4C6009577E9 /* FirstViewController.m */; };
-		47F37CE419DCE4C6009577E9 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47F37CE319DCE4C6009577E9 /* SecondViewController.m */; };
+		47F37CE119DCE4C6009577E9 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47F37CE019DCE4C6009577E9 /* MapViewController.m */; };
+		47F37CE419DCE4C6009577E9 /* PlacesListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47F37CE319DCE4C6009577E9 /* PlacesListViewController.m */; };
 		47F37CE619DCE4C6009577E9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 47F37CE519DCE4C6009577E9 /* Images.xcassets */; };
 		47F37CED19DCE4C6009577E9 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47F37CEC19DCE4C6009577E9 /* XCTest.framework */; };
 		47F37CEE19DCE4C6009577E9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47F37CCA19DCE4C6009577E9 /* Foundation.framework */; };
 		47F37CEF19DCE4C6009577E9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47F37CCE19DCE4C6009577E9 /* UIKit.framework */; };
 		47F37CF719DCE4C6009577E9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 47F37CF519DCE4C6009577E9 /* InfoPlist.strings */; };
 		47F37CF919DCE4C6009577E9 /* UWMapTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 47F37CF819DCE4C6009577E9 /* UWMapTests.m */; };
+		47F37D0519DCEC0B009577E9 /* FoodListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47F37D0419DCEC0B009577E9 /* FoodListViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,16 +47,18 @@
 		47F37CD919DCE4C6009577E9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		47F37CDA19DCE4C6009577E9 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		47F37CDD19DCE4C6009577E9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		47F37CDF19DCE4C6009577E9 /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
-		47F37CE019DCE4C6009577E9 /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
-		47F37CE219DCE4C6009577E9 /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
-		47F37CE319DCE4C6009577E9 /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		47F37CDF19DCE4C6009577E9 /* MapViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		47F37CE019DCE4C6009577E9 /* MapViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
+		47F37CE219DCE4C6009577E9 /* PlacesListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlacesListViewController.h; sourceTree = "<group>"; };
+		47F37CE319DCE4C6009577E9 /* PlacesListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlacesListViewController.m; sourceTree = "<group>"; };
 		47F37CE519DCE4C6009577E9 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		47F37CEB19DCE4C6009577E9 /* UWMapTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UWMapTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		47F37CEC19DCE4C6009577E9 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		47F37CF419DCE4C6009577E9 /* UWMapTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "UWMapTests-Info.plist"; sourceTree = "<group>"; };
 		47F37CF619DCE4C6009577E9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		47F37CF819DCE4C6009577E9 /* UWMapTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UWMapTests.m; sourceTree = "<group>"; };
+		47F37D0319DCEC0B009577E9 /* FoodListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodListViewController.h; sourceTree = "<group>"; };
+		47F37D0419DCEC0B009577E9 /* FoodListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodListViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,8 +66,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				47F37CCD19DCE4C6009577E9 /* CoreGraphics.framework in Frameworks */,
 				47F37CCF19DCE4C6009577E9 /* UIKit.framework in Frameworks */,
+				47F37CCD19DCE4C6009577E9 /* CoreGraphics.framework in Frameworks */,
 				47F37CCB19DCE4C6009577E9 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -115,13 +118,10 @@
 		47F37CD019DCE4C6009577E9 /* UWMap */ = {
 			isa = PBXGroup;
 			children = (
+				47F37D0219DCEBCE009577E9 /* View Controllers */,
 				47F37CD919DCE4C6009577E9 /* AppDelegate.h */,
 				47F37CDA19DCE4C6009577E9 /* AppDelegate.m */,
 				47F37CDC19DCE4C6009577E9 /* Main.storyboard */,
-				47F37CDF19DCE4C6009577E9 /* FirstViewController.h */,
-				47F37CE019DCE4C6009577E9 /* FirstViewController.m */,
-				47F37CE219DCE4C6009577E9 /* SecondViewController.h */,
-				47F37CE319DCE4C6009577E9 /* SecondViewController.m */,
 				47F37CE519DCE4C6009577E9 /* Images.xcassets */,
 				47F37CD119DCE4C6009577E9 /* Supporting Files */,
 			);
@@ -155,6 +155,19 @@
 				47F37CF519DCE4C6009577E9 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		47F37D0219DCEBCE009577E9 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				47F37CDF19DCE4C6009577E9 /* MapViewController.h */,
+				47F37CE019DCE4C6009577E9 /* MapViewController.m */,
+				47F37CE219DCE4C6009577E9 /* PlacesListViewController.h */,
+				47F37CE319DCE4C6009577E9 /* PlacesListViewController.m */,
+				47F37D0319DCEC0B009577E9 /* FoodListViewController.h */,
+				47F37D0419DCEC0B009577E9 /* FoodListViewController.m */,
+			);
+			name = "View Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -254,9 +267,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				47F37CE419DCE4C6009577E9 /* SecondViewController.m in Sources */,
+				47F37CE419DCE4C6009577E9 /* PlacesListViewController.m in Sources */,
 				47F37CDB19DCE4C6009577E9 /* AppDelegate.m in Sources */,
-				47F37CE119DCE4C6009577E9 /* FirstViewController.m in Sources */,
+				47F37D0519DCEC0B009577E9 /* FoodListViewController.m in Sources */,
+				47F37CE119DCE4C6009577E9 /* MapViewController.m in Sources */,
 				47F37CD719DCE4C6009577E9 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
