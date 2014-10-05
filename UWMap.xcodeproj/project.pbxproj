@@ -217,6 +217,9 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Joanne Deng";
 				TargetAttributes = {
+					47F37CC619DCE4C6009577E9 = {
+						DevelopmentTeam = 83B7LK4U2V;
+					};
 					47F37CEA19DCE4C6009577E9 = {
 						TestTargetID = 47F37CC619DCE4C6009577E9;
 					};
@@ -476,6 +479,7 @@
 				47F37CFE19DCE4C6009577E9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		47F37CFF19DCE4C6009577E9 /* Build configuration list for PBXNativeTarget "UWMapTests" */ = {
 			isa = XCConfigurationList;
@@ -484,6 +488,7 @@
 				47F37D0119DCE4C6009577E9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

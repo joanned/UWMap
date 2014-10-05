@@ -8,13 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-
-@protocol UIScrollViewDelegate <NSObject>
+@interface MapViewController : UIViewController
 
 - (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView;
-
-@end
-
-@interface MapViewController : UIViewController
 
 @end
