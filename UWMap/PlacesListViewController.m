@@ -10,6 +10,9 @@
 
 @interface PlacesListViewController ()
 
+@property NSDictionary *locationDictionary;
+@property NSArray *keys;
+
 @end
 
 @implementation PlacesListViewController
@@ -17,7 +20,16 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+
+    self.locationDictionary = @{
+                                @"Arts Lecture Hall" : [NSValue valueWithCGPoint:CGPointMake(793, 694)],
+                                @"Biology 1" : [NSValue valueWithCGPoint:CGPointMake(793, 529)],
+                                @"Biology 2" : [NSValue valueWithCGPoint:CGPointMake(757, 500)],
+                                @"B.C. Matthews Hall" : [NSValue valueWithCGPoint:CGPointMake(789, 251)],
+                                };
+    
+    self.keys = [self.locationDictionary allKeys];
+    
 }
 
 - (void)didReceiveMemoryWarning
