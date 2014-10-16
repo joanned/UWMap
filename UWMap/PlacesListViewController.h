@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PlacesListViewController : UIViewController
+@interface PlacesListViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
 
 @end

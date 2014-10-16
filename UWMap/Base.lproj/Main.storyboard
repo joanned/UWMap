@@ -3,6 +3,7 @@
     <dependencies>
         <deployment defaultVersion="1808" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--First-->
@@ -82,18 +83,44 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="OYi-e8-I4B">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="OYi-e8-I4B">
                                 <rect key="frame" x="-2" y="64" width="325" height="455"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="uQ1-H1-lOi">
+                                        <rect key="frame" x="0.0" y="0.0" width="325" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uQ1-H1-lOi" id="pvi-5M-88E">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="QUy-BD-bpt" id="6fF-U8-IcE"/>
+                                    <outlet property="delegate" destination="QUy-BD-bpt" id="hKT-8k-wpB"/>
+                                </connections>
                             </tableView>
-                            <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NjH-oH-qmn">
-                                <rect key="frame" x="-2" y="20" width="325" height="44"/>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="NjH-oH-qmn">
+                                <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                         </subviews>
                         <color key="backgroundColor" red="0.81553583559782605" green="0.81553583559782605" blue="0.81553583559782605" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="NjH-oH-qmn" firstAttribute="top" secondItem="FgS-U6-xeU" secondAttribute="bottom" id="LOJ-j5-bC9"/>
+                            <constraint firstItem="stI-4g-hlJ" firstAttribute="top" secondItem="OYi-e8-I4B" secondAttribute="bottom" id="OdO-rF-C1E"/>
+                            <constraint firstItem="OYi-e8-I4B" firstAttribute="leading" secondItem="gMD-aP-Fq6" secondAttribute="leadingMargin" constant="-18" id="RCG-xO-MbY"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="NjH-oH-qmn" secondAttribute="trailing" constant="-16" id="fFm-px-g90"/>
+                            <constraint firstItem="OYi-e8-I4B" firstAttribute="top" secondItem="NjH-oH-qmn" secondAttribute="bottom" id="mpE-xD-QdJ"/>
+                            <constraint firstItem="NjH-oH-qmn" firstAttribute="leading" secondItem="gMD-aP-Fq6" secondAttribute="leadingMargin" constant="-16" id="rYs-Xb-wwN"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="OYi-e8-I4B" secondAttribute="trailing" constant="-19" id="sJW-QA-rKH"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Second" image="second" id="Z7h-1E-pvt"/>
+                    <connections>
+                        <outlet property="searchBar" destination="NjH-oH-qmn" id="KCZ-Jw-z98"/>
+                        <outlet property="tableView" destination="OYi-e8-I4B" id="WDv-fS-kmN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3qq-4t-Ow8" sceneMemberID="firstResponder"/>
             </objects>
