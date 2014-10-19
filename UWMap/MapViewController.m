@@ -8,11 +8,16 @@
 //@import UIKIt;
 #import <QuartzCore/QuartzCore.h>
 #import "MapViewController.h"
+#import "PinView.h"
 
 @interface MapViewController () <UIScrollViewDelegate>
 
 @property (nonatomic, strong) IBOutlet UIImageView *imageView;
 @property (nonatomic, strong) IBOutlet UIScrollView *scrollView;
+
+@property NSDictionary *locationDictionary;
+@property NSArray *keys;
+
 
 @end
 
@@ -29,11 +34,9 @@
 //    [self.imageView addSubview:pinImageView];
     
     
-    NSArray *subviewArray = [[NSBundle mainBundle] loadNibNamed:@"pin" owner:self options:nil];
-    UIView *mainView = [subviewArray objectAtIndex:0];
-    mainView.frame = CGRectMake(200,200,50,50); //or whatever coordinates you need
+    
 
-    [self.imageView addSubview:mainView];
+
     
     [self.scrollView setClipsToBounds:YES];
     self.scrollView.minimumZoomScale = 0.5;
@@ -41,14 +44,55 @@
     self.scrollView.contentSize = CGSizeMake ([[UIImage imageNamed:@"mapImage.png"] size].width, [[UIImage imageNamed:@"mapImage.png"] size].height);
     self.scrollView.delegate = self;
     
+    [self setupData];
     
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     
+    UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedScreen:)];
+    [tapRecognizer setNumberOfTapsRequired:1];
+//    [tapRecognizer setDelegate:self];
+    [self.scrollView addGestureRecognizer:tapRecognizer];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)tappedScreen:(UITapGestureRecognizer *)recognizer {
+    if(recognizer.state == UIGestureRecognizerStateRecognized) {
+        CGPoint point = [recognizer locationInView:recognizer.view];
+        NSLog(@"%@", NSStringFromCGPoint(point));
+        
+        for (NSString *locationKey in self.locationDictionary) {
+            NSValue *locationValue = [self.locationDictionary objectForKey:locationKey];
+            CGRect locationRect = [locationValue CGRectValue];
+            
+            if (CGRectContainsPoint(locationRect, point)) {
+                NSArray *subviewArray = [[NSBundle mainBundle] loadNibNamed:@"pin" owner:self options:nil];
+                PinView *mainView = [subviewArray objectAtIndex:0];
+                mainView.frame = CGRectMake(CGRectGetMidX(locationRect),CGRectGetMidY(locationRect),50,50);
+                mainView.pinLabel.text = locationKey;
+                
+                [self.imageView addSubview:mainView];
+            }
+        }
+    }
+}
+
+- (void)setupData {
+    self.locationDictionary = @{
+                                @"Arts Lecture Hall" : [NSValue valueWithCGRect:CGRectMake(793, 694, 16, 16)],
+                                @"Biology 1" : [NSValue valueWithCGRect:CGRectMake(793, 529, 16, 16)],
+                                @"Biology 2" : [NSValue valueWithCGRect:CGRectMake(757, 500, 16, 16)],
+                                @"B.C. Matthews Hall" : [NSValue valueWithCGRect:CGRectMake(789, 251, 16, 16)],
+                                };
+    
+    self.keys = [self.locationDictionary allKeys];
 }
 
 #pragma mark <UIScrollViewDelegate>
