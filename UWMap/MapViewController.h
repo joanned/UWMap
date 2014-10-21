@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BuildingListViewController.h"
 
 @interface MapViewController : UIViewController
 

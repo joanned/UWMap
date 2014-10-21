@@ -6,23 +6,24 @@
 //  Copyright (c) 2014 Joanne Deng. All rights reserved.
 //
 
-#import "PlacesListViewController.h"
+#import "BuildingListViewController.h"
 
-@interface PlacesListViewController ()
+@interface BuildingListViewController ()
 
 @property NSDictionary *locationDictionary;
 @property NSArray *keys;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
+@property (weak, nonatomic) IBOutlet UIImageView *backButton;
 
 @end
 
-@implementation PlacesListViewController
+@implementation BuildingListViewController
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    
     self.locationDictionary = @{
                                 @"Arts Lecture Hall" : [NSValue valueWithCGPoint:CGPointMake(793, 694)],
                                 @"Biology 1" : [NSValue valueWithCGPoint:CGPointMake(793, 529)],
@@ -32,10 +33,21 @@
     
     self.keys = [self.locationDictionary allKeys];
     
+    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                                action:@selector(tappedBuildingIcon:)];
+    [self.backButton addGestureRecognizer:singleTap];
+
+    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+}
+
+- (void)tappedBuildingIcon:(UITapGestureRecognizer *)recognizer {
+    if ([self.delegate respondsToSelector:@selector(backButtonTapped)]) {
+        [self.delegate backButtonTapped];
+    }
 }
 
 #pragma mark - <UITableViewDataSource, UITableViewDelegate>
@@ -63,5 +75,7 @@
 //    
 //    [alertView show];
 //}
+
+
 
 @end

@@ -10,10 +10,15 @@
 #import "MapViewController.h"
 #import "PinView.h"
 
-@interface MapViewController () <UIScrollViewDelegate>
+@interface MapViewController () <UIScrollViewDelegate, BuildingListViewControllerDelegate>
+
+@property (nonatomic, strong) BuildingListViewController *buildingListViewController;
 
 @property (nonatomic, strong) IBOutlet UIImageView *imageView;
 @property (nonatomic, strong) IBOutlet UIScrollView *scrollView;
+@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
+@property (weak, nonatomic) IBOutlet UIImageView *buildingIcon;
+@property (strong, nonatomic) IBOutlet UIView *containerView;
 
 @property NSDictionary *locationDictionary;
 @property NSArray *keys;
@@ -27,22 +32,18 @@
     [super viewDidLoad];
     
     self.imageView.frame = CGRectMake(0, 0, [[UIImage imageNamed:@"mapImage.png"] size].width-50, [[UIImage imageNamed:@"mapImage.png"] size].height-50);
-//    UIImageView *pinImageView = [[UIImageView alloc] init];
-//    
-//    UIImage *pinImage = [UIImage imageNamed:@"bubble.png"];
-//    [pinImageView setImage:pinImage];
-//    [self.imageView addSubview:pinImageView];
-    
-    
-    
-
-
     
     [self.scrollView setClipsToBounds:YES];
     self.scrollView.minimumZoomScale = 0.5;
     self.scrollView.maximumZoomScale = 6.0;
     self.scrollView.contentSize = CGSizeMake ([[UIImage imageNamed:@"mapImage.png"] size].width, [[UIImage imageNamed:@"mapImage.png"] size].height);
     self.scrollView.delegate = self;
+    
+    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                                action:@selector(tappedBuildingIcon:)];
+    [self.buildingIcon addGestureRecognizer:singleTap];
+    
+    self.buildingListViewController.delegate = self;
     
     [self setupData];
     
@@ -95,6 +96,24 @@
     self.keys = [self.locationDictionary allKeys];
 }
 
+- (void)tappedBuildingIcon:(UITapGestureRecognizer *)recognizer {
+    [self showTableView];
+}
+
+- (void)showTableView {
+    [self addChildViewController:self.buildingListViewController];
+    self.buildingListViewController.view.frame = [self.containerView bounds];
+    [self.containerView addSubview:self.buildingListViewController.view];
+    [self.buildingListViewController didMoveToParentViewController:self];
+}
+
+- (void)hideTableView {
+    [self.buildingListViewController willMoveToParentViewController:nil];
+    [self.buildingListViewController.view removeFromSuperview];
+    [self.buildingListViewController removeFromParentViewController];
+}
+
+
 #pragma mark <UIScrollViewDelegate>
 
 - (void)scrollViewDidZoom:(UIScrollView *)aScrollView
@@ -112,6 +131,22 @@
 
 - (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView {
     return self.imageView;
+}
+
+#pragma mark - Childview controller
+
+-(BuildingListViewController *)buildingListViewController {
+    if (!_buildingListViewController) {
+        self.buildingListViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:NSStringFromClass([BuildingListViewController class])];
+    }
+    
+    return  _buildingListViewController;
+}
+
+#pragma mark - <BuildingListViewControllerDelegate>
+
+- (void)backButtonTapped {
+    [self hideTableView];
 }
 
 @end

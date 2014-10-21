@@ -18,7 +18,7 @@
 		47F37CDB19DCE4C6009577E9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 47F37CDA19DCE4C6009577E9 /* AppDelegate.m */; };
 		47F37CDE19DCE4C6009577E9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47F37CDC19DCE4C6009577E9 /* Main.storyboard */; };
 		47F37CE119DCE4C6009577E9 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47F37CE019DCE4C6009577E9 /* MapViewController.m */; };
-		47F37CE419DCE4C6009577E9 /* PlacesListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47F37CE319DCE4C6009577E9 /* PlacesListViewController.m */; };
+		47F37CE419DCE4C6009577E9 /* BuildingListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47F37CE319DCE4C6009577E9 /* BuildingListViewController.m */; };
 		47F37CE619DCE4C6009577E9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 47F37CE519DCE4C6009577E9 /* Images.xcassets */; };
 		47F37CED19DCE4C6009577E9 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47F37CEC19DCE4C6009577E9 /* XCTest.framework */; };
 		47F37CEE19DCE4C6009577E9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47F37CCA19DCE4C6009577E9 /* Foundation.framework */; };
@@ -57,8 +57,8 @@
 		47F37CDD19DCE4C6009577E9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		47F37CDF19DCE4C6009577E9 /* MapViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		47F37CE019DCE4C6009577E9 /* MapViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
-		47F37CE219DCE4C6009577E9 /* PlacesListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlacesListViewController.h; sourceTree = "<group>"; };
-		47F37CE319DCE4C6009577E9 /* PlacesListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlacesListViewController.m; sourceTree = "<group>"; };
+		47F37CE219DCE4C6009577E9 /* BuildingListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BuildingListViewController.h; sourceTree = "<group>"; };
+		47F37CE319DCE4C6009577E9 /* BuildingListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BuildingListViewController.m; sourceTree = "<group>"; };
 		47F37CE519DCE4C6009577E9 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		47F37CEB19DCE4C6009577E9 /* UWMapTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UWMapTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		47F37CEC19DCE4C6009577E9 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -181,8 +181,8 @@
 				47F37CDF19DCE4C6009577E9 /* MapViewController.h */,
 				47F37CE019DCE4C6009577E9 /* MapViewController.m */,
 				47110AC719ECB153009AEFF6 /* pin.xib */,
-				47F37CE219DCE4C6009577E9 /* PlacesListViewController.h */,
-				47F37CE319DCE4C6009577E9 /* PlacesListViewController.m */,
+				47F37CE219DCE4C6009577E9 /* BuildingListViewController.h */,
+				47F37CE319DCE4C6009577E9 /* BuildingListViewController.m */,
 				47F37D0319DCEC0B009577E9 /* FoodListViewController.h */,
 				47F37D0419DCEC0B009577E9 /* FoodListViewController.m */,
 				47CA6ED919F469F500CEA1C7 /* PinView.h */,
@@ -292,7 +292,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				47F37CE419DCE4C6009577E9 /* PlacesListViewController.m in Sources */,
+				47F37CE419DCE4C6009577E9 /* BuildingListViewController.m in Sources */,
 				47CA6EDB19F469F500CEA1C7 /* PinView.m in Sources */,
 				47F37CDB19DCE4C6009577E9 /* AppDelegate.m in Sources */,
 				47F37D0519DCEC0B009577E9 /* FoodListViewController.m in Sources */,
