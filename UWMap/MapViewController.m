@@ -70,20 +70,29 @@
         NSLog(@"%@", NSStringFromCGPoint(point));
         
         for (NSString *locationKey in self.locationDictionary) {
-            NSValue *locationValue = [self.locationDictionary objectForKey:locationKey];
-            CGRect locationRect = [locationValue CGRectValue];
+            CGRect locationRect = [self findRectFromKey:locationKey];
             
             if (CGRectContainsPoint(locationRect, point)) {
-                NSArray *subviewArray = [[NSBundle mainBundle] loadNibNamed:@"pin" owner:self options:nil];
-                PinView *mainView = [subviewArray objectAtIndex:0];
-                mainView.frame = CGRectMake(CGRectGetMidX(locationRect),CGRectGetMidY(locationRect),50,50);
-                mainView.pinLabel.text = locationKey;
-                
-                [self.imageView addSubview:mainView];
+                [self showDetails:locationRect withLabel:locationKey];
             }
         }
     }
 }
+
+- (CGRect)findRectFromKey:(NSString *)locationKey {
+    NSValue *locationValue = [self.locationDictionary objectForKey:locationKey];
+    return [locationValue CGRectValue];
+}
+
+- (void)showDetails:(CGRect)locationRect withLabel:(NSString *)label {
+    NSArray *subviewArray = [[NSBundle mainBundle] loadNibNamed:@"pin" owner:self options:nil];
+    PinView *mainView = [subviewArray objectAtIndex:0];
+    mainView.frame = CGRectMake(CGRectGetMidX(locationRect),CGRectGetMidY(locationRect),50,50);
+    mainView.pinLabel.text = label;
+    
+    [self.imageView addSubview:mainView];
+}
+
 
 - (void)setupData {
     self.locationDictionary = @{
@@ -148,5 +157,12 @@
 - (void)backButtonTapped {
     [self hideTableView];
 }
+
+- (void)selectedCellWithLabel:(NSString *)label {
+    [self hideTableView];
+    CGRect locationRect = [self findRectFromKey:label];
+    [self showDetails:locationRect withLabel:label];
+}
+
 
 @end
