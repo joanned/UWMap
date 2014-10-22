@@ -10,18 +10,19 @@
 #import "MapViewController.h"
 #import "PinView.h"
 
-@interface MapViewController () <UIScrollViewDelegate, BuildingListViewControllerDelegate>
+@interface MapViewController () <BuildingListViewControllerDelegate, UIGestureRecognizerDelegate>
 
 @property (nonatomic, strong) BuildingListViewController *buildingListViewController;
 
 @property (nonatomic, strong) IBOutlet UIImageView *imageView;
-@property (nonatomic, strong) IBOutlet UIScrollView *scrollView;
+//@property (nonatomic, strong) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (weak, nonatomic) IBOutlet UIImageView *buildingIcon;
 @property (strong, nonatomic) IBOutlet UIView *containerView;
 
 @property NSDictionary *locationDictionary;
 @property NSArray *keys;
+
 
 
 @end
@@ -33,11 +34,11 @@
     
     self.imageView.frame = CGRectMake(0, 0, [[UIImage imageNamed:@"mapImage.png"] size].width-50, [[UIImage imageNamed:@"mapImage.png"] size].height-50);
     
-    [self.scrollView setClipsToBounds:YES];
-    self.scrollView.minimumZoomScale = 0.5;
-    self.scrollView.maximumZoomScale = 6.0;
-    self.scrollView.contentSize = CGSizeMake ([[UIImage imageNamed:@"mapImage.png"] size].width, [[UIImage imageNamed:@"mapImage.png"] size].height);
-    self.scrollView.delegate = self;
+//    [self.scrollView setClipsToBounds:YES];
+//    self.scrollView.minimumZoomScale = 0.5;
+//    self.scrollView.maximumZoomScale = 6.0;
+//    self.scrollView.contentSize = CGSizeMake ([[UIImage imageNamed:@"mapImage.png"] size].width, [[UIImage imageNamed:@"mapImage.png"] size].height);
+//    self.scrollView.delegate = self;
     
     UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self
                                                                                 action:@selector(tappedBuildingIcon:)];
@@ -45,8 +46,19 @@
     
     self.buildingListViewController.delegate = self;
     
+    self.imageView.userInteractionEnabled = YES;
+    UIPinchGestureRecognizer *pinchRecognizer = [[UIPinchGestureRecognizer alloc]
+                                     initWithTarget:self action:@selector(handlePinch:)];
+    pinchRecognizer.delegate = self;
+    [self.imageView addGestureRecognizer:pinchRecognizer];
+    
     [self setupData];
     
+}
+
+- (void)handlePinch:(UIPinchGestureRecognizer *)pinchGestureRecognizer {
+    pinchGestureRecognizer.view.transform = CGAffineTransformScale(pinchGestureRecognizer.view.transform, pinchGestureRecognizer.scale, pinchGestureRecognizer.scale);
+    pinchGestureRecognizer.scale = 1;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -55,7 +67,8 @@
     UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedScreen:)];
     [tapRecognizer setNumberOfTapsRequired:1];
 //    [tapRecognizer setDelegate:self];
-    [self.scrollView addGestureRecognizer:tapRecognizer];
+//    [self.scrollView addGestureRecognizer:tapRecognizer];
+    [self.imageView addGestureRecognizer:tapRecognizer];
 }
 
 - (void)didReceiveMemoryWarning
@@ -125,22 +138,22 @@
 
 #pragma mark <UIScrollViewDelegate>
 
-- (void)scrollViewDidZoom:(UIScrollView *)aScrollView
-{
-    for (UIView *dropPinView in self.imageView.subviews) {
-        CGRect oldFrame = dropPinView.frame;
-        // 0.5 means the anchor is centered on the x axis. 1 means the anchor is at the bottom of the view. If you comment out this line, the pin's center will stay where it is regardless of how much you zoom. I have it so that the bottom of the pin stays fixed. This should help user RomeoF.
-        [dropPinView.layer setAnchorPoint:CGPointMake(0.5, 1)];
-        dropPinView.frame = oldFrame;
-        // When you zoom in on scrollView, it gets a larger zoom scale value.
-        // You transform the pin by scaling it by the inverse of this value.
-        dropPinView.transform = CGAffineTransformMakeScale(1.0/self.scrollView.zoomScale, 1.0/self.scrollView.zoomScale);
-    }
-}
+//- (void)scrollViewDidZoom:(UIScrollView *)aScrollView
+//{
+//    for (UIView *dropPinView in self.imageView.subviews) {
+//        CGRect oldFrame = dropPinView.frame;
+//        // 0.5 means the anchor is centered on the x axis. 1 means the anchor is at the bottom of the view. If you comment out this line, the pin's center will stay where it is regardless of how much you zoom. I have it so that the bottom of the pin stays fixed. This should help user RomeoF.
+//        [dropPinView.layer setAnchorPoint:CGPointMake(0.5, 1)];
+//        dropPinView.frame = oldFrame;
+//        // When you zoom in on scrollView, it gets a larger zoom scale value.
+//        // You transform the pin by scaling it by the inverse of this value.
+//        dropPinView.transform = CGAffineTransformMakeScale(1.0/self.scrollView.zoomScale, 1.0/self.scrollView.zoomScale);
+//    }
+//}
 
-- (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView {
-    return self.imageView;
-}
+//- (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView {
+//    return self.imageView;
+//}
 
 #pragma mark - Childview controller
 
