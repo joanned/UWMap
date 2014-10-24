@@ -5,7 +5,7 @@
 //  Created by DEV FLOATER 119 on 10/1/14.
 //  Copyright (c) 2014 Joanne Deng. All rights reserved.
 //
-//@import UIKIt;
+
 #import <QuartzCore/QuartzCore.h>
 #import "MapViewController.h"
 #import "PinView.h"
@@ -98,7 +98,7 @@
 
 - (void)setupData {
     self.buildingListViewController.locationDictionary = [DataProvider buildingDictionary];
-        
+    
     self.buildingListViewController.keys = [self.buildingListViewController.locationDictionary allKeys];
 }
 
