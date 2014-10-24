@@ -10,10 +10,22 @@
 
 @interface Building ()
 
-@property NSDictionary *buildingList;
-
 @end
 
 @implementation Building
+
+- (instancetype)initWithlocationPoint:(NSValue *)locationPoint
+                         locationRect:(NSValue *)locationRect
+                                hours:(NSString *)hours {
+    
+    self = [super init];
+    if (self) {
+        _locationPoint = locationPoint;
+        _locationRect = locationRect;
+        _hours = hours;
+    }
+    
+    return self;
+}
 
 @end

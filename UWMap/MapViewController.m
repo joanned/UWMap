@@ -9,6 +9,8 @@
 #import <QuartzCore/QuartzCore.h>
 #import "MapViewController.h"
 #import "PinView.h"
+#import "DataProvider.h"
+#import "Building.h"
 
 @interface MapViewController () <UIScrollViewDelegate, BuildingListViewControllerDelegate>
 
@@ -19,10 +21,6 @@
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (weak, nonatomic) IBOutlet UIImageView *buildingIcon;
 @property (strong, nonatomic) IBOutlet UIView *containerView;
-
-@property NSDictionary *locationDictionary;
-@property NSArray *keys;
-
 
 @end
 
@@ -69,7 +67,7 @@
         CGPoint point = [recognizer locationInView:recognizer.view];
         NSLog(@"%@", NSStringFromCGPoint(point));
         
-        for (NSString *locationKey in self.locationDictionary) {
+        for (NSString *locationKey in self.buildingListViewController.locationDictionary) {
             CGRect locationRect = [self findRectFromKey:locationKey];
             
             if (CGRectContainsPoint(locationRect, point)) {
@@ -80,7 +78,11 @@
 }
 
 - (CGRect)findRectFromKey:(NSString *)locationKey {
-    NSValue *locationValue = [self.locationDictionary objectForKey:locationKey];
+//    NSValue *locationValue = [self.buildingListViewController.locationDictionary objectForKey:locationKey];
+//    return [locationValue CGRectValue];
+    
+    Building *building = [self.buildingListViewController.locationDictionary objectForKey:locationKey];
+    NSValue *locationValue = building.locationRect;
     return [locationValue CGRectValue];
 }
 
@@ -95,14 +97,9 @@
 
 
 - (void)setupData {
-    self.locationDictionary = @{
-                                @"Arts Lecture Hall" : [NSValue valueWithCGRect:CGRectMake(793, 694, 16, 16)],
-                                @"Biology 1" : [NSValue valueWithCGRect:CGRectMake(793, 529, 16, 16)],
-                                @"Biology 2" : [NSValue valueWithCGRect:CGRectMake(757, 500, 16, 16)],
-                                @"B.C. Matthews Hall" : [NSValue valueWithCGRect:CGRectMake(789, 251, 16, 16)],
-                                };
-    
-    self.keys = [self.locationDictionary allKeys];
+    self.buildingListViewController.locationDictionary = [DataProvider buildingDictionary];
+        
+    self.buildingListViewController.keys = [self.buildingListViewController.locationDictionary allKeys];
 }
 
 - (void)tappedBuildingIcon:(UITapGestureRecognizer *)recognizer {

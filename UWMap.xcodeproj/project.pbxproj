@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		47110AC819ECB153009AEFF6 /* pin.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47110AC719ECB153009AEFF6 /* pin.xib */; };
 		47110ACC19ECCABD009AEFF6 /* Building.m in Sources */ = {isa = PBXBuildFile; fileRef = 47110ACB19ECCABD009AEFF6 /* Building.m */; };
+		47C7892819F9EB2200C90436 /* DataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 47C7892719F9EB2200C90436 /* DataProvider.m */; };
 		47CA6EDB19F469F500CEA1C7 /* PinView.m in Sources */ = {isa = PBXBuildFile; fileRef = 47CA6EDA19F469F500CEA1C7 /* PinView.m */; };
 		47F37CCB19DCE4C6009577E9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47F37CCA19DCE4C6009577E9 /* Foundation.framework */; };
 		47F37CCD19DCE4C6009577E9 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47F37CCC19DCE4C6009577E9 /* CoreGraphics.framework */; };
@@ -42,6 +43,8 @@
 		47110AC719ECB153009AEFF6 /* pin.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = pin.xib; sourceTree = "<group>"; };
 		47110ACA19ECCABD009AEFF6 /* Building.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Building.h; sourceTree = "<group>"; };
 		47110ACB19ECCABD009AEFF6 /* Building.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Building.m; sourceTree = "<group>"; };
+		47C7892619F9EB2200C90436 /* DataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataProvider.h; sourceTree = "<group>"; };
+		47C7892719F9EB2200C90436 /* DataProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataProvider.m; sourceTree = "<group>"; };
 		47CA6ED919F469F500CEA1C7 /* PinView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PinView.h; sourceTree = "<group>"; };
 		47CA6EDA19F469F500CEA1C7 /* PinView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PinView.m; sourceTree = "<group>"; };
 		47F37CC719DCE4C6009577E9 /* UWMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UWMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -98,6 +101,8 @@
 			children = (
 				47110ACA19ECCABD009AEFF6 /* Building.h */,
 				47110ACB19ECCABD009AEFF6 /* Building.m */,
+				47C7892619F9EB2200C90436 /* DataProvider.h */,
+				47C7892719F9EB2200C90436 /* DataProvider.m */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -298,6 +303,7 @@
 				47F37D0519DCEC0B009577E9 /* FoodListViewController.m in Sources */,
 				47F37CE119DCE4C6009577E9 /* MapViewController.m in Sources */,
 				47F37CD719DCE4C6009577E9 /* main.m in Sources */,
+				47C7892819F9EB2200C90436 /* DataProvider.m in Sources */,
 				47110ACC19ECCABD009AEFF6 /* Building.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -17,6 +17,9 @@
 
 @interface BuildingListViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
 
+@property NSDictionary *locationDictionary;
+@property NSArray *keys;
+
 @property (nonatomic, weak) id<BuildingListViewControllerDelegate> delegate;
 
 @end
