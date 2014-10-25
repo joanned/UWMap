@@ -12,5 +12,9 @@
 @interface MapViewController : UIViewController
 
 - (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView;
+- (void)showDetails:(CGRect)locationRect withLabel:(NSString *)label;
+- (CGRect)findRectFromKey:(NSString *)locationKey;
+
+
 
 @end

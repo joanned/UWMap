@@ -13,8 +13,6 @@
 @property NSDictionary *locationDictionary;
 @property NSArray *keys;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
-@property (weak, nonatomic) IBOutlet UIImageView *backButton;
 
 @end
 
@@ -32,22 +30,11 @@
                                 };
     
     self.keys = [self.locationDictionary allKeys];
-    
-    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self
-                                                                                action:@selector(tappedBuildingIcon:)];
-    [self.backButton addGestureRecognizer:singleTap];
-
-    
+ 
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-}
-
-- (void)tappedBuildingIcon:(UITapGestureRecognizer *)recognizer {
-    if ([self.delegate respondsToSelector:@selector(backButtonTapped)]) {
-        [self.delegate backButtonTapped];
-    }
 }
 
 #pragma mark - <UITableViewDataSource, UITableViewDelegate>

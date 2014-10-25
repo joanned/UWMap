@@ -10,7 +10,6 @@
 
 @protocol BuildingListViewControllerDelegate <NSObject>
 
-- (void)backButtonTapped;
 - (void)selectedCellWithLabel:(NSString *)label;
 
 @end

@@ -10,19 +10,15 @@
 #import "MapViewController.h"
 #import "PinView.h"
 
-@interface MapViewController () <UIScrollViewDelegate, BuildingListViewControllerDelegate>
+@interface MapViewController () <UIScrollViewDelegate>
 
-@property (nonatomic, strong) BuildingListViewController *buildingListViewController;
 
 @property (nonatomic, strong) IBOutlet UIImageView *imageView;
 @property (nonatomic, strong) IBOutlet UIScrollView *scrollView;
-@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
-@property (weak, nonatomic) IBOutlet UIImageView *buildingIcon;
-@property (strong, nonatomic) IBOutlet UIView *containerView;
+
 
 @property NSDictionary *locationDictionary;
 @property NSArray *keys;
-
 
 @end
 
@@ -31,31 +27,70 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.imageView.frame = CGRectMake(0, 0, [[UIImage imageNamed:@"mapImage.png"] size].width-50, [[UIImage imageNamed:@"mapImage.png"] size].height-50);
     
-    [self.scrollView setClipsToBounds:YES];
-    self.scrollView.minimumZoomScale = 0.5;
-    self.scrollView.maximumZoomScale = 6.0;
-    self.scrollView.contentSize = CGSizeMake ([[UIImage imageNamed:@"mapImage.png"] size].width, [[UIImage imageNamed:@"mapImage.png"] size].height);
     self.scrollView.delegate = self;
     
-    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self
-                                                                                action:@selector(tappedBuildingIcon:)];
-    [self.buildingIcon addGestureRecognizer:singleTap];
     
-    self.buildingListViewController.delegate = self;
     
     [self setupData];
+
+}
+
+
+- (void)setupData {
+    self.locationDictionary = @{
+                                @"Arts Lecture Hall" : [NSValue valueWithCGRect:CGRectMake(793, 694, 16, 16)],
+                                @"Biology 1" : [NSValue valueWithCGRect:CGRectMake(793, 529, 16, 16)],
+                                @"Biology 2" : [NSValue valueWithCGRect:CGRectMake(757, 500, 16, 16)],
+                                @"B.C. Matthews Hall" : [NSValue valueWithCGRect:CGRectMake(789, 251, 16, 16)],
+                                };
     
+    self.keys = [self.locationDictionary allKeys];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
+    NSLog(@"VIEW WILL APPEAR: %@", NSStringFromCGSize(self.scrollView.contentSize));
+    NSLog(@"rect: %@", NSStringFromCGRect(self.imageView.frame));
+    NSLog(@"----");
+    
     UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedScreen:)];
     [tapRecognizer setNumberOfTapsRequired:1];
 //    [tapRecognizer setDelegate:self];
     [self.scrollView addGestureRecognizer:tapRecognizer];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    NSLog(@"VIEW DID APPEAR: %@", NSStringFromCGSize(self.scrollView.contentSize));
+    NSLog(@"rect: %@", NSStringFromCGRect(self.imageView.frame));
+    NSLog(@"----");
+//    
+//    self.imageView.frame = CGRectMake(0, 0, [[UIImage imageNamed:@"mapImage.png"] size].width, [[UIImage imageNamed:@"mapImage.png"] size].height);
+//    //
+//    [self.scrollView setClipsToBounds:YES];
+//    self.scrollView.minimumZoomScale = 0.5;
+//    self.scrollView.maximumZoomScale = 2.0;
+//    self.scrollView.contentSize = CGSizeMake ([[UIImage imageNamed:@"mapImage.png"] size].width, [[UIImage imageNamed:@"mapImage.png"] size].height);
+//    
+//    
+//    [self.scrollView addConstraint:[NSLayoutConstraint constraintWithItem:self.imageView
+//                                                                attribute:NSLayoutAttributeRight
+//                                                                relatedBy:NSLayoutRelationEqual
+//                                                                   toItem:self.scrollView
+//                                                                attribute:NSLayoutAttributeRight
+//                                                               multiplier:1.0
+//                                                                 constant:0]];
+//
+//    self.scrollView.contentSize = CGSizeMake ([[UIImage imageNamed:@"mapImage.png"] size].width, [[UIImage imageNamed:@"mapImage.png"] size].height);
+//    
+//    self.imageView.frame = CGRectMake(0, 0, [[UIImage imageNamed:@"mapImage.png"] size].width, [[UIImage imageNamed:@"mapImage.png"] size].height);
+//    
+//    self.scrollView.contentOffset = CGPointZero;
+//    self.scrollView.contentInset = UIEdgeInsetsZero;
+    
+//    self.imageView.contentMode = UIViewContentModeScaleAspectFit;
 }
 
 - (void)didReceiveMemoryWarning
@@ -94,36 +129,15 @@
 }
 
 
-- (void)setupData {
-    self.locationDictionary = @{
-                                @"Arts Lecture Hall" : [NSValue valueWithCGRect:CGRectMake(793, 694, 16, 16)],
-                                @"Biology 1" : [NSValue valueWithCGRect:CGRectMake(793, 529, 16, 16)],
-                                @"Biology 2" : [NSValue valueWithCGRect:CGRectMake(757, 500, 16, 16)],
-                                @"B.C. Matthews Hall" : [NSValue valueWithCGRect:CGRectMake(789, 251, 16, 16)],
-                                };
-    
-    self.keys = [self.locationDictionary allKeys];
-}
-
-- (void)tappedBuildingIcon:(UITapGestureRecognizer *)recognizer {
-    [self showTableView];
-}
-
-- (void)showTableView {
-    [self addChildViewController:self.buildingListViewController];
-    self.buildingListViewController.view.frame = [self.containerView bounds];
-    [self.containerView addSubview:self.buildingListViewController.view];
-    [self.buildingListViewController didMoveToParentViewController:self];
-}
-
-- (void)hideTableView {
-    [self.buildingListViewController willMoveToParentViewController:nil];
-    [self.buildingListViewController.view removeFromSuperview];
-    [self.buildingListViewController removeFromParentViewController];
-}
 
 
 #pragma mark <UIScrollViewDelegate>
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    
+    NSLog(@"iMGE SIZE: %@", NSStringFromCGRect(self.imageView.frame));
+    NSLog(@"SCROLLVIEW CONTENT: %@", NSStringFromCGSize(self.scrollView.contentSize));
+}
 
 - (void)scrollViewDidZoom:(UIScrollView *)aScrollView
 {
@@ -142,27 +156,7 @@
     return self.imageView;
 }
 
-#pragma mark - Childview controller
 
--(BuildingListViewController *)buildingListViewController {
-    if (!_buildingListViewController) {
-        self.buildingListViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:NSStringFromClass([BuildingListViewController class])];
-    }
-    
-    return  _buildingListViewController;
-}
-
-#pragma mark - <BuildingListViewControllerDelegate>
-
-- (void)backButtonTapped {
-    [self hideTableView];
-}
-
-- (void)selectedCellWithLabel:(NSString *)label {
-    [self hideTableView];
-    CGRect locationRect = [self findRectFromKey:label];
-    [self showDetails:locationRect withLabel:label];
-}
 
 
 @end
