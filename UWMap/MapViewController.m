@@ -5,7 +5,7 @@
 //  Created by DEV FLOATER 119 on 10/1/14.
 //  Copyright (c) 2014 Joanne Deng. All rights reserved.
 //
-//@import UIKIt;
+
 #import <QuartzCore/QuartzCore.h>
 #import "MapViewController.h"
 #import "PinView.h"
@@ -27,15 +27,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
     self.scrollView.delegate = self;
-    
-    
     
     [self setupData];
 
 }
-
 
 - (void)setupData {
     self.locationDictionary = @{
@@ -48,55 +44,25 @@
     self.keys = [self.locationDictionary allKeys];
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    
-    NSLog(@"VIEW WILL APPEAR: %@", NSStringFromCGSize(self.scrollView.contentSize));
-    NSLog(@"rect: %@", NSStringFromCGRect(self.imageView.frame));
-    NSLog(@"----");
-    
-    UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedScreen:)];
-    [tapRecognizer setNumberOfTapsRequired:1];
-//    [tapRecognizer setDelegate:self];
-    [self.scrollView addGestureRecognizer:tapRecognizer];
-}
-
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     NSLog(@"VIEW DID APPEAR: %@", NSStringFromCGSize(self.scrollView.contentSize));
     NSLog(@"rect: %@", NSStringFromCGRect(self.imageView.frame));
     NSLog(@"----");
-//    
+    
     self.imageView.frame = CGRectMake(0, 0, [[UIImage imageNamed:@"mapImage.png"] size].width, [[UIImage imageNamed:@"mapImage.png"] size].height);
-    //
+    
     [self.scrollView setClipsToBounds:YES];
     self.scrollView.minimumZoomScale = 0.5;
     self.scrollView.maximumZoomScale = 2.0;
     self.scrollView.contentSize = CGSizeMake ([[UIImage imageNamed:@"mapImage.png"] size].width, [[UIImage imageNamed:@"mapImage.png"] size].height);
-//
-//    
-//    [self.scrollView addConstraint:[NSLayoutConstraint constraintWithItem:self.imageView
-//                                                                attribute:NSLayoutAttributeRight
-//                                                                relatedBy:NSLayoutRelationEqual
-//                                                                   toItem:self.scrollView
-//                                                                attribute:NSLayoutAttributeRight
-//                                                               multiplier:1.0
-//                                                                 constant:0]];
-//
-//    self.scrollView.contentSize = CGSizeMake ([[UIImage imageNamed:@"mapImage.png"] size].width, [[UIImage imageNamed:@"mapImage.png"] size].height);
-//    
-//    self.imageView.frame = CGRectMake(0, 0, [[UIImage imageNamed:@"mapImage.png"] size].width, [[UIImage imageNamed:@"mapImage.png"] size].height);
-//    
-//    self.scrollView.contentOffset = CGPointZero;
-//    self.scrollView.contentInset = UIEdgeInsetsZero;
     
-//    self.imageView.contentMode = UIViewContentModeScaleAspectFit;
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    
+    UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedScreen:)];
+    [tapRecognizer setNumberOfTapsRequired:1];
+    //    [tapRecognizer setDelegate:self];
+    [self.scrollView addGestureRecognizer:tapRecognizer];
+    
 }
 
 - (void)tappedScreen:(UITapGestureRecognizer *)recognizer {
@@ -119,6 +85,11 @@
     return [locationValue CGRectValue];
 }
 
+- (CGPoint)findPointFromKey:(NSString *)locationKey {
+    NSValue *locationValue = [self.locationDictionary objectForKey:locationKey];
+    return [locationValue CGPointValue];
+}
+
 - (void)showDetails:(CGRect)locationRect withLabel:(NSString *)label {
     NSArray *subviewArray = [[NSBundle mainBundle] loadNibNamed:@"pin" owner:self options:nil];
     PinView *mainView = [subviewArray objectAtIndex:0];
@@ -128,8 +99,9 @@
     [self.imageView addSubview:mainView];
 }
 
-
-
+- (void)adjustViewWithPoint:(NSValue *)locationPoint {
+    self.scrollView.contentOffset = locationPoint;
+}
 
 #pragma mark <UIScrollViewDelegate>
 
