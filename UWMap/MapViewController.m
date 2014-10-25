@@ -67,13 +67,13 @@
     NSLog(@"rect: %@", NSStringFromCGRect(self.imageView.frame));
     NSLog(@"----");
 //    
-//    self.imageView.frame = CGRectMake(0, 0, [[UIImage imageNamed:@"mapImage.png"] size].width, [[UIImage imageNamed:@"mapImage.png"] size].height);
-//    //
-//    [self.scrollView setClipsToBounds:YES];
-//    self.scrollView.minimumZoomScale = 0.5;
-//    self.scrollView.maximumZoomScale = 2.0;
-//    self.scrollView.contentSize = CGSizeMake ([[UIImage imageNamed:@"mapImage.png"] size].width, [[UIImage imageNamed:@"mapImage.png"] size].height);
-//    
+    self.imageView.frame = CGRectMake(0, 0, [[UIImage imageNamed:@"mapImage.png"] size].width, [[UIImage imageNamed:@"mapImage.png"] size].height);
+    //
+    [self.scrollView setClipsToBounds:YES];
+    self.scrollView.minimumZoomScale = 0.5;
+    self.scrollView.maximumZoomScale = 2.0;
+    self.scrollView.contentSize = CGSizeMake ([[UIImage imageNamed:@"mapImage.png"] size].width, [[UIImage imageNamed:@"mapImage.png"] size].height);
+//
 //    
 //    [self.scrollView addConstraint:[NSLayoutConstraint constraintWithItem:self.imageView
 //                                                                attribute:NSLayoutAttributeRight

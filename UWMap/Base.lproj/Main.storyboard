@@ -14,18 +14,20 @@
                         <viewControllerLayoutGuide type="top" id="wSr-oc-I33"/>
                         <viewControllerLayoutGuide type="bottom" id="8gQ-jZ-DpA"/>
                     </layoutGuides>
-                    <scrollView key="view" autoresizesSubviews="NO" multipleTouchEnabled="YES" contentMode="TopLeft" ambiguous="YES" bounces="NO" id="ahT-Pj-7Lw">
+                    <scrollView key="view" autoresizesSubviews="NO" multipleTouchEnabled="YES" contentMode="TopLeft" bounces="NO" id="ahT-Pj-7Lw">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="mapImage" translatesAutoresizingMaskIntoConstraints="NO" id="D4n-0K-QYT">
-                                <rect key="frame" x="0.0" y="0.0" width="1440" height="900"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="900" id="pWG-yx-L1X"/>
-                                    <constraint firstAttribute="width" constant="1440" id="xL2-kI-j1Q"/>
-                                </constraints>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mapImage" translatesAutoresizingMaskIntoConstraints="NO" id="D4n-0K-QYT">
+                                <rect key="frame" x="8" y="0.0" width="1440" height="900"/>
                             </imageView>
                         </subviews>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="D4n-0K-QYT" secondAttribute="trailing" constant="-1128" id="C1D-pd-1yG"/>
+                            <constraint firstItem="D4n-0K-QYT" firstAttribute="leading" secondItem="ahT-Pj-7Lw" secondAttribute="leadingMargin" constant="-8" id="FY8-by-gHl"/>
+                            <constraint firstItem="D4n-0K-QYT" firstAttribute="top" secondItem="wSr-oc-I33" secondAttribute="bottom" id="dAu-Da-UTy"/>
+                            <constraint firstItem="8gQ-jZ-DpA" firstAttribute="top" secondItem="D4n-0K-QYT" secondAttribute="bottom" constant="-332" id="zRi-wq-Jqg"/>
+                        </constraints>
                     </scrollView>
                     <tabBarItem key="tabBarItem" title="Map" image="first" id="u1e-5L-l1D"/>
                     <nil key="simulatedStatusBarMetrics"/>
