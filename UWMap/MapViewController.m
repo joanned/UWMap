@@ -100,7 +100,7 @@
 }
 
 - (void)adjustViewWithPoint:(NSValue *)locationPoint {
-    self.scrollView.contentOffset = locationPoint;
+//    self.scrollView.contentOffset = locationPoint;
 }
 
 #pragma mark <UIScrollViewDelegate>
