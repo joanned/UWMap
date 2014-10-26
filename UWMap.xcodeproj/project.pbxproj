@@ -98,6 +98,8 @@
 			children = (
 				47110ACA19ECCABD009AEFF6 /* Building.h */,
 				47110ACB19ECCABD009AEFF6 /* Building.m */,
+				47C7892619F9EB2200C90436 /* DataProvider.h */,
+				47C7892719F9EB2200C90436 /* DataProvider.m */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -298,6 +300,7 @@
 				47C7892B19F9FF4900C90436 /* MainViewController.m in Sources */,
 				47F37CE119DCE4C6009577E9 /* MapViewController.m in Sources */,
 				47F37CD719DCE4C6009577E9 /* main.m in Sources */,
+				47C7892819F9EB2200C90436 /* DataProvider.m in Sources */,
 				47110ACC19ECCABD009AEFF6 /* Building.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

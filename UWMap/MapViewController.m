@@ -9,6 +9,8 @@
 #import <QuartzCore/QuartzCore.h>
 #import "MapViewController.h"
 #import "PinView.h"
+#import "DataProvider.h"
+#import "Building.h"
 
 @interface MapViewController () <UIScrollViewDelegate>
 
@@ -70,7 +72,7 @@
         CGPoint point = [recognizer locationInView:recognizer.view];
         NSLog(@"%@", NSStringFromCGPoint(point));
         
-        for (NSString *locationKey in self.locationDictionary) {
+        for (NSString *locationKey in self.buildingListViewController.locationDictionary) {
             CGRect locationRect = [self findRectFromKey:locationKey];
             
             if (CGRectContainsPoint(locationRect, point)) {
@@ -81,7 +83,11 @@
 }
 
 - (CGRect)findRectFromKey:(NSString *)locationKey {
-    NSValue *locationValue = [self.locationDictionary objectForKey:locationKey];
+//    NSValue *locationValue = [self.buildingListViewController.locationDictionary objectForKey:locationKey];
+//    return [locationValue CGRectValue];
+    
+    Building *building = [self.buildingListViewController.locationDictionary objectForKey:locationKey];
+    NSValue *locationValue = building.locationRect;
     return [locationValue CGRectValue];
 }
 

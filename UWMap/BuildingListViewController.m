@@ -10,8 +10,7 @@
 
 @interface BuildingListViewController ()
 
-@property NSDictionary *locationDictionary;
-@property NSArray *keys;
+
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
