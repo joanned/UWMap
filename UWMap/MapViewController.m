@@ -32,16 +32,6 @@
     self.scrollView.delegate = self;
     
     [self setupData];
-
-}
-
-- (void)setupData {
-    self.locationDictionary = @{
-                                @"Arts Lecture Hall" : [NSValue valueWithCGRect:CGRectMake(793, 694, 16, 16)],
-                                @"Biology 1" : [NSValue valueWithCGRect:CGRectMake(793, 529, 16, 16)],
-                                @"Biology 2" : [NSValue valueWithCGRect:CGRectMake(757, 500, 16, 16)],
-                                @"B.C. Matthews Hall" : [NSValue valueWithCGRect:CGRectMake(789, 251, 16, 16)],
-                                };
     
     self.keys = [self.locationDictionary allKeys];
 }
@@ -107,6 +97,11 @@
 
 - (void)adjustViewWithPoint:(NSValue *)locationPoint {
 //    self.scrollView.contentOffset = locationPoint;
+
+- (void)setupData {
+    self.buildingListViewController.locationDictionary = [DataProvider buildingDictionary];
+    
+    self.buildingListViewController.keys = [self.buildingListViewController.locationDictionary allKeys];
 }
 
 #pragma mark <UIScrollViewDelegate>
