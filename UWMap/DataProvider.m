@@ -25,16 +25,16 @@
                                                      hours:@"8:00am - 10:00pm"];
     
     Building *BCM = [[Building alloc] initWithlocationPoint:[NSValue valueWithCGPoint:CGPointMake(789, 251)]
-                                              locationRect:[NSValue valueWithCGRect:CGRectMake(789, 251, 16, 16)]
-                                                     hours:@"8:00am - 10:00pm"];
+                                               locationRect:[NSValue valueWithCGRect:CGRectMake(789, 251, 16, 16)]
+                                                      hours:@"8:00am - 10:00pm"];
     
     NSDictionary *buildingDictionary = @{
-                                          @"Arts Lecture Hall" : AL,
-                                          @"Biology 1" : B1,
-                                          @"Biology 2" : B2,
-                                          @"B.C. Matthews Hall" : BCM,
-                                          };
-
+                                         @"Arts Lecture Hall" : AL,
+                                         @"Biology 1" : B1,
+                                         @"Biology 2" : B2,
+                                         @"B.C. Matthews Hall" : BCM,
+                                         };
+    
     return buildingDictionary;
 }
 

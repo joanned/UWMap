@@ -7,11 +7,15 @@
 //
 
 #import "BuildingListViewController.h"
+#import "DataProvider.h"
 
 @interface BuildingListViewController ()
 
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+
+@property NSDictionary *locationDictionary;
+@property NSArray *keys;
 
 @end
 
@@ -21,14 +25,8 @@
 {
     [super viewDidLoad];
     
-    
+    self.locationDictionary = [DataProvider buildingDictionary];
     self.keys = [self.locationDictionary allKeys];
- 
-    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self
-                                                                                action:@selector(tappedBuildingIcon:)];
-    [self.backButton addGestureRecognizer:singleTap];
-
-    
 }
 
 - (void)didReceiveMemoryWarning {

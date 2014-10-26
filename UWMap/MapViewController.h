@@ -16,7 +16,7 @@
 - (CGRect)findRectFromKey:(NSString *)locationKey;
 - (CGPoint)findPointFromKey:(NSString *)locationKey;
 - (void)adjustViewWithPoint:(NSValue *)locationPoint;
-
+- (void)setupData;
 
 
 @end

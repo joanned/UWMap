@@ -31,8 +31,7 @@
     
     self.scrollView.delegate = self;
     
-    [self setupData];
-    
+    self.locationDictionary = [DataProvider buildingDictionary];
     self.keys = [self.locationDictionary allKeys];
 }
 
@@ -57,12 +56,18 @@
     
 }
 
+- (void)setupData {
+    self.locationDictionary = [DataProvider buildingDictionary];
+    
+    self.keys = [self.locationDictionary allKeys];
+}
+
 - (void)tappedScreen:(UITapGestureRecognizer *)recognizer {
     if(recognizer.state == UIGestureRecognizerStateRecognized) {
         CGPoint point = [recognizer locationInView:recognizer.view];
         NSLog(@"%@", NSStringFromCGPoint(point));
         
-        for (NSString *locationKey in self.buildingListViewController.locationDictionary) {
+        for (NSString *locationKey in self.locationDictionary) {
             CGRect locationRect = [self findRectFromKey:locationKey];
             
             if (CGRectContainsPoint(locationRect, point)) {
@@ -76,7 +81,7 @@
 //    NSValue *locationValue = [self.buildingListViewController.locationDictionary objectForKey:locationKey];
 //    return [locationValue CGRectValue];
     
-    Building *building = [self.buildingListViewController.locationDictionary objectForKey:locationKey];
+    Building *building = [self.locationDictionary objectForKey:locationKey];
     NSValue *locationValue = building.locationRect;
     return [locationValue CGRectValue];
 }
@@ -97,39 +102,31 @@
 
 - (void)adjustViewWithPoint:(NSValue *)locationPoint {
 //    self.scrollView.contentOffset = locationPoint;
-
-- (void)setupData {
-    self.buildingListViewController.locationDictionary = [DataProvider buildingDictionary];
-    
-    self.buildingListViewController.keys = [self.buildingListViewController.locationDictionary allKeys];
 }
+
 
 #pragma mark <UIScrollViewDelegate>
+//
+//- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+//    
+//    NSLog(@"iMGE SIZE: %@", NSStringFromCGRect(self.imageView.frame));
+//    NSLog(@"SCROLLVIEW CONTENT: %@", NSStringFromCGSize(self.scrollView.contentSize));
+//}
 
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    
-    NSLog(@"iMGE SIZE: %@", NSStringFromCGRect(self.imageView.frame));
-    NSLog(@"SCROLLVIEW CONTENT: %@", NSStringFromCGSize(self.scrollView.contentSize));
-}
-
-- (void)scrollViewDidZoom:(UIScrollView *)aScrollView
-{
-    for (UIView *dropPinView in self.imageView.subviews) {
-        CGRect oldFrame = dropPinView.frame;
-        // 0.5 means the anchor is centered on the x axis. 1 means the anchor is at the bottom of the view. If you comment out this line, the pin's center will stay where it is regardless of how much you zoom. I have it so that the bottom of the pin stays fixed. This should help user RomeoF.
-        [dropPinView.layer setAnchorPoint:CGPointMake(0.5, 1)];
-        dropPinView.frame = oldFrame;
-        // When you zoom in on scrollView, it gets a larger zoom scale value.
-        // You transform the pin by scaling it by the inverse of this value.
-        dropPinView.transform = CGAffineTransformMakeScale(1.0/self.scrollView.zoomScale, 1.0/self.scrollView.zoomScale);
+    - (void)scrollViewDidZoom:(UIScrollView *)aScrollView {
+        for (UIView *dropPinView in self.imageView.subviews) {
+            CGRect oldFrame = dropPinView.frame;
+            // 0.5 means the anchor is centered on the x axis. 1 means the anchor is at the bottom of the view. If you comment out this line, the pin's center will stay where it is regardless of how much you zoom. I have it so that the bottom of the pin stays fixed. This should help user RomeoF.
+            [dropPinView.layer setAnchorPoint:CGPointMake(0.5, 1)];
+            dropPinView.frame = oldFrame;
+            // When you zoom in on scrollView, it gets a larger zoom scale value.
+            // You transform the pin by scaling it by the inverse of this value.
+            dropPinView.transform = CGAffineTransformMakeScale(1.0/self.scrollView.zoomScale, 1.0/self.scrollView.zoomScale);
+        }
     }
-}
 
-- (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView {
-    return self.imageView;
-}
-
-
-
+    - (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView {
+        return self.imageView;
+    }
 
 @end
