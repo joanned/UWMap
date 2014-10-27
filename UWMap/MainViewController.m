@@ -97,15 +97,14 @@
 //    return  _mapViewController;
 //}
 
-
 #pragma mark - <BuildingListViewControllerDelegate>
 
 - (void)selectedCellWithLabel:(NSString *)label {
     [self showMapView];
-//    CGPoint *locationPoint = [self.mapViewController findPointFromKey:label];
+    NSValue *locationPoint = [self.mapViewController findPointFromKey:label];
     CGRect locationRect = [self.mapViewController findRectFromKey:label];
     [self.mapViewController showDetails:locationRect withLabel:label];
-//    [self.mapViewController adjustViewWithPoint:locationPoint];
+    [self.mapViewController adjustViewWithPoint:locationPoint];
 }
 
 @end

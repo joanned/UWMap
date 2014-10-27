@@ -14,7 +14,7 @@
 - (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView;
 - (void)showDetails:(CGRect)locationRect withLabel:(NSString *)label;
 - (CGRect)findRectFromKey:(NSString *)locationKey;
-- (CGPoint)findPointFromKey:(NSString *)locationKey;
+- (NSValue *)findPointFromKey:(NSString *)locationKey;
 - (void)adjustViewWithPoint:(NSValue *)locationPoint;
 - (void)setupData;
 
