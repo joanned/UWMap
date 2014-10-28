@@ -17,15 +17,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mapImage" translatesAutoresizingMaskIntoConstraints="NO" id="D4n-0K-QYT">
-                                <rect key="frame" x="8" y="0.0" width="1440" height="900"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Waterloo_map" translatesAutoresizingMaskIntoConstraints="NO" id="D4n-0K-QYT">
+                                <rect key="frame" x="0.0" y="0.0" width="3000" height="1717"/>
                             </imageView>
                         </subviews>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="D4n-0K-QYT" secondAttribute="trailing" constant="-1128" id="C1D-pd-1yG"/>
-                            <constraint firstItem="D4n-0K-QYT" firstAttribute="leading" secondItem="ahT-Pj-7Lw" secondAttribute="leadingMargin" constant="-8" id="FY8-by-gHl"/>
+                            <constraint firstItem="D4n-0K-QYT" firstAttribute="leading" secondItem="ahT-Pj-7Lw" secondAttribute="leading" id="FY8-by-gHl"/>
+                            <constraint firstItem="D4n-0K-QYT" firstAttribute="top" secondItem="8gQ-jZ-DpA" secondAttribute="bottom" id="ZlW-Vo-XVn"/>
                             <constraint firstItem="D4n-0K-QYT" firstAttribute="top" secondItem="wSr-oc-I33" secondAttribute="bottom" id="dAu-Da-UTy"/>
-                            <constraint firstItem="8gQ-jZ-DpA" firstAttribute="top" secondItem="D4n-0K-QYT" secondAttribute="bottom" constant="-332" id="zRi-wq-Jqg"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="D4n-0K-QYT" secondAttribute="trailing" id="p5I-Om-FqO"/>
                         </constraints>
                     </scrollView>
                     <tabBarItem key="tabBarItem" title="Map" image="first" id="u1e-5L-l1D"/>
@@ -151,8 +151,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Waterloo_map" width="3000" height="1717"/>
         <image name="first" width="30" height="30"/>
-        <image name="mapImage" width="1440" height="900"/>
         <image name="second" width="30" height="30"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

@@ -37,22 +37,27 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    NSLog(@"VIEW DID APPEAR: %@", NSStringFromCGSize(self.scrollView.contentSize));
-    NSLog(@"rect: %@", NSStringFromCGRect(self.imageView.frame));
-    NSLog(@"----");
+   
     
-    self.imageView.frame = CGRectMake(0, 0, [[UIImage imageNamed:@"mapImage.png"] size].width, [[UIImage imageNamed:@"mapImage.png"] size].height);
+    UIImage *image = [UIImage imageNamed:@"Waterloo_map.png"];
+    
+    self.imageView.frame = CGRectMake(0, 0, [image size].width, [image size].height);
     
     [self.scrollView setClipsToBounds:YES];
     self.scrollView.minimumZoomScale = 0.5;
     self.scrollView.maximumZoomScale = 2.0;
-    self.scrollView.contentSize = CGSizeMake ([[UIImage imageNamed:@"mapImage.png"] size].width, [[UIImage imageNamed:@"mapImage.png"] size].height);
+    self.scrollView.contentSize = CGSizeMake ([image size].width, [image size].height);
     
     
     UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedScreen:)];
     [tapRecognizer setNumberOfTapsRequired:1];
     //    [tapRecognizer setDelegate:self];
     [self.scrollView addGestureRecognizer:tapRecognizer];
+    
+    NSLog(@"VIEW DID APPEAR: %@", NSStringFromCGSize(self.scrollView.contentSize));
+    NSLog(@"rect: %@", NSStringFromCGRect(self.imageView.frame));
+    NSLog(@"----");
+    NSLog(@"image height: %f", [image size].height);
     
 }
 
@@ -103,17 +108,20 @@
 
 - (void)adjustViewWithPoint:(NSValue *)locationPoint {
     CGPoint point = [locationPoint CGPointValue];
+    
+    //self.view.frame.size.height
+    
     self.scrollView.contentOffset = point;
 }
 
 
 #pragma mark <UIScrollViewDelegate>
-//
-//- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-//    
-//    NSLog(@"iMGE SIZE: %@", NSStringFromCGRect(self.imageView.frame));
-//    NSLog(@"SCROLLVIEW CONTENT: %@", NSStringFromCGSize(self.scrollView.contentSize));
-//}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    
+    NSLog(@"iMGE SIZE: %@", NSStringFromCGRect(self.imageView.frame));
+    NSLog(@"SCROLLVIEW CONTENT: %@", NSStringFromCGSize(self.scrollView.contentSize));
+}
 
 - (void)scrollViewDidZoom:(UIScrollView *)aScrollView {
     for (UIView *dropPinView in self.imageView.subviews) {
