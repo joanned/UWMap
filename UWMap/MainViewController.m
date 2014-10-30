@@ -10,7 +10,7 @@
 #import "BuildingListViewController.h"
 #import "MapViewController.h"
 
-@interface MainViewController () <BuildingListViewControllerDelegate>
+@interface MainViewController () <BuildingListViewControllerDelegate, UISearchBarDelegate>
 
 @property (nonatomic, strong) BuildingListViewController *buildingListViewController;
 
@@ -37,6 +37,8 @@
     [self.buildingIcon addGestureRecognizer:singleTap];
     
     self.buildingListViewController.delegate = self;
+    
+    self.searchBar.delegate = self;
     
     [self showMapView];
 }
@@ -100,11 +102,37 @@
 #pragma mark - <BuildingListViewControllerDelegate>
 
 - (void)selectedCellWithLabel:(NSString *)label {
+    self.searchBar.text = @"";
+    [self.searchBar resignFirstResponder];
     [self showMapView];
     NSValue *locationPoint = [self.mapViewController findPointFromKey:label];
     CGRect locationRect = [self.mapViewController findRectFromKey:label];
     [self.mapViewController showDetails:locationRect withLabel:label];
     [self.mapViewController adjustViewWithPoint:locationPoint];
 }
+
+#pragma  mark - <UISearchBarDelegate>
+
+- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
+    if (self.isOnMapView) {
+        //blur background
+        [self showTableView];
+        [self.buildingListViewController reloadTableWithText:@""];
+    }
+}
+
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
+    [self.buildingListViewController reloadTableWithText:searchText];
+}
+
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
+    
+}
+
+//#pragma mark - search helper
+//
+//- (void)updateSearchWithText:(NSString *)searchText {
+//    [self showTableView];
+//}
 
 @end

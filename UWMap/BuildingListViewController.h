@@ -12,11 +12,14 @@
 
 - (void)selectedCellWithLabel:(NSString *)label;
 
+
 @end
 
 @interface BuildingListViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
 
 
 @property (nonatomic, weak) id<BuildingListViewControllerDelegate> delegate;
+
+- (void)reloadTableWithText:(NSString *)searchText;
 
 @end
