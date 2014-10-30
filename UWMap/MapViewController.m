@@ -40,28 +40,13 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    
-//    CGFloat minimumScale = [self.scrollView frame].size.width  / [self.imageView frame].size.width;
-//    [self.scrollView setMinimumZoomScale:minimumScale];
-//    [self.scrollView setZoomScale:1];
-//    [self.scrollView setMaximumZoomScale:10];
-//    [self.scrollView setScrollEnabled:YES];
-//    [self.scrollView setUserInteractionEnabled:YES];
-//    
-//    [self.scrollView setContentMode:UIViewContentModeScaleAspectFit];
-//    [self.imageView sizeToFit];
-//    [self.scrollView setContentSize:CGSizeMake(self.imageView.frame.size.width, self.imageView.frame.size.height)];
    
     UIImage *image = [UIImage imageNamed:@"Waterloo_map.png"];
-
-//    self.imageView.frame = CGRectMake(0, 0, image.size.width, image.size.height);
-//    [self.imageView sizeToFit];
-
+    
     [self.scrollView setClipsToBounds:YES];
     self.scrollView.minimumZoomScale = 0.3;
     self.scrollView.maximumZoomScale = 2.0;
     self.scrollView.contentSize = CGSizeMake ([image size].width, [image size].height);
-//
     
     UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedScreen:)];
     [tapRecognizer setNumberOfTapsRequired:1];

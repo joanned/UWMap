@@ -11,7 +11,6 @@
 
 @interface BuildingListViewController ()
 
-
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @property NSDictionary *locationDictionary;
