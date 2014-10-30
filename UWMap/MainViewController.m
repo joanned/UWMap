@@ -79,6 +79,7 @@
     [self.buildingListViewController removeFromParentViewController];
     
     self.isOnMapView = YES;
+    [self.searchBar resignFirstResponder];
 }
 
 #pragma mark - Childview controller
@@ -103,7 +104,6 @@
 
 - (void)selectedCellWithLabel:(NSString *)label {
     self.searchBar.text = @"";
-    [self.searchBar resignFirstResponder];
     [self showMapView];
     NSValue *locationPoint = [self.mapViewController findPointFromKey:label];
     CGRect locationRect = [self.mapViewController findRectFromKey:label];
