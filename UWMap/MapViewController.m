@@ -20,7 +20,7 @@
 
 
 @property NSDictionary *locationDictionary;
-@property NSArray *keys;
+@property NSArray *buildingTitlesArray;
 
 @end
 
@@ -32,7 +32,7 @@
     self.scrollView.delegate = self;
     
     self.locationDictionary = [DataProvider buildingDictionary];
-    self.keys = [self.locationDictionary allKeys];
+    self.buildingTitlesArray = [self.locationDictionary allKeys];
     
     
 
@@ -63,7 +63,7 @@
 - (void)setupData {
     self.locationDictionary = [DataProvider buildingDictionary];
     
-    self.keys = [self.locationDictionary allKeys];
+    self.buildingTitlesArray = [self.locationDictionary allKeys];
 }
 
 - (void)tappedScreen:(UITapGestureRecognizer *)recognizer {

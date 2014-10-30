@@ -12,6 +12,7 @@
 @implementation DataProvider
 
 + (NSDictionary *)buildingDictionary {
+#warning change points to be percent values instead
     Building *AL = [[Building alloc] initWithlocationPoint:[NSValue valueWithCGPoint:CGPointMake(793, 694)]
                                               locationRect:[NSValue valueWithCGRect:CGRectMake(793, 694, 16, 16)]
                                                      hours:@"8:00am - 10:00pm"];

@@ -14,7 +14,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @property NSDictionary *locationDictionary;
-@property NSArray *keys;
+@property NSArray *buildingTitlesArray;
 @property NSMutableArray *filteredArray;
 
 @end
@@ -26,16 +26,16 @@
     [super viewDidLoad];
     
     self.locationDictionary = [DataProvider buildingDictionary];
-    self.keys = [self.locationDictionary allKeys];
-    self.filteredArray = [self.keys mutableCopy];
-    self.filteredArray = [NSMutableArray arrayWithCapacity:[self.keys count]];
+    self.buildingTitlesArray = [self.locationDictionary allKeys];
+    self.filteredArray = [self.buildingTitlesArray mutableCopy];
+    self.filteredArray = [NSMutableArray arrayWithCapacity:[self.buildingTitlesArray count]];
 
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    self.filteredArray = [self.keys mutableCopy];
+    self.filteredArray = [self.buildingTitlesArray mutableCopy];
 }
 
 #pragma mark - <UITableViewDataSource, UITableViewDelegate>
@@ -71,12 +71,12 @@
 
 -(void)filterForSearchText:(NSString*)searchText {
     if ([searchText isEqualToString:@""]) {
-        self.filteredArray = [self.keys mutableCopy];
+        self.filteredArray = [self.buildingTitlesArray mutableCopy];
     } else {
         [self.filteredArray removeAllObjects];
         NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF contains[c] %@",searchText];
         
-        self.filteredArray = [NSMutableArray arrayWithArray:[self.keys filteredArrayUsingPredicate:predicate]];
+        self.filteredArray = [NSMutableArray arrayWithArray:[self.buildingTitlesArray filteredArrayUsingPredicate:predicate]];
     }
 }
 
