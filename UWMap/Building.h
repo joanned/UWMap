@@ -8,12 +8,12 @@
 
 @interface Building : NSObject
 
-@property (nonatomic, readonly) NSValue *locationPoint;
-@property (nonatomic, readonly) NSValue *locationRect;
+@property (nonatomic, readonly) CGFloat positionX;
+@property (nonatomic, readonly) CGFloat positionY;
 @property (nonatomic, copy, readonly) NSString *hours;
 
-- (instancetype)initWithlocationPoint:(NSValue *)locationPoint
-                         locationRect:(NSValue *)locationRect
-                                hours:(NSString *)hours;
+- (instancetype)initWithpositionX:(CGFloat)positionX
+                        positionY:(CGFloat)positionY
+                            hours:(NSString *)hours;
 
 @end

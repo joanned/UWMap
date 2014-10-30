@@ -11,11 +11,12 @@
 
 @interface MapViewController : UIViewController
 
+- (CGPoint)makePointFromBuildingKey:(NSString *)locationKey;
 - (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView;
-- (void)showDetails:(CGRect)locationRect withLabel:(NSString *)label;
-- (CGRect)findRectFromKey:(NSString *)locationKey;
-- (NSValue *)findPointFromKey:(NSString *)locationKey;
-- (void)adjustViewWithPoint:(NSValue *)locationPoint;
+- (void)showDetails:(CGPoint)locationRect withLabel:(NSString *)label;
+//- (CGRect)findRectFromKey:(NSString *)locationKey;
+//- (NSValue *)findPointFromKey:(NSString *)locationKey;
+- (void)adjustViewWithPoint:(CGPoint)locationPoint;
 - (void)setupData;
 
 

@@ -105,9 +105,12 @@
 - (void)selectedCellWithLabel:(NSString *)label {
     self.searchBar.text = @"";
     [self showMapView];
-    NSValue *locationPoint = [self.mapViewController findPointFromKey:label];
-    CGRect locationRect = [self.mapViewController findRectFromKey:label];
-    [self.mapViewController showDetails:locationRect withLabel:label];
+    
+    
+    //make map default scale
+    
+    CGPoint locationPoint = [self.mapViewController makePointFromBuildingKey:label];
+    [self.mapViewController showDetails:locationPoint withLabel:label];
     [self.mapViewController adjustViewWithPoint:locationPoint];
 }
 

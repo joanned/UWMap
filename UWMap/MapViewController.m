@@ -17,12 +17,15 @@
 
 @property (nonatomic, strong) IBOutlet UIImageView *imageView;
 @property (nonatomic, strong) IBOutlet UIScrollView *scrollView;
-
+@property (nonatomic, assign) CGFloat originalImageWidth;
+@property (nonatomic, assign) CGFloat originalImageHeight;
 
 @property NSDictionary *locationDictionary;
 @property NSArray *buildingTitlesArray;
 
 @end
+
+static const CGFloat kWidthOfPin = 30;
 
 @implementation MapViewController
 
@@ -34,7 +37,8 @@
     self.locationDictionary = [DataProvider buildingDictionary];
     self.buildingTitlesArray = [self.locationDictionary allKeys];
     
-    
+    self.originalImageWidth = self.imageView.frame.size.width;
+    self.originalImageHeight = self.imageView.frame.size.height;
 
 }
 
@@ -72,45 +76,41 @@
         NSLog(@"%@", NSStringFromCGPoint(point));
         
         for (NSString *locationKey in self.locationDictionary) {
-            CGRect locationRect = [self findRectFromKey:locationKey];
+            CGRect locationRect = [self makeRectFromBuildingKey:locationKey];
             
             if (CGRectContainsPoint(locationRect, point)) {
-                [self showDetails:locationRect withLabel:locationKey];
+                CGPoint realLocationPoint = [self makePointFromBuildingKey:locationKey];
+                [self showDetails:realLocationPoint withLabel:locationKey];
             }
         }
     }
 }
 
-- (CGRect)findRectFromKey:(NSString *)locationKey {
-//    NSValue *locationValue = [self.buildingListViewController.locationDictionary objectForKey:locationKey];
-//    return [locationValue CGRectValue];
-    
+- (CGPoint)makePointFromBuildingKey:(NSString *)locationKey {
     Building *building = [self.locationDictionary objectForKey:locationKey];
-    NSValue *locationValue = building.locationRect;
-    return [locationValue CGRectValue];
+    CGFloat scaledPositionX = building.positionX * self.imageView.frame.size.width;
+    CGFloat scaledPositionY = building.positionY * self.imageView.frame.size.height;
+    return CGPointMake(scaledPositionX, scaledPositionY);
 }
 
-- (NSValue *)findPointFromKey:(NSString *)locationKey {
-    Building *building = [self.locationDictionary objectForKey:locationKey];
-    NSValue *locationValue = building.locationPoint;
-    return locationValue;
+- (CGRect)makeRectFromBuildingKey:(NSString *)locationKey {
+    CGPoint locationPoint = [self makePointFromBuildingKey:locationKey];
+    CGFloat rectWidth = self.imageView.frame.size.width / self.originalImageWidth * kWidthOfPin;
+    CGFloat rectHeight = self.imageView.frame.size.height / self.originalImageHeight * kWidthOfPin;
+    return CGRectMake(locationPoint.x, locationPoint.y, rectWidth, rectHeight);
 }
 
-- (void)showDetails:(CGRect)locationRect withLabel:(NSString *)label {
+- (void)showDetails:(CGPoint)locationPoint withLabel:(NSString *)label {
     NSArray *subviewArray = [[NSBundle mainBundle] loadNibNamed:@"pin" owner:self options:nil];
     PinView *mainView = [subviewArray objectAtIndex:0];
-    mainView.frame = CGRectMake(CGRectGetMidX(locationRect),CGRectGetMidY(locationRect),50,50);
+    mainView.frame = CGRectMake(locationPoint.x, locationPoint.y, 50, 50);
     mainView.pinLabel.text = label;
     
     [self.imageView addSubview:mainView];
 }
 
-- (void)adjustViewWithPoint:(NSValue *)locationPoint {
-    CGPoint point = [locationPoint CGPointValue];
-    
-    //self.view.frame.size.height
-    
-    self.scrollView.contentOffset = point;
+- (void)adjustViewWithPoint:(CGPoint)locationPoint {
+    self.scrollView.contentOffset = locationPoint;
 }
 
 

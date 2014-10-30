@@ -13,21 +13,11 @@
 
 + (NSDictionary *)buildingDictionary {
 #warning change points to be percent values instead
-    Building *AL = [[Building alloc] initWithlocationPoint:[NSValue valueWithCGPoint:CGPointMake(793, 694)]
-                                              locationRect:[NSValue valueWithCGRect:CGRectMake(793, 694, 16, 16)]
-                                                     hours:@"8:00am - 10:00pm"];
     
-    Building *B1 = [[Building alloc] initWithlocationPoint:[NSValue valueWithCGPoint:CGPointMake(793, 529)]
-                                              locationRect:[NSValue valueWithCGRect:CGRectMake(793, 529, 16, 16)]
-                                                     hours:@"8:00am - 10:00pm"];
-    
-    Building *B2 = [[Building alloc] initWithlocationPoint:[NSValue valueWithCGPoint:CGPointMake(757, 500)]
-                                              locationRect:[NSValue valueWithCGRect:CGRectMake(757, 500, 16, 16)]
-                                                     hours:@"8:00am - 10:00pm"];
-    
-    Building *BCM = [[Building alloc] initWithlocationPoint:[NSValue valueWithCGPoint:CGPointMake(789, 251)]
-                                               locationRect:[NSValue valueWithCGRect:CGRectMake(789, 251, 16, 16)]
-                                                      hours:@"8:00am - 10:00pm"];
+    Building *AL = [[Building alloc] initWithpositionX:0.5f positionY:0.5f hours:@"8:00am - 10:00pm"];
+    Building *B1 = [[Building alloc] initWithpositionX:0.6f positionY:0.6f hours:@"8:00am - 10:00pm"];
+    Building *B2 = [[Building alloc] initWithpositionX:0.7f positionY:0.7f hours:@"8:00am - 10:00pm"];
+    Building *BCM = [[Building alloc] initWithpositionX:0.8f positionY:0.8f hours:@"8:00am - 10:00pm"];
     
     NSDictionary *buildingDictionary = @{
                                          @"Arts Lecture Hall" : AL,

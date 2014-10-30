@@ -14,14 +14,14 @@
 
 @implementation Building
 
-- (instancetype)initWithlocationPoint:(NSValue *)locationPoint
-                         locationRect:(NSValue *)locationRect
-                                hours:(NSString *)hours {
+- (instancetype)initWithpositionX:(CGFloat)positionX
+                        positionY:(CGFloat)positionY
+                            hours:(NSString *)hours {
     
     self = [super init];
     if (self) {
-        _locationPoint = locationPoint;
-        _locationRect = locationRect;
+        _positionX = positionX;
+        _positionY = positionY;
         _hours = hours;
     }
     
