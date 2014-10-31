@@ -57,7 +57,7 @@ static const CGFloat kWidthOfPin = 30;
     CGFloat heightScale = self.scrollView.frame.size.height / self.scrollView.contentSize.height;
     self.scrollView.minimumZoomScale = heightScale;
     self.scrollView.maximumZoomScale = 1.3f;
-    self.scrollView.zoomScale = heightScale + 0.4; 
+    self.scrollView.zoomScale = heightScale + 0.4;
     
     UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedScreen:)];
     [tapRecognizer setNumberOfTapsRequired:1];
@@ -122,6 +122,15 @@ static const CGFloat kWidthOfPin = 30;
 }
 
 - (void)adjustViewWithPoint:(CGPoint)locationPoint {
+#warning check if this is accurate
+    if (locationPoint.x + [[UIScreen mainScreen] bounds].size.width / 2 > self.imageView.frame.size.width ) {
+        locationPoint.x -= self.imageView.frame.size.width - locationPoint.x;
+    }
+    
+    if (locationPoint.y + [[UIScreen mainScreen] bounds].size.height / 2 > self.imageView.frame.size.height ) {
+        locationPoint.y -= self.imageView.frame.size.height - locationPoint.x;
+    }
+
     self.scrollView.contentOffset = locationPoint;
 }
 

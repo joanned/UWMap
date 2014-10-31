@@ -111,7 +111,12 @@
     
     CGPoint locationPoint = [self.mapViewController makePointFromBuildingKey:label];
     [self.mapViewController showDetails:locationPoint withLabel:label];
-    [self.mapViewController adjustViewWithPoint:locationPoint];
+    
+    CGFloat adjustedX = locationPoint.x - [[UIScreen mainScreen] bounds].size.width / 2;
+    CGFloat adjustedY = locationPoint.y - [[UIScreen mainScreen] bounds].size.height / 2;
+        
+    CGPoint adjustedPoint = CGPointMake(adjustedX, adjustedY);
+    [self.mapViewController adjustViewWithPoint:adjustedPoint];
 }
 
 #pragma  mark - <UISearchBarDelegate>
