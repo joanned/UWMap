@@ -19,6 +19,8 @@
 @property (nonatomic, strong) IBOutlet UIScrollView *scrollView;
 @property (nonatomic, assign) CGFloat originalImageWidth;
 @property (nonatomic, assign) CGFloat originalImageHeight;
+@property (nonatomic, assign) CGPoint startingPoint;
+@property (nonatomic, assign) BOOL isFirstLoad;
 
 @property NSDictionary *locationDictionary;
 @property NSArray *buildingTitlesArray;
@@ -39,7 +41,9 @@ static const CGFloat kWidthOfPin = 30;
     
     self.originalImageWidth = self.imageView.frame.size.width;
     self.originalImageHeight = self.imageView.frame.size.height;
-
+    
+    self.isFirstLoad = YES;
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -50,11 +54,10 @@ static const CGFloat kWidthOfPin = 30;
     self.scrollView.contentSize = CGSizeMake ([image size].width, [image size].height);
     
     [self.scrollView setClipsToBounds:YES];
-    CGFloat scaleHeight = self.scrollView.frame.size.height / self.scrollView.contentSize.height;
-    CGFloat minScale = scaleHeight;
-    self.scrollView.minimumZoomScale = minScale;
+    CGFloat heightScale = self.scrollView.frame.size.height / self.scrollView.contentSize.height;
+    self.scrollView.minimumZoomScale = heightScale;
     self.scrollView.maximumZoomScale = 1.3f;
-    self.scrollView.zoomScale = minScale + 0.4;
+    self.scrollView.zoomScale = heightScale + 0.4; 
     
     UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedScreen:)];
     [tapRecognizer setNumberOfTapsRequired:1];
@@ -65,6 +68,13 @@ static const CGFloat kWidthOfPin = 30;
 //    NSLog(@"rect: %@", NSStringFromCGRect(self.imageView.frame));
 //    NSLog(@"----");
 //    NSLog(@"image height: %f", [image size].height);
+    
+    if (self.isFirstLoad == YES) {
+        self.startingPoint = CGPointMake(2437.0/4446.0 * self.imageView.frame.size.width, 806.0/2730.0 * self.imageView.frame.size.height);
+        [self adjustViewWithPoint:self.startingPoint];
+        self.isFirstLoad = NO;
+    }
+
 }
 
 - (void)setupData {
@@ -114,7 +124,6 @@ static const CGFloat kWidthOfPin = 30;
 - (void)adjustViewWithPoint:(CGPoint)locationPoint {
     self.scrollView.contentOffset = locationPoint;
 }
-
 
 #pragma mark <UIScrollViewDelegate>
 
