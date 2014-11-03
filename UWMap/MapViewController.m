@@ -122,7 +122,7 @@ static const CGFloat kWidthOfPin = 30;
 }
 
 - (void)adjustViewWithPoint:(CGPoint)locationPoint {
-#warning check if this is accurate
+#warning - check if this is accurate
     if (locationPoint.x + [[UIScreen mainScreen] bounds].size.width / 2 > self.imageView.frame.size.width ) {
         locationPoint.x -= self.imageView.frame.size.width - locationPoint.x;
     }
