@@ -10,6 +10,7 @@
 		4701AE6B19FD7A9500F81F84 /* DataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 4701AE6A19FD7A9500F81F84 /* DataProvider.m */; };
 		47110AC819ECB153009AEFF6 /* pin.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47110AC719ECB153009AEFF6 /* pin.xib */; };
 		47110ACC19ECCABD009AEFF6 /* Building.m in Sources */ = {isa = PBXBuildFile; fileRef = 47110ACB19ECCABD009AEFF6 /* Building.m */; };
+		475ED4321A0737B40033F485 /* PopupView.m in Sources */ = {isa = PBXBuildFile; fileRef = 475ED4311A0737B40033F485 /* PopupView.m */; };
 		47C7892B19F9FF4900C90436 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47C7892A19F9FF4900C90436 /* MainViewController.m */; };
 		47CA6EDB19F469F500CEA1C7 /* PinView.m in Sources */ = {isa = PBXBuildFile; fileRef = 47CA6EDA19F469F500CEA1C7 /* PinView.m */; };
 		47F37CCB19DCE4C6009577E9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47F37CCA19DCE4C6009577E9 /* Foundation.framework */; };
@@ -45,6 +46,8 @@
 		47110AC719ECB153009AEFF6 /* pin.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = pin.xib; sourceTree = "<group>"; };
 		47110ACA19ECCABD009AEFF6 /* Building.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Building.h; sourceTree = "<group>"; };
 		47110ACB19ECCABD009AEFF6 /* Building.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Building.m; sourceTree = "<group>"; };
+		475ED4301A0737B40033F485 /* PopupView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopupView.h; sourceTree = "<group>"; };
+		475ED4311A0737B40033F485 /* PopupView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopupView.m; sourceTree = "<group>"; };
 		47C7892919F9FF4900C90436 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		47C7892A19F9FF4900C90436 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		47CA6ED919F469F500CEA1C7 /* PinView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PinView.h; sourceTree = "<group>"; };
@@ -192,6 +195,8 @@
 				47CA6EDA19F469F500CEA1C7 /* PinView.m */,
 				47C7892919F9FF4900C90436 /* MainViewController.h */,
 				47C7892A19F9FF4900C90436 /* MainViewController.m */,
+				475ED4301A0737B40033F485 /* PopupView.h */,
+				475ED4311A0737B40033F485 /* PopupView.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -303,6 +308,7 @@
 				47C7892B19F9FF4900C90436 /* MainViewController.m in Sources */,
 				47F37CE119DCE4C6009577E9 /* MapViewController.m in Sources */,
 				47F37CD719DCE4C6009577E9 /* main.m in Sources */,
+				475ED4321A0737B40033F485 /* PopupView.m in Sources */,
 				4701AE6B19FD7A9500F81F84 /* DataProvider.m in Sources */,
 				47110ACC19ECCABD009AEFF6 /* Building.m in Sources */,
 			);
