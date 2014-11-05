@@ -15,6 +15,7 @@
 
 @property (nonatomic, assign) UILabel *title;
 @property (nonatomic, assign) UILabel *hours;
+@property (nonatomic, assign) CGGradientRef gradient;
 
 - (id)initWithTitle:(NSString *)title hours:(NSString *)hours;
 
