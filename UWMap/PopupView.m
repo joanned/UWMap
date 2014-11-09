@@ -58,9 +58,6 @@ static CGFloat maxHeight = 168.0;
     self.backgroundColor = [UIColor clearColor];
     self.color = [UIColor blackColor];
     
-
-    
-   
     _titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(12, 11, 130, 500)];
     [_titleLabel setText:title];
     _titleLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth;
@@ -108,7 +105,6 @@ static CGFloat maxHeight = 168.0;
 
 - (void) setDetail:(NSString *)detail {
     [_detailLabel setText:detail];
-//    [self updateHeight];
 }
 - (NSString*)detail {
     return [_detailLabel text];
@@ -118,18 +114,13 @@ static CGFloat maxHeight = 168.0;
     CGRect f = self.frame;
     f.size.width = width;
     [self setFrame:f];
-//    [self updateHeight];
 }
 - (CGFloat) width {
     return self.bounds.size.width;
 }
 
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect
 {
-    // Drawing code
-    
     CGContextRef context = UIGraphicsGetCurrentContext();
     
     UIColor* border = [[UIColor blackColor] colorWithAlphaComponent:0.6];
@@ -215,221 +206,4 @@ static CGFloat maxHeight = 168.0;
     return retColor;
 }
 
-//- (void) updateHeight {
-//    CGSize size = CGSizeMake(100.0, 8000);
-//    
-//        CGRect titleRect = [_title boundingRectWithSize:size
-//                                                options:
-//                             NSStringDrawingUsesLineFragmentOrigin
-//                                             attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:14.0]}
-//                                                          context:nil];
-//    
-//        CGRect hoursRect = [hours boundingRectWithSize:size
-//                                              options:
-//                           NSStringDrawingUsesLineFragmentOrigin
-//                                           attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:12.0]}
-//                                              context:nil];
-//        CGFloat viewHeight = titleRect.size.height + hoursRect.size.height + 20.0;
-//        self = [self initWithFrame:CGRectMake(0, 0, 100.0, viewHeight)];
-////    CGRect f = self.frame;
-////    CGFloat detailHeight = [[self detail] sizeWithFont:[_detailLabel font] constrainedToSize:CGSizeMake(f.size.width-120.0, maxHeight-78.0) lineBreakMode:[_detailLabel lineBreakMode]].height;
-////    if (detailHeight < 20)
-////        detailHeight = 20.0;
-////    f.size.height = detailHeight + 78.0;
-////    self.frame = f;
-////    
-////    [_detailLabel setFrame:CGRectMake(90.0, 52.0, f.size.width-120.0, detailHeight)];
-//}
-//
-//- (void) dealloc {
-//    [_color release];
-//    [_iconView release];
-//    [_titleLabel release];x
-//    [_detailLabel release];
-//    
-//    CGGradientRelease(_gradient);
-//    [super dealloc];
-//}
-
 @end
-
-//- (id) init {
-//    self = [super init];
-//    if (self) {
-//        [self setupSubviews];
-//    }
-//    return self;
-//}
-//
-//- (id)initWithFrame:(CGRect)frame {
-//    self = [super initWithFrame:frame];
-//    if (self) {
-//        [self setupSubviews];
-//    }
-//    return self;
-//}
-//
-//- (id) initWithCoder:(NSCoder *)aDecoder {
-//    self = [super initWithCoder:aDecoder];
-//    if (self) {
-//        [self setupSubviews];
-//    }
-//    return self;
-//}
-//
-//- (id)initWithTitle:(NSString *)title hours:(NSString *)hours {
-//    CGSize size = CGSizeMake(100.0, 8000);
-//    
-//    CGRect titleRect = [title boundingRectWithSize:size
-//                                            options:
-//                         NSStringDrawingUsesLineFragmentOrigin
-//                                         attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:14.0]}
-//                                                      context:nil];
-//    
-//    CGRect hoursRect = [hours boundingRectWithSize:size
-//                                          options:
-//                       NSStringDrawingUsesLineFragmentOrigin
-//                                       attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:12.0]}
-//                                          context:nil];
-//    CGFloat viewHeight = titleRect.size.height + hoursRect.size.height + 20.0;
-//    self = [self initWithFrame:CGRectMake(0, 0, 100.0, viewHeight)];
-//    if (self) {
-//        [titleLabel setText:title];
-//        [hoursLabel setText:hours];
-//    }
-//    return self;
-//    
-//}
-//
-//- (void) setupSubviews {
-//    
-////    CGRect rect = self.frame;
-////    rect.size.width = 200;
-////    [self setFrame:rect];
-//    
-//    [self setupGradient];
-//    
-//    titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, 200, 50)];
-//    titleLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-//    titleLabel.backgroundColor = [UIColor clearColor];
-//    titleLabel.textColor = [UIColor whiteColor];
-//    titleLabel.shadowColor = [UIColor blackColor];
-//    titleLabel.shadowOffset = CGSizeMake(0.0, 1.0);
-//    titleLabel.font = [UIFont boldSystemFontOfSize:22.0];
-//    [self addSubview:titleLabel];
-//    
-//    hoursLabel = [[UILabel alloc] initWithFrame:CGRectMake(90.0, 52.0, self.frame.size.width-120.0, 20.0)];
-//    hoursLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-//    hoursLabel.backgroundColor = [UIColor clearColor];
-//    hoursLabel.textColor = [UIColor lightGrayColor];
-//    hoursLabel.shadowColor = [UIColor blackColor];
-//    hoursLabel.shadowOffset = CGSizeMake(0.0, 1.0);
-//    hoursLabel.font = [UIFont boldSystemFontOfSize:16.0];
-//    hoursLabel.numberOfLines = 0;
-//    [self addSubview:hoursLabel];
-//}
-//
-//- (void)setupGradient {
-//    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
-//    
-//    UIColor* border = [[UIColor blackColor] colorWithAlphaComponent:0.6];
-//    UIColor* topColor = [self lightenColor:border value:0.37];
-//    UIColor* midColor = [self lightenColor:border value:0.1];
-//    UIColor* bottomColor = [self lightenColor:border value:0.12];
-//
-//    NSArray* newGradientColors = [NSArray arrayWithObjects:
-//                                  (id)topColor.CGColor,
-//                                  (id)midColor.CGColor,
-//                                  (id)border.CGColor,
-//                                  (id)border.CGColor,
-//                                  (id)bottomColor.CGColor, nil];
-//    CGFloat newGradientLocations[] = {0, 0.500, 0.501, 0.66, 1};
-//    
-//    self.gradient = CGGradientCreateWithColors(colorSpace, (CFArrayRef)newGradientColors, newGradientLocations);
-//    CGColorSpaceRelease(colorSpace);
-//    [self setNeedsDisplay];
-//}
-//
-//- (void)drawRect:(CGRect)rect {
-//    CGContextRef context = UIGraphicsGetCurrentContext();
-//    UIColor* border = [[UIColor blackColor] colorWithAlphaComponent:0.6];
-//
-//    //shadow
-//    UIColor* shadowColour = [self lightenColor:border value:0.65];
-//    UIColor *shadowColour2 = [[UIColor blackColor] colorWithAlphaComponent:0.75];
-//    CGSize shadowOffset = CGSizeMake(1, 2);
-//    CGFloat shadowBlurRadius = 0.2;
-//    
-//    //rounded rectangle
-//    UIBezierPath* roundedRectanglePath = [UIBezierPath bezierPathWithRoundedRect: CGRectMake(4.5, 2.5, rect.size.width-8.0, rect.size.height-8.0) cornerRadius: 10];
-//    CGContextSaveGState(context);
-//    CGContextSetShadowWithColor(context, shadowOffset, shadowBlurRadius, shadowColour2.CGColor);
-//    CGContextSetFillColorWithColor(context, shadowColour2.CGColor);
-//    [roundedRectanglePath fill];
-//    [roundedRectanglePath addClip];
-//    CGContextDrawLinearGradient(context, _gradient, CGPointMake(0.0, 2.5), CGPointMake(0.0, rect.size.height-5.5), 0);
-//    
-//    // Rounded Rectangle Inner Shadow
-//    CGRect roundedRectangleBorderRect = CGRectInset([roundedRectanglePath bounds], -shadowBlurRadius, -shadowBlurRadius);
-//    roundedRectangleBorderRect = CGRectOffset(roundedRectangleBorderRect, -shadowOffset.width, -shadowOffset.height);
-//    roundedRectangleBorderRect = CGRectInset(CGRectUnion(roundedRectangleBorderRect, [roundedRectanglePath bounds]), -1, -1);
-//    
-//    UIBezierPath* roundedRectangleNegativePath = [UIBezierPath bezierPathWithRect: roundedRectangleBorderRect];
-//    [roundedRectangleNegativePath appendPath: roundedRectanglePath];
-//    roundedRectangleNegativePath.usesEvenOddFillRule = YES;
-//    
-//    CGContextSaveGState(context);
-//    {
-//        CGFloat xOffset = shadowOffset.width + round(roundedRectangleBorderRect.size.width);
-//        CGFloat yOffset = shadowOffset.height;
-//        CGContextSetShadowWithColor(context,
-//                                    CGSizeMake(xOffset + copysign(0.1, xOffset), yOffset + copysign(0.1, yOffset)),
-//                                    shadowBlurRadius,
-//                                    shadowColour.CGColor);
-//        
-//        [roundedRectanglePath addClip];
-//        CGAffineTransform transform = CGAffineTransformMakeTranslation(-round(roundedRectangleBorderRect.size.width), 0);
-//        [roundedRectangleNegativePath applyTransform: transform];
-//        [[UIColor grayColor] setFill];
-//        [roundedRectangleNegativePath fill];
-//    }
-//    CGContextRestoreGState(context);
-//    
-//    CGContextRestoreGState(context);
-//    
-//    [border setStroke];
-//    roundedRectanglePath.lineWidth = 1;
-//    [roundedRectanglePath stroke];
-//
-//}
-//
-//- (UIColor *)lightenColor:(UIColor *)oldColor value:(float)value {
-//    int   totalComponents = CGColorGetNumberOfComponents(oldColor.CGColor);
-//    bool  isGreyscale     = totalComponents == 2 ? YES : NO;
-//    
-//    CGFloat* oldComponents = (CGFloat *)CGColorGetComponents(oldColor.CGColor);
-//    CGFloat newComponents[4];
-//    
-//    if (isGreyscale) {
-//        newComponents[0] = oldComponents[0]+value > 1.0 ? 1.0 : oldComponents[0]+value;
-//        newComponents[1] = oldComponents[0]+value > 1.0 ? 1.0 : oldComponents[0]+value;
-//        newComponents[2] = oldComponents[0]+value > 1.0 ? 1.0 : oldComponents[0]+value;
-//        newComponents[3] = oldComponents[1];
-//    } else {
-//        newComponents[0] = oldComponents[0]+value > 1.0 ? 1.0 : oldComponents[0]+value;
-//        newComponents[1] = oldComponents[1]+value > 1.0 ? 1.0 : oldComponents[1]+value;
-//        newComponents[2] = oldComponents[2]+value > 1.0 ? 1.0 : oldComponents[2]+value;
-//        newComponents[3] = oldComponents[3];
-//    }
-//    
-//    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
-//    CGColorRef newColor = CGColorCreate(colorSpace, newComponents);
-//    CGColorSpaceRelease(colorSpace);
-//    
-//    UIColor *retColor = [UIColor colorWithCGColor:newColor];
-//    CGColorRelease(newColor);
-//    
-//    return retColor;
-//}
-//
-//@end
