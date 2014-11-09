@@ -9,14 +9,24 @@
 #import <UIKit/UIKit.h>
 
 @interface PopupView : UIView {
-    UILabel *titleLabel;
-    UILabel *hoursLabel;
+//    UIImageView *_iconView;
+    UILabel *_titleLabel;
+    UILabel *_detailLabel;
+    
+//    __unsafe_unretained UIColor *_color;
+    
+    CGGradientRef _gradient;
 }
 
-@property (nonatomic, assign) UILabel *title;
-@property (nonatomic, assign) UILabel *hours;
-@property (nonatomic, assign) CGGradientRef gradient;
+//@property (nonatomic, assign) UIImage *icon;
+@property (nonatomic, assign) NSString *title;
+@property (nonatomic, assign) NSString *detail;
+@property (nonatomic, assign) UIColor *color;
 
-- (id)initWithTitle:(NSString *)title hours:(NSString *)hours;
+@property (nonatomic, assign) CGFloat width;
+
+- (id)initWithWidth:(CGFloat)width;
+- (id)initWithTitle:(NSString *)title detail:(NSString *)detail /*icon:(UIImage *)icon*/;
+- (UIColor *)lightenColor:(UIColor *)oldColor value:(float)value;
 
 @end

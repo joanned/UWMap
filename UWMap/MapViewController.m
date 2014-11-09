@@ -8,7 +8,7 @@
 
 #import <QuartzCore/QuartzCore.h>
 #import "MapViewController.h"
-#import "PinView.h"
+#import "PopupView.h"
 #import "DataProvider.h"
 #import "Building.h"
 
@@ -113,12 +113,20 @@ static const CGFloat kWidthOfPin = 30;
 }
 
 - (void)showDetails:(CGPoint)locationPoint withLabel:(NSString *)label {
-    NSArray *subviewArray = [[NSBundle mainBundle] loadNibNamed:@"pin" owner:self options:nil];
-    PinView *mainView = [subviewArray objectAtIndex:0];
-    mainView.frame = CGRectMake(locationPoint.x, locationPoint.y, 50, 50);
-    mainView.pinLabel.text = label;
+//    NSArray *subviewArray = [[NSBundle mainBundle] loadNibNamed:@"pin" owner:self options:nil];
+//    PinView *mainView = [subviewArray objectAtIndex:0];
+//    mainView.frame = CGRectMake(locationPoint.x, locationPoint.y, 50, 50);
+//    mainView.pinLabel.text = label;
+//    
+//    [self.imageView addSubview:mainView];
     
-    [self.imageView addSubview:mainView];
+    PopupView *popupView = [[PopupView alloc] initWithTitle:label detail:@""];
+    CGRect f = popupView.frame;
+    f.origin.x = locationPoint.x;
+    f.origin.y = locationPoint.y;
+    popupView.frame = f;
+
+    [self.view addSubview:popupView];
 }
 
 - (void)adjustViewWithPoint:(CGPoint)locationPoint {
