@@ -47,7 +47,7 @@ static CGFloat maxHeight = 168.0;
 {
     [self setupSubviewsWithTitle:title detail:detail];
     
-    self = [self initWithFrame:CGRectMake(0, 0, _titleLabel.frame.size.width+25, _titleLabel.frame.size.height +27)];
+    self = [self initWithFrame:CGRectMake(0, 0, _titleLabel.frame.size.width+31, _titleLabel.frame.size.height +34)];
     [self addSubview:_titleLabel];
 
     [self setupSubviewsWithTitle:title detail:detail];
@@ -123,50 +123,50 @@ static CGFloat maxHeight = 168.0;
 {
     CGContextRef context = UIGraphicsGetCurrentContext();
     
-    UIColor* border = [[UIColor blackColor] colorWithAlphaComponent:0.6];
+    UIColor* border = [[UIColor blackColor] colorWithAlphaComponent:0.75];
     
     //// Shadow Declarations
-    UIColor* shadow = [self lightenColor:border value:0.65];
-    CGSize shadowOffset = CGSizeMake(0, 2);
-    CGFloat shadowBlurRadius = 0;
-    UIColor* shadow2 = [[UIColor blackColor] colorWithAlphaComponent:0.6];
-    CGSize shadow2Offset = CGSizeMake(0.0, 2.0);
-    CGFloat shadow2BlurRadius = 4.0;
+    UIColor* shadow = [self lightenColor:border value:0.8];
+    CGSize shadowOffset = CGSizeMake(4, 3);
+    CGFloat shadowBlurRadius = 5;
+    UIColor* shadow2 = [[UIColor blackColor] colorWithAlphaComponent:0.8];
+    CGSize shadow2Offset = CGSizeMake(4, 3);
+    CGFloat shadow2BlurRadius = 5;
     
     //// Rounded Rectangle Drawing
-    UIBezierPath* roundedRectanglePath = [UIBezierPath bezierPathWithRoundedRect: CGRectMake(4.5, 2.5, rect.size.width-8.0, rect.size.height-8.0) cornerRadius: 10];
+    UIBezierPath* roundedRectanglePath = [UIBezierPath bezierPathWithRoundedRect: CGRectMake(4.5, 2.5, rect.size.width-15, rect.size.height-15) cornerRadius: 10];
     CGContextSaveGState(context);
     CGContextSetShadowWithColor(context, shadow2Offset, shadow2BlurRadius, shadow2.CGColor);
-    CGContextSetFillColorWithColor(context, shadow2.CGColor);
+    CGContextSetFillColorWithColor(context, [[UIColor blackColor] colorWithAlphaComponent:0.4].CGColor);
     [roundedRectanglePath fill];
     [roundedRectanglePath addClip];
     CGContextDrawLinearGradient(context, _gradient, CGPointMake(0.0, 2.5), CGPointMake(0.0, rect.size.height-5.5), 0);
     
-    ////// Rounded Rectangle Inner Shadow
-    CGRect roundedRectangleBorderRect = CGRectInset([roundedRectanglePath bounds], -shadowBlurRadius, -shadowBlurRadius);
-    roundedRectangleBorderRect = CGRectOffset(roundedRectangleBorderRect, -shadowOffset.width, -shadowOffset.height);
-    roundedRectangleBorderRect = CGRectInset(CGRectUnion(roundedRectangleBorderRect, [roundedRectanglePath bounds]), -1, -1);
-    
-    UIBezierPath* roundedRectangleNegativePath = [UIBezierPath bezierPathWithRect: roundedRectangleBorderRect];
-    [roundedRectangleNegativePath appendPath: roundedRectanglePath];
-    roundedRectangleNegativePath.usesEvenOddFillRule = YES;
-    
-    CGContextSaveGState(context);
-    {
-        CGFloat xOffset = shadowOffset.width + round(roundedRectangleBorderRect.size.width);
-        CGFloat yOffset = shadowOffset.height;
-        CGContextSetShadowWithColor(context,
-                                    CGSizeMake(xOffset + copysign(0.1, xOffset), yOffset + copysign(0.1, yOffset)),
-                                    shadowBlurRadius,
-                                    shadow.CGColor);
-        
-        [roundedRectanglePath addClip];
-        CGAffineTransform transform = CGAffineTransformMakeTranslation(-round(roundedRectangleBorderRect.size.width), 0);
-        [roundedRectangleNegativePath applyTransform: transform];
-        [[UIColor grayColor] setFill];
-        [roundedRectangleNegativePath fill];
-    }
-    CGContextRestoreGState(context);
+//    ////// Rounded Rectangle Inner Shadow
+//    CGRect roundedRectangleBorderRect = CGRectInset([roundedRectanglePath bounds], -3, -3);
+//    roundedRectangleBorderRect = CGRectOffset(roundedRectangleBorderRect, -shadowOffset.width, -shadowOffset.height);
+//    roundedRectangleBorderRect = CGRectInset(CGRectUnion(roundedRectangleBorderRect, [roundedRectanglePath bounds]), -1, -1);
+//    
+//    UIBezierPath* roundedRectangleNegativePath = [UIBezierPath bezierPathWithRect: roundedRectangleBorderRect];
+//    [roundedRectangleNegativePath appendPath: roundedRectanglePath];
+//    roundedRectangleNegativePath.usesEvenOddFillRule = YES;
+////    
+//    CGContextSaveGState(context);
+//    {
+//        CGFloat xOffset = shadowOffset.width + round(roundedRectangleBorderRect.size.width);
+//        CGFloat yOffset = shadowOffset.height;
+//        CGContextSetShadowWithColor(context,
+//                                    CGSizeMake(xOffset + copysign(0.1, xOffset), yOffset + copysign(0.1, yOffset)),
+//                                    shadowBlurRadius,
+//                                    shadow.CGColor);
+//        
+//        [roundedRectanglePath addClip];
+//        CGAffineTransform transform = CGAffineTransformMakeTranslation(-round(roundedRectangleBorderRect.size.width), 0);
+//        [roundedRectangleNegativePath applyTransform: transform];
+//        [[UIColor grayColor] setFill];
+//        [roundedRectangleNegativePath fill];
+//    }
+//    CGContextRestoreGState(context);
     
     CGContextRestoreGState(context);
     
