@@ -18,7 +18,7 @@ static CGFloat maxHeight = 168.0;
 - (id) init {
     self = [super init];
     if (self) {
-        [self setupSubviews];
+//        [self setupSubviews];
     }
     return self;
 }
@@ -26,7 +26,7 @@ static CGFloat maxHeight = 168.0;
 - (id) initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
-        [self setupSubviews];
+//        [self setupSubviews];
     }
     return self;
 }
@@ -34,7 +34,7 @@ static CGFloat maxHeight = 168.0;
 - (id) initWithCoder:(NSCoder *)aDecoder {
     self = [super initWithCoder:aDecoder];
     if (self) {
-        [self setupSubviews];
+//        [self setupSubviews];
     }
     return self;
 }
@@ -45,60 +45,35 @@ static CGFloat maxHeight = 168.0;
 
 - (id)initWithTitle:(NSString *)title detail:(NSString *)detail
 {
-    CGFloat defaultWidth = 150.0;
+    [self setupSubviewsWithTitle:title detail:detail];
     
-    CGSize size = CGSizeMake(100.0, 8000);
-    
-    CGRect titleRect = [title boundingRectWithSize:size
-                                           options:
-                        NSStringDrawingUsesLineFragmentOrigin
-                                        attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:14.0]}
-                                           context:nil];
-    
-    CGRect hoursRect = [detail boundingRectWithSize:size
-                                           options:
-                        NSStringDrawingUsesLineFragmentOrigin
-                                        attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:12.0]}
-                                           context:nil];
-    CGFloat viewHeight = titleRect.size.height + hoursRect.size.height + 20.0;
-    self = [self initWithFrame:CGRectMake(0, 0, defaultWidth, viewHeight)];
-    
-//    CGFloat detailHeight = [[self detail] sizeWithFont:[_detailLabel font] constrainedToSize:CGSizeMake(defaultWidth-120.0, maxHeight-78.0) lineBreakMode:[_detailLabel lineBreakMode]].height;
-//    if (detailHeight < 20)
-//        detailHeight = 20.0;
-//    CGFloat notifHeight = detailHeight + 78.0;
-//    self = [self initWithFrame:CGRectMake(0.0, 0.0, defaultWidth, notifHeight)];
-    if (self) {
-        [_titleLabel setText:title];
-        [_detailLabel setText:detail];
-    }
+    self = [self initWithFrame:CGRectMake(0, 0, _titleLabel.frame.size.width+25, _titleLabel.frame.size.height +27)];
+    [self addSubview:_titleLabel];
+
+    [self setupSubviewsWithTitle:title detail:detail];
     return self;
 }
 
-- (void) setupSubviews {
+- (void) setupSubviewsWithTitle:(NSString *)title detail:(NSString *)detail {
     self.backgroundColor = [UIColor clearColor];
     self.color = [UIColor blackColor];
     
-    _titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 130, 20)];
+
+    
+   
+    _titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(12, 11, 130, 500)];
+    [_titleLabel setText:title];
     _titleLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     _titleLabel.backgroundColor = [UIColor clearColor];
     _titleLabel.textColor = [UIColor whiteColor];
     _titleLabel.shadowColor = [UIColor blackColor];
     _titleLabel.shadowOffset = CGSizeMake(0.0, 1.0);
+    _titleLabel.textAlignment = NSTextAlignmentCenter;
     _titleLabel.font = [UIFont boldSystemFontOfSize:15.0];
     _titleLabel.lineBreakMode = NSLineBreakByWordWrapping;
-    _titleLabel.numberOfLines = 3;
-    [self addSubview:_titleLabel];
+    _titleLabel.numberOfLines = 0;
     
-//    _detailLabel = [[UILabel alloc] initWithFrame:CGRectMake(90.0, 52.0, self.frame.size.width-120.0, 20.0)];
-//    _detailLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-//    _detailLabel.backgroundColor = [UIColor clearColor];
-//    _detailLabel.textColor = [UIColor lightGrayColor];
-//    _detailLabel.shadowColor = [UIColor blackColor];
-//    _detailLabel.shadowOffset = CGSizeMake(0.0, 1.0);
-//    _detailLabel.font = [UIFont boldSystemFontOfSize:16.0];
-//    _detailLabel.numberOfLines = 0;
-//    [self addSubview:_detailLabel];
+    [_titleLabel sizeToFit];
 }
 
 - (void) setColor:(UIColor *)color {
@@ -123,19 +98,6 @@ static CGFloat maxHeight = 168.0;
     
     [self setNeedsDisplay];
 }
-
-//- (UIColor *) color {
-//    return _color;
-//}
-
-//- (void) setIcon:(UIImage *)icon {
-//    if (_iconView) {
-//        [_iconView setImage:icon];
-//    }
-//}
-//- (UIImage *) icon {
-//    return [_iconView image];
-//}
 
 - (void) setTitle:(NSString *)title {
     [_titleLabel setText:title];
