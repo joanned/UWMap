@@ -121,58 +121,67 @@ static CGFloat maxHeight = 168.0;
 
 - (void)drawRect:(CGRect)rect
 {
+    //TODO: move constants out
     CGContextRef context = UIGraphicsGetCurrentContext();
+    CGFloat borderWidth = 1;
+    CGFloat radius = 5;
+    CGFloat arrowHeight = 6;
+    CGFloat arrowWidth = 6;
+    CGFloat roomForShadow = 4;
+    CGFloat rectWidth = rect.size.width;
+    CGFloat rectHeight = rect.size.height;
     
+    CGFloat spaceToSide = roomForShadow + borderWidth;
+
+    UIBezierPath *popupPath = [UIBezierPath bezierPath];
+    
+    //top left
+    [popupPath moveToPoint:CGPointMake(radius + spaceToSide, spaceToSide)];
+    [popupPath addLineToPoint:CGPointMake(rectWidth - radius - spaceToSide, spaceToSide)];
+    
+    //top right
+    [popupPath addArcWithCenter:CGPointMake(spaceToSide + radius , rectWidth - spaceToSide - radius) radius:radius startAngle:-90 endAngle:0 clockwise:YES];
+    [popupPath addLineToPoint:CGPointMake(rectWidth - spaceToSide, rectHeight - spaceToSide - roomForShadow - radius)];
+    [popupPath addArcWithCenter:CGPointMake(rectWidth - spaceToSide - radius, rectHeight - roomForShadow - spaceToSide - radius) radius:radius startAngle:0 endAngle:90 clockwise:YES];
+    
+    //arrow part
+    [popupPath addLineToPoint:CGPointMake(rectWidth/2 + arrowWidth, rectHeight - roomForShadow - spaceToSide)];
+    [popupPath addLineToPoint:CGPointMake(rectWidth/2, rectHeight - spaceToSide)];
+    [popupPath addLineToPoint:CGPointMake(rectWidth/2 - arrowWidth, rectHeight - roomForShadow - spaceToSide)];
+    
+    //bottom left
+    [popupPath addLineToPoint:CGPointMake(spaceToSide + radius, rectHeight - roomForShadow - spaceToSide)];
+    [popupPath addArcWithCenter:CGPointMake(spaceToSide + radius, rectHeight - roomForShadow - spaceToSide - radius) radius:radius startAngle:90 endAngle:180 clockwise:YES];
+    [popupPath addLineToPoint:CGPointMake(spaceToSide, spaceToSide + radius)];
+    [popupPath closePath];
+    
+
+    
+    //////
+//    CGContextRef context = UIGraphicsGetCurrentContext();
+//    
     UIColor* border = [[UIColor blackColor] colorWithAlphaComponent:0.75];
     
-    //// Shadow Declarations
-    UIColor* shadow = [self lightenColor:border value:0.8];
-    CGSize shadowOffset = CGSizeMake(4, 3);
-    CGFloat shadowBlurRadius = 5;
+    // Shadow Declarations
     UIColor* shadow2 = [[UIColor blackColor] colorWithAlphaComponent:0.8];
     CGSize shadow2Offset = CGSizeMake(4, 3);
-    CGFloat shadow2BlurRadius = 5;
-    
-    //// Rounded Rectangle Drawing
-    UIBezierPath* roundedRectanglePath = [UIBezierPath bezierPathWithRoundedRect: CGRectMake(4.5, 2.5, rect.size.width-15, rect.size.height-15) cornerRadius: 10];
-    CGContextSaveGState(context);
+    CGFloat shadow2BlurRadius = 4;
+//
+////    // Rounded Rectangle Drawing
+//    UIBezierPath* roundedRectanglePath = [UIBezierPath bezierPathWithRoundedRect: CGRectMake(4.5, 2.5, rect.size.width-15, rect.size.height-15) cornerRadius: 10];
+//    CGContextSaveGState(context);
     CGContextSetShadowWithColor(context, shadow2Offset, shadow2BlurRadius, shadow2.CGColor);
-    CGContextSetFillColorWithColor(context, [[UIColor blackColor] colorWithAlphaComponent:0.4].CGColor);
-    [roundedRectanglePath fill];
-    [roundedRectanglePath addClip];
+    CGContextSetFillColorWithColor(context, [[UIColor blackColor] colorWithAlphaComponent:0.3].CGColor);
+    [popupPath fill];
+    [popupPath addClip];
     CGContextDrawLinearGradient(context, _gradient, CGPointMake(0.0, 2.5), CGPointMake(0.0, rect.size.height-5.5), 0);
     
-//    ////// Rounded Rectangle Inner Shadow
-//    CGRect roundedRectangleBorderRect = CGRectInset([roundedRectanglePath bounds], -3, -3);
-//    roundedRectangleBorderRect = CGRectOffset(roundedRectangleBorderRect, -shadowOffset.width, -shadowOffset.height);
-//    roundedRectangleBorderRect = CGRectInset(CGRectUnion(roundedRectangleBorderRect, [roundedRectanglePath bounds]), -1, -1);
-//    
-//    UIBezierPath* roundedRectangleNegativePath = [UIBezierPath bezierPathWithRect: roundedRectangleBorderRect];
-//    [roundedRectangleNegativePath appendPath: roundedRectanglePath];
-//    roundedRectangleNegativePath.usesEvenOddFillRule = YES;
-////    
-//    CGContextSaveGState(context);
-//    {
-//        CGFloat xOffset = shadowOffset.width + round(roundedRectangleBorderRect.size.width);
-//        CGFloat yOffset = shadowOffset.height;
-//        CGContextSetShadowWithColor(context,
-//                                    CGSizeMake(xOffset + copysign(0.1, xOffset), yOffset + copysign(0.1, yOffset)),
-//                                    shadowBlurRadius,
-//                                    shadow.CGColor);
-//        
-//        [roundedRectanglePath addClip];
-//        CGAffineTransform transform = CGAffineTransformMakeTranslation(-round(roundedRectangleBorderRect.size.width), 0);
-//        [roundedRectangleNegativePath applyTransform: transform];
-//        [[UIColor grayColor] setFill];
-//        [roundedRectangleNegativePath fill];
-//    }
+    
 //    CGContextRestoreGState(context);
     
-    CGContextRestoreGState(context);
-    
     [border setStroke];
-    roundedRectanglePath.lineWidth = 1;
-    [roundedRectanglePath stroke];
+    popupPath.lineWidth = 1;
+    [popupPath stroke];
 }
 
 
