@@ -58,7 +58,7 @@ static CGFloat maxHeight = 168.0;
     self.backgroundColor = [UIColor clearColor];
     self.color = [UIColor blackColor];
     
-    _titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(12, 11, 130, 500)];
+    _titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(16, 13, 130, 500)];
     [_titleLabel setText:title];
     _titleLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     _titleLabel.backgroundColor = [UIColor clearColor];
@@ -76,18 +76,25 @@ static CGFloat maxHeight = 168.0;
 - (void) setColor:(UIColor *)color {
     
     CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
-    UIColor* border = [color colorWithAlphaComponent:0.6];
-    UIColor* topColor = [self lightenColor:border value:0.37];
-    UIColor* midColor = [self lightenColor:border value:0.1];
-    UIColor* bottomColor = [self lightenColor:border value:0.12];
+//    UIColor* border = [color colorWithAlphaComponent:0.6];
+//    UIColor* topColor = [self lightenColor:border value:0.37];
+//    UIColor* midColor = [self lightenColor:border value:0.1];
+//    UIColor* bottomColor = [self lightenColor:border value:0.12];
+//    
+//    NSArray* newGradientColors = [NSArray arrayWithObjects:
+//                                  (id)topColor.CGColor,
+//                                  (id)midColor.CGColor,
+//                                  (id)border.CGColor,
+//                                  (id)border.CGColor,
+//                                  (id)bottomColor.CGColor, nil];
+//    CGFloat newGradientLocations[] = {0, 0.500, 0.501, 0.66, 1};
+    
     
     NSArray* newGradientColors = [NSArray arrayWithObjects:
-                                  (id)topColor.CGColor,
-                                  (id)midColor.CGColor,
-                                  (id)border.CGColor,
-                                  (id)border.CGColor,
-                                  (id)bottomColor.CGColor, nil];
-    CGFloat newGradientLocations[] = {0, 0.500, 0.501, 0.66, 1};
+                                  (id)[UIColor clearColor].CGColor,
+                                  (id)[UIColor blackColor].CGColor, nil];
+    CGFloat newGradientLocations[] = {0, 1};
+
     
     CGGradientRelease(_gradient);
     _gradient = CGGradientCreateWithColors(colorSpace, (CFArrayRef)newGradientColors, newGradientLocations);
@@ -125,9 +132,9 @@ static CGFloat maxHeight = 168.0;
     CGContextRef context = UIGraphicsGetCurrentContext();
     CGFloat borderWidth = 1;
     CGFloat radius = 5;
-    CGFloat arrowHeight = 6;
-    CGFloat arrowWidth = 6;
-    CGFloat roomForShadow = 4;
+    CGFloat arrowHeight = 1;
+    CGFloat arrowWidth = 8;
+    CGFloat roomForShadow = 5;
     CGFloat rectWidth = rect.size.width;
     CGFloat rectHeight = rect.size.height;
     
@@ -141,17 +148,20 @@ static CGFloat maxHeight = 168.0;
     
     //top right
     [popupPath addArcWithCenter:CGPointMake(rectWidth - spaceToSide - radius, spaceToSide + radius) radius:radius startAngle:-M_PI/2 endAngle:0 clockwise:YES];
-    [popupPath addLineToPoint:CGPointMake(rectWidth - spaceToSide, rectHeight - spaceToSide - roomForShadow - radius)];
-    [popupPath addArcWithCenter:CGPointMake(rectWidth - spaceToSide - radius, rectHeight - roomForShadow - spaceToSide - radius) radius:radius startAngle:0 endAngle:M_PI/2 clockwise:YES];
+    [popupPath addLineToPoint:CGPointMake(rectWidth - spaceToSide, rectHeight - spaceToSide - roomForShadow - radius-arrowHeight)];
+    [popupPath addArcWithCenter:CGPointMake(rectWidth - spaceToSide - radius, rectHeight - roomForShadow - spaceToSide - radius-arrowHeight) radius:radius startAngle:0 endAngle:M_PI/2 clockwise:YES];
     
     //arrow part
-    [popupPath addLineToPoint:CGPointMake(rectWidth/2 + arrowWidth, rectHeight - roomForShadow - spaceToSide)];
-    [popupPath addLineToPoint:CGPointMake(rectWidth/2, rectHeight - spaceToSide)];
-    [popupPath addLineToPoint:CGPointMake(rectWidth/2 - arrowWidth, rectHeight - roomForShadow - spaceToSide)];
+    [popupPath addLineToPoint:CGPointMake(rectWidth/2 + arrowWidth, rectHeight - roomForShadow - spaceToSide-arrowHeight)];
+    [popupPath addLineToPoint:CGPointMake(rectWidth/2, rectHeight - spaceToSide +arrowHeight)];
+    [popupPath addLineToPoint:CGPointMake(rectWidth/2 - arrowWidth, rectHeight - roomForShadow - spaceToSide-arrowHeight)];
     
     //bottom left
-    [popupPath addLineToPoint:CGPointMake(spaceToSide + radius, rectHeight - roomForShadow - spaceToSide)];
-    [popupPath addArcWithCenter:CGPointMake(spaceToSide + radius, rectHeight - roomForShadow - spaceToSide - radius) radius:radius startAngle:M_PI/2 endAngle:M_PI clockwise:YES];
+    [popupPath addLineToPoint:CGPointMake(spaceToSide + radius, rectHeight - roomForShadow - spaceToSide-arrowHeight)];
+    [popupPath addArcWithCenter:CGPointMake(spaceToSide + radius, rectHeight - roomForShadow - spaceToSide - radius-arrowHeight) radius:radius startAngle:M_PI/2 endAngle:M_PI clockwise:YES];
+    
+    
+    
     [popupPath addLineToPoint:CGPointMake(spaceToSide, spaceToSide + radius)];
     [popupPath addArcWithCenter:CGPointMake(spaceToSide + radius, spaceToSide + radius) radius:radius startAngle:M_PI endAngle:-M_PI/2 clockwise:YES];
     [popupPath closePath];
@@ -164,17 +174,20 @@ static CGFloat maxHeight = 168.0;
     UIColor* border = [[UIColor blackColor] colorWithAlphaComponent:0.75];
     
     // Shadow Declarations
-    UIColor* shadow2 = [[UIColor blackColor] colorWithAlphaComponent:0.8];
-    CGSize shadow2Offset = CGSizeMake(4, 3);
+    UIColor* shadow2 = [[UIColor blackColor] colorWithAlphaComponent:1];
+    CGSize shadow2Offset = CGSizeMake(3, 3);
     CGFloat shadow2BlurRadius = 4;
 //
 ////    // Rounded Rectangle Drawing
 //    UIBezierPath* roundedRectanglePath = [UIBezierPath bezierPathWithRoundedRect: CGRectMake(4.5, 2.5, rect.size.width-15, rect.size.height-15) cornerRadius: 10];
 //    CGContextSaveGState(context);
     CGContextSetShadowWithColor(context, shadow2Offset, shadow2BlurRadius, shadow2.CGColor);
-    CGContextSetFillColorWithColor(context, [[UIColor blackColor] colorWithAlphaComponent:0.05].CGColor);
+    CGContextSetFillColorWithColor(context, [[UIColor blackColor] colorWithAlphaComponent:0.6].CGColor);
     [popupPath fill];
     [popupPath addClip];
+    
+    
+    
     CGContextDrawLinearGradient(context, _gradient, CGPointMake(0.0, 2.5), CGPointMake(0.0, rect.size.height-5.5), 0);
     
     
