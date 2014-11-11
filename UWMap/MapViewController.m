@@ -25,6 +25,11 @@
 @property NSDictionary *locationDictionary;
 @property NSArray *buildingTitlesArray;
 
+@property (nonatomic, strong) UIDynamicAnimator *animator;
+@property (nonatomic, strong) UIGravityBehavior *gravityBehaviour;
+@property (nonatomic, strong) UICollisionBehavior *collisionBehaviour;
+@property (nonatomic, strong) UIDynamicItemBehavior *itemBehaviour;
+
 @end
 
 static const CGFloat kWidthOfPin = 30;
@@ -43,6 +48,11 @@ static const CGFloat kWidthOfPin = 30;
     self.originalImageHeight = self.imageView.frame.size.height;
     
     self.isFirstLoad = YES;
+    
+    self.animator = [[UIDynamicAnimator alloc] initWithReferenceView:self.view];
+    self.gravityBehaviour = [[UIGravityBehavior alloc] init];
+    self.collisionBehaviour = [[UICollisionBehavior alloc] init];
+    self.itemBehaviour = [[UIDynamicItemBehavior alloc] init];
     
 }
 
@@ -123,10 +133,19 @@ static const CGFloat kWidthOfPin = 30;
     PopupView *popupView = [[PopupView alloc] initWithTitle:label detail:@""];
     CGRect f = popupView.frame;
     f.origin.x = locationPoint.x;
-    f.origin.y = locationPoint.y;
+    f.origin.y = locationPoint.y-25-popupView.frame.size.height;
     popupView.frame = f;
 
-    [self.view addSubview:popupView];
+    [self.imageView addSubview:popupView];
+//    
+//    [self.gravityBehaviour addItem:popupView];
+//    [self.collisionBehaviour addItem:popupView];
+//    [self.collisionBehaviour addBoundaryWithIdentifier:@"barrier" fromPoint:CGPointMake(locationPoint.x-100, locationPoint.y) toPoint:CGPointMake(locationPoint.x+100, locationPoint.y)];
+//    [self.itemBehaviour addItem:popupView];
+//    self.itemBehaviour.elasticity = 0.47;
+//    [self.animator addBehavior:self.gravityBehaviour];
+//    [self.animator addBehavior:self.collisionBehaviour];
+//    [self.animator addBehavior:self.itemBehaviour];
 }
 
 - (void)adjustViewWithPoint:(CGPoint)locationPoint {
@@ -151,15 +170,16 @@ static const CGFloat kWidthOfPin = 30;
 }
 
 - (void)scrollViewDidZoom:(UIScrollView *)aScrollView {
-//    for (UIView *dropPinView in self.imageView.subviews) {
-//        CGRect oldFrame = dropPinView.frame;
-//        // 0.5 means the anchor is centered on the x axis. 1 means the anchor is at the bottom of the view. If you comment out this line, the pin's center will stay where it is regardless of how much you zoom. I have it so that the bottom of the pin stays fixed. This should help user RomeoF.
-//        [dropPinView.layer setAnchorPoint:CGPointMake(0.5, 1)];
-//        dropPinView.frame = oldFrame;
-//        // When you zoom in on scrollView, it gets a larger zoom scale value.
-//        // You transform the pin by scaling it by the inverse of this value.
-//        dropPinView.transform = CGAffineTransformMakeScale(1.0/self.scrollView.zoomScale, 1.0/self.scrollView.zoomScale);
-//    }
+    for (UIView *popupView in self.imageView.subviews) {
+//        UIView *popupView = [self.view.subviews lastObject];
+        CGRect oldFrame = popupView.frame;
+        // 0.5 means the anchor is centered on the x axis. 1 means the anchor is at the bottom of the view. If you comment out this line, the pin's center will stay where it is regardless of how much you zoom. I have it so that the bottom of the pin stays fixed. This should help user RomeoF.
+        [popupView.layer setAnchorPoint:CGPointMake(0.5, 1)];
+        popupView.frame = oldFrame;
+        // When you zoom in on scrollView, it gets a larger zoom scale value.
+        // You transform the pin by scaling it by the inverse of this value.
+        popupView.transform = CGAffineTransformMakeScale(1.0/self.scrollView.zoomScale, 1.0/self.scrollView.zoomScale);
+    }
     
     if (self.imageView.frame.size.height > 2000) {
         

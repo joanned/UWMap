@@ -166,32 +166,20 @@ static CGFloat maxHeight = 168.0;
     [popupPath addArcWithCenter:CGPointMake(spaceToSide + radius, spaceToSide + radius) radius:radius startAngle:M_PI endAngle:-M_PI/2 clockwise:YES];
     [popupPath closePath];
     
-
-    
-    //////
-//    CGContextRef context = UIGraphicsGetCurrentContext();
-//    
     UIColor* border = [[UIColor blackColor] colorWithAlphaComponent:0.75];
     
     // Shadow Declarations
     UIColor* shadow2 = [[UIColor blackColor] colorWithAlphaComponent:1];
     CGSize shadow2Offset = CGSizeMake(3, 3);
-    CGFloat shadow2BlurRadius = 4;
-//
-////    // Rounded Rectangle Drawing
-//    UIBezierPath* roundedRectanglePath = [UIBezierPath bezierPathWithRoundedRect: CGRectMake(4.5, 2.5, rect.size.width-15, rect.size.height-15) cornerRadius: 10];
-//    CGContextSaveGState(context);
+    CGFloat shadow2BlurRadius = 3.5;
+
     CGContextSetShadowWithColor(context, shadow2Offset, shadow2BlurRadius, shadow2.CGColor);
-    CGContextSetFillColorWithColor(context, [[UIColor blackColor] colorWithAlphaComponent:0.6].CGColor);
+
+    CGContextSetFillColorWithColor(context, [[UIColor blackColor] colorWithAlphaComponent:0.55].CGColor);
     [popupPath fill];
     [popupPath addClip];
     
-    
-    
     CGContextDrawLinearGradient(context, _gradient, CGPointMake(0.0, 2.5), CGPointMake(0.0, rect.size.height-5.5), 0);
-    
-    
-//    CGContextRestoreGState(context);
     
     [border setStroke];
     popupPath.lineWidth = 1;
