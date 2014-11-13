@@ -16,7 +16,6 @@
 
 
 @property (nonatomic, strong) IBOutlet UIImageView *imageView;
-@property (nonatomic, strong) IBOutlet UIScrollView *scrollView;
 @property (nonatomic, assign) CGFloat originalImageWidth;
 @property (nonatomic, assign) CGFloat originalImageHeight;
 @property (nonatomic, assign) CGPoint startingPoint;
@@ -142,18 +141,10 @@ static const CGFloat kWidthOfPin = 30;
 }
 
 - (void)showDetails:(CGPoint)locationPoint withLabel:(NSString *)label {
-//    NSArray *subviewArray = [[NSBundle mainBundle] loadNibNamed:@"pin" owner:self options:nil];
-//    PinView *mainView = [subviewArray objectAtIndex:0];
-//    mainView.frame = CGRectMake(locationPoint.x, locationPoint.y, 50, 50);
-//    mainView.pinLabel.text = label;
-//    
-//    [self.imageView addSubview:mainView];
-    
     PopupView *popupView = [[PopupView alloc] initWithTitle:label detail:@""];
     CGRect f = popupView.frame;
-    f.origin.x = locationPoint.x;
-//    f.origin.y = locationPoint.y-25-popupView.frame.size.height;
-    f.origin.y = locationPoint.y;
+    f.origin.x = locationPoint.x-popupView.frame.size.width/2;
+    f.origin.y = locationPoint.y-25-popupView.frame.size.height;;
     popupView.frame = f;
     
     NSLog(@"shown at point %f %f", locationPoint.x / self.imageView.frame.size.width, locationPoint.y / self.imageView.frame.size.height);
@@ -165,13 +156,9 @@ static const CGFloat kWidthOfPin = 30;
     CGFloat zoomScale = self.scrollView.zoomScale;
     self.scrollView.zoomScale = 1;
     [self.imageView addSubview:popupView];
-    self.scrollView.zoomScale = zoomScale;
     
-    
-    self.currentPopupView = popupView;
-    self.initialPopupFrame = popupView.frame;
-  
-//    
+//
+//
 //    [self.gravityBehaviour addItem:popupView];
 //    [self.collisionBehaviour addItem:popupView];
 //    [self.collisionBehaviour addBoundaryWithIdentifier:@"barrier" fromPoint:CGPointMake(locationPoint.x-100, locationPoint.y) toPoint:CGPointMake(locationPoint.x+100, locationPoint.y)];
@@ -180,7 +167,10 @@ static const CGFloat kWidthOfPin = 30;
 //    [self.animator addBehavior:self.gravityBehaviour];
 //    [self.animator addBehavior:self.collisionBehaviour];
 //    [self.animator addBehavior:self.itemBehaviour];
-    //TODO: remove behavious when done animating
+////    //TODO: remove behavious when done animating
+    
+    self.scrollView.zoomScale = zoomScale;
+
 }
 
 - (void)adjustViewWithPoint:(CGPoint)locationPoint {
@@ -188,9 +178,8 @@ static const CGFloat kWidthOfPin = 30;
     if (locationPoint.x + [[UIScreen mainScreen] bounds].size.width / 2 > self.imageView.frame.size.width ) {
         locationPoint.x -= self.imageView.frame.size.width - locationPoint.x;
     }
-    
     if (locationPoint.y + [[UIScreen mainScreen] bounds].size.height / 2 > self.imageView.frame.size.height ) {
-        locationPoint.y -= self.imageView.frame.size.height - locationPoint.x;
+        locationPoint.y -= self.imageView.frame.size.height - locationPoint.y;
     }
 
     self.scrollView.contentOffset = locationPoint;
@@ -222,71 +211,10 @@ static const CGFloat kWidthOfPin = 30;
 //    if (self.imageView.frame.size.height > 2000) {
 //        
 //    }
-//   
-////    self.currentPopupView.frame  = CGRectMake((self.initialPopupFrame.origin.x * self.scrollView.zoomScale),
-////                                   (self.initialPopupFrame.origin.y * self.scrollView.zoomScale),
-////                                   self.initialPopupFrame.size.width,
-////                                   self.initialPopupFrame.size.height);
-//    [self rescaleItemMarkers];
 }
 
 - (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView {
     return self.imageView;
 }
-
-#pragma mark - Helpers
-//
-//-(void)rescaleItemMarkers {
-//    
-//    float initialMapScale = self.initialMapScale;
-//    float finalMapScale = self.scrollView.zoomScale;
-//    
-//    // Clamp final map scales
-//    if (finalMapScale < 0.25) {
-//        finalMapScale = 0.25;
-//    } else if (finalMapScale > 1.0){
-//        finalMapScale = 1.0;
-//    }
-//    
-//    float scalingFactor = finalMapScale / initialMapScale;
-//    
-//    float pinCorrectionFactor = 1 / scalingFactor;
-//    
-//    CAMediaTimingFunction *easingCurve = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
-//    
-//    CABasicAnimation *xScaleAnimation;
-//    xScaleAnimation = [CABasicAnimation animationWithKeyPath:@"transform.scale.x"];
-//    xScaleAnimation.timingFunction = easingCurve;
-//    xScaleAnimation.duration=0.3;
-//    xScaleAnimation.repeatCount=0;
-//    xScaleAnimation.autoreverses=NO;
-//    xScaleAnimation.removedOnCompletion = NO;
-//    xScaleAnimation.fillMode = kCAFillModeForwards;
-//    
-//    xScaleAnimation.fromValue = [NSNumber numberWithFloat:????;
-//    xScaleAnimation.toValue=[NSNumber numberWithFloat:pinCorrectionFactor];
-//    
-//    CABasicAnimation *yScaleAnimation;
-//    yScaleAnimation = [CABasicAnimation animationWithKeyPath:@"transform.scale.y"];
-//    yScaleAnimation.timingFunction = easingCurve;
-//    yScaleAnimation.duration=0.3;
-//    yScaleAnimation.repeatCount=0;
-//    yScaleAnimation.autoreverses=NO;
-//    yScaleAnimation.removedOnCompletion = NO;
-//    yScaleAnimation.fillMode = kCAFillModeForwards;
-//    yScaleAnimation.fromValue = [NSNumber numberWithFloat:self.currentPinZoomFactor];
-//    yScaleAnimation.toValue=[NSNumber numberWithFloat:pinCorrectionFactor];
-//    
-//    for (UIView *theView in self.itemViews) {
-//        
-//        CALayer *layer = theView.layer;
-//        [layer addAnimation:xScaleAnimation forKey:@"animateScaleX"];
-//        [layer addAnimation:yScaleAnimation forKey:@"animateScaleY"];
-//        
-//    }
-//    
-//    self.currentPinZoomFactor = pinCorrectionFactor;
-//    
-//}
 
 @end

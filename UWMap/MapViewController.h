@@ -10,6 +10,8 @@
 #import "BuildingListViewController.h"
 
 @interface MapViewController : UIViewController
+@property (nonatomic, strong) IBOutlet UIScrollView *scrollView;
+
 
 - (CGPoint)makePointFromBuildingKey:(NSString *)locationKey isFromTable:(BOOL)isFromTable;
 - (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView;
