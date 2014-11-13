@@ -30,6 +30,10 @@
 @property (nonatomic, strong) UICollisionBehavior *collisionBehaviour;
 @property (nonatomic, strong) UIDynamicItemBehavior *itemBehaviour;
 
+@property (nonatomic, strong) PopupView *currentPopupView;
+@property (nonatomic ,assign) CGRect initialPopupFrame;
+@property (nonatomic, assign) CGFloat initialMapScale;
+
 @end
 
 static const CGFloat kWidthOfPin = 30;
@@ -54,6 +58,7 @@ static const CGFloat kWidthOfPin = 30;
     self.collisionBehaviour = [[UICollisionBehavior alloc] init];
     self.itemBehaviour = [[UIDynamicItemBehavior alloc] init];
     
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -74,6 +79,8 @@ static const CGFloat kWidthOfPin = 30;
     //    [tapRecognizer setDelegate:self];
     [self.scrollView addGestureRecognizer:tapRecognizer];
     
+    self.initialMapScale = self.scrollView.zoomScale;
+    
 //    NSLog(@"VIEW DID APPEAR: %@", NSStringFromCGSize(self.scrollView.contentSize));
 //    NSLog(@"rect: %@", NSStringFromCGRect(self.imageView.frame));
 //    NSLog(@"----");
@@ -84,7 +91,7 @@ static const CGFloat kWidthOfPin = 30;
         [self adjustViewWithPoint:self.startingPoint];
         self.isFirstLoad = NO;
     }
-
+    
 }
 
 - (void)setupData {
@@ -95,28 +102,40 @@ static const CGFloat kWidthOfPin = 30;
 - (void)tappedScreen:(UITapGestureRecognizer *)recognizer {
     if(recognizer.state == UIGestureRecognizerStateRecognized) {
         CGPoint point = [recognizer locationInView:recognizer.view];
-        NSLog(@"%@", NSStringFromCGPoint(point));
-        
+        NSLog(@"~~~~~~IMAGEVIEW FRAME: %@", NSStringFromCGRect(self.imageView.frame));
+
+        NSLog(@"%f %f", point.x / self.imageView.frame.size.width, point.y / self.imageView.frame.size.height);
+        NSLog(@"%f %f", point.x , point.y);
         for (NSString *locationKey in self.locationDictionary) {
             CGRect locationRect = [self makeRectFromBuildingKey:locationKey];
             
             if (CGRectContainsPoint(locationRect, point)) {
-                CGPoint realLocationPoint = [self makePointFromBuildingKey:locationKey];
+                CGPoint realLocationPoint = [self makePointFromBuildingKey:locationKey isFromTable:YES];
                 [self showDetails:realLocationPoint withLabel:locationKey];
             }
         }
     }
 }
 
-- (CGPoint)makePointFromBuildingKey:(NSString *)locationKey {
+- (CGPoint)makePointFromBuildingKey:(NSString *)locationKey isFromTable:(BOOL)isFromTable {
+    CGFloat  currentScale = self.scrollView.zoomScale;
+
+    if (isFromTable == YES) {
+        self.scrollView.zoomScale = 1;
+    }
+   
     Building *building = [self.locationDictionary objectForKey:locationKey];
     CGFloat scaledPositionX = building.positionX * self.imageView.frame.size.width;
     CGFloat scaledPositionY = building.positionY * self.imageView.frame.size.height;
+    
+    if (isFromTable == YES) {
+        self.scrollView.zoomScale = currentScale;
+    }
     return CGPointMake(scaledPositionX, scaledPositionY);
 }
 
 - (CGRect)makeRectFromBuildingKey:(NSString *)locationKey {
-    CGPoint locationPoint = [self makePointFromBuildingKey:locationKey];
+    CGPoint locationPoint = [self makePointFromBuildingKey:locationKey isFromTable:NO];
     CGFloat rectWidth = self.imageView.frame.size.width / self.originalImageWidth * kWidthOfPin;
     CGFloat rectHeight = self.imageView.frame.size.height / self.originalImageHeight * kWidthOfPin;
     return CGRectMake(locationPoint.x, locationPoint.y, rectWidth, rectHeight);
@@ -133,10 +152,25 @@ static const CGFloat kWidthOfPin = 30;
     PopupView *popupView = [[PopupView alloc] initWithTitle:label detail:@""];
     CGRect f = popupView.frame;
     f.origin.x = locationPoint.x;
-    f.origin.y = locationPoint.y-25-popupView.frame.size.height;
+//    f.origin.y = locationPoint.y-25-popupView.frame.size.height;
+    f.origin.y = locationPoint.y;
     popupView.frame = f;
+    
+    NSLog(@"shown at point %f %f", locationPoint.x / self.imageView.frame.size.width, locationPoint.y / self.imageView.frame.size.height);
+    NSLog(@"shown at point %f %f", locationPoint.x , locationPoint.y);
+    NSLog(@"popup frame: %@", NSStringFromCGRect(popupView.frame));
+    NSLog(@"~~~~~~IMAGEVIEW FRAME: %@", NSStringFromCGRect(self.imageView.frame));
+    NSLog(@"~~~~~~SCROLLVIEW FRAME: %@", NSStringFromCGSize([self.scrollView contentSize]));
 
+    CGFloat zoomScale = self.scrollView.zoomScale;
+    self.scrollView.zoomScale = 1;
     [self.imageView addSubview:popupView];
+    self.scrollView.zoomScale = zoomScale;
+    
+    
+    self.currentPopupView = popupView;
+    self.initialPopupFrame = popupView.frame;
+  
 //    
 //    [self.gravityBehaviour addItem:popupView];
 //    [self.collisionBehaviour addItem:popupView];
@@ -146,6 +180,7 @@ static const CGFloat kWidthOfPin = 30;
 //    [self.animator addBehavior:self.gravityBehaviour];
 //    [self.animator addBehavior:self.collisionBehaviour];
 //    [self.animator addBehavior:self.itemBehaviour];
+    //TODO: remove behavious when done animating
 }
 
 - (void)adjustViewWithPoint:(CGPoint)locationPoint {
@@ -164,30 +199,94 @@ static const CGFloat kWidthOfPin = 30;
 #pragma mark <UIScrollViewDelegate>
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    
-    NSLog(@"iMGE SIZE: %@", NSStringFromCGRect(self.imageView.frame));
-    NSLog(@"SCROLLVIEW CONTENT: %@", NSStringFromCGSize(self.scrollView.contentSize));
+//    
+//    NSLog(@"iMGE SIZE: %@", NSStringFromCGRect(self.imageView.frame));
+//    NSLog(@"SCROLLVIEW CONTENT: %@", NSStringFromCGSize(self.scrollView.contentSize));
 }
-
+//
 - (void)scrollViewDidZoom:(UIScrollView *)aScrollView {
-    for (UIView *popupView in self.imageView.subviews) {
-//        UIView *popupView = [self.view.subviews lastObject];
-        CGRect oldFrame = popupView.frame;
-        // 0.5 means the anchor is centered on the x axis. 1 means the anchor is at the bottom of the view. If you comment out this line, the pin's center will stay where it is regardless of how much you zoom. I have it so that the bottom of the pin stays fixed. This should help user RomeoF.
-        [popupView.layer setAnchorPoint:CGPointMake(0.5, 1)];
-        popupView.frame = oldFrame;
-        // When you zoom in on scrollView, it gets a larger zoom scale value.
-        // You transform the pin by scaling it by the inverse of this value.
-        popupView.transform = CGAffineTransformMakeScale(1.0/self.scrollView.zoomScale, 1.0/self.scrollView.zoomScale);
-    }
     
-    if (self.imageView.frame.size.height > 2000) {
-        
-    }
+////        UIView *popupView = [self.view.subviews lastObject];
+        for (UIView *subview in self.imageView.subviews ) {
+//            if ([subview isKindOfClass:[PopupView class]]) {
+                CGRect oldFrame = subview.frame;
+                // 0.5 means the anchor is centered on the x axis. 1 means the anchor is at the bottom of the view. If you comment out this line, the pin's center will stay where it is regardless of how much you zoom. I have it so that the bottom of the pin stays fixed. This should help user RomeoF.
+                [subview.layer setAnchorPoint:CGPointMake(0.5, 1)];
+                subview.frame = oldFrame;
+                // When you zoom in on scrollView, it gets a larger zoom scale value.
+                // You transform the pin by scaling it by the inverse of this value.
+                subview.transform = CGAffineTransformMakeScale(1.0/self.scrollView.zoomScale, 1.0/self.scrollView.zoomScale);
+//            }
+            }
+//
+//    if (self.imageView.frame.size.height > 2000) {
+//        
+//    }
+//   
+////    self.currentPopupView.frame  = CGRectMake((self.initialPopupFrame.origin.x * self.scrollView.zoomScale),
+////                                   (self.initialPopupFrame.origin.y * self.scrollView.zoomScale),
+////                                   self.initialPopupFrame.size.width,
+////                                   self.initialPopupFrame.size.height);
+//    [self rescaleItemMarkers];
 }
 
 - (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView {
     return self.imageView;
 }
+
+#pragma mark - Helpers
+//
+//-(void)rescaleItemMarkers {
+//    
+//    float initialMapScale = self.initialMapScale;
+//    float finalMapScale = self.scrollView.zoomScale;
+//    
+//    // Clamp final map scales
+//    if (finalMapScale < 0.25) {
+//        finalMapScale = 0.25;
+//    } else if (finalMapScale > 1.0){
+//        finalMapScale = 1.0;
+//    }
+//    
+//    float scalingFactor = finalMapScale / initialMapScale;
+//    
+//    float pinCorrectionFactor = 1 / scalingFactor;
+//    
+//    CAMediaTimingFunction *easingCurve = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
+//    
+//    CABasicAnimation *xScaleAnimation;
+//    xScaleAnimation = [CABasicAnimation animationWithKeyPath:@"transform.scale.x"];
+//    xScaleAnimation.timingFunction = easingCurve;
+//    xScaleAnimation.duration=0.3;
+//    xScaleAnimation.repeatCount=0;
+//    xScaleAnimation.autoreverses=NO;
+//    xScaleAnimation.removedOnCompletion = NO;
+//    xScaleAnimation.fillMode = kCAFillModeForwards;
+//    
+//    xScaleAnimation.fromValue = [NSNumber numberWithFloat:????;
+//    xScaleAnimation.toValue=[NSNumber numberWithFloat:pinCorrectionFactor];
+//    
+//    CABasicAnimation *yScaleAnimation;
+//    yScaleAnimation = [CABasicAnimation animationWithKeyPath:@"transform.scale.y"];
+//    yScaleAnimation.timingFunction = easingCurve;
+//    yScaleAnimation.duration=0.3;
+//    yScaleAnimation.repeatCount=0;
+//    yScaleAnimation.autoreverses=NO;
+//    yScaleAnimation.removedOnCompletion = NO;
+//    yScaleAnimation.fillMode = kCAFillModeForwards;
+//    yScaleAnimation.fromValue = [NSNumber numberWithFloat:self.currentPinZoomFactor];
+//    yScaleAnimation.toValue=[NSNumber numberWithFloat:pinCorrectionFactor];
+//    
+//    for (UIView *theView in self.itemViews) {
+//        
+//        CALayer *layer = theView.layer;
+//        [layer addAnimation:xScaleAnimation forKey:@"animateScaleX"];
+//        [layer addAnimation:yScaleAnimation forKey:@"animateScaleY"];
+//        
+//    }
+//    
+//    self.currentPinZoomFactor = pinCorrectionFactor;
+//    
+//}
 
 @end

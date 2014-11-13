@@ -12,7 +12,6 @@
 		47110ACC19ECCABD009AEFF6 /* Building.m in Sources */ = {isa = PBXBuildFile; fileRef = 47110ACB19ECCABD009AEFF6 /* Building.m */; };
 		475ED4321A0737B40033F485 /* PopupView.m in Sources */ = {isa = PBXBuildFile; fileRef = 475ED4311A0737B40033F485 /* PopupView.m */; };
 		47C7892B19F9FF4900C90436 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47C7892A19F9FF4900C90436 /* MainViewController.m */; };
-		47CA6EDB19F469F500CEA1C7 /* PinView.m in Sources */ = {isa = PBXBuildFile; fileRef = 47CA6EDA19F469F500CEA1C7 /* PinView.m */; };
 		47F37CCB19DCE4C6009577E9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47F37CCA19DCE4C6009577E9 /* Foundation.framework */; };
 		47F37CCD19DCE4C6009577E9 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47F37CCC19DCE4C6009577E9 /* CoreGraphics.framework */; };
 		47F37CCF19DCE4C6009577E9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47F37CCE19DCE4C6009577E9 /* UIKit.framework */; };
@@ -50,8 +49,6 @@
 		475ED4311A0737B40033F485 /* PopupView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopupView.m; sourceTree = "<group>"; };
 		47C7892919F9FF4900C90436 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		47C7892A19F9FF4900C90436 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
-		47CA6ED919F469F500CEA1C7 /* PinView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PinView.h; sourceTree = "<group>"; };
-		47CA6EDA19F469F500CEA1C7 /* PinView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PinView.m; sourceTree = "<group>"; };
 		47F37CC719DCE4C6009577E9 /* UWMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UWMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		47F37CCA19DCE4C6009577E9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		47F37CCC19DCE4C6009577E9 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -191,8 +188,6 @@
 				47110AC719ECB153009AEFF6 /* pin.xib */,
 				47F37CE219DCE4C6009577E9 /* BuildingListViewController.h */,
 				47F37CE319DCE4C6009577E9 /* BuildingListViewController.m */,
-				47CA6ED919F469F500CEA1C7 /* PinView.h */,
-				47CA6EDA19F469F500CEA1C7 /* PinView.m */,
 				47C7892919F9FF4900C90436 /* MainViewController.h */,
 				47C7892A19F9FF4900C90436 /* MainViewController.m */,
 				475ED4301A0737B40033F485 /* PopupView.h */,
@@ -303,7 +298,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				47F37CE419DCE4C6009577E9 /* BuildingListViewController.m in Sources */,
-				47CA6EDB19F469F500CEA1C7 /* PinView.m in Sources */,
 				47F37CDB19DCE4C6009577E9 /* AppDelegate.m in Sources */,
 				47C7892B19F9FF4900C90436 /* MainViewController.m in Sources */,
 				47F37CE119DCE4C6009577E9 /* MapViewController.m in Sources */,

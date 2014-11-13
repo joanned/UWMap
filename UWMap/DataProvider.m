@@ -17,7 +17,7 @@
     Building *AL = [[Building alloc] initWithpositionX:0.5f positionY:0.5f hours:@"8:00am - 10:00pm"];
     Building *B1 = [[Building alloc] initWithpositionX:0.6f positionY:0.6f hours:@"8:00am - 10:00pm"];
     Building *B2 = [[Building alloc] initWithpositionX:0.7f positionY:0.7f hours:@"8:00am - 10:00pm"];
-    Building *BCM = [[Building alloc] initWithpositionX:0.65f positionY:0.64f hours:@"8:00am - 10:00pm"];
+    Building *BCM = [[Building alloc] initWithpositionX:0.609626 positionY:0.378815 hours:@"8:00am - 10:00pm"];
     
     NSDictionary *buildingDictionary = @{
                                          @"Arts Lecture Hall" : AL,

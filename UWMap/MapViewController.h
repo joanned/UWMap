@@ -11,7 +11,7 @@
 
 @interface MapViewController : UIViewController
 
-- (CGPoint)makePointFromBuildingKey:(NSString *)locationKey;
+- (CGPoint)makePointFromBuildingKey:(NSString *)locationKey isFromTable:(BOOL)isFromTable;
 - (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView;
 - (void)showDetails:(CGPoint)locationRect withLabel:(NSString *)label;
 //- (CGRect)findRectFromKey:(NSString *)locationKey;
