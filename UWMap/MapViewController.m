@@ -171,6 +171,7 @@ static const CGFloat kWidthOfPin = 30;
     
     self.scrollView.zoomScale = zoomScale;
 
+    [self.imageView addSubview:popupView];
 }
 
 - (void)adjustViewWithPoint:(CGPoint)locationPoint {
