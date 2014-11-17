@@ -142,6 +142,9 @@ static const CGFloat kWidthOfPin = 30;
 
 - (void)showDetails:(CGPoint)locationPoint withLabel:(NSString *)label {
     PopupView *popupView = [[PopupView alloc] initWithTitle:label detail:@""];
+    
+    popupView.transform = CGAffineTransformMakeScale(1.0/self.scrollView.zoomScale, 1.0/self.scrollView.zoomScale);
+
     CGRect f = popupView.frame;
     f.origin.x = locationPoint.x-popupView.frame.size.width/2;
     f.origin.y = locationPoint.y-25-popupView.frame.size.height;;
@@ -153,8 +156,6 @@ static const CGFloat kWidthOfPin = 30;
     NSLog(@"~~~~~~IMAGEVIEW FRAME: %@", NSStringFromCGRect(self.imageView.frame));
     NSLog(@"~~~~~~SCROLLVIEW FRAME: %@", NSStringFromCGSize([self.scrollView contentSize]));
 
-    CGFloat zoomScale = self.scrollView.zoomScale;
-    self.scrollView.zoomScale = 1;
     [self.imageView addSubview:popupView];
     
 //
@@ -169,7 +170,6 @@ static const CGFloat kWidthOfPin = 30;
 //    [self.animator addBehavior:self.itemBehaviour];
 ////    //TODO: remove behavious when done animating
     
-    self.scrollView.zoomScale = zoomScale;
 
     [self.imageView addSubview:popupView];
 }
