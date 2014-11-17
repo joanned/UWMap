@@ -14,7 +14,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @property NSDictionary *locationDictionary;
-@property NSArray *buildingTitlesArray;
+@property NSMutableArray *buildingTitlesArray;
 @property NSMutableArray *filteredArray;
 
 @end
@@ -25,9 +25,13 @@
 {
     [super viewDidLoad];
     
+    self.tableView.contentInset = UIEdgeInsetsMake(50, 0, 0, 0); //TODO: change 50 to dynamic number
+    
     self.locationDictionary = [DataProvider buildingDictionary];
-    self.buildingTitlesArray = [self.locationDictionary allKeys];
-    self.filteredArray = [self.buildingTitlesArray mutableCopy];
+    NSArray *titleArray = [self.locationDictionary allKeys];
+    self.buildingTitlesArray = [titleArray mutableCopy];
+    [self.buildingTitlesArray sortUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
+
     self.filteredArray = [NSMutableArray arrayWithCapacity:[self.buildingTitlesArray count]];
 
 }
@@ -35,7 +39,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    self.filteredArray = [self.buildingTitlesArray mutableCopy];
+    self.filteredArray = self.buildingTitlesArray;
 }
 
 #pragma mark - <UITableViewDataSource, UITableViewDelegate>
