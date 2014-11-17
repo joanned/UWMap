@@ -9,6 +9,7 @@
 #import "MainViewController.h"
 #import "BuildingListViewController.h"
 #import "MapViewController.h"
+#import "UIImageEffects.h"
 
 @interface MainViewController () <BuildingListViewControllerDelegate, UISearchBarDelegate>
 
@@ -52,6 +53,8 @@
 }
 
 - (void)showTableView {
+    [self setBlurredBackground2];
+    
     //show table view
     [self addChildViewController:self.buildingListViewController];
     self.buildingListViewController.view.frame = [self.containerView bounds];
@@ -143,5 +146,46 @@
 //- (void)updateSearchWithText:(NSString *)searchText {
 //    [self showTableView];
 //}
+
+#pragma mark - Helpers
+
+- (void)setBlurredBackground {
+    UIGraphicsBeginImageContext(self.containerView.bounds.size);
+    [self.containerView.layer renderInContext:UIGraphicsGetCurrentContext()];
+    UIImage *screenshotImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    CIFilter *gaussianBlurFilter = [CIFilter filterWithName:@"CIGaussianBlur"];
+    [gaussianBlurFilter setDefaults];
+    [gaussianBlurFilter setValue:[CIImage imageWithCGImage:[screenshotImage CGImage]] forKey:kCIInputImageKey];
+    [gaussianBlurFilter setValue:@5 forKey:kCIInputRadiusKey];
+    
+    CIImage *outputImage = [gaussianBlurFilter outputImage];
+    CIContext *context   = [CIContext contextWithOptions:nil];
+    CGRect rect          = [outputImage extent];
+    
+    //ensure that the final image is the same size
+    rect.origin.x        += (rect.size.width  - screenshotImage.size.width ) / 2;
+    rect.origin.y        += (rect.size.height - screenshotImage.size.height) / 2;
+    rect.size            = screenshotImage.size;
+    
+    CGImageRef cgimg     = [context createCGImage:outputImage fromRect:rect];
+    UIImage *blurredImage       = [UIImage imageWithCGImage:cgimg];
+    CGImageRelease(cgimg);
+    
+    self.buildingListViewController.tableView.backgroundColor = [UIColor colorWithPatternImage:blurredImage];
+}
+
+- (void)setBlurredBackground2 {
+    CGFloat reductionFactor = 1.25;
+    UIGraphicsBeginImageContext(CGSizeMake(self.containerView.frame.size.width/reductionFactor, self.containerView.frame.size.height/reductionFactor));
+    [self.containerView drawViewHierarchyInRect:CGRectMake(0, 0, self.containerView.frame.size.width/reductionFactor, self.containerView.frame.size.height/reductionFactor) afterScreenUpdates:YES];
+    UIImage *screenshotImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    UIImage *blurredImage = [UIImageEffects imageByApplyingBlurToImage:screenshotImage withRadius:5 tintColor:[UIColor colorWithWhite:1 alpha:0.7] saturationDeltaFactor:1.8 maskImage:nil];
+    
+    self.buildingListViewController.tableView.backgroundColor = [UIColor colorWithPatternImage:blurredImage];
+}
 
 @end

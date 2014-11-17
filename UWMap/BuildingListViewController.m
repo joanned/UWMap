@@ -11,7 +11,6 @@
 
 @interface BuildingListViewController ()
 
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @property NSDictionary *locationDictionary;
 @property NSMutableArray *buildingTitlesArray;
@@ -78,7 +77,7 @@
         self.filteredArray = [self.buildingTitlesArray mutableCopy];
     } else {
         [self.filteredArray removeAllObjects];
-        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF CONTAINS[cd] %@",searchText];
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF CONTAINS[cd] %@",searchText]; //tODO:shortform, change to array of objects intesad???
         
         self.filteredArray = [NSMutableArray arrayWithArray:[self.buildingTitlesArray filteredArrayUsingPredicate:predicate]];
     }

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="C14-Le-p61">
     <dependencies>
-        <deployment defaultVersion="1808" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -117,6 +116,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="OYi-e8-I4B">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="sectionIndexBackgroundColor" white="1" alpha="0.65000000000000002" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="uQ1-H1-lOi">
                                         <rect key="frame" x="0.0" y="0.0" width="325" height="44"/>
@@ -124,6 +124,7 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uQ1-H1-lOi" id="pvi-5M-88E">
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -132,7 +133,7 @@
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" red="0.81553583559782605" green="0.81553583559782605" blue="0.81553583559782605" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.81553583559782605" green="0.81553583559782605" blue="0.81553583559782605" alpha="0.52000000000000002" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="stI-4g-hlJ" firstAttribute="top" secondItem="OYi-e8-I4B" secondAttribute="bottom" id="OdO-rF-C1E"/>
                             <constraint firstItem="OYi-e8-I4B" firstAttribute="leading" secondItem="gMD-aP-Fq6" secondAttribute="leading" id="RCG-xO-MbY"/>

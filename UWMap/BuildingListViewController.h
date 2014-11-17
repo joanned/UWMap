@@ -19,6 +19,8 @@
 
 
 @property (nonatomic, weak) id<BuildingListViewControllerDelegate> delegate;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+
 
 - (void)reloadTableWithText:(NSString *)searchText;
 
