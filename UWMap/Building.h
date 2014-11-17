@@ -8,11 +8,13 @@
 
 @interface Building : NSObject
 
+@property (nonatomic, readonly) NSString *buildingName;
 @property (nonatomic, readonly) CGFloat positionX;
 @property (nonatomic, readonly) CGFloat positionY;
 @property (nonatomic, copy, readonly) NSString *hours;
 
-- (instancetype)initWithpositionX:(CGFloat)positionX
+- (instancetype)initWithBuildingName:(NSString *)buildingName
+                           positionX:(CGFloat)positionX
                         positionY:(CGFloat)positionY
                             hours:(NSString *)hours;
 

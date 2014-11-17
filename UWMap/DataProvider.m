@@ -14,16 +14,21 @@
 + (NSDictionary *)buildingDictionary {
 #warning change points to be percent values instead
     
-    Building *AL = [[Building alloc] initWithpositionX:0.5f positionY:0.5f hours:@"8:00am - 10:00pm"];
-    Building *B1 = [[Building alloc] initWithpositionX:0.6f positionY:0.6f hours:@"8:00am - 10:00pm"];
-    Building *B2 = [[Building alloc] initWithpositionX:0.7f positionY:0.7f hours:@"8:00am - 10:00pm"];
-    Building *BCM = [[Building alloc] initWithpositionX:0.609626 positionY:0.378815 hours:@"8:00am - 10:00pm"];
+    NSString *al = @"Arts Lecture Hall";
+    NSString *b1 = @"Biology 1";
+    NSString *b2 = @"Biology 2";
+    NSString *bcm = @"B.C. Matthews Hall";
+    
+    Building *AL = [[Building alloc] initWithBuildingName:[NSString stringWithFormat:@"%@ AL", al] positionX:0.5f positionY:0.5f hours:@"8:00am - 10:00pm"];
+    Building *B1 = [[Building alloc] initWithBuildingName:[NSString stringWithFormat:@"%@ B1", b1] positionX:0.6f positionY:0.6f hours:@"8:00am - 10:00pm"];
+    Building *B2 = [[Building alloc] initWithBuildingName:[NSString stringWithFormat:@"%@ B2", b2] positionX:0.7f positionY:0.7f hours:@"8:00am - 10:00pm"];
+    Building *BCM = [[Building alloc] initWithBuildingName:[NSString stringWithFormat:@"%@ BCM", bcm] positionX:0.609626 positionY:0.378815 hours:@"8:00am - 10:00pm"];
     
     NSDictionary *buildingDictionary = @{
-                                         @"Arts Lecture Hall" : AL,
-                                         @"Biology 1" : B1,
-                                         @"Biology 2" : B2,
-                                         @"B.C. Matthews Hall" : BCM,
+                                         al : AL,
+                                        b1 : B1,
+                                         b2 : B2,
+                                          bcm : BCM,
                                          };
     
     return buildingDictionary;

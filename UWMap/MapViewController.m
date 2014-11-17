@@ -158,8 +158,8 @@ static const CGFloat kWidthOfPin = 30;
 
     [self.imageView addSubview:popupView];
     
-//
-//
+
+
 //    [self.gravityBehaviour addItem:popupView];
 //    [self.collisionBehaviour addItem:popupView];
 //    [self.collisionBehaviour addBoundaryWithIdentifier:@"barrier" fromPoint:CGPointMake(locationPoint.x-100, locationPoint.y) toPoint:CGPointMake(locationPoint.x+100, locationPoint.y)];
@@ -168,7 +168,7 @@ static const CGFloat kWidthOfPin = 30;
 //    [self.animator addBehavior:self.gravityBehaviour];
 //    [self.animator addBehavior:self.collisionBehaviour];
 //    [self.animator addBehavior:self.itemBehaviour];
-////    //TODO: remove behavious when done animating
+//    //TODO: remove behavious when done animating
     
 
     [self.imageView addSubview:popupView];

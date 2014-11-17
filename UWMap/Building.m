@@ -14,12 +14,14 @@
 
 @implementation Building
 
-- (instancetype)initWithpositionX:(CGFloat)positionX
+- (instancetype)initWithBuildingName:(NSString *)buildingName
+                           positionX:(CGFloat)positionX
                         positionY:(CGFloat)positionY
                             hours:(NSString *)hours {
     
     self = [super init];
     if (self) {
+        _buildingName = buildingName;
         _positionX = positionX;
         _positionY = positionY;
         _hours = hours;

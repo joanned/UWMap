@@ -74,7 +74,7 @@
         self.filteredArray = [self.buildingTitlesArray mutableCopy];
     } else {
         [self.filteredArray removeAllObjects];
-        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF contains[c] %@",searchText];
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF CONTAINS[cd] %@",searchText];
         
         self.filteredArray = [NSMutableArray arrayWithArray:[self.buildingTitlesArray filteredArrayUsingPredicate:predicate]];
     }
