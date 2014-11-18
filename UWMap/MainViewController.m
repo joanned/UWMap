@@ -177,15 +177,18 @@
 }
 
 - (void)setBlurredBackground2 {
-    CGFloat reductionFactor = 1.25;
+    //reductionFactor to downsize blurred image
+    CGFloat reductionFactor = 2;
     UIGraphicsBeginImageContext(CGSizeMake(self.containerView.frame.size.width/reductionFactor, self.containerView.frame.size.height/reductionFactor));
-    [self.containerView drawViewHierarchyInRect:CGRectMake(0, 0, self.containerView.frame.size.width/reductionFactor, self.containerView.frame.size.height/reductionFactor) afterScreenUpdates:YES];
+    [self.containerView drawViewHierarchyInRect:CGRectMake(0, 0, self.containerView.frame.size.width/reductionFactor, self.containerView.frame.size.height/reductionFactor) afterScreenUpdates:NO];
     UIImage *screenshotImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     
-    UIImage *blurredImage = [UIImageEffects imageByApplyingBlurToImage:screenshotImage withRadius:5 tintColor:[UIColor colorWithWhite:1 alpha:0.7] saturationDeltaFactor:1.8 maskImage:nil];
     
-    self.buildingListViewController.tableView.backgroundColor = [UIColor colorWithPatternImage:blurredImage];
+    UIImage *blurredImage = [UIImageEffects imageByApplyingBlurToImage:screenshotImage withRadius:5 tintColor:[UIColor colorWithWhite:1 alpha:0.8] saturationDeltaFactor:1.6 maskImage:nil];
+    
+    [self.buildingListViewController.blurredImageView setImage:blurredImage];
+    
 }
 
 @end
