@@ -20,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (weak, nonatomic) IBOutlet UIImageView *buildingIcon;
 @property (strong, nonatomic) IBOutlet UIView *containerView;
+@property (weak, nonatomic) IBOutlet UIView *searchBarView;
 @property (nonatomic, assign) BOOL isOnMapView;
 @property (weak, nonatomic) IBOutlet UIView *whiteView;
 
@@ -41,6 +42,10 @@
     self.buildingListViewController.delegate = self;
     
     self.searchBar.delegate = self;
+    self.searchBar.backgroundColor = [UIColor clearColor];
+    self.searchBar.barTintColor = [UIColor clearColor];
+    
+    [self drawSearchbarShadow];
     
     self.whiteView.alpha = 0;
     
@@ -196,6 +201,15 @@
     
     [self.buildingListViewController.blurredImageView setImage:blurredImage];
     
+}
+
+- (void)drawSearchbarShadow {
+    UIBezierPath *shadowPath = [UIBezierPath bezierPathWithRect:self.searchBarView.bounds];
+    self.searchBarView.layer.masksToBounds = NO;
+    self.searchBarView.layer.shadowColor = [UIColor blackColor].CGColor;
+    self.searchBarView.layer.shadowOffset = CGSizeMake(0.0f, 3.5f);
+    self.searchBarView.layer.shadowOpacity = 0.3f;
+    self.searchBarView.layer.shadowPath = shadowPath.CGPath;
 }
 
 @end
