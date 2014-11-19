@@ -21,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *buildingIcon;
 @property (strong, nonatomic) IBOutlet UIView *containerView;
 @property (nonatomic, assign) BOOL isOnMapView;
+@property (weak, nonatomic) IBOutlet UIView *whiteView;
 
 @end
 
@@ -41,24 +42,35 @@
     
     self.searchBar.delegate = self;
     
+    self.whiteView.alpha = 0;
+    
     [self showMapView];
 }
 
 - (void)tappedIcon:(UITapGestureRecognizer *)recognizer {
     if (self.isOnMapView == YES) {
-        [self showTableView];
+            [self showTableView];
+
+        
+
     } else {
         [self showMapView];
     }
 }
 
 - (void)showTableView {
-    [self setBlurredBackground2];
-    
+    [self setBlurredBackground];
+
     //show table view
     [self addChildViewController:self.buildingListViewController];
     self.buildingListViewController.view.frame = [self.containerView bounds];
-    [self.containerView addSubview:self.buildingListViewController.view];
+    
+    [UIView animateWithDuration:2 delay:0 options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
+        
+        [self.containerView addSubview:self.buildingListViewController.view];
+    } completion:nil];
+    
+    
     [self.buildingListViewController didMoveToParentViewController:self];
     
     //hide map view
@@ -67,6 +79,8 @@
     [self.mapViewController removeFromParentViewController];
     
     self.isOnMapView = NO;
+    
+    [self animateToTableview:YES];
 }
 
 - (void)showMapView {
@@ -83,6 +97,26 @@
     
     self.isOnMapView = YES;
     [self.searchBar resignFirstResponder];
+    
+    [self animateToTableview:NO];
+}
+
+- (void)animateToTableview:(BOOL)animateToTable {
+    if (animateToTable) {
+        self.whiteView.hidden = YES;
+        self.whiteView.alpha = 0.65f;
+        self.buildingListViewController.whiteLayer.alpha = 0;
+        [UIView animateWithDuration:0.1f delay:0.0f options:UIViewAnimationOptionBeginFromCurrentState animations:^{
+            self.buildingListViewController.whiteLayer.alpha = 0.65; //make this contants
+        } completion:nil];
+        
+    } else {
+        self.whiteView.hidden = NO;
+        self.buildingListViewController.whiteLayer.alpha = 0.0f;
+        [UIView animateWithDuration:0.25f delay:0.0f options:UIViewAnimationOptionBeginFromCurrentState animations:^{
+            self.whiteView.alpha = 0.0f;
+        } completion:nil];
+    }
 }
 
 #pragma mark - Childview controller
@@ -127,9 +161,10 @@
 
 - (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
     if (self.isOnMapView) {
-        //blur background
-        [self showTableView];
-        [self.buildingListViewController reloadTableWithText:@""];
+//        [UIView animateWithDuration:2.0f animations:^{
+            [self showTableView];
+            [self.buildingListViewController reloadTableWithText:@""];
+//        }];
     }
 }
 
@@ -150,33 +185,6 @@
 #pragma mark - Helpers
 
 - (void)setBlurredBackground {
-    UIGraphicsBeginImageContext(self.containerView.bounds.size);
-    [self.containerView.layer renderInContext:UIGraphicsGetCurrentContext()];
-    UIImage *screenshotImage = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    
-    CIFilter *gaussianBlurFilter = [CIFilter filterWithName:@"CIGaussianBlur"];
-    [gaussianBlurFilter setDefaults];
-    [gaussianBlurFilter setValue:[CIImage imageWithCGImage:[screenshotImage CGImage]] forKey:kCIInputImageKey];
-    [gaussianBlurFilter setValue:@5 forKey:kCIInputRadiusKey];
-    
-    CIImage *outputImage = [gaussianBlurFilter outputImage];
-    CIContext *context   = [CIContext contextWithOptions:nil];
-    CGRect rect          = [outputImage extent];
-    
-    //ensure that the final image is the same size
-    rect.origin.x        += (rect.size.width  - screenshotImage.size.width ) / 2;
-    rect.origin.y        += (rect.size.height - screenshotImage.size.height) / 2;
-    rect.size            = screenshotImage.size;
-    
-    CGImageRef cgimg     = [context createCGImage:outputImage fromRect:rect];
-    UIImage *blurredImage       = [UIImage imageWithCGImage:cgimg];
-    CGImageRelease(cgimg);
-    
-    self.buildingListViewController.tableView.backgroundColor = [UIColor colorWithPatternImage:blurredImage];
-}
-
-- (void)setBlurredBackground2 {
     //reductionFactor to downsize blurred image
     CGFloat reductionFactor = 2;
     UIGraphicsBeginImageContext(CGSizeMake(self.containerView.frame.size.width/reductionFactor, self.containerView.frame.size.height/reductionFactor));
@@ -184,8 +192,7 @@
     UIImage *screenshotImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     
-    
-    UIImage *blurredImage = [UIImageEffects imageByApplyingBlurToImage:screenshotImage withRadius:5 tintColor:[UIColor colorWithWhite:1 alpha:0.8] saturationDeltaFactor:1.6 maskImage:nil];
+    UIImage *blurredImage = [UIImageEffects imageByApplyingBlurToImage:screenshotImage withRadius:5 tintColor:[UIColor colorWithWhite:1 alpha:0.5] saturationDeltaFactor:1.4 maskImage:nil];
     
     [self.buildingListViewController.blurredImageView setImage:blurredImage];
     

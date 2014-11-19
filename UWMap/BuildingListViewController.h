@@ -18,6 +18,7 @@
 @interface BuildingListViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView *blurredImageView;
+@property (weak, nonatomic) IBOutlet UIView *whiteLayer;
 @property (nonatomic, weak) id<BuildingListViewControllerDelegate> delegate;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 

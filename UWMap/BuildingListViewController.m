@@ -32,6 +32,8 @@
     [self.buildingTitlesArray sortUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
 
     self.filteredArray = [NSMutableArray arrayWithCapacity:[self.buildingTitlesArray count]];
+    
+    self.whiteLayer.alpha = 0;
 
 }
 
