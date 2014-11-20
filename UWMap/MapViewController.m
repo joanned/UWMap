@@ -144,7 +144,9 @@ static const CGFloat kWidthOfPin = 30;
 
 - (void)showDetails:(CGPoint)locationPoint withLabel:(NSString *)label {
     if (self.popupView) {
-        [self.popupView removeFromSuperview];
+        [UIView transitionWithView:self.imageView duration:0.2f options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
+            [self.popupView removeFromSuperview];
+        } completion:nil];
     }
     
     self.popupView = [[PopupView alloc] initWithTitle:label detail:@""];
@@ -164,7 +166,6 @@ static const CGFloat kWidthOfPin = 30;
 
     [UIView transitionWithView:self.imageView duration:0.2f options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
         [self.imageView addSubview:self.popupView];
-
     } completion:nil];
     
 
