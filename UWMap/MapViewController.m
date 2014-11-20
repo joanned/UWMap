@@ -33,6 +33,8 @@
 @property (nonatomic ,assign) CGRect initialPopupFrame;
 @property (nonatomic, assign) CGFloat initialMapScale;
 
+@property (nonatomic, strong) PopupView *popupView;
+
 @end
 
 static const CGFloat kWidthOfPin = 30;
@@ -141,22 +143,29 @@ static const CGFloat kWidthOfPin = 30;
 }
 
 - (void)showDetails:(CGPoint)locationPoint withLabel:(NSString *)label {
-    PopupView *popupView = [[PopupView alloc] initWithTitle:label detail:@""];
+    if (self.popupView) {
+        [self.popupView removeFromSuperview];
+    }
     
-    popupView.transform = CGAffineTransformMakeScale(1.0/self.scrollView.zoomScale, 1.0/self.scrollView.zoomScale);
+    self.popupView = [[PopupView alloc] initWithTitle:label detail:@""];
+    
+    self.popupView.transform = CGAffineTransformMakeScale(1.0/self.scrollView.zoomScale, 1.0/self.scrollView.zoomScale);
 
-    CGRect f = popupView.frame;
-    f.origin.x = locationPoint.x-popupView.frame.size.width/2;
-    f.origin.y = locationPoint.y-25-popupView.frame.size.height;;
-    popupView.frame = f;
+    CGRect f = self.popupView.frame;
+    f.origin.x = locationPoint.x-self.popupView.frame.size.width/2;
+    f.origin.y = locationPoint.y-self.popupView.frame.size.height;;
+    self.popupView.frame = f;
     
     NSLog(@"shown at point %f %f", locationPoint.x / self.imageView.frame.size.width, locationPoint.y / self.imageView.frame.size.height);
     NSLog(@"shown at point %f %f", locationPoint.x , locationPoint.y);
-    NSLog(@"popup frame: %@", NSStringFromCGRect(popupView.frame));
+    NSLog(@"popup frame: %@", NSStringFromCGRect(self.popupView.frame));
     NSLog(@"~~~~~~IMAGEVIEW FRAME: %@", NSStringFromCGRect(self.imageView.frame));
     NSLog(@"~~~~~~SCROLLVIEW FRAME: %@", NSStringFromCGSize([self.scrollView contentSize]));
 
-    [self.imageView addSubview:popupView];
+    [UIView transitionWithView:self.imageView duration:0.2f options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
+        [self.imageView addSubview:self.popupView];
+
+    } completion:nil];
     
 
 //
@@ -171,7 +180,6 @@ static const CGFloat kWidthOfPin = 30;
     //TODO: remove behavious when done animating
     
 
-    [self.imageView addSubview:popupView];
 }
 
 - (void)adjustViewWithPoint:(CGPoint)locationPoint {

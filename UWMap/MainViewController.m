@@ -42,10 +42,20 @@
     self.buildingListViewController.delegate = self;
     
     self.searchBar.delegate = self;
-    self.searchBar.backgroundColor = [UIColor clearColor];
-    self.searchBar.barTintColor = [UIColor clearColor];
+//    self.searchBar.backgroundColor = [UIColor clearColor];
+//    self.searchBar.barTintColor = [UIColor clearColor];
+    self.searchBar.alpha = 0.93f;
+    
+    
+//    UITextField *textField = [self.searchBar valueForKey:@"_searchField"];
+//    textField.layer.borderColor = [UIColor lightGrayColor].CGColor;
+//    textField.layer.borderWidth = 1.0f;
+    
+    
+    
     
     [self drawSearchbarShadow];
+//    [self setSearchBarColours];
     
     self.whiteView.alpha = 0;
     
@@ -55,9 +65,6 @@
 - (void)tappedIcon:(UITapGestureRecognizer *)recognizer {
     if (self.isOnMapView == YES) {
             [self showTableView];
-
-        
-
     } else {
         [self showMapView];
     }
@@ -166,10 +173,8 @@
 
 - (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
     if (self.isOnMapView) {
-//        [UIView animateWithDuration:2.0f animations:^{
-            [self showTableView];
-            [self.buildingListViewController reloadTableWithText:@""];
-//        }];
+        [self showTableView];
+        [self.buildingListViewController reloadTableWithText:@""];
     }
 }
 
@@ -207,9 +212,24 @@
     UIBezierPath *shadowPath = [UIBezierPath bezierPathWithRect:self.searchBarView.bounds];
     self.searchBarView.layer.masksToBounds = NO;
     self.searchBarView.layer.shadowColor = [UIColor blackColor].CGColor;
-    self.searchBarView.layer.shadowOffset = CGSizeMake(0.0f, 3.5f);
-    self.searchBarView.layer.shadowOpacity = 0.3f;
+    self.searchBarView.layer.shadowOffset = CGSizeMake(0.0f, 2.0f);
+    self.searchBarView.layer.shadowOpacity = 0.25f;
     self.searchBarView.layer.shadowPath = shadowPath.CGPath;
 }
+
+//- (void)setSearchBarColours {
+//    UITextField *searchField;
+//    NSUInteger numViews = [self.searchBar.subviews count];
+//    for(int i = 0; i < numViews; i++) {
+//        if([[self.searchBar.subviews objectAtIndex:i] isKindOfClass:[UITextField class]]) { //conform?
+//            searchField = [self.searchBar.subviews objectAtIndex:i];
+//        }
+//    }
+//    if(!(searchField == nil)) {
+//        searchField.textColor = [UIColor whiteColor];
+//        [searchField setBackgroundColor:[UIColor whiteColor]];
+//        [searchField setBorderStyle:UITextBorderStyleNone];
+//    }
+//}
 
 @end
