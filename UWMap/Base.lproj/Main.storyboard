@@ -67,54 +67,54 @@
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oAY-OV-2XF">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </containerView>
-                            <toolbar hidden="YES" opaque="NO" clearsContextBeforeDrawing="NO" alpha="0.20000000000000001" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="m0R-5P-RYn">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
-                                <items/>
-                                <color key="barTintColor" red="1" green="1" blue="1" alpha="0.34000000000000002" colorSpace="calibratedRGB"/>
-                            </toolbar>
-                            <view alpha="0.96999999999999997" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3fb-Eb-Kyi" userLabel="searchBarBackground">
+                            <view alpha="0.96999999999999997" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3fb-Eb-Kyi" userLabel="searchBarBackground">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
                                 <subviews>
-                                    <searchBar opaque="NO" contentMode="redraw" ambiguous="YES" misplaced="YES" searchBarStyle="minimal" translatesAutoresizingMaskIntoConstraints="NO" id="7Jp-ao-Q5s">
+                                    <searchBar opaque="NO" contentMode="redraw" barStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="7Jp-ao-Q5s">
                                         <rect key="frame" x="0.0" y="20" width="278" height="44"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="uzh-2C-O2Z"/>
                                         </constraints>
+                                        <color key="barTintColor" red="0.3109654017857143" green="0.3109654017857143" blue="0.3109654017857143" alpha="1" colorSpace="calibratedRGB"/>
                                         <textInputTraits key="textInputTraits" keyboardAppearance="alert"/>
                                     </searchBar>
+                                    <imageView multipleTouchEnabled="YES" alpha="0.65000000000000002" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="list" translatesAutoresizingMaskIntoConstraints="NO" id="6uD-YX-IT0">
+                                        <rect key="frame" x="282" y="26" width="30" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="PRv-Md-dno"/>
+                                            <constraint firstAttribute="width" constant="30" id="qRD-NH-1U9"/>
+                                        </constraints>
+                                    </imageView>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="0.96999999999999997" colorSpace="calibratedWhite"/>
-                            </view>
-                            <imageView multipleTouchEnabled="YES" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon2" translatesAutoresizingMaskIntoConstraints="NO" id="6uD-YX-IT0">
-                                <rect key="frame" x="278" y="27" width="35" height="33"/>
+                                <color key="backgroundColor" red="0.3109654017857143" green="0.3109654017857143" blue="0.3109654017857143" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="33" id="PRv-Md-dno"/>
-                                    <constraint firstAttribute="width" constant="35" id="qRD-NH-1U9"/>
+                                    <constraint firstItem="7Jp-ao-Q5s" firstAttribute="leading" secondItem="3fb-Eb-Kyi" secondAttribute="leading" id="0LH-20-0Ny"/>
+                                    <constraint firstAttribute="trailing" secondItem="6uD-YX-IT0" secondAttribute="trailing" constant="8" id="Gpy-IX-4IX"/>
+                                    <constraint firstAttribute="height" constant="64" id="Srx-3G-fqr"/>
+                                    <constraint firstItem="6uD-YX-IT0" firstAttribute="top" secondItem="3fb-Eb-Kyi" secondAttribute="top" constant="26" id="euC-x0-SfW"/>
+                                    <constraint firstAttribute="bottom" secondItem="7Jp-ao-Q5s" secondAttribute="bottom" id="oUu-no-b4u"/>
+                                    <constraint firstItem="6uD-YX-IT0" firstAttribute="leading" secondItem="7Jp-ao-Q5s" secondAttribute="trailing" constant="4" id="sSt-bP-5qv"/>
                                 </constraints>
-                            </imageView>
-                            <view hidden="YES" opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Y3d-b2-bJo" userLabel="whiteLayer">
+                            </view>
+                            <view hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y3d-b2-bJo" userLabel="whiteLayer">
                                 <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="6uD-YX-IT0" secondAttribute="trailing" constant="-9" id="4yc-iR-hGd"/>
+                            <constraint firstItem="3fb-Eb-Kyi" firstAttribute="top" secondItem="dDj-IX-x1s" secondAttribute="bottom" constant="-20" id="6n5-KY-ejR"/>
+                            <constraint firstItem="Y3d-b2-bJo" firstAttribute="top" secondItem="3fb-Eb-Kyi" secondAttribute="bottom" id="EWC-7I-7XN"/>
                             <constraint firstItem="oAY-OV-2XF" firstAttribute="top" secondItem="dDj-IX-x1s" secondAttribute="bottom" constant="-20" id="IN0-Wz-dlc"/>
                             <constraint firstItem="oAY-OV-2XF" firstAttribute="leading" secondItem="Q9M-ZU-eZc" secondAttribute="leading" id="JQX-2X-0hW"/>
-                            <constraint firstItem="3fb-Eb-Kyi" firstAttribute="leading" secondItem="Q9M-ZU-eZc" secondAttribute="leadingMargin" constant="-16" id="VD4-dr-GIz"/>
+                            <constraint firstAttribute="trailing" secondItem="3fb-Eb-Kyi" secondAttribute="trailing" id="P2a-pa-ywk"/>
                             <constraint firstAttribute="trailing" secondItem="Y3d-b2-bJo" secondAttribute="trailing" id="Yqx-N9-geH"/>
+                            <constraint firstItem="3fb-Eb-Kyi" firstAttribute="leading" secondItem="Q9M-ZU-eZc" secondAttribute="leading" id="ciV-Lm-Lly"/>
                             <constraint firstItem="ESd-9h-tw3" firstAttribute="top" secondItem="oAY-OV-2XF" secondAttribute="bottom" id="gLS-qY-Z89"/>
-                            <constraint firstItem="m0R-5P-RYn" firstAttribute="top" secondItem="dDj-IX-x1s" secondAttribute="bottom" constant="-20" id="ggA-2H-2DN"/>
                             <constraint firstAttribute="trailing" secondItem="oAY-OV-2XF" secondAttribute="trailing" id="kKK-bP-sJm"/>
                             <constraint firstItem="ESd-9h-tw3" firstAttribute="top" secondItem="Y3d-b2-bJo" secondAttribute="bottom" id="kzQ-Xp-T5W"/>
-                            <constraint firstItem="6uD-YX-IT0" firstAttribute="top" secondItem="dDj-IX-x1s" secondAttribute="bottom" constant="7" id="mfO-Ov-66N"/>
                             <constraint firstItem="Y3d-b2-bJo" firstAttribute="leading" secondItem="Q9M-ZU-eZc" secondAttribute="leading" id="phg-nI-YvR"/>
-                            <constraint firstItem="3fb-Eb-Kyi" firstAttribute="top" secondItem="dDj-IX-x1s" secondAttribute="bottom" constant="-20" id="rig-Gy-4Jg"/>
-                            <constraint firstItem="m0R-5P-RYn" firstAttribute="leading" secondItem="Q9M-ZU-eZc" secondAttribute="leading" id="roI-hu-wba"/>
-                            <constraint firstAttribute="trailing" secondItem="m0R-5P-RYn" secondAttribute="trailing" id="saK-Ue-MCo"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="3fb-Eb-Kyi" secondAttribute="trailing" constant="-16" id="xkq-06-sfy"/>
                         </constraints>
                     </view>
                     <connections>
@@ -200,7 +200,7 @@
     <resources>
         <image name="Waterloo_map" width="2223" height="1365"/>
         <image name="first" width="30" height="30"/>
-        <image name="icon2" width="90" height="90"/>
+        <image name="list" width="126" height="126"/>
         <image name="second" width="30" height="30"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

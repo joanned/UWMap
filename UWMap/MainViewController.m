@@ -11,6 +11,8 @@
 #import "MapViewController.h"
 #import "UIImageEffects.h"
 
+const float kWhiteOverlayOpacity = 0.75f;
+
 @interface MainViewController () <BuildingListViewControllerDelegate, UISearchBarDelegate>
 
 @property (nonatomic, strong) BuildingListViewController *buildingListViewController;
@@ -42,8 +44,6 @@
     self.buildingListViewController.delegate = self;
     
     self.searchBar.delegate = self;
-//    self.searchBar.backgroundColor = [UIColor clearColor];
-//    self.searchBar.barTintColor = [UIColor clearColor];
     self.searchBar.alpha = 0.93f;
     
     
@@ -116,10 +116,10 @@
 - (void)animateToTableview:(BOOL)animateToTable {
     if (animateToTable) {
         self.whiteView.hidden = YES;
-        self.whiteView.alpha = 0.65f;
+        self.whiteView.alpha = kWhiteOverlayOpacity;
         self.buildingListViewController.whiteLayer.alpha = 0;
         [UIView animateWithDuration:0.1f delay:0.0f options:UIViewAnimationOptionBeginFromCurrentState animations:^{
-            self.buildingListViewController.whiteLayer.alpha = 0.65; //make this contants
+            self.buildingListViewController.whiteLayer.alpha = kWhiteOverlayOpacity; //make this contants
         } completion:nil];
         
     } else {
@@ -212,8 +212,8 @@
     UIBezierPath *shadowPath = [UIBezierPath bezierPathWithRect:self.searchBarView.bounds];
     self.searchBarView.layer.masksToBounds = NO;
     self.searchBarView.layer.shadowColor = [UIColor blackColor].CGColor;
-    self.searchBarView.layer.shadowOffset = CGSizeMake(0.0f, 2.0f);
-    self.searchBarView.layer.shadowOpacity = 0.25f;
+    self.searchBarView.layer.shadowOffset = CGSizeMake(0.0f, 4.0f);
+    self.searchBarView.layer.shadowOpacity = 0.5f;
     self.searchBarView.layer.shadowPath = shadowPath.CGPath;
 }
 

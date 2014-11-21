@@ -71,12 +71,12 @@ static const CGFloat kWidthOfPin = 30;
     
     [self.scrollView setClipsToBounds:YES];
     
-    if (self.isFirstLoad) {
+//    if (self.isFirstLoad) {
         CGFloat heightScale = self.scrollView.frame.size.height / self.scrollView.contentSize.height;
         self.scrollView.minimumZoomScale = heightScale;
         self.scrollView.maximumZoomScale = 1.3f;
         self.scrollView.zoomScale = heightScale + 0.4;
-    }
+//    }
     
     UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedScreen:)];
     [tapRecognizer setNumberOfTapsRequired:1];
