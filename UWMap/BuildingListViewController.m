@@ -59,6 +59,7 @@
     }
     
     cell.textLabel.text = [self.filteredArray objectAtIndex:indexPath.row];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
     return cell;
 }
