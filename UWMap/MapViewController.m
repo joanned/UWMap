@@ -24,10 +24,10 @@
 @property NSDictionary *locationDictionary;
 @property NSArray *buildingTitlesArray;
 
-@property (nonatomic, strong) UIDynamicAnimator *animator;
-@property (nonatomic, strong) UIGravityBehavior *gravityBehaviour;
-@property (nonatomic, strong) UICollisionBehavior *collisionBehaviour;
-@property (nonatomic, strong) UIDynamicItemBehavior *itemBehaviour;
+//@property (nonatomic, strong) UIDynamicAnimator *animator;
+//@property (nonatomic, strong) UIGravityBehavior *gravityBehaviour;
+//@property (nonatomic, strong) UICollisionBehavior *collisionBehaviour;
+//@property (nonatomic, strong) UIDynamicItemBehavior *itemBehaviour;
 
 @property (nonatomic, strong) PopupView *currentPopupView;
 @property (nonatomic ,assign) CGRect initialPopupFrame;
@@ -54,10 +54,10 @@ static const CGFloat kWidthOfPin = 30;
     
     self.isFirstLoad = YES;
     
-    self.animator = [[UIDynamicAnimator alloc] initWithReferenceView:self.view];
-    self.gravityBehaviour = [[UIGravityBehavior alloc] init];
-    self.collisionBehaviour = [[UICollisionBehavior alloc] init];
-    self.itemBehaviour = [[UIDynamicItemBehavior alloc] init];
+//    self.animator = [[UIDynamicAnimator alloc] initWithReferenceView:self.view];
+//    self.gravityBehaviour = [[UIGravityBehavior alloc] init];
+//    self.collisionBehaviour = [[UICollisionBehavior alloc] init];
+//    self.itemBehaviour = [[UIDynamicItemBehavior alloc] init];
     
     
 }
@@ -70,17 +70,20 @@ static const CGFloat kWidthOfPin = 30;
     self.scrollView.contentSize = CGSizeMake ([image size].width, [image size].height);
     
     [self.scrollView setClipsToBounds:YES];
-    CGFloat heightScale = self.scrollView.frame.size.height / self.scrollView.contentSize.height;
-    self.scrollView.minimumZoomScale = heightScale;
-    self.scrollView.maximumZoomScale = 1.3f;
-    self.scrollView.zoomScale = heightScale + 0.4;
+    
+    if (self.isFirstLoad) {
+        CGFloat heightScale = self.scrollView.frame.size.height / self.scrollView.contentSize.height;
+        self.scrollView.minimumZoomScale = heightScale;
+        self.scrollView.maximumZoomScale = 1.3f;
+        self.scrollView.zoomScale = heightScale + 0.4;
+    }
     
     UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedScreen:)];
     [tapRecognizer setNumberOfTapsRequired:1];
     //    [tapRecognizer setDelegate:self];
     [self.scrollView addGestureRecognizer:tapRecognizer];
     
-    self.initialMapScale = self.scrollView.zoomScale;
+    self.initialMapScale = self.scrollView.zoomScale; //not needed?
     
 //    NSLog(@"VIEW DID APPEAR: %@", NSStringFromCGSize(self.scrollView.contentSize));
 //    NSLog(@"rect: %@", NSStringFromCGRect(self.imageView.frame));
