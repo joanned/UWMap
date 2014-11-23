@@ -25,6 +25,7 @@ const float kWhiteOverlayOpacity = 0.75f;
 @property (weak, nonatomic) IBOutlet UIView *searchBarView;
 @property (nonatomic, assign) BOOL isOnMapView;
 @property (weak, nonatomic) IBOutlet UIView *whiteView;
+@property (weak, nonatomic) IBOutlet UIImageView *iconImage;
 
 @end
 
@@ -49,7 +50,6 @@ const float kWhiteOverlayOpacity = 0.75f;
     
     
     
-    
     [self drawSearchbarShadow];
     [self setSearchBarColours];
     
@@ -68,6 +68,8 @@ const float kWhiteOverlayOpacity = 0.75f;
 
 - (void)showTableView {
     [self setBlurredBackground];
+    
+    [self.iconImage setImage:[UIImage imageNamed:@"mapIcon"]];
 
     //show table view
     [self addChildViewController:self.buildingListViewController];
@@ -92,6 +94,8 @@ const float kWhiteOverlayOpacity = 0.75f;
 }
 
 - (void)showMapView {
+    [self.iconImage setImage:[UIImage imageNamed:@"list"]];
+
     //show map view
     [self addChildViewController:self.mapViewController];
     self.mapViewController.view.frame = [self.containerView bounds];

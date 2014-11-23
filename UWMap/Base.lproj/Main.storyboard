@@ -79,7 +79,7 @@
                                         <color key="barTintColor" red="0.20350366709183676" green="0.20350366709183676" blue="0.20350366709183676" alpha="1" colorSpace="calibratedRGB"/>
                                         <textInputTraits key="textInputTraits" keyboardAppearance="alert"/>
                                     </searchBar>
-                                    <imageView multipleTouchEnabled="YES" alpha="0.65000000000000002" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="list" translatesAutoresizingMaskIntoConstraints="NO" id="6uD-YX-IT0">
+                                    <imageView multipleTouchEnabled="YES" alpha="0.65000000000000002" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="list" translatesAutoresizingMaskIntoConstraints="NO" id="6uD-YX-IT0" userLabel="icon">
                                         <rect key="frame" x="282" y="26" width="30" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="PRv-Md-dno"/>
@@ -120,6 +120,7 @@
                     <connections>
                         <outlet property="buildingIcon" destination="6uD-YX-IT0" id="L5L-gM-tEv"/>
                         <outlet property="containerView" destination="oAY-OV-2XF" id="Ohx-I1-VL5"/>
+                        <outlet property="iconImage" destination="6uD-YX-IT0" id="Wqf-E9-LHo"/>
                         <outlet property="searchBar" destination="7Jp-ao-Q5s" id="WmT-7B-UN1"/>
                         <outlet property="searchBarView" destination="3fb-Eb-Kyi" id="Dcf-ae-izU"/>
                         <outlet property="whiteView" destination="Y3d-b2-bJo" id="Dvi-Lc-Uxy"/>
