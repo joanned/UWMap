@@ -92,7 +92,7 @@ static CGFloat maxHeight = 168.0;
     
     NSArray* newGradientColors = [NSArray arrayWithObjects:
                                   (id)[UIColor clearColor].CGColor,
-                                  (id)[UIColor blackColor].CGColor, nil];
+                                  (id)[UIColor colorWithRed:25/255.0f green:25/255.0f blue:25/255.0f alpha:1].CGColor, nil];
     CGFloat newGradientLocations[] = {0, 1};
 
     
@@ -175,7 +175,7 @@ static CGFloat maxHeight = 168.0;
 
     CGContextSetShadowWithColor(context, shadow2Offset, shadow2BlurRadius, shadow2.CGColor);
 
-    CGContextSetFillColorWithColor(context, [[UIColor blackColor] colorWithAlphaComponent:0.55].CGColor);
+    CGContextSetFillColorWithColor(context, [[UIColor colorWithRed:25/255.0f green:25/255.0f blue:25/255.0f alpha:1] colorWithAlphaComponent:0.55].CGColor);
     [popupPath fill];
     [popupPath addClip];
     

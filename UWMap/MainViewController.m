@@ -47,15 +47,11 @@ const float kWhiteOverlayOpacity = 0.75f;
     self.searchBar.alpha = 0.93f;
     
     
-//    UITextField *textField = [self.searchBar valueForKey:@"_searchField"];
-//    textField.layer.borderColor = [UIColor lightGrayColor].CGColor;
-//    textField.layer.borderWidth = 1.0f;
-    
     
     
     
     [self drawSearchbarShadow];
-//    [self setSearchBarColours];
+    [self setSearchBarColours];
     
     self.whiteView.alpha = 0;
     
@@ -217,19 +213,20 @@ const float kWhiteOverlayOpacity = 0.75f;
     self.searchBarView.layer.shadowPath = shadowPath.CGPath;
 }
 
-//- (void)setSearchBarColours {
-//    UITextField *searchField;
-//    NSUInteger numViews = [self.searchBar.subviews count];
-//    for(int i = 0; i < numViews; i++) {
-//        if([[self.searchBar.subviews objectAtIndex:i] isKindOfClass:[UITextField class]]) { //conform?
-//            searchField = [self.searchBar.subviews objectAtIndex:i];
-//        }
-//    }
-//    if(!(searchField == nil)) {
-//        searchField.textColor = [UIColor whiteColor];
-//        [searchField setBackgroundColor:[UIColor whiteColor]];
-//        [searchField setBorderStyle:UITextBorderStyleNone];
-//    }
-//}
+- (void)setSearchBarColours {
+    //removes 1px line at bottom of searchbar
+    [self.searchBar setBackgroundImage:[UIImage new]];
+    
+    //searchfield colour
+    for (UIView* subview in [[self.searchBar.subviews lastObject] subviews]) {
+        if ([subview isKindOfClass:[UITextField class]]) {
+            UITextField *textField = (UITextField*)subview;
+            [textField setBackgroundColor:[UIColor colorWithRed:25/255.0f green:25/255.0f blue:25/255.0f alpha:1]];
+        }
+    }
+    
+    //searchfield text color
+    [[UITextField appearanceWhenContainedIn:[UISearchBar class], nil] setTextColor:[UIColor colorWithWhite:1 alpha:0.8f]];
+}
 
 @end

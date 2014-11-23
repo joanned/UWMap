@@ -71,6 +71,7 @@ static const CGFloat kWidthOfPin = 30;
     
     [self.scrollView setClipsToBounds:YES];
     
+    //TODO: FIX DIS LATER ........D8
 //    if (self.isFirstLoad) {
         CGFloat heightScale = self.scrollView.frame.size.height / self.scrollView.contentSize.height;
         self.scrollView.minimumZoomScale = heightScale;

@@ -76,7 +76,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="uzh-2C-O2Z"/>
                                         </constraints>
-                                        <color key="barTintColor" red="0.3109654017857143" green="0.3109654017857143" blue="0.3109654017857143" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="barTintColor" red="0.20350366709183676" green="0.20350366709183676" blue="0.20350366709183676" alpha="1" colorSpace="calibratedRGB"/>
                                         <textInputTraits key="textInputTraits" keyboardAppearance="alert"/>
                                     </searchBar>
                                     <imageView multipleTouchEnabled="YES" alpha="0.65000000000000002" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="list" translatesAutoresizingMaskIntoConstraints="NO" id="6uD-YX-IT0">
@@ -87,7 +87,7 @@
                                         </constraints>
                                     </imageView>
                                 </subviews>
-                                <color key="backgroundColor" red="0.3109654017857143" green="0.3109654017857143" blue="0.3109654017857143" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.20350366709183676" green="0.20350366709183676" blue="0.20350366709183676" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="7Jp-ao-Q5s" firstAttribute="leading" secondItem="3fb-Eb-Kyi" secondAttribute="leading" id="0LH-20-0Ny"/>
                                     <constraint firstAttribute="trailing" secondItem="6uD-YX-IT0" secondAttribute="trailing" constant="8" id="Gpy-IX-4IX"/>
@@ -200,7 +200,7 @@
     <resources>
         <image name="Waterloo_map" width="2223" height="1365"/>
         <image name="first" width="30" height="30"/>
-        <image name="list" width="126" height="126"/>
+        <image name="list" width="128" height="128"/>
         <image name="second" width="30" height="30"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
