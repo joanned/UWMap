@@ -15,6 +15,7 @@
 @implementation Building
 
 - (instancetype)initWithBuildingName:(NSString *)buildingName
+                           shortform:(NSString *)shortform
                            positionX:(CGFloat)positionX
                         positionY:(CGFloat)positionY
                             hours:(NSString *)hours {
@@ -22,6 +23,7 @@
     self = [super init];
     if (self) {
         _buildingName = buildingName;
+        _shortform = shortform;
         _positionX = positionX;
         _positionY = positionY;
         _hours = hours;

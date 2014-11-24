@@ -25,42 +25,50 @@
     NSString *cif = @"Columbia Icefield";
 
     
-    Building *AL = [[Building alloc] initWithBuildingName:[NSString stringWithFormat:@"%@ AL", al]
+    Building *AL = [[Building alloc] initWithBuildingName:al
+                                                shortform:@"AL"
                                                 positionX:2696/kMapImageWidth
                                                 positionY:2185/kMapImageHeight
                                                     hours:@"8:00am - 10:00pm"];
     
-    Building *B1 = [[Building alloc] initWithBuildingName:[NSString stringWithFormat:@"%@ B1", b1]
+    Building *B1 = [[Building alloc] initWithBuildingName:b1
+                                                shortform:@"B1"
                                                 positionX:2705/kMapImageWidth
                                                 positionY:1800/kMapImageHeight
                                                     hours:@"8:00am - 10:00pm"];
     
-    Building *B2 = [[Building alloc] initWithBuildingName:[NSString stringWithFormat:@"%@ B2", b2]
+    Building *B2 = [[Building alloc] initWithBuildingName:b2
+                                                shortform:@"B2"
                                                 positionX:2615/kMapImageWidth
                                                 positionY:1724/kMapImageHeight
                                                     hours:@"8:00am - 10:00pm"];
     
-    Building *BCM = [[Building alloc] initWithBuildingName:[NSString stringWithFormat:@"%@ BCM", bcm]
+    Building *BCM = [[Building alloc] initWithBuildingName:bcm
+                                                 shortform:@"BCM"
                                                  positionX:2694/kMapImageWidth
                                                  positionY:1122/kMapImageHeight
                                                      hours:@"8:00am - 10:00pm"];
     
-    Building *C2 = [[Building alloc] initWithBuildingName:[NSString stringWithFormat:@"%@ C2", c2]
+    Building *C2 = [[Building alloc] initWithBuildingName:c2
+                                                shortform:@"C2"
                                                 positionX:2829/kMapImageWidth
                                                 positionY:1539/kMapImageHeight
                                                     hours:@"8:00am - 10:00pm"];
     
-    Building *BRH = [[Building alloc] initWithBuildingName:[NSString stringWithFormat:@"%@ BRH", brh]
+    Building *BRH = [[Building alloc] initWithBuildingName:brh
+                                                 shortform:@"BRH"
                                                 positionX:1940/kMapImageWidth
                                                 positionY:431/kMapImageHeight
                                                     hours:@""];
     
-    Building *CGR = [[Building alloc] initWithBuildingName:[NSString stringWithFormat:@"%@ CGR", cgr]
+    Building *CGR = [[Building alloc] initWithBuildingName:cgr
+                                                 shortform:@"CGR"
                                                  positionX:2099/kMapImageWidth
                                                  positionY:2367/kMapImageHeight
                                                      hours:@""];
     
-    Building *CIF = [[Building alloc] initWithBuildingName:[NSString stringWithFormat:@"%@ CIF", cif]
+    Building *CIF = [[Building alloc] initWithBuildingName:cif
+                                                 shortform:@"CIF"
                                                  positionX:2410/kMapImageWidth
                                                  positionY:685/kMapImageHeight
                                                      hours:@""];

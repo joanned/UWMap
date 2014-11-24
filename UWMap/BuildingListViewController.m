@@ -8,12 +8,13 @@
 
 #import "BuildingListViewController.h"
 #import "DataProvider.h"
+#import "Building.h"
 
 @interface BuildingListViewController ()
 
 
 @property NSDictionary *locationDictionary;
-@property NSMutableArray *buildingTitlesArray;
+@property NSArray *buildingsArray;
 @property NSMutableArray *filteredArray;
 
 @end
@@ -27,11 +28,14 @@
     self.tableView.contentInset = UIEdgeInsetsMake(50, 0, 0, 0); //TODO: change 50 to dynamic number
     
     self.locationDictionary = [DataProvider buildingDictionary];
-    NSArray *titleArray = [self.locationDictionary allKeys];
-    self.buildingTitlesArray = [titleArray mutableCopy];
-    [self.buildingTitlesArray sortUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
-
-    self.filteredArray = [NSMutableArray arrayWithCapacity:[self.buildingTitlesArray count]];
+    self.buildingsArray = [self.locationDictionary allValues];
+    
+    NSSortDescriptor *valueDescriptor = [[NSSortDescriptor alloc] initWithKey:@"buildingName" ascending:YES];
+    NSArray *descriptors = [NSArray arrayWithObject:valueDescriptor];
+    NSArray *sortedArray = [self.buildingsArray sortedArrayUsingDescriptors:descriptors];
+    
+    self.buildingsArray = sortedArray;
+    self.filteredArray = [NSMutableArray arrayWithCapacity:[self.buildingsArray count]];
     
     self.whiteLayer.alpha = 0;
 
@@ -40,7 +44,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    self.filteredArray = self.buildingTitlesArray;
+    self.filteredArray = [NSMutableArray arrayWithCapacity:[self.buildingsArray count]];
 }
 
 #pragma mark - <UITableViewDataSource, UITableViewDelegate>
@@ -58,7 +62,9 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
     }
     
-    cell.textLabel.text = [self.filteredArray objectAtIndex:indexPath.row];
+    Building *building = [self.filteredArray objectAtIndex:indexPath.row];
+    cell.textLabel.text = building.buildingName;
+    
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
     return cell;
@@ -76,13 +82,14 @@
 #pragma mark Content Filtering
 
 -(void)filterForSearchText:(NSString*)searchText {
-    if ([searchText isEqualToString:@""]) {
-        self.filteredArray = [self.buildingTitlesArray mutableCopy];
+    if ([searchText isEqualToString:@""]) { //not needed this if else
+        self.filteredArray = [self.buildingsArray mutableCopy];
+
     } else {
         [self.filteredArray removeAllObjects];
-        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF CONTAINS[cd] %@",searchText]; //tODO:shortform, change to array of objects intesad???
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"buildingName CONTAINS[cd] %@ OR shortform CONTAINS[cd] %@",searchText, searchText]; //tODO:shortform, change to array of objects intesad???
         
-        self.filteredArray = [NSMutableArray arrayWithArray:[self.buildingTitlesArray filteredArrayUsingPredicate:predicate]];
+        self.filteredArray = [NSMutableArray arrayWithArray:[self.buildingsArray filteredArrayUsingPredicate:predicate]];
     }
 }
 
