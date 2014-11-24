@@ -23,6 +23,14 @@
     NSString *brh = @"Brubacher House";
     NSString *cgr = @"Conrad Grebel University College";
     NSString *cif = @"Columbia Icefield";
+    NSString *cln = @"Columbia Lake Village North";
+    NSString *clv = @"Columbia Lake Village";
+    NSString *cog = @"Columbia Greenhouses";
+    NSString *com = @"Commissary (UW Police)";
+    NSString *cph = @"Carl A. Pollock Hall";
+    NSString *csb = @"Central Services Building";
+    NSString *dc = @"Davis Centre";
+    NSString *dwe = @"Douglas Wright Engineering Building";
 
     
     Building *AL = [[Building alloc] initWithBuildingName:al
@@ -73,6 +81,53 @@
                                                  positionY:685/kMapImageHeight
                                                      hours:@""];
     
+    Building *CLN = [[Building alloc] initWithBuildingName:cln
+                                                 shortform:@"CLN"
+                                                 positionX:342/kMapImageWidth
+                                                 positionY:371/kMapImageHeight
+                                                     hours:@""];
+    
+    Building *CLV = [[Building alloc] initWithBuildingName:clv
+                                                 shortform:@"CLV"
+                                                 positionX:356/kMapImageWidth
+                                                 positionY:746/kMapImageHeight
+                                                     hours:@""];
+    
+    Building *COG = [[Building alloc] initWithBuildingName:cog
+                                                 shortform:@"COG"
+                                                 positionX:836/kMapImageWidth
+                                                 positionY:366/kMapImageHeight
+                                                     hours:@""];
+    
+    Building *COM = [[Building alloc] initWithBuildingName:com
+                                                 shortform:@"COM"
+                                                 positionX:2992/kMapImageWidth
+                                                 positionY:1236/kMapImageHeight
+                                                     hours:@""];
+    
+    Building *CPH = [[Building alloc] initWithBuildingName:cph
+                                                 shortform:@"CPH"
+                                                 positionX:3165/kMapImageWidth
+                                                 positionY:1986/kMapImageHeight
+                                                     hours:@""];
+    
+    Building *CSB = [[Building alloc] initWithBuildingName:csb
+                                                 shortform:@"CSB"
+                                                 positionX:2868/kMapImageWidth
+                                                 positionY:1202/kMapImageHeight
+                                                     hours:@""];
+    
+    Building *DC = [[Building alloc] initWithBuildingName:csb
+                                                 shortform:@"DC William G. Davis Computer Research Centre"
+                                                 positionX:2960/kMapImageWidth
+                                                 positionY:1501/kMapImageHeight
+                                                     hours:@""];
+    
+    Building *DWE = [[Building alloc] initWithBuildingName:dwe
+                                                shortform:@"DWE"
+                                                positionX:3007/kMapImageWidth
+                                                positionY:2064/kMapImageHeight
+                                                    hours:@""];
     
     NSDictionary *buildingDictionary = @{
                                          al : AL,
@@ -82,7 +137,15 @@
                                          brh : BRH,
                                          c2 : C2,
                                          cgr : CGR,
-                                         cif : CIF
+                                         cif : CIF,
+                                         cln : CLN,
+                                         clv : CLV,
+                                         cog : COG,
+                                         com : COM,
+                                         cph : CPH,
+                                         csb : CSB,
+                                         dc : DC,
+                                         dwe : DWE
                                          };
     
     return buildingDictionary;

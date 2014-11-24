@@ -64,14 +64,13 @@ static const CGFloat kWidthOfPin = 30;
 //    if (self.isFirstLoad) {
         CGFloat heightScale = self.scrollView.frame.size.height / self.scrollView.contentSize.height;
 //    
-//        [UIView animateWithDuration:0.25f
-//                              delay:0
-//                            options:UIViewAnimationOptionBeginFromCurrentState
-//                         animations:^{
-                             self.scrollView.minimumZoomScale = heightScale;
-                             self.scrollView.maximumZoomScale = 1.3f;
-                             self.scrollView.zoomScale = heightScale + 0.4;
-//                         } completion:nil];
+//    self.scrollView.minimumZoomScale = heightScale;
+//    self.scrollView.maximumZoomScale = 1.3f;
+//    self.scrollView.zoomScale = heightScale + 0.4;
+    
+    self.scrollView.minimumZoomScale = 1;
+    self.scrollView.maximumZoomScale = 1;
+    self.scrollView.zoomScale = 1;
     
 //    }
     
@@ -106,7 +105,7 @@ static const CGFloat kWidthOfPin = 30;
         NSLog(@"~~~~~~IMAGEVIEW FRAME: %@", NSStringFromCGRect(self.imageView.frame));
 
         NSLog(@"%f %f", point.x / self.imageView.frame.size.width, point.y / self.imageView.frame.size.height);
-        NSLog(@"%f %f", point.x , point.y);
+        NSLog(@"%f %f", point.x*2, point.y*2 +10);
         for (NSString *locationKey in self.locationDictionary) {
             CGRect locationRect = [self makeRectFromBuildingKey:locationKey];
             
@@ -209,8 +208,8 @@ static const CGFloat kWidthOfPin = 30;
 //    }
 }
 
-- (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView {
-    return self.imageView;
-}
+//- (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView {
+//    return self.imageView;
+//}
 
 @end
