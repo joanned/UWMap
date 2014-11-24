@@ -9,7 +9,6 @@
 //todo:
 //fix zoomscale when you go back to map
 //add all the data
-//able to search abbreviations
 //map jumps zoomscale in beginning
 
 //second release:
@@ -37,6 +36,7 @@ const float kWhiteOverlayOpacity = 0.75f;
 @property (nonatomic, assign) BOOL isOnMapView;
 @property (weak, nonatomic) IBOutlet UIView *whiteView;
 @property (weak, nonatomic) IBOutlet UIImageView *iconImage;
+@property (nonatomic, assign) BOOL showFullList;
 
 @end
 
@@ -68,8 +68,10 @@ const float kWhiteOverlayOpacity = 0.75f;
 
 - (void)tappedIcon:(UITapGestureRecognizer *)recognizer {
     if (self.isOnMapView == YES) {
+        self.showFullList = YES;
             [self showTableView];
     } else {
+        self.showFullList = NO;
         [self showMapView];
     }
 }
@@ -149,14 +151,6 @@ const float kWhiteOverlayOpacity = 0.75f;
     return  _buildingListViewController;
 }
 
-//-(MapViewController *)mapViewController {
-//    if (!_mapViewController) {
-//        self.mapViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:NSStringFromClass([MapViewController class])];
-//    }
-//    
-//    return  _mapViewController;
-//}
-
 #pragma mark - <BuildingListViewControllerDelegate>
 
 - (void)selectedCellWithLabel:(NSString *)label {
@@ -182,23 +176,17 @@ const float kWhiteOverlayOpacity = 0.75f;
 - (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
     if (self.isOnMapView) {
         [self showTableView];
-        [self.buildingListViewController reloadTableWithText:@""];
+        [self.buildingListViewController reloadTableWithText:@"filler text for a blank search"];
     }
 }
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
-    [self.buildingListViewController reloadTableWithText:searchText];
+    if ([searchText length] == 0 && self.showFullList == NO) {
+        [self.buildingListViewController reloadTableWithText:@"filler text for a blank search"];
+    } else {
+        [self.buildingListViewController reloadTableWithText:searchText];
+    }
 }
-
-- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
-    
-}
-
-//#pragma mark - search helper
-//
-//- (void)updateSearchWithText:(NSString *)searchText {
-//    [self showTableView];
-//}
 
 #pragma mark - Helpers
 

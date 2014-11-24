@@ -35,7 +35,6 @@
     NSArray *sortedArray = [self.buildingsArray sortedArrayUsingDescriptors:descriptors];
     
     self.buildingsArray = sortedArray;
-    self.filteredArray = [NSMutableArray arrayWithCapacity:[self.buildingsArray count]];
     
     self.whiteLayer.alpha = 0;
 
@@ -44,7 +43,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    self.filteredArray = [NSMutableArray arrayWithCapacity:[self.buildingsArray count]];
+    self.filteredArray = [self.buildingsArray mutableCopy];
 }
 
 #pragma mark - <UITableViewDataSource, UITableViewDelegate>
