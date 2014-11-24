@@ -10,6 +10,7 @@
 //fix zoomscale when you go back to map
 //add all the data
 //able to search abbreviations
+//map jumps zoomscale in beginning
 
 //second release:
 //fOOD tings
