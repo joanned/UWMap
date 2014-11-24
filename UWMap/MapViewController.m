@@ -119,7 +119,7 @@ static const CGFloat kWidthOfPin = 30;
     }
    
     Building *building = [self.locationDictionary objectForKey:locationKey];
-    CGFloat scaledPositionX = building.positionX * self.imageView.frame.size.width;
+    CGFloat scaledPositionX = building.positionX * self.imageView.frame.size.width - kWidthOfPin/2;
     CGFloat scaledPositionY = building.positionY * self.imageView.frame.size.height;
     
     if (isFromTable == YES) {
@@ -147,7 +147,7 @@ static const CGFloat kWidthOfPin = 30;
     self.popupView.transform = CGAffineTransformMakeScale(1.0/self.scrollView.zoomScale, 1.0/self.scrollView.zoomScale);
 
     CGRect f = self.popupView.frame;
-    f.origin.x = locationPoint.x-self.popupView.frame.size.width/2;
+    f.origin.x = locationPoint.x-self.popupView.frame.size.width/2 + kWidthOfPin/2;
     f.origin.y = locationPoint.y-self.popupView.frame.size.height;;
     self.popupView.frame = f;
     

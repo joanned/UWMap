@@ -8,8 +8,8 @@
 
 //todo:
 //fix zoomscale when you go back to map
-//change map to fit top things
 //add all the data
+//able to search abbreviations
 
 //second release:
 //fOOD tings
