@@ -66,16 +66,6 @@ const float kWhiteOverlayOpacity = 0.75f;
     [self showMapView];
 }
 
-- (void)tappedIcon:(UITapGestureRecognizer *)recognizer {
-    if (self.isOnMapView == YES) {
-        self.showFullList = YES;
-            [self showTableView];
-    } else {
-        self.showFullList = NO;
-        [self showMapView];
-    }
-}
-
 - (void)showTableView {
     [self setBlurredBackground];
     
@@ -141,6 +131,16 @@ const float kWhiteOverlayOpacity = 0.75f;
     }
 }
 
+- (void)tappedIcon:(UITapGestureRecognizer *)recognizer {
+    if (self.isOnMapView == YES) {
+        self.showFullList = YES;
+        [self showTableView];
+    } else {
+        self.showFullList = NO;
+        [self showMapView];
+    }
+}
+
 #pragma mark - Childview controller
 
 -(BuildingListViewController *)buildingListViewController {
@@ -168,7 +168,15 @@ const float kWhiteOverlayOpacity = 0.75f;
     CGFloat adjustedY = locationPoint.y * zoomScale - [[UIScreen mainScreen] bounds].size.height / 2;
         
     CGPoint adjustedPoint = CGPointMake(adjustedX, adjustedY);
-    [self.mapViewController adjustViewWithPoint:adjustedPoint];
+    
+    [UIView animateWithDuration:0.25f
+                          delay:0
+                        options:UIViewAnimationOptionBeginFromCurrentState
+                     animations:^{
+                         [self.mapViewController adjustViewWithPoint:adjustedPoint];
+                     } completion:nil];
+    
+    
 }
 
 #pragma  mark - <UISearchBarDelegate>

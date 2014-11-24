@@ -63,9 +63,16 @@ static const CGFloat kWidthOfPin = 30;
     //TODO: FIX DIS LATER ........D8
 //    if (self.isFirstLoad) {
         CGFloat heightScale = self.scrollView.frame.size.height / self.scrollView.contentSize.height;
-        self.scrollView.minimumZoomScale = heightScale;
-        self.scrollView.maximumZoomScale = 1.3f;
-        self.scrollView.zoomScale = heightScale + 0.4;
+//    
+//        [UIView animateWithDuration:0.25f
+//                              delay:0
+//                            options:UIViewAnimationOptionBeginFromCurrentState
+//                         animations:^{
+                             self.scrollView.minimumZoomScale = heightScale;
+                             self.scrollView.maximumZoomScale = 1.3f;
+                             self.scrollView.zoomScale = heightScale + 0.4;
+//                         } completion:nil];
+    
 //    }
     
     UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedScreen:)];
@@ -73,7 +80,7 @@ static const CGFloat kWidthOfPin = 30;
     //    [tapRecognizer setDelegate:self];
     [self.scrollView addGestureRecognizer:tapRecognizer];
     
-    self.initialMapScale = self.scrollView.zoomScale; //not needed?
+//    self.initialMapScale = self.scrollView.zoomScale; //not needed?
     
 //    NSLog(@"VIEW DID APPEAR: %@", NSStringFromCGSize(self.scrollView.contentSize));
 //    NSLog(@"rect: %@", NSStringFromCGRect(self.imageView.frame));
