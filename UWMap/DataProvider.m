@@ -8,9 +8,7 @@
 
 #import "DataProvider.h"
 #import "Building.h"
-
-const float kImageWidth = 4446.0f;
-const float kImageHeight = 2730.0f;
+#import "Constants.h"
 
 @implementation DataProvider
 
@@ -28,7 +26,7 @@ const float kImageHeight = 2730.0f;
     Building *B1 = [[Building alloc] initWithBuildingName:[NSString stringWithFormat:@"%@ B1", b1] positionX:0.6f positionY:0.6f hours:@"8:00am - 10:00pm"];
     Building *B2 = [[Building alloc] initWithBuildingName:[NSString stringWithFormat:@"%@ B2", b2] positionX:0.7f positionY:0.7f hours:@"8:00am - 10:00pm"];
     Building *BCM = [[Building alloc] initWithBuildingName:[NSString stringWithFormat:@"%@ BCM", bcm] positionX:0.609626 positionY:0.378815 hours:@"8:00am - 10:00pm"];
-    Building *C2 = [[Building alloc] initWithBuildingName:[NSString stringWithFormat:@"%@ C2", c2] positionX:1859.0f/kImageWidth positionY:955/kImageHeight hours:@"8:00am - 10:00pm"];
+    Building *C2 = [[Building alloc] initWithBuildingName:[NSString stringWithFormat:@"%@ C2", c2] positionX:1859.0f/kMapImageWidth positionY:955/kMapImageHeight hours:@"8:00am - 10:00pm"];
     
     NSDictionary *buildingDictionary = @{
                                          al : AL,

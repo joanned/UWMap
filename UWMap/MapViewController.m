@@ -11,6 +11,7 @@
 #import "PopupView.h"
 #import "DataProvider.h"
 #import "Building.h"
+#import "Constants.h"
 
 @interface MapViewController () <UIScrollViewDelegate>
 
@@ -23,11 +24,6 @@
 
 @property NSDictionary *locationDictionary;
 @property NSArray *buildingTitlesArray;
-
-//@property (nonatomic, strong) UIDynamicAnimator *animator;
-//@property (nonatomic, strong) UIGravityBehavior *gravityBehaviour;
-//@property (nonatomic, strong) UICollisionBehavior *collisionBehaviour;
-//@property (nonatomic, strong) UIDynamicItemBehavior *itemBehaviour;
 
 @property (nonatomic, strong) PopupView *currentPopupView;
 @property (nonatomic ,assign) CGRect initialPopupFrame;
@@ -53,13 +49,6 @@ static const CGFloat kWidthOfPin = 30;
     self.originalImageHeight = self.imageView.frame.size.height;
     
     self.isFirstLoad = YES;
-    
-//    self.animator = [[UIDynamicAnimator alloc] initWithReferenceView:self.view];
-//    self.gravityBehaviour = [[UIGravityBehavior alloc] init];
-//    self.collisionBehaviour = [[UICollisionBehavior alloc] init];
-//    self.itemBehaviour = [[UIDynamicItemBehavior alloc] init];
-    
-    
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -92,7 +81,7 @@ static const CGFloat kWidthOfPin = 30;
 //    NSLog(@"image height: %f", [image size].height);
     
     if (self.isFirstLoad == YES) {
-        self.startingPoint = CGPointMake(2437.0/4446.0 * self.imageView.frame.size.width, 806.0/2730.0 * self.imageView.frame.size.height);
+        self.startingPoint = CGPointMake(2437.0/kMapImageWidth * self.imageView.frame.size.width, 806.0/kMapImageHeight * self.imageView.frame.size.height);
         [self adjustViewWithPoint:self.startingPoint];
         self.isFirstLoad = NO;
     }
@@ -171,20 +160,6 @@ static const CGFloat kWidthOfPin = 30;
     [UIView transitionWithView:self.imageView duration:0.2f options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
         [self.imageView addSubview:self.popupView];
     } completion:nil];
-    
-
-//
-//    [self.gravityBehaviour addItem:popupView];
-//    [self.collisionBehaviour addItem:popupView];
-//    [self.collisionBehaviour addBoundaryWithIdentifier:@"barrier" fromPoint:CGPointMake(locationPoint.x-100, locationPoint.y) toPoint:CGPointMake(locationPoint.x+100, locationPoint.y)];
-//    [self.itemBehaviour addItem:popupView];
-//    self.itemBehaviour.elasticity = 0.47;
-//    [self.animator addBehavior:self.gravityBehaviour];
-//    [self.animator addBehavior:self.collisionBehaviour];
-//    [self.animator addBehavior:self.itemBehaviour];
-    //TODO: remove behavious when done animating
-    
-
 }
 
 - (void)adjustViewWithPoint:(CGPoint)locationPoint {

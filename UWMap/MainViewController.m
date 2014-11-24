@@ -6,6 +6,16 @@
 //  Copyright (c) 2014 Joanne Deng. All rights reserved.
 //
 
+//todo:
+//fix zoomscale when you go back to map
+//change map to fit top things
+//add all the data
+
+//second release:
+//fOOD tings
+//building hours
+//location service
+
 #import "MainViewController.h"
 #import "BuildingListViewController.h"
 #import "MapViewController.h"
@@ -46,9 +56,6 @@ const float kWhiteOverlayOpacity = 0.75f;
     
     self.searchBar.delegate = self;
     self.searchBar.alpha = 0.93f;
-    
-    
-    
     
     [self drawSearchbarShadow];
     [self setSearchBarColours];
