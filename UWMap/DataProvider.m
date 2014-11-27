@@ -13,8 +13,6 @@
 @implementation DataProvider
 
 + (NSDictionary *)buildingDictionary {
-#warning change points to be percent values instead
-    
     NSString *al = @"Arts Lecture Hall";
     NSString *b1 = @"Biology 1";
     NSString *b2 = @"Biology 2";
@@ -31,7 +29,54 @@
     NSString *csb = @"Central Services Building";
     NSString *dc = @"Davis Centre";
     NSString *dwe = @"Douglas Wright Engineering Building";
-
+    NSString *e2 = @"Engineering 2";
+    NSString *e3 = @"Engineering 3";
+    NSString *e5 = @"Engineering 5";
+    NSString *e6 = @"Engineering 6";
+    NSString *ec1 = @"East Campus 1";
+    NSString *ec2 = @"East Campus 2";
+    NSString *ec3 = @"East Campus 3";
+    NSString *ech = @"East Campus Hall";
+    NSString *eit = @"Centre for Environmental and Information Technology";
+    NSString *erc = @"Energy Research Centre";
+    NSString *ev1 = @"Environment 1";
+    NSString *ev2 = @"Environment 2";
+    NSString *ev3 = @"Environment 3";
+    NSString *esc = @"Earth Sciences and Chemistry";
+    NSString *fed = @"Federation Hall";
+    NSString *gh = @"Graduate House";
+    NSString *gsc = @"General Services Complex";
+    NSString *hh = @"J.G. Hagey Hall";
+    NSString *hmn = @"Hildegard Marsden Nursery";
+    NSString *hs = @"Health Services";
+    NSString *kdc = @"Klemmer Day Care";
+    NSString *lhi = @"Lyle S. Hallman Institute for Health Promotion";
+    NSString *dp = @"Dana Porter Library";
+    NSString *m3 = @"Mathematics 3";
+    NSString *mc = @"Mathematics and Computer Building";
+    NSString *mhr = @"Minota Hagey Residence";
+    NSString *mkv = @"William Lyon Mackenzie King Village";
+    NSString *ml = @"Modern Languages";
+    NSString *nh = @"Ira G. Needles Hall";
+    NSString *opt = @"Optometry Building";
+    NSString *pac = @"Physical Activities Complex";
+    NSString *pas = @"Psychology, Anthropology, Sociology";
+    NSString *phy = @"Physics";
+    NSString *qnc = @"Quantum-Nano Centre";
+    NSString *ra2 = @"Research Advancement Centre 2";
+    NSString *rac = @"Research Advancement Centre";
+    NSString *rch = @"J.R. Coutts Engineering Lecture Hall";
+    NSString *ren = @"Renison University College";
+    NSString *rev = @"Ron Eydt Village";
+    NSString *sch = @"South Campus Hall";
+    NSString *slc = @"Student Life Centre";
+    NSString *stj = @"St. Jerome's University";
+    NSString *stp = @"St. Paul's University College";
+    NSString *tc = @"William M. Tatham Centre";
+    NSString *th = @"Tutors' Houses";
+    NSString *uc = @"University Club";
+    NSString *uwp = @"University of Waterloo Place";
+    NSString *v1 = @"Student Village";
     
     Building *AL = [[Building alloc] initWithBuildingName:al
                                                 shortform:@"AL"
@@ -129,6 +174,108 @@
                                                 positionY:2064/kMapImageHeight
                                                     hours:@""];
     
+    Building *E2 = [[Building alloc] initWithBuildingName:e2
+                                                 shortform:@"E2"
+                                                 positionX:3058/kMapImageWidth
+                                                 positionY:1936/kMapImageHeight
+                                                     hours:@""];
+    
+    Building *E3 = [[Building alloc] initWithBuildingName:e3
+                                                shortform:@"E3"
+                                                positionX:3057/kMapImageWidth
+                                                positionY:1770/kMapImageHeight
+                                                    hours:@""];
+    
+    Building *E5 = [[Building alloc] initWithBuildingName:e5
+                                                shortform:@"E5"
+                                                positionX:3247/kMapImageWidth
+                                                positionY:1626/kMapImageHeight
+                                                    hours:@""];
+    
+    Building *E6 = [[Building alloc] initWithBuildingName:e6
+                                                shortform:@"E6"
+                                                positionX:3423/kMapImageWidth
+                                                positionY:1676/kMapImageHeight
+                                                    hours:@""];
+    
+    Building *EC1 = [[Building alloc] initWithBuildingName:ec1
+                                                shortform:@"EC1"
+                                                positionX:3482/kMapImageWidth
+                                                positionY:1031/kMapImageHeight
+                                                    hours:@""];
+    
+    Building *EC2 = [[Building alloc] initWithBuildingName:ec2
+                                                 shortform:@"EC2"
+                                                 positionX:3198/kMapImageWidth
+                                                 positionY:1241/kMapImageHeight
+                                                     hours:@""];
+    
+    Building *EC3 = [[Building alloc] initWithBuildingName:ec3
+                                                 shortform:@"EC3"
+                                                 positionX:3215.000000/kMapImageWidth
+                                                 positionY:1008.000000/kMapImageHeight
+                                                     hours:@""];
+    
+    Building *ECH = [[Building alloc] initWithBuildingName:ech
+                                                 shortform:@"ECH"
+                                                 positionX:3492.000000/kMapImageWidth
+                                                 positionY:1540.000000/kMapImageHeight
+                                                     hours:@""];
+    
+    Building *EIT = [[Building alloc] initWithBuildingName:eit
+                                                 shortform:@"EIT"
+                                                 positionX:2896.000000/kMapImageWidth
+                                                 positionY:1712.000000/kMapImageHeight
+                                                     hours:@""];
+    
+    Building *ERC = [[Building alloc] initWithBuildingName:erc
+                                                 shortform:@"ERC"
+                                                 positionX:2741.000000/kMapImageWidth
+                                                 positionY:1233.000000/kMapImageHeight
+                                                     hours:@""];
+    
+    Building *EV1 = [[Building alloc] initWithBuildingName:ev1
+                                                 shortform:@"EV1"
+                                                 positionX:2896.000000/kMapImageWidth
+                                                 positionY:1712.000000/kMapImageHeight
+                                                     hours:@""];
+    
+    Building *EV2 = [[Building alloc] initWithBuildingName:ev2
+                                                 shortform:@"EV2"
+                                                 positionX:2896.000000/kMapImageWidth
+                                                 positionY:1712.000000/kMapImageHeight
+                                                     hours:@""];
+    
+    Building *EV3 = [[Building alloc] initWithBuildingName:ev3
+                                                 shortform:@"EV3"
+                                                 positionX:2896.000000/kMapImageWidth
+                                                 positionY:1712.000000/kMapImageHeight
+                                                     hours:@""];
+    
+    Building *ESC = [[Building alloc] initWithBuildingName:esc
+                                                 shortform:@"ESC"
+                                                 positionX:2896.000000/kMapImageWidth
+                                                 positionY:1712.000000/kMapImageHeight
+                                                     hours:@""];
+    
+    Building *FED = [[Building alloc] initWithBuildingName:fed
+                                                 shortform:@"FED"
+                                                 positionX:2896.000000/kMapImageWidth
+                                                 positionY:1712.000000/kMapImageHeight
+                                                     hours:@""];
+    
+    Building *EIT = [[Building alloc] initWithBuildingName:eit
+                                                 shortform:@"EIT"
+                                                 positionX:2896.000000/kMapImageWidth
+                                                 positionY:1712.000000/kMapImageHeight
+                                                     hours:@""];
+    
+    Building *EIT = [[Building alloc] initWithBuildingName:eit
+                                                 shortform:@"EIT"
+                                                 positionX:2896.000000/kMapImageWidth
+                                                 positionY:1712.000000/kMapImageHeight
+                                                     hours:@""];
+    
     NSDictionary *buildingDictionary = @{
                                          al : AL,
                                          b1 : B1,
@@ -145,7 +292,55 @@
                                          cph : CPH,
                                          csb : CSB,
                                          dc : DC,
-                                         dwe : DWE
+                                         dwe : DWE,
+                                         e2 : E2,
+                                         e3 : E3,
+                                         e5 : E5,
+                                         e6 : E6,
+                                         ec1 : EC1,
+                                         ec2 : EC2,
+                                         ec3 : EC3,
+                                         ech : ECH,
+                                         eit : EIT,
+                                         erc : ERC,
+                                         ev1 : EV1,
+                                         ev2 : EV2,
+                                         ev3 : EV3,
+                                         esc : ESC,
+                                         fed : FED,
+                                         gh : GH,
+                                         gsc : GSC,
+                                         hh : HH,
+                                         hmn : HMN,
+                                         hs : HS,
+                                         kdc : KDC,
+                                         lhi : LHI,
+                                         dp : DP,
+                                         m3 : M3,
+                                         mc : MC,
+                                         mhr : MHR,
+                                         mkv : MKV,
+                                         ml : ML,
+                                         nh : NH,
+                                         opt : OPT,
+                                         pac : PAC,
+                                         pas : PAS,
+                                         phy : PHY,
+                                         qnc : QNC,
+                                         ra2 : RA2,
+                                         rac : RAC,
+                                         rch : RCH,
+                                         ren : REN,
+                                         rev : REV,
+                                         sch : SCH,
+                                         slc : SLC,
+                                         stj : STJ,
+                                         stp : STP,
+                                         tc : TC,
+                                         th : TH,
+                                         uc : UC,
+                                         uwp : UWP,
+                                         v1 : V1
                                          };
     
     return buildingDictionary;
