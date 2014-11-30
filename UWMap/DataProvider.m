@@ -74,7 +74,8 @@
     NSString *th = @"Tutors' Houses";
     NSString *uc = @"University Club";
     NSString *uwp = @"University of Waterloo Place";
-    NSString *v1 = @"Student Village";
+    NSString *v1 = @"Village 1";
+    NSString *wcp = @"Waterloo Central Place";
     
     Building *AL = [[Building alloc] initWithBuildingName:al
                                                 shortform:@"AL"
@@ -160,8 +161,8 @@
                                                  positionY:1202/kMapImageHeight
                                                      hours:@""];
     
-    Building *DC = [[Building alloc] initWithBuildingName:csb
-                                                 shortform:@"DC William G. Davis Computer Research Centre"
+    Building *DC = [[Building alloc] initWithBuildingName:dc
+                                                 shortform:@"DC"
                                                  positionX:2960/kMapImageWidth
                                                  positionY:1501/kMapImageHeight
                                                      hours:@""];
@@ -234,32 +235,32 @@
     
     Building *EV1 = [[Building alloc] initWithBuildingName:ev1
                                                  shortform:@"EV1"
-                                                 positionX:2896.000000/kMapImageWidth
-                                                 positionY:1712.000000/kMapImageHeight
+                                                 positionX:2579.000000/kMapImageWidth
+                                                 positionY:2217.000000/kMapImageHeight
                                                      hours:@""];
     
     Building *EV2 = [[Building alloc] initWithBuildingName:ev2
                                                  shortform:@"EV2"
-                                                 positionX:2896.000000/kMapImageWidth
-                                                 positionY:1712.000000/kMapImageHeight
+                                                 positionX:2505.000000/kMapImageWidth
+                                                 positionY:2225.000000/kMapImageHeight
                                                      hours:@""];
     
     Building *EV3 = [[Building alloc] initWithBuildingName:ev3
                                                  shortform:@"EV3"
-                                                 positionX:2896.000000/kMapImageWidth
-                                                 positionY:1712.000000/kMapImageHeight
+                                                 positionX:2451.000000/kMapImageWidth
+                                                 positionY:2159.000000/kMapImageHeight
                                                      hours:@""];
     
     Building *ESC = [[Building alloc] initWithBuildingName:esc
                                                  shortform:@"ESC"
-                                                 positionX:2896.000000/kMapImageWidth
-                                                 positionY:1712.000000/kMapImageHeight
+                                                 positionX:2791.000000/kMapImageWidth
+                                                 positionY:1693.000000/kMapImageHeight
                                                      hours:@""];
     
     Building *FED = [[Building alloc] initWithBuildingName:fed
                                                  shortform:@"FED"
-                                                 positionX:2896.000000/kMapImageWidth
-                                                 positionY:1712.000000/kMapImageHeight
+                                                 positionX:2190.000000/kMapImageWidth
+                                                 positionY:993.000000/kMapImageHeight
                                                      hours:@""];
     
     Building *GH = [[Building alloc] initWithBuildingName:gh
@@ -426,9 +427,15 @@
     
     Building *TH = [[Building alloc] initWithBuildingName:th
                                                  shortform:@"TH"
-                                                 positionX:2875.000000/kMapImageWidth
-                                                 positionY:2146.000000/kMapImageHeight
+                                                 positionX:1536.000000/kMapImageWidth
+                                                 positionY:1266.000000/kMapImageHeight
                                                      hours:@""];
+    
+    Building *WCP = [[Building alloc] initWithBuildingName:wcp
+                                                shortform:@"WCP"
+                                                positionX:4205.000000/kMapImageWidth
+                                                positionY:2119.000000/kMapImageHeight
+                                                    hours:@""];
     
     Building *UC = [[Building alloc] initWithBuildingName:uc
                                                  shortform:@"UC"
@@ -511,6 +518,7 @@
                                          tc : TC,
                                          th : TH,
                                          uc : UC,
+                                         wcp : WCP,
                                          uwp : UWP,
                                          v1 : V1
                                          };

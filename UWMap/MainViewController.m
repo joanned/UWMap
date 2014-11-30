@@ -169,12 +169,12 @@ const float kWhiteOverlayOpacity = 0.75f;
         
     CGPoint adjustedPoint = CGPointMake(adjustedX, adjustedY);
     
-//    [UIView animateWithDuration:0.25f
-//                          delay:0
-//                        options:UIViewAnimationOptionBeginFromCurrentState
-//                     animations:^{
+    [UIView animateWithDuration:0.25f
+                          delay:0
+                        options:UIViewAnimationOptionBeginFromCurrentState
+                     animations:^{
                          [self.mapViewController adjustViewWithPoint:adjustedPoint];
-//                     } completion:nil];
+                     } completion:nil];
     
     
 }

@@ -33,7 +33,7 @@
 
 @end
 
-static const CGFloat kWidthOfPin = 30;
+static const CGFloat kWidthOfPin = 50;
 
 @implementation MapViewController
 
@@ -67,6 +67,10 @@ static const CGFloat kWidthOfPin = 30;
     self.scrollView.minimumZoomScale = heightScale;
     self.scrollView.maximumZoomScale = 1.3f;
     self.scrollView.zoomScale = heightScale + 0.4;
+    
+//    self.scrollView.minimumZoomScale = 1;
+//    self.scrollView.maximumZoomScale = 1;
+//    self.scrollView.zoomScale = 1;
 
     UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedScreen:)];
     [tapRecognizer setNumberOfTapsRequired:1];
