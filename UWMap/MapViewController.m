@@ -15,7 +15,6 @@
 
 @interface MapViewController () <UIScrollViewDelegate>
 
-
 @property (nonatomic, strong) IBOutlet UIImageView *imageView;
 @property (nonatomic, assign) CGFloat originalImageWidth;
 @property (nonatomic, assign) CGFloat originalImageHeight;
@@ -145,7 +144,7 @@ static const CGFloat kWidthOfPin = 50;
 
     CGRect f = self.popupView.frame;
     f.origin.x = locationPoint.x-self.popupView.frame.size.width/2 + kWidthOfPin/2;
-    f.origin.y = locationPoint.y-self.popupView.frame.size.height;;
+    f.origin.y = locationPoint.y-self.popupView.frame.size.height + 3;
     self.popupView.frame = f;
     
     NSLog(@"shown at point %f %f", locationPoint.x / self.imageView.frame.size.width, locationPoint.y / self.imageView.frame.size.height);
@@ -160,7 +159,6 @@ static const CGFloat kWidthOfPin = 50;
 }
 
 - (void)adjustViewWithPoint:(CGPoint)locationPoint {
-#warning - check if this is accurate
     if (locationPoint.x + [[UIScreen mainScreen] bounds].size.width / 2 > self.imageView.frame.size.width ) {
         locationPoint.x -= self.imageView.frame.size.width - locationPoint.x;
     }
@@ -173,29 +171,19 @@ static const CGFloat kWidthOfPin = 50;
 
 #pragma mark <UIScrollViewDelegate>
 
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-//    
-//    NSLog(@"iMGE SIZE: %@", NSStringFromCGRect(self.imageView.frame));
-//    NSLog(@"SCROLLVIEW CONTENT: %@", NSStringFromCGSize(self.scrollView.contentSize));
-}
-//
 - (void)scrollViewDidZoom:(UIScrollView *)aScrollView {
-    
-////        UIView *popupView = [self.view.subviews lastObject];
-        for (UIView *subview in self.imageView.subviews ) {
-//            if ([subview isKindOfClass:[PopupView class]]) {
-                CGRect oldFrame = subview.frame;
-                // 0.5 means the anchor is centered on the x axis. 1 means the anchor is at the bottom of the view. If you comment out this line, the pin's center will stay where it is regardless of how much you zoom. I have it so that the bottom of the pin stays fixed. This should help user RomeoF.
-                [subview.layer setAnchorPoint:CGPointMake(0.5, 1)];
-                subview.frame = oldFrame;
-                // When you zoom in on scrollView, it gets a larger zoom scale value.
-                // You transform the pin by scaling it by the inverse of this value.
-                subview.transform = CGAffineTransformMakeScale(1.0/self.scrollView.zoomScale, 1.0/self.scrollView.zoomScale);
-//            }
-            }
+    for (UIView *subview in self.imageView.subviews ) {
+        CGRect oldFrame = subview.frame;
+        // 0.5 means the anchor is centered on the x axis. 1 means the anchor is at the bottom of the view. If you comment out this line, the pin's center will stay where it is regardless of how much you zoom. I have it so that the bottom of the pin stays fixed. This should help user RomeoF.
+        [subview.layer setAnchorPoint:CGPointMake(0.5, 1)];
+        subview.frame = oldFrame;
+        // When you zoom in on scrollView, it gets a larger zoom scale value.
+        // You transform the pin by scaling it by the inverse of this value.
+        subview.transform = CGAffineTransformMakeScale(1.0/self.scrollView.zoomScale, 1.0/self.scrollView.zoomScale);
+    }
 //
 //    if (self.imageView.frame.size.height > 2000) {
-//        
+//
 //    }
 }
 

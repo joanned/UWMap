@@ -169,6 +169,30 @@ const float kWhiteOverlayOpacity = 0.75f;
         
     CGPoint adjustedPoint = CGPointMake(adjustedX, adjustedY);
     
+    
+    CGPoint currentOffset = self.mapViewController.scrollView.contentOffset;
+    
+    //if the distance to animate is too big, move the offset closer so the animation looks better
+    CGFloat pointDistanceX = currentOffset.x - adjustedPoint.x;
+    if (abs(pointDistanceX) > 300) {
+        if (pointDistanceX > 0) {
+            currentOffset.x -= currentOffset.x - adjustedPoint.x - 200;
+        } else if (pointDistanceX < 0) {
+            currentOffset.x += adjustedPoint.x - currentOffset.x - 200;
+        }
+        self.mapViewController.scrollView.contentOffset = currentOffset;
+    }
+    
+    CGFloat pointDistanceY = currentOffset.y - adjustedPoint.y;
+    if (abs(pointDistanceY) > 300) {
+        if (pointDistanceY > 0) {
+            currentOffset.x -= currentOffset.x - adjustedPoint.x - 200;
+        } else if (pointDistanceY < 0) {
+            currentOffset.x += adjustedPoint.x - currentOffset.x - 200;
+        }
+        self.mapViewController.scrollView.contentOffset = currentOffset;
+    }
+
     [UIView animateWithDuration:0.25f
                           delay:0
                         options:UIViewAnimationOptionBeginFromCurrentState
