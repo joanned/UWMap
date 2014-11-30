@@ -63,8 +63,6 @@
     NSString *pas = @"Psychology, Anthropology, Sociology";
     NSString *phy = @"Physics";
     NSString *qnc = @"Quantum-Nano Centre";
-    NSString *ra2 = @"Research Advancement Centre 2";
-    NSString *rac = @"Research Advancement Centre";
     NSString *rch = @"J.R. Coutts Engineering Lecture Hall";
     NSString *ren = @"Renison University College";
     NSString *rev = @"Ron Eydt Village";
@@ -264,17 +262,193 @@
                                                  positionY:1712.000000/kMapImageHeight
                                                      hours:@""];
     
-    Building *EIT = [[Building alloc] initWithBuildingName:eit
-                                                 shortform:@"EIT"
-                                                 positionX:2896.000000/kMapImageWidth
-                                                 positionY:1712.000000/kMapImageHeight
+    Building *GH = [[Building alloc] initWithBuildingName:gh
+                                                 shortform:@"GH"
+                                                 positionX:2864.000000/kMapImageWidth
+                                                 positionY:2033.000000/kMapImageHeight
                                                      hours:@""];
     
-    Building *EIT = [[Building alloc] initWithBuildingName:eit
-                                                 shortform:@"EIT"
-                                                 positionX:2896.000000/kMapImageWidth
-                                                 positionY:1712.000000/kMapImageHeight
+    Building *GSC = [[Building alloc] initWithBuildingName:gsc
+                                                 shortform:@"GSC"
+                                                 positionX:2917.000000/kMapImageWidth
+                                                 positionY:1297.000000/kMapImageHeight
                                                      hours:@""];
+    
+    Building *HH = [[Building alloc] initWithBuildingName:hh
+                                                 shortform:@"HH"
+                                                 positionX:2649.000000/kMapImageWidth
+                                                 positionY:2331.000000/kMapImageHeight
+                                                     hours:@""];
+    
+    Building *HMN = [[Building alloc] initWithBuildingName:hmn
+                                                 shortform:@"HMN"
+                                                 positionX:2449.000000/kMapImageWidth
+                                                 positionY:431.000000/kMapImageHeight
+                                                     hours:@""];
+    
+    Building *HS = [[Building alloc] initWithBuildingName:hs
+                                                 shortform:@"HS"
+                                                 positionX:2280.000000/kMapImageWidth
+                                                 positionY:1575.000000/kMapImageHeight
+                                                     hours:@""];
+    
+    Building *KDC = [[Building alloc] initWithBuildingName:kdc
+                                                 shortform:@"KDC"
+                                                 positionX:2436.000000/kMapImageWidth
+                                                 positionY:551.000000/kMapImageHeight
+                                                     hours:@""];
+    
+    Building *LHI = [[Building alloc] initWithBuildingName:lhi
+                                                 shortform:@"LHI"
+                                                 positionX:2560.000000/kMapImageWidth
+                                                 positionY:1176.000000/kMapImageHeight
+                                                     hours:@""];
+    
+    Building *DP = [[Building alloc] initWithBuildingName:dp
+                                                 shortform:@"DP"
+                                                 positionX:2709.000000/kMapImageWidth
+                                                 positionY:1957.000000/kMapImageHeight
+                                                     hours:@""];
+    
+    Building *M3 = [[Building alloc] initWithBuildingName:m3
+                                                 shortform:@"M3"
+                                                 positionX:2758.000000/kMapImageWidth
+                                                 positionY:1319.000000/kMapImageHeight
+                                                     hours:@""];
+    
+    Building *MC = [[Building alloc] initWithBuildingName:mc
+                                                 shortform:@"MC"
+                                                 positionX:2708.000000/kMapImageWidth
+                                                 positionY:1502.000000/kMapImageHeight
+                                                     hours:@""];
+    
+    Building *MHR = [[Building alloc] initWithBuildingName:mhr
+                                                 shortform:@"MHR"
+                                                 positionX:2344.000000/kMapImageWidth
+                                                 positionY:2593.000000/kMapImageHeight
+                                                     hours:@""];
+    
+    Building *MKV = [[Building alloc] initWithBuildingName:mkv
+                                                 shortform:@"MKV"
+                                                 positionX:1574.000000/kMapImageWidth
+                                                 positionY:1130.000000/kMapImageHeight
+                                                     hours:@""];
+    
+    Building *ML = [[Building alloc] initWithBuildingName:ml
+                                                 shortform:@"ML"
+                                                 positionX:2612.000000/kMapImageWidth
+                                                 positionY:2032.000000/kMapImageHeight
+                                                     hours:@""];
+    
+    Building *NH = [[Building alloc] initWithBuildingName:nh
+                                                 shortform:@"NH"
+                                                 positionX:2529.000000/kMapImageWidth
+                                                 positionY:1941.000000/kMapImageHeight
+                                                     hours:@""];
+    
+    Building *OPT = [[Building alloc] initWithBuildingName:opt
+                                                 shortform:@"OPT"
+                                                 positionX:2811.000000/kMapImageWidth
+                                                 positionY:742.000000/kMapImageHeight
+                                                     hours:@""];
+    
+    Building *PAC = [[Building alloc] initWithBuildingName:pac
+                                                 shortform:@"PAC"
+                                                 positionX:2438.000000/kMapImageWidth
+                                                 positionY:1313.000000/kMapImageHeight
+                                                     hours:@""];
+    
+    Building *PAS = [[Building alloc] initWithBuildingName:pas
+                                                 shortform:@"PAS"
+                                                 positionX:2469.000000/kMapImageWidth
+                                                 positionY:2435.000000/kMapImageHeight
+                                                     hours:@""];
+    
+    Building *PHY = [[Building alloc] initWithBuildingName:phy
+                                                 shortform:@"PHY"
+                                                 positionX:2871.000000/kMapImageWidth
+                                                 positionY:1860.000000/kMapImageHeight
+                                                     hours:@""];
+    
+    Building *QNC = [[Building alloc] initWithBuildingName:qnc
+                                                 shortform:@"QNC"
+                                                 positionX:2605.000000/kMapImageWidth
+                                                 positionY:1639.000000/kMapImageHeight
+                                                     hours:@""];
+    
+    Building *RCH = [[Building alloc] initWithBuildingName:rch
+                                                 shortform:@"RCH"
+                                                 positionX:2948.000000/kMapImageWidth
+                                                 positionY:1982.000000/kMapImageHeight
+                                                     hours:@""];
+    
+    Building *REN = [[Building alloc] initWithBuildingName:ren
+                                                 shortform:@"REN"
+                                                 positionX:2004.000000/kMapImageWidth
+                                                 positionY:1789.000000/kMapImageHeight
+                                                     hours:@""];
+    
+    Building *REV = [[Building alloc] initWithBuildingName:rev
+                                                 shortform:@"REV"
+                                                 positionX:1281.000000/kMapImageWidth
+                                                 positionY:1239.000000/kMapImageHeight
+                                                     hours:@""];
+    
+    Building *SCH = [[Building alloc] initWithBuildingName:sch
+                                                 shortform:@"SCH"
+                                                 positionX:2875.000000/kMapImageWidth
+                                                 positionY:2146.000000/kMapImageHeight
+                                                     hours:@""];
+    
+    Building *SLC = [[Building alloc] initWithBuildingName:slc
+                                                 shortform:@"SLC"
+                                                 positionX:2502.000000/kMapImageWidth
+                                                 positionY:1484.000000/kMapImageHeight
+                                                     hours:@""];
+    
+    Building *STJ = [[Building alloc] initWithBuildingName:stj
+                                                 shortform:@"STJ"
+                                                 positionX:2217.000000/kMapImageWidth
+                                                 positionY:1814.000000/kMapImageHeight
+                                                     hours:@""];
+    
+    Building *STP = [[Building alloc] initWithBuildingName:stp
+                                                 shortform:@"STP"
+                                                 positionX:2016.000000/kMapImageWidth
+                                                 positionY:2118.000000/kMapImageHeight
+                                                     hours:@""];
+    
+    Building *TC = [[Building alloc] initWithBuildingName:tc
+                                                 shortform:@"TC"
+                                                 positionX:2788.000000/kMapImageWidth
+                                                 positionY:2104.000000/kMapImageHeight
+                                                     hours:@""];
+    
+    Building *TH = [[Building alloc] initWithBuildingName:th
+                                                 shortform:@"TH"
+                                                 positionX:2875.000000/kMapImageWidth
+                                                 positionY:2146.000000/kMapImageHeight
+                                                     hours:@""];
+    
+    Building *UC = [[Building alloc] initWithBuildingName:uc
+                                                 shortform:@"UC"
+                                                 positionX:2321.000000/kMapImageWidth
+                                                 positionY:1217.000000/kMapImageHeight
+                                                     hours:@""];
+    
+    
+    Building *UWP = [[Building alloc] initWithBuildingName:uwp
+                                                shortform:@"UWP"
+                                                positionX:3662.000000/kMapImageWidth
+                                                positionY:2197.000000/kMapImageHeight
+                                                    hours:@""];
+    
+    Building *V1 = [[Building alloc] initWithBuildingName:v1
+                                                shortform:@"V1"
+                                                positionX:1923.000000/kMapImageWidth
+                                                positionY:1213.000000/kMapImageHeight
+                                                    hours:@""];
+ 
     
     NSDictionary *buildingDictionary = @{
                                          al : AL,
@@ -327,8 +501,6 @@
                                          pas : PAS,
                                          phy : PHY,
                                          qnc : QNC,
-                                         ra2 : RA2,
-                                         rac : RAC,
                                          rch : RCH,
                                          ren : REN,
                                          rev : REV,

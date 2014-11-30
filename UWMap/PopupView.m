@@ -166,7 +166,7 @@ static CGFloat maxHeight = 168.0;
     [popupPath addArcWithCenter:CGPointMake(spaceToSide + radius, spaceToSide + radius) radius:radius startAngle:M_PI endAngle:-M_PI/2 clockwise:YES];
     [popupPath closePath];
     
-    UIColor* border = [[UIColor blackColor] colorWithAlphaComponent:0.75];
+    UIColor* borderColor = [[UIColor blackColor] colorWithAlphaComponent:0.75];
     
     // Shadow Declarations
     UIColor* shadow2 = [[UIColor blackColor] colorWithAlphaComponent:1];
@@ -181,7 +181,7 @@ static CGFloat maxHeight = 168.0;
     
     CGContextDrawLinearGradient(context, _gradient, CGPointMake(0.0, 2.5), CGPointMake(0.0, rect.size.height-5.5), 0);
     
-    [border setStroke];
+    [borderColor setStroke];
     popupPath.lineWidth = 1;
     [popupPath stroke];
 }
