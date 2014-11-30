@@ -64,30 +64,17 @@ static const CGFloat kWidthOfPin = 30;
 //    if (self.isFirstLoad) {
         CGFloat heightScale = self.scrollView.frame.size.height / self.scrollView.contentSize.height;
 //    
-//    self.scrollView.minimumZoomScale = heightScale;
-//    self.scrollView.maximumZoomScale = 1.3f;
-//    self.scrollView.zoomScale = heightScale + 0.4;
-    
-    self.scrollView.minimumZoomScale = 1;
-    self.scrollView.maximumZoomScale = 1;
-    self.scrollView.zoomScale = 1;
-    
-//    }
-    
+    self.scrollView.minimumZoomScale = heightScale;
+    self.scrollView.maximumZoomScale = 1.3f;
+    self.scrollView.zoomScale = heightScale + 0.4;
+
     UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedScreen:)];
     [tapRecognizer setNumberOfTapsRequired:1];
     //    [tapRecognizer setDelegate:self];
     [self.scrollView addGestureRecognizer:tapRecognizer];
     
-//    self.initialMapScale = self.scrollView.zoomScale; //not needed?
-    
-//    NSLog(@"VIEW DID APPEAR: %@", NSStringFromCGSize(self.scrollView.contentSize));
-//    NSLog(@"rect: %@", NSStringFromCGRect(self.imageView.frame));
-//    NSLog(@"----");
-//    NSLog(@"image height: %f", [image size].height);
-    
     if (self.isFirstLoad == YES) {
-        self.startingPoint = CGPointMake(2437.0/kMapImageWidth * self.imageView.frame.size.width, 806.0/kMapImageHeight * self.imageView.frame.size.height);
+        self.startingPoint = CGPointMake(2403/kMapImageWidth * self.imageView.frame.size.width, 900/kMapImageHeight * self.imageView.frame.size.height);
         [self adjustViewWithPoint:self.startingPoint];
         self.isFirstLoad = NO;
     }
@@ -208,8 +195,8 @@ static const CGFloat kWidthOfPin = 30;
 //    }
 }
 
-//- (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView {
-//    return self.imageView;
-//}
+- (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView {
+    return self.imageView;
+}
 
 @end

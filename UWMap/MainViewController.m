@@ -8,8 +8,8 @@
 
 //todo:
 //fix zoomscale when you go back to map
-//add all the data
 //map jumps zoomscale in beginning
+//adjust map when popup is out of view
 
 //second release:
 //fOOD tings
