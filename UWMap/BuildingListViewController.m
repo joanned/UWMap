@@ -86,7 +86,7 @@
 
     } else {
         [self.filteredArray removeAllObjects];
-        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"buildingName CONTAINS[cd] %@ OR shortform CONTAINS[cd] %@",searchText, searchText]; //tODO:shortform, change to array of objects intesad???
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"buildingName CONTAINS[cd] %@ OR shortform BEGINSWITH[cd] %@",searchText, searchText];
         
         self.filteredArray = [NSMutableArray arrayWithArray:[self.buildingsArray filteredArrayUsingPredicate:predicate]];
     }

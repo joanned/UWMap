@@ -11,6 +11,3 @@
 CGFloat const kMapImageWidth = 4388.0f;
 CGFloat const kMapImageHeight = 2753.0f;
 
-//@implementation Constants
-//
-//@end

@@ -30,14 +30,15 @@ const float kWhiteOverlayOpacity = 0.75f;
 
 @property (nonatomic, strong) MapViewController *mapViewController;
 
-@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
-@property (weak, nonatomic) IBOutlet UIImageView *buildingIcon;
-@property (strong, nonatomic) IBOutlet UIView *containerView;
-@property (weak, nonatomic) IBOutlet UIView *searchBarView;
-@property (nonatomic, assign) BOOL isOnMapView;
-@property (weak, nonatomic) IBOutlet UIView *whiteView;
-@property (weak, nonatomic) IBOutlet UIImageView *iconImage;
+@property (nonatomic, weak) IBOutlet UISearchBar *searchBar;
+@property (nonatomic, weak) IBOutlet UIImageView *buildingIcon;
+@property (nonatomic, strong) IBOutlet UIView *containerView;
+@property (nonatomic, weak) IBOutlet UIView *searchBarView;
+@property (nonatomic, weak) IBOutlet UIView *whiteView;
+@property (nonatomic, weak) IBOutlet UIImageView *iconImage;
+
 @property (nonatomic, assign) BOOL showFullList;
+@property (nonatomic, assign) BOOL isOnMapView;
 
 @end
 
@@ -157,9 +158,6 @@ const float kWhiteOverlayOpacity = 0.75f;
 - (void)selectedCellWithLabel:(NSString *)label {
     self.searchBar.text = @"";
     [self showMapView];
-    
-    
-    //make map default scale
     
     CGPoint locationPoint = [self.mapViewController makePointFromBuildingKey:label isFromTable:YES];
     [self.mapViewController showDetails:locationPoint withLabel:label];
