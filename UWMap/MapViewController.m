@@ -91,6 +91,8 @@ static const CGFloat kWidthOfPin = 50;
 
 - (void)tappedScreen:(UITapGestureRecognizer *)recognizer {
     if(recognizer.state == UIGestureRecognizerStateRecognized) {
+        [self removePopupView];
+        
         CGPoint point = [recognizer locationInView:recognizer.view];
         NSLog(@"~~~~~~IMAGEVIEW FRAME: %@", NSStringFromCGRect(self.imageView.frame));
 
@@ -132,11 +134,7 @@ static const CGFloat kWidthOfPin = 50;
 }
 
 - (void)showDetails:(CGPoint)locationPoint withLabel:(NSString *)label {
-    if (self.popupView) {
-        [UIView transitionWithView:self.imageView duration:0.2f options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
-            [self.popupView removeFromSuperview];
-        } completion:nil];
-    }
+    [self removePopupView];
     
     self.popupView = [[PopupView alloc] initWithTitle:label detail:@""];
     
@@ -147,7 +145,6 @@ static const CGFloat kWidthOfPin = 50;
     f.origin.y = locationPoint.y-self.popupView.frame.size.height + 3;
     self.popupView.frame = f;
     
-    NSLog(@"shown at point %f %f", locationPoint.x / self.imageView.frame.size.width, locationPoint.y / self.imageView.frame.size.height);
     NSLog(@"shown at point %f %f", locationPoint.x , locationPoint.y);
     NSLog(@"popup frame: %@", NSStringFromCGRect(self.popupView.frame));
     NSLog(@"~~~~~~IMAGEVIEW FRAME: %@", NSStringFromCGRect(self.imageView.frame));
@@ -156,6 +153,34 @@ static const CGFloat kWidthOfPin = 50;
     [UIView transitionWithView:self.imageView duration:0.2f options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
         [self.imageView addSubview:self.popupView];
     } completion:nil];
+    
+    //adjust view if popup is cutoff
+    CGRect popupRect = [self.popupView convertRect:self.popupView.bounds toView:self.view.superview];
+    NSLog(@"popup frame: %@", NSStringFromCGRect(self.popupView.frame));
+    NSLog(@"popup frame superview: %@", NSStringFromCGRect(popupRect));
+    
+    CGPoint popupPoint = self.scrollView.contentOffset;
+    CGFloat positionX = popupRect.origin.x;
+    if (positionX < 0) {
+        popupPoint.x += positionX;
+    } else if (positionX + self.popupView.width > [[UIScreen mainScreen] bounds].size.width) {
+        popupPoint.x += self.popupView.width - [[UIScreen mainScreen] bounds].size.width + positionX; //refactor later (save screenwidth size somewhere)
+    }
+    
+    CGFloat positionY = popupRect.origin.y;
+    if (positionY < 64) { //change dis random number later
+        popupPoint.y -= 64 - positionY;
+    }
+    
+    [UIView animateWithDuration:0.25f
+                          delay:0
+                        options:UIViewAnimationOptionBeginFromCurrentState
+                     animations:^{
+                         self.scrollView.contentOffset = popupPoint;
+                     } completion:nil];
+    
+
+    
 }
 
 - (void)adjustViewWithPoint:(CGPoint)locationPoint {
@@ -181,14 +206,20 @@ static const CGFloat kWidthOfPin = 50;
         // You transform the pin by scaling it by the inverse of this value.
         subview.transform = CGAffineTransformMakeScale(1.0/self.scrollView.zoomScale, 1.0/self.scrollView.zoomScale);
     }
-//
-//    if (self.imageView.frame.size.height > 2000) {
-//
-//    }
 }
 
 - (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView {
     return self.imageView;
+}
+
+#pragma mark - Helpers
+
+- (void)removePopupView {
+    if (self.popupView) {
+        [UIView transitionWithView:self.imageView duration:0.2f options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
+            [self.popupView removeFromSuperview];
+        } completion:nil];
+    }
 }
 
 @end

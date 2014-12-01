@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Waterloo_map" translatesAutoresizingMaskIntoConstraints="NO" id="D4n-0K-QYT">
-                                <rect key="frame" x="0.0" y="-20" width="2223" height="1365"/>
+                                <rect key="frame" x="0.0" y="-20" width="2194" height="1376"/>
                             </imageView>
                         </subviews>
                         <constraints>
@@ -199,7 +199,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Waterloo_map" width="2223" height="1365"/>
+        <image name="Waterloo_map" width="2194" height="1376"/>
         <image name="first" width="30" height="30"/>
         <image name="list" width="128" height="128"/>
         <image name="second" width="30" height="30"/>

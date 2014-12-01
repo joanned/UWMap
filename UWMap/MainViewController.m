@@ -9,7 +9,8 @@
 //todo:
 //fix zoomscale when you go back to map
 //map jumps zoomscale in beginning
-//adjust map when popup is out of view
+//app icon and launch image
+//fix unable to click points after zooming out a lot
 
 //second release:
 //fOOD tings
@@ -193,14 +194,12 @@ const float kWhiteOverlayOpacity = 0.75f;
         self.mapViewController.scrollView.contentOffset = currentOffset;
     }
 
-    [UIView animateWithDuration:0.25f
+    [UIView animateWithDuration:0.35f
                           delay:0
                         options:UIViewAnimationOptionBeginFromCurrentState
                      animations:^{
                          [self.mapViewController adjustViewWithPoint:adjustedPoint];
                      } completion:nil];
-    
-    
 }
 
 #pragma  mark - <UISearchBarDelegate>
