@@ -21,10 +21,12 @@
 #import "BuildingListViewController.h"
 #import "MapViewController.h"
 #import "UIImageEffects.h"
+#import "UIImage+image.h"
 
 const float kWhiteOverlayOpacity = 0.75f;
 
 @interface MainViewController () <BuildingListViewControllerDelegate, UISearchBarDelegate>
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
 
 @property (nonatomic, strong) BuildingListViewController *buildingListViewController;
 
@@ -65,6 +67,10 @@ const float kWhiteOverlayOpacity = 0.75f;
     self.whiteView.alpha = 0;
     
     [self showMapView];
+    
+    UIImage *image = [UIImage imageNamed:@"icon2"];
+    UIImage *roundedImage = [image imageWithRoundedCorners:20 borderWidth:5 borderColor:[UIColor blackColor]];
+    self.imageView.image = roundedImage;
 }
 
 - (void)showTableView {
@@ -259,5 +265,10 @@ const float kWhiteOverlayOpacity = 0.75f;
     //searchfield text color
     [[UITextField appearanceWhenContainedIn:[UISearchBar class], nil] setTextColor:[UIColor colorWithWhite:1 alpha:0.8f]];
 }
+
+//////////////////
+
+
+
 
 @end

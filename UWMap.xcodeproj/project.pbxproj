@@ -11,6 +11,7 @@
 		47110AC819ECB153009AEFF6 /* pin.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47110AC719ECB153009AEFF6 /* pin.xib */; };
 		47110ACC19ECCABD009AEFF6 /* Building.m in Sources */ = {isa = PBXBuildFile; fileRef = 47110ACB19ECCABD009AEFF6 /* Building.m */; };
 		473AE8E21A22C15E00EE29F0 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 473AE8E11A22C15E00EE29F0 /* Constants.m */; };
+		473AE8E51A2C114800EE29F0 /* UIImage+image.m in Sources */ = {isa = PBXBuildFile; fileRef = 473AE8E41A2C114800EE29F0 /* UIImage+image.m */; };
 		475ED4321A0737B40033F485 /* PopupView.m in Sources */ = {isa = PBXBuildFile; fileRef = 475ED4311A0737B40033F485 /* PopupView.m */; };
 		47A7103C1A1A66300050B715 /* UIImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 47A7103B1A1A66300050B715 /* UIImageEffects.m */; };
 		47C7892B19F9FF4900C90436 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47C7892A19F9FF4900C90436 /* MainViewController.m */; };
@@ -49,6 +50,8 @@
 		47110ACB19ECCABD009AEFF6 /* Building.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Building.m; sourceTree = "<group>"; };
 		473AE8E01A22C15E00EE29F0 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		473AE8E11A22C15E00EE29F0 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
+		473AE8E31A2C114800EE29F0 /* UIImage+image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+image.h"; sourceTree = "<group>"; };
+		473AE8E41A2C114800EE29F0 /* UIImage+image.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+image.m"; sourceTree = "<group>"; };
 		475ED4301A0737B40033F485 /* PopupView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopupView.h; sourceTree = "<group>"; };
 		475ED4311A0737B40033F485 /* PopupView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopupView.m; sourceTree = "<group>"; };
 		47A7103A1A1A66300050B715 /* UIImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIImageEffects.h; sourceTree = "<group>"; };
@@ -165,6 +168,8 @@
 				47F37CD119DCE4C6009577E9 /* Supporting Files */,
 				473AE8E01A22C15E00EE29F0 /* Constants.h */,
 				473AE8E11A22C15E00EE29F0 /* Constants.m */,
+				473AE8E31A2C114800EE29F0 /* UIImage+image.h */,
+				473AE8E41A2C114800EE29F0 /* UIImage+image.m */,
 			);
 			path = UWMap;
 			sourceTree = "<group>";
@@ -316,6 +321,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				47F37CE419DCE4C6009577E9 /* BuildingListViewController.m in Sources */,
+				473AE8E51A2C114800EE29F0 /* UIImage+image.m in Sources */,
 				47F37CDB19DCE4C6009577E9 /* AppDelegate.m in Sources */,
 				47C7892B19F9FF4900C90436 /* MainViewController.m in Sources */,
 				47F37CE119DCE4C6009577E9 /* MapViewController.m in Sources */,

@@ -101,6 +101,9 @@
                                 <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Z6F-JF-8HE">
+                                <rect key="frame" x="88" y="201" width="144" height="167"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -121,6 +124,7 @@
                         <outlet property="buildingIcon" destination="6uD-YX-IT0" id="L5L-gM-tEv"/>
                         <outlet property="containerView" destination="oAY-OV-2XF" id="Ohx-I1-VL5"/>
                         <outlet property="iconImage" destination="6uD-YX-IT0" id="Wqf-E9-LHo"/>
+                        <outlet property="imageView" destination="Z6F-JF-8HE" id="Rzv-HQ-9gR"/>
                         <outlet property="searchBar" destination="7Jp-ao-Q5s" id="WmT-7B-UN1"/>
                         <outlet property="searchBarView" destination="3fb-Eb-Kyi" id="Dcf-ae-izU"/>
                         <outlet property="whiteView" destination="Y3d-b2-bJo" id="Dvi-Lc-Uxy"/>
