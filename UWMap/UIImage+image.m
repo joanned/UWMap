@@ -40,15 +40,30 @@
     CGContextAddArcToPoint(context, 0, 0, fw/2, 0, cornerRadius);
     CGContextAddArcToPoint(context, fw, 0, fw, fh/2, cornerRadius);
     CGContextClosePath(context);
-//    CGContextRestoreGState(context);
-//    CGContextClosePath(context);
+    CGContextRestoreGState(context);
+    CGContextClosePath(context);
+  
+
+    CGContextClip(context);
+   
+    CGContextDrawImage(context, imageRect, image.CGImage);
+    
+    
+    CGContextBeginPath(context);
+    CGContextSaveGState(context);
+    CGContextTranslateCTM(context, 0, 0);
+    CGContextScaleCTM(context, 1, 1);
+    CGContextMoveToPoint(context, fw, fh/2);
+    CGContextAddArcToPoint(context, fw, fh, fw/2, fh, cornerRadius);
+    CGContextAddArcToPoint(context, 0, fh, 0, fh/2, cornerRadius);
+    CGContextAddArcToPoint(context, 0, 0, fw/2, 0, cornerRadius);
+    CGContextAddArcToPoint(context, fw, 0, fw, fh/2, cornerRadius);
+    CGContextClosePath(context);
     CGContextSetStrokeColorWithColor(context, borderColor.CGColor);
     CGContextSetLineWidth(context, 10);
     CGContextStrokePath(context);
-
-    CGContextClip(context);
-
-    CGContextDrawImage(context, imageRect, image.CGImage);
+    
+   
     
 
 
