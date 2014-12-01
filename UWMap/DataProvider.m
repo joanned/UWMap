@@ -9,6 +9,7 @@
 #import "DataProvider.h"
 #import "Building.h"
 #import "Constants.h"
+#import "FoodData.h"
 
 @implementation DataProvider
 
@@ -525,5 +526,60 @@
     
     return buildingDictionary;
 }
+
++ (NSArray *)foodArrayFromJson:(NSData *)data error:(NSError **)error {
+    NSError *localError = nil;
+    NSDictionary *parsedObject = [NSJSONSerialization JSONObjectWithData:data options:0 error:&localError];
+    
+    if (localError != nil) {
+        *error = localError;
+        return nil;
+    }
+    
+    NSMutableArray *foodDataArray = [[NSMutableArray alloc] init];
+    NSDictionary *foodDictionary = [parsedObject valueForKey:@"data"];
+    
+    for (NSDictionary *foodDictionary in foodDictionary) {
+        FoodData *foodData = [[FoodData alloc] init];
+        [foodData setTitle:[foodDictionary valueForKey:@"outlet_name"]];
+        [foodData setImageUrl:[foodDictionary valueForKey:@"logo"]];
+        [foodData setDescription:[foodDictionary valueForKey:@"description"]];
+        [foodData setIsOpenNow:[foodDictionary valueForKey:@"is_open_now"]];
+
+        NSDictionary *hoursDictionary = [foodDictionary valueForKey:@"opening_hours"];
+        
+        NSDictionary *mondayHours = [hoursDictionary valueForKey:@"monday"];
+        [foodData setMondayOpen:[mondayHours valueForKey:@"opening_hour"]];
+        [foodData setMondayClose:[mondayHours valueForKey:@"closing_hour"]];
+        
+        NSDictionary *tuesdayHours = [hoursDictionary valueForKey:@"tuesday"];
+        [foodData setTuesdayOpen:[tuesdayHours valueForKey:@"opening_hour"]];
+        [foodData setTuesdayClose:[tuesdayHours valueForKey:@"closing_hour"]];
+        
+        NSDictionary *wednesdayHours = [hoursDictionary valueForKey:@"wednesday"];
+        [foodData setWednesdayOpen:[wednesdayHours valueForKey:@"opening_hour"]];
+        [foodData setWednesdayClose:[wednesdayHours valueForKey:@"closing_hour"]];
+        
+        NSDictionary *thursdayHours = [hoursDictionary valueForKey:@"thursday"];
+        [foodData setThursdayOpen:[thursdayHours valueForKey:@"opening_hour"]];
+        [foodData setThursdayClose:[thursdayHours valueForKey:@"closing_hour"]];
+        
+        NSDictionary *fridayHours = [hoursDictionary valueForKey:@"friday"];
+        [foodData setFridayOpen:[fridayHours valueForKey:@"opening_hour"]];
+        [foodData setFridayClose:[fridayHours valueForKey:@"closing_hour"]];
+        
+        NSDictionary *saturdayHours = [hoursDictionary valueForKey:@"saturday"];
+        [foodData setSaturdayOpen:[saturdayHours valueForKey:@"opening_hour"]];
+        [foodData setSaturdayClose:[saturdayHours valueForKey:@"closing_hour"]];
+                                    
+        NSDictionary *sundayHours = [hoursDictionary valueForKey:@"sunday"];
+        [foodData setSundayOpen:[sundayHours valueForKey:@"opening_hour"]];
+        [foodData setSundayClose:[sundayHours valueForKey:@"closing_hour"]];
+        [foodDataArray addObject:foodData];
+
+    }
+    return foodDataArray;
+}
+
 
 @end
