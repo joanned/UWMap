@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FoodDetails : UIView
+@interface FoodDetailsView : UIView
 
 @end

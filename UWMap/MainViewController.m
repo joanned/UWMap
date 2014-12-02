@@ -21,6 +21,7 @@
 #import "BuildingListViewController.h"
 #import "MapViewController.h"
 #import "UIImageEffects.h"
+#import  "FoodDetailsView.h"
 
 const float kWhiteOverlayOpacity = 0.75f;
 
@@ -40,12 +41,20 @@ const float kWhiteOverlayOpacity = 0.75f;
 @property (nonatomic, assign) BOOL showFullList;
 @property (nonatomic, assign) BOOL isOnMapView;
 
+@property (nonatomic, assign) CGFloat screenWidth;
+@property (nonatomic, assign) CGFloat screenHeight;
+
+@property (nonatomic, strong) FoodDetailsView *foodDetailsView;
+
 @end
 
 @implementation MainViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.screenHeight = [[UIScreen mainScreen] bounds].size.height;
+    self.screenWidth = [[UIScreen mainScreen] bounds].size.width;
     
     self.mapViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:NSStringFromClass([MapViewController class])];
     
@@ -66,6 +75,12 @@ const float kWhiteOverlayOpacity = 0.75f;
     self.whiteView.alpha = 0;
     
     [self showMapView];
+    
+    /////
+    NSArray *subviewArray = [[NSBundle mainBundle] loadNibNamed:@"FoodDetailsView" owner:self options:nil];
+    self.foodDetailsView = [subviewArray firstObject];
+    self.foodDetailsView.frame = CGRectMake(20, 84, self.screenWidth - 40, self.screenHeight - 84 - 20); //TODO
+    [self.view addSubview:self.foodDetailsView];
 }
 
 - (void)showTableView {
@@ -135,6 +150,9 @@ const float kWhiteOverlayOpacity = 0.75f;
 
 - (void)tappedIcon:(UITapGestureRecognizer *)recognizer {
     if (self.isOnMapView == YES) {
+        if (self.foodDetailsView) {
+            [self.foodDetailsView removeFromSuperview];
+        }
         self.showFullList = YES;
         [self showTableView];
     } else {
@@ -163,8 +181,8 @@ const float kWhiteOverlayOpacity = 0.75f;
     [self.mapViewController showDetails:locationPoint withLabel:label];
     
     CGFloat zoomScale = self.mapViewController.scrollView.zoomScale;
-    CGFloat adjustedX = locationPoint.x * zoomScale - [[UIScreen mainScreen] bounds].size.width / 2;
-    CGFloat adjustedY = locationPoint.y * zoomScale - [[UIScreen mainScreen] bounds].size.height / 2;
+    CGFloat adjustedX = locationPoint.x * zoomScale - self.screenWidth/ 2;
+    CGFloat adjustedY = locationPoint.y * zoomScale - self.screenHeight / 2;
         
     CGPoint adjustedPoint = CGPointMake(adjustedX, adjustedY);
     
@@ -204,6 +222,9 @@ const float kWhiteOverlayOpacity = 0.75f;
 
 - (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
     if (self.isOnMapView) {
+        if (self.foodDetailsView) {
+            [self.foodDetailsView removeFromSuperview];
+        }
         [self showTableView];
         [self.buildingListViewController reloadTableWithText:@"filler text for a blank search"];
     }
