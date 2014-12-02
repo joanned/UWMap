@@ -17,12 +17,9 @@
 @implementation FoodDetailsView
 
 - (IBAction)closeButtonTapped:(id)sender {
-    [UIView animateWithDuration:0.25f animations:^{
-        self.alpha = 0;
-        self.transform = CGAffineTransformMakeScale(0.7, 0.7); //TODO:moving down animation instead?
-    } completion:^(BOOL finished) {
-        [self removeFromSuperview];
-    }];
+    if ([self.delegate respondsToSelector:@selector(foodDetailsCloseButtonTapped)]) {
+        [self.delegate foodDetailsCloseButtonTapped];
+    }
 }
 
 @end

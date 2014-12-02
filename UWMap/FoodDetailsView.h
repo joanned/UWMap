@@ -8,6 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol FoodDetailsViewDelegate <NSObject>
+
+- (void)foodDetailsCloseButtonTapped;
+
+@end
+
 @interface FoodDetailsView : UIView
+
+@property (nonatomic, weak) id<FoodDetailsViewDelegate>delegate;
 
 @end

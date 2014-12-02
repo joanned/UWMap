@@ -25,7 +25,7 @@
 
 const float kWhiteOverlayOpacity = 0.75f;
 
-@interface MainViewController () <BuildingListViewControllerDelegate, UISearchBarDelegate>
+@interface MainViewController () <BuildingListViewControllerDelegate, FoodDetailsViewDelegate, UISearchBarDelegate>
 
 @property (nonatomic, strong) BuildingListViewController *buildingListViewController;
 
@@ -76,11 +76,10 @@ const float kWhiteOverlayOpacity = 0.75f;
     
     [self showMapView];
     
-    /////
-    NSArray *subviewArray = [[NSBundle mainBundle] loadNibNamed:@"FoodDetailsView" owner:self options:nil];
-    self.foodDetailsView = [subviewArray firstObject];
-    self.foodDetailsView.frame = CGRectMake(20, 84, self.screenWidth - 40, self.screenHeight - 84 - 20); //TODO
-    [self.view addSubview:self.foodDetailsView];
+    [self setupFoodDetailsView];
+    
+    //////////
+    [self showFoodDetailsView];
 }
 
 - (void)showTableView {
@@ -136,7 +135,7 @@ const float kWhiteOverlayOpacity = 0.75f;
         self.whiteView.alpha = kWhiteOverlayOpacity;
         self.buildingListViewController.whiteLayer.alpha = 0;
         [UIView animateWithDuration:0.1f delay:0.0f options:UIViewAnimationOptionBeginFromCurrentState animations:^{
-            self.buildingListViewController.whiteLayer.alpha = kWhiteOverlayOpacity; //make this contants
+            self.buildingListViewController.whiteLayer.alpha = kWhiteOverlayOpacity;
         } completion:nil];
         
     } else {
@@ -150,9 +149,7 @@ const float kWhiteOverlayOpacity = 0.75f;
 
 - (void)tappedIcon:(UITapGestureRecognizer *)recognizer {
     if (self.isOnMapView == YES) {
-        if (self.foodDetailsView) {
-            [self.foodDetailsView removeFromSuperview];
-        }
+        [self hideFoodDetailsView];
         self.showFullList = YES;
         [self showTableView];
     } else {
@@ -161,7 +158,7 @@ const float kWhiteOverlayOpacity = 0.75f;
     }
 }
 
-#pragma mark - Childview controller
+#pragma mark - Childview controller override
 
 -(BuildingListViewController *)buildingListViewController {
     if (!_buildingListViewController) {
@@ -222,9 +219,7 @@ const float kWhiteOverlayOpacity = 0.75f;
 
 - (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
     if (self.isOnMapView) {
-        if (self.foodDetailsView) {
-            [self.foodDetailsView removeFromSuperview];
-        }
+        [self hideFoodDetailsView];
         [self showTableView];
         [self.buildingListViewController reloadTableWithText:@"filler text for a blank search"];
     }
@@ -277,6 +272,55 @@ const float kWhiteOverlayOpacity = 0.75f;
     
     //searchfield text color
     [[UITextField appearanceWhenContainedIn:[UISearchBar class], nil] setTextColor:[UIColor colorWithWhite:1 alpha:0.8f]];
+}
+
+#pragma mark - Food Details helpers
+
+- (void)showFoodDetailsView {
+    [UIView animateWithDuration:0.25f delay:0.0f options:UIViewAnimationOptionBeginFromCurrentState animations:^{
+        self.whiteView.alpha = kWhiteOverlayOpacity;
+    } completion:nil];
+
+    [self.view addSubview:self.foodDetailsView];
+}
+
+- (void)hideFoodDetailsView {
+    [UIView animateWithDuration:0.25f delay:0.0f options:UIViewAnimationOptionBeginFromCurrentState animations:^{
+        self.whiteView.alpha = 0;
+    } completion:nil];
+    
+    if (self.foodDetailsView) {
+        [UIView animateWithDuration:0.25f
+                         animations:^{
+                             self.foodDetailsView.alpha = 0;
+                             self.foodDetailsView.transform = CGAffineTransformMakeScale(0.7, 0.7); //TODO:moving down animation instead?
+                         } completion:^(BOOL finished) {
+                             [self.foodDetailsView removeFromSuperview];
+                         }];
+    }
+}
+
+- (void)setupFoodDetailsView {
+    NSArray *subviewArray = [[NSBundle mainBundle] loadNibNamed:@"FoodDetailsView" owner:self options:nil];
+    self.foodDetailsView = [subviewArray firstObject];
+    self.foodDetailsView.frame = CGRectMake(20, 84, self.screenWidth - 40, self.screenHeight - 84 - 20); //TODO
+    self.foodDetailsView.delegate = self;
+    
+    [self setupShadowsForFoodDetails];
+}
+
+- (void)setupShadowsForFoodDetails {
+    self.foodDetailsView.layer.shadowColor = [[UIColor blackColor] CGColor];
+    self.foodDetailsView.layer.shadowOpacity = 0.4f;
+    self.foodDetailsView.layer.shadowRadius = 5.0f;
+    self.foodDetailsView.layer.shadowOffset = CGSizeMake(0, 3.0f);
+    self.foodDetailsView.layer.shadowPath = [UIBezierPath bezierPathWithRect:self.foodDetailsView.bounds].CGPath;
+}
+
+#pragma mark - <FoodDetailsViewDelegate>
+
+- (void)foodDetailsCloseButtonTapped {
+    [self hideFoodDetailsView];
 }
 
 @end
