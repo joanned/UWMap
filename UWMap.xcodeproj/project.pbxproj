@@ -16,6 +16,8 @@
 		475ED4321A0737B40033F485 /* PopupView.m in Sources */ = {isa = PBXBuildFile; fileRef = 475ED4311A0737B40033F485 /* PopupView.m */; };
 		47A7103C1A1A66300050B715 /* UIImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 47A7103B1A1A66300050B715 /* UIImageEffects.m */; };
 		47C7892B19F9FF4900C90436 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47C7892A19F9FF4900C90436 /* MainViewController.m */; };
+		47D854531A2D4CD7004D7BCB /* FoodDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 47D854521A2D4CD7004D7BCB /* FoodDetails.m */; };
+		47D854551A2D4CEB004D7BCB /* FoodDetails.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47D854541A2D4CEB004D7BCB /* FoodDetails.xib */; };
 		47F37CCB19DCE4C6009577E9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47F37CCA19DCE4C6009577E9 /* Foundation.framework */; };
 		47F37CCD19DCE4C6009577E9 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47F37CCC19DCE4C6009577E9 /* CoreGraphics.framework */; };
 		47F37CCF19DCE4C6009577E9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47F37CCE19DCE4C6009577E9 /* UIKit.framework */; };
@@ -61,6 +63,9 @@
 		47A7103B1A1A66300050B715 /* UIImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIImageEffects.m; sourceTree = "<group>"; };
 		47C7892919F9FF4900C90436 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		47C7892A19F9FF4900C90436 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		47D854511A2D4CD7004D7BCB /* FoodDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodDetails.h; sourceTree = "<group>"; };
+		47D854521A2D4CD7004D7BCB /* FoodDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodDetails.m; sourceTree = "<group>"; };
+		47D854541A2D4CEB004D7BCB /* FoodDetails.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FoodDetails.xib; sourceTree = "<group>"; };
 		47F37CC719DCE4C6009577E9 /* UWMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UWMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		47F37CCA19DCE4C6009577E9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		47F37CCC19DCE4C6009577E9 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -139,6 +144,16 @@
 			name = ImageEffects;
 			sourceTree = "<group>";
 		};
+		47D8544D1A2D4C44004D7BCB /* Nibs */ = {
+			isa = PBXGroup;
+			children = (
+				47D854511A2D4CD7004D7BCB /* FoodDetails.h */,
+				47D854521A2D4CD7004D7BCB /* FoodDetails.m */,
+				47D854541A2D4CEB004D7BCB /* FoodDetails.xib */,
+			);
+			name = Nibs;
+			sourceTree = "<group>";
+		};
 		47F37CBE19DCE4C6009577E9 = {
 			isa = PBXGroup;
 			children = (
@@ -172,6 +187,7 @@
 		47F37CD019DCE4C6009577E9 /* UWMap */ = {
 			isa = PBXGroup;
 			children = (
+				47D8544D1A2D4C44004D7BCB /* Nibs */,
 				473AE8E91A2C37A900EE29F0 /* Networking */,
 				47A710391A1A661F0050B715 /* ImageEffects */,
 				47110AC919ECC582009AEFF6 /* Data */,
@@ -312,6 +328,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				47F37CE619DCE4C6009577E9 /* Images.xcassets in Resources */,
+				47D854551A2D4CEB004D7BCB /* FoodDetails.xib in Resources */,
 				47F37CD519DCE4C6009577E9 /* InfoPlist.strings in Resources */,
 				47F37CDE19DCE4C6009577E9 /* Main.storyboard in Resources */,
 				47110AC819ECB153009AEFF6 /* pin.xib in Resources */,
@@ -343,6 +360,7 @@
 				473AE8E21A22C15E00EE29F0 /* Constants.m in Sources */,
 				475ED4321A0737B40033F485 /* PopupView.m in Sources */,
 				47A7103C1A1A66300050B715 /* UIImageEffects.m in Sources */,
+				47D854531A2D4CD7004D7BCB /* FoodDetails.m in Sources */,
 				4701AE6B19FD7A9500F81F84 /* DataProvider.m in Sources */,
 				47110ACC19ECCABD009AEFF6 /* Building.m in Sources */,
 			);

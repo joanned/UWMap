@@ -7,6 +7,7 @@
 //
 
 #import "FoodDataFetcher.h"
+#import "DataProvider.h"
 
 //const NSString *kAPILink = @"https://api.uwaterloo.ca/v2/foodservices/locations.json?key=31e50cdb727260547b9c7b6e40fb0288";
 
@@ -28,7 +29,13 @@
 
 - (void)receivedData:(NSData *)data {
     NSError *error = nil;
-    NSArray *foodDataArray =
+    NSArray *foodDataArray = [DataProvider foodArrayFromJson:data error:&error];
+    
+    if (error) {
+        [self.delegate fetchingDataFailedWithError:error];
+    } else {
+        [self.delegate recievedFoodArray:foodDataArray];
+    }
 }
 
 - (void)fetchingDataFailedWithError:(NSError *)error {

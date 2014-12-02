@@ -537,9 +537,9 @@
     }
     
     NSMutableArray *foodDataArray = [[NSMutableArray alloc] init];
-    NSDictionary *foodDictionary = [parsedObject valueForKey:@"data"];
+    NSDictionary *foodsDictionary = [parsedObject valueForKey:@"data"];
     
-    for (NSDictionary *foodDictionary in foodDictionary) {
+    for (NSDictionary *foodDictionary in foodsDictionary) {
         FoodData *foodData = [[FoodData alloc] init];
         [foodData setTitle:[foodDictionary valueForKey:@"outlet_name"]];
         [foodData setImageUrl:[foodDictionary valueForKey:@"logo"]];
