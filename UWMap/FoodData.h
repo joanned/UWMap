@@ -12,7 +12,7 @@
 
 @property  NSString *title;
 @property   NSString *imageUrl;
-@property   NSString *description;
+@property   NSString *foodDescription;
 @property   BOOL isOpenNow;
 @property   NSString *mondayOpen;
 @property   NSString *mondayClose;
@@ -29,25 +29,25 @@
 @property   NSString *sundayOpen;
 @property   NSString *sundayClose;
 
-- (instancetype)initWithTitle:(NSString *)title
-                        imageUrl:(NSURL *)imageUrl
-                  description:(NSString *)description
-                    isOpenNow:(BOOL)isOpenNow
-                   mondayOpen:(NSString *)mondayOpen
-                  mondayClose:(NSString *)mondayClose
-                  tuesdayOpen:(NSString *)tuesdayOpen
-                 tuesdayClose:(NSString *)tuesdayClose
-                wednesdayOpen:(NSString *)wednesdayOpen
-               wednesdayClose:(NSString *)wednesdayClose
-                 thursdayOpen:(NSString *)thursdayOpen
-                thursdayClose:(NSString *)thursdayClose
-                   fridayOpen:(NSString *)fridayOpen
-                  fridayClose:(NSString *)fridayClose
-                 saturdayOpen:(NSString *)saturdayOpen
-                saturdayClose:(NSString *)saturdayClose
-                   sundayOpen:(NSString *)sundayOpen
-                  sundayClose:(NSString *)sundayClose;
-
+//- (instancetype)initWithTitle:(NSString *)title
+//                        imageUrl:(NSURL *)imageUrl
+//                  description:(NSString *)description
+//                    isOpenNow:(BOOL)isOpenNow
+//                   mondayOpen:(NSString *)mondayOpen
+//                  mondayClose:(NSString *)mondayClose
+//                  tuesdayOpen:(NSString *)tuesdayOpen
+//                 tuesdayClose:(NSString *)tuesdayClose
+//                wednesdayOpen:(NSString *)wednesdayOpen
+//               wednesdayClose:(NSString *)wednesdayClose
+//                 thursdayOpen:(NSString *)thursdayOpen
+//                thursdayClose:(NSString *)thursdayClose
+//                   fridayOpen:(NSString *)fridayOpen
+//                  fridayClose:(NSString *)fridayClose
+//                 saturdayOpen:(NSString *)saturdayOpen
+//                saturdayClose:(NSString *)saturdayClose
+//                   sundayOpen:(NSString *)sundayOpen
+//                  sundayClose:(NSString *)sundayClose;
+//
 
 
 

@@ -21,7 +21,8 @@
 #import "BuildingListViewController.h"
 #import "MapViewController.h"
 #import "UIImageEffects.h"
-#import  "FoodDetailsView.h"
+#import "FoodDetailsView.h"
+#import "FoodDataFetcher.h"
 
 const float kWhiteOverlayOpacity = 0.75f;
 
@@ -46,12 +47,16 @@ const float kWhiteOverlayOpacity = 0.75f;
 
 @property (nonatomic, strong) FoodDetailsView *foodDetailsView;
 
+@property (nonatomic, strong) FoodDataFetcher *foodDataFetcher;
+
 @end
 
 @implementation MainViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self setupFetchingFoodData];
     
     self.screenHeight = [[UIScreen mainScreen] bounds].size.height;
     self.screenWidth = [[UIScreen mainScreen] bounds].size.width;
@@ -277,11 +282,16 @@ const float kWhiteOverlayOpacity = 0.75f;
 #pragma mark - Food Details helpers
 
 - (void)showFoodDetailsView {
+    [self.view addSubview:self.foodDetailsView];
+    self.foodDetailsView.alpha = 0;
+    self.foodDetailsView.transform = CGAffineTransformMakeScale(0.8, 0.8); //UP DOWN INSTEAD???
+    
     [UIView animateWithDuration:0.25f delay:0.0f options:UIViewAnimationOptionBeginFromCurrentState animations:^{
-        self.whiteView.alpha = kWhiteOverlayOpacity;
+        self.whiteView.alpha = 0.6f;
+        self.foodDetailsView.alpha = 1.0f;
+        self.foodDetailsView.transform = CGAffineTransformMakeScale(1.0f, 1.0f);
     } completion:nil];
 
-    [self.view addSubview:self.foodDetailsView];
 }
 
 - (void)hideFoodDetailsView {
@@ -321,6 +331,18 @@ const float kWhiteOverlayOpacity = 0.75f;
 
 - (void)foodDetailsCloseButtonTapped {
     [self hideFoodDetailsView];
+}
+
+#pragma mark - <FoodDataFetcherDelegate> and Helpers
+
+- (void)setupFetchingFoodData {
+    self.foodDataFetcher = [[FoodDataFetcher alloc] init];
+    self.foodDataFetcher.delegate = self;
+    [self.foodDataFetcher getFoodData];
+}
+
+- (void)foodDataFinishedLoading:(NSArray *)foodArray {
+    
 }
 
 @end

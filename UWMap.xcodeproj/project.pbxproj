@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		4701AE6B19FD7A9500F81F84 /* DataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 4701AE6A19FD7A9500F81F84 /* DataProvider.m */; };
-		47110AC819ECB153009AEFF6 /* pin.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47110AC719ECB153009AEFF6 /* pin.xib */; };
 		47110ACC19ECCABD009AEFF6 /* Building.m in Sources */ = {isa = PBXBuildFile; fileRef = 47110ACB19ECCABD009AEFF6 /* Building.m */; };
 		473AE8E21A22C15E00EE29F0 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 473AE8E11A22C15E00EE29F0 /* Constants.m */; };
 		473AE8E81A2C330400EE29F0 /* FoodData.m in Sources */ = {isa = PBXBuildFile; fileRef = 473AE8E71A2C330400EE29F0 /* FoodData.m */; };
@@ -48,7 +47,6 @@
 /* Begin PBXFileReference section */
 		4701AE6919FD7A9500F81F84 /* DataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataProvider.h; sourceTree = "<group>"; };
 		4701AE6A19FD7A9500F81F84 /* DataProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataProvider.m; sourceTree = "<group>"; };
-		47110AC719ECB153009AEFF6 /* pin.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = pin.xib; sourceTree = "<group>"; };
 		47110ACA19ECCABD009AEFF6 /* Building.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Building.h; sourceTree = "<group>"; };
 		47110ACB19ECCABD009AEFF6 /* Building.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Building.m; sourceTree = "<group>"; };
 		473AE8E01A22C15E00EE29F0 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
@@ -144,14 +142,25 @@
 			name = ImageEffects;
 			sourceTree = "<group>";
 		};
-		47D8544D1A2D4C44004D7BCB /* Nibs */ = {
+		47D8544D1A2D4C44004D7BCB /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				475ED4301A0737B40033F485 /* PopupView.h */,
+				475ED4311A0737B40033F485 /* PopupView.m */,
 				47D854511A2D4CD7004D7BCB /* FoodDetailsView.h */,
 				47D854521A2D4CD7004D7BCB /* FoodDetailsView.m */,
 				47D854541A2D4CEB004D7BCB /* FoodDetailsView.xib */,
 			);
-			name = Nibs;
+			name = Views;
+			sourceTree = "<group>";
+		};
+		47D854561A2E45F6004D7BCB /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				473AE8E01A22C15E00EE29F0 /* Constants.h */,
+				473AE8E11A22C15E00EE29F0 /* Constants.m */,
+			);
+			name = Constants;
 			sourceTree = "<group>";
 		};
 		47F37CBE19DCE4C6009577E9 = {
@@ -187,7 +196,8 @@
 		47F37CD019DCE4C6009577E9 /* UWMap */ = {
 			isa = PBXGroup;
 			children = (
-				47D8544D1A2D4C44004D7BCB /* Nibs */,
+				47D854561A2E45F6004D7BCB /* Constants */,
+				47D8544D1A2D4C44004D7BCB /* Views */,
 				473AE8E91A2C37A900EE29F0 /* Networking */,
 				47A710391A1A661F0050B715 /* ImageEffects */,
 				47110AC919ECC582009AEFF6 /* Data */,
@@ -197,8 +207,6 @@
 				47F37CDC19DCE4C6009577E9 /* Main.storyboard */,
 				47F37CE519DCE4C6009577E9 /* Images.xcassets */,
 				47F37CD119DCE4C6009577E9 /* Supporting Files */,
-				473AE8E01A22C15E00EE29F0 /* Constants.h */,
-				473AE8E11A22C15E00EE29F0 /* Constants.m */,
 			);
 			path = UWMap;
 			sourceTree = "<group>";
@@ -237,13 +245,10 @@
 			children = (
 				47F37CDF19DCE4C6009577E9 /* MapViewController.h */,
 				47F37CE019DCE4C6009577E9 /* MapViewController.m */,
-				47110AC719ECB153009AEFF6 /* pin.xib */,
 				47F37CE219DCE4C6009577E9 /* BuildingListViewController.h */,
 				47F37CE319DCE4C6009577E9 /* BuildingListViewController.m */,
 				47C7892919F9FF4900C90436 /* MainViewController.h */,
 				47C7892A19F9FF4900C90436 /* MainViewController.m */,
-				475ED4301A0737B40033F485 /* PopupView.h */,
-				475ED4311A0737B40033F485 /* PopupView.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -331,7 +336,6 @@
 				47D854551A2D4CEB004D7BCB /* FoodDetailsView.xib in Resources */,
 				47F37CD519DCE4C6009577E9 /* InfoPlist.strings in Resources */,
 				47F37CDE19DCE4C6009577E9 /* Main.storyboard in Resources */,
-				47110AC819ECB153009AEFF6 /* pin.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

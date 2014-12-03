@@ -10,13 +10,14 @@
 
 @protocol FoodDataFetcherDelegate <NSObject>
 
-- (void)fetchingDataFailedWithError:(NSError *)error;
-- (void)recievedFoodArray:(NSArray *)array;
+- (void)foodDataFinishedLoading:(NSArray *)foodArray;
 
 @end
 
 @interface FoodDataFetcher : NSObject
 
 @property (nonatomic, weak) id<FoodDataFetcherDelegate> delegate;
+
+- (void)getFoodData;
 
 @end

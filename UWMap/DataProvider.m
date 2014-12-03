@@ -543,7 +543,7 @@
         FoodData *foodData = [[FoodData alloc] init];
         [foodData setTitle:[foodDictionary valueForKey:@"outlet_name"]];
         [foodData setImageUrl:[foodDictionary valueForKey:@"logo"]];
-        [foodData setDescription:[foodDictionary valueForKey:@"description"]];
+        [foodData setFoodDescription:[foodDictionary valueForKey:@"description"]];
         [foodData setIsOpenNow:[foodDictionary valueForKey:@"is_open_now"]];
 
         NSDictionary *hoursDictionary = [foodDictionary valueForKey:@"opening_hours"];

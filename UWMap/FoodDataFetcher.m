@@ -20,7 +20,7 @@
     
     [NSURLConnection sendAsynchronousRequest:[[NSURLRequest alloc] initWithURL:url] queue:[[NSOperationQueue alloc] init] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
         if (connectionError) {
-            [self fetchingDataFailedWithError:connectionError];
+            NSLog(@"fetching data failed with error: %@", [connectionError localizedDescription]);
         } else {
             [self receivedData:data];
         }
@@ -32,14 +32,14 @@
     NSArray *foodDataArray = [DataProvider foodArrayFromJson:data error:&error];
     
     if (error) {
-        [self.delegate fetchingDataFailedWithError:error];
+        NSLog(@"parsing data failed with error: %@", [error localizedDescription]);
     } else {
-        [self.delegate recievedFoodArray:foodDataArray];
+        [self.delegate foodDataFinishedLoading:foodDataArray];
     }
 }
 
-- (void)fetchingDataFailedWithError:(NSError *)error {
-    
-}
+
+
+
 
 @end
