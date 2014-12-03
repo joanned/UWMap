@@ -79,6 +79,12 @@
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="descriptionLabel" destination="dEk-sh-euo" id="0vy-YN-r0V"/>
+                <outlet property="hoursLabel" destination="kxZ-Vs-OQf" id="PP8-KG-Njc"/>
+                <outlet property="imageView" destination="umw-zg-ILJ" id="EK4-bH-pGC"/>
+                <outlet property="titleLabel" destination="Kfm-6k-Zgp" id="5mO-LO-VsY"/>
+            </connections>
             <point key="canvasLocation" x="358" y="255"/>
         </view>
     </objects>

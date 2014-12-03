@@ -527,7 +527,7 @@
     return buildingDictionary;
 }
 
-+ (NSArray *)foodArrayFromJson:(NSData *)data error:(NSError **)error {
++ (NSDictionary *)foodDictionaryFromJson:(NSData *)data error:(NSError **)error {
     NSError *localError = nil;
     NSDictionary *parsedObject = [NSJSONSerialization JSONObjectWithData:data options:0 error:&localError];
     
@@ -536,13 +536,16 @@
         return nil;
     }
     
-    NSMutableArray *foodDataArray = [[NSMutableArray alloc] init];
+    NSMutableDictionary *foodDataDictionary = [[NSMutableDictionary alloc] init];
     NSDictionary *foodsDictionary = [parsedObject valueForKey:@"data"];
     
     for (NSDictionary *foodDictionary in foodsDictionary) {
         FoodData *foodData = [[FoodData alloc] init];
-        [foodData setTitle:[foodDictionary valueForKey:@"outlet_name"]];
+        NSString *adjustedString =  [[foodDictionary valueForKey:@"outlet_name"] stringByReplacingOccurrencesOfString:@"U" withString:@"u"];//TODO:must change this later..
+        
+        [foodData setTitle:adjustedString];
         [foodData setImageUrl:[foodDictionary valueForKey:@"logo"]];
+        [foodData setBuilding:[foodDictionary valueForKey:@"building"]];
         [foodData setFoodDescription:[foodDictionary valueForKey:@"description"]];
         [foodData setIsOpenNow:[foodDictionary valueForKey:@"is_open_now"]];
 
@@ -575,10 +578,11 @@
         NSDictionary *sundayHours = [hoursDictionary valueForKey:@"sunday"];
         [foodData setSundayOpen:[sundayHours valueForKey:@"opening_hour"]];
         [foodData setSundayClose:[sundayHours valueForKey:@"closing_hour"]];
-        [foodDataArray addObject:foodData];
+        
+        [foodDataDictionary setValue:foodData forKey:foodData.title];
 
     }
-    return foodDataArray;
+    return foodDataDictionary;
 }
 
 

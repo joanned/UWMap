@@ -29,12 +29,12 @@
 
 - (void)receivedData:(NSData *)data {
     NSError *error = nil;
-    NSArray *foodDataArray = [DataProvider foodArrayFromJson:data error:&error];
+    NSDictionary *foodDataDictionary = [DataProvider foodDictionaryFromJson:data error:&error];
     
     if (error) {
         NSLog(@"parsing data failed with error: %@", [error localizedDescription]);
     } else {
-        [self.delegate foodDataFinishedLoading:foodDataArray];
+        [self.delegate foodDataFinishedLoading:foodDataDictionary];
     }
 }
 

@@ -23,10 +23,11 @@
 #import "UIImageEffects.h"
 #import "FoodDetailsView.h"
 #import "FoodDataFetcher.h"
+#import "FoodData.h"
 
 const float kWhiteOverlayOpacity = 0.75f;
 
-@interface MainViewController () <BuildingListViewControllerDelegate, FoodDetailsViewDelegate, UISearchBarDelegate>
+@interface MainViewController () <BuildingListViewControllerDelegate, FoodDetailsViewDelegate, UISearchBarDelegate, FoodDataFetcherDelegate>
 
 @property (nonatomic, strong) BuildingListViewController *buildingListViewController;
 
@@ -48,6 +49,7 @@ const float kWhiteOverlayOpacity = 0.75f;
 @property (nonatomic, strong) FoodDetailsView *foodDetailsView;
 
 @property (nonatomic, strong) FoodDataFetcher *foodDataFetcher;
+@property (nonatomic, strong) NSDictionary *foodDictionary; //goes here or mapviewcontrooler?
 
 @end
 
@@ -57,6 +59,7 @@ const float kWhiteOverlayOpacity = 0.75f;
     [super viewDidLoad];
     
     [self setupFetchingFoodData];
+    self.foodDictionary = [[NSDictionary alloc] init];
     
     self.screenHeight = [[UIScreen mainScreen] bounds].size.height;
     self.screenWidth = [[UIScreen mainScreen] bounds].size.width;
@@ -82,9 +85,6 @@ const float kWhiteOverlayOpacity = 0.75f;
     [self showMapView];
     
     [self setupFoodDetailsView];
-    
-    //////////
-    [self showFoodDetailsView];
 }
 
 - (void)showTableView {
@@ -283,6 +283,7 @@ const float kWhiteOverlayOpacity = 0.75f;
 
 - (void)showFoodDetailsView {
     [self.view addSubview:self.foodDetailsView];
+    
     self.foodDetailsView.alpha = 0;
     self.foodDetailsView.transform = CGAffineTransformMakeScale(0.8, 0.8); //UP DOWN INSTEAD???
     
@@ -341,8 +342,16 @@ const float kWhiteOverlayOpacity = 0.75f;
     [self.foodDataFetcher getFoodData];
 }
 
-- (void)foodDataFinishedLoading:(NSArray *)foodArray {
+- (void)foodDataFinishedLoading:(NSDictionary *)foodDictionary {
+    self.foodDictionary = foodDictionary;
+    FoodData *foodData = [self.foodDictionary valueForKey:@"Bon App\u00e9tit - Davis Centre"];
+    self.foodDetailsView.titleLabel.text = foodData.title;
+    self.foodDetailsView.descriptionLabel.text = foodData.foodDescription;
     
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self showFoodDetailsView];
+    });
+
 }
 
 @end

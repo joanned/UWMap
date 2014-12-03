@@ -10,9 +10,10 @@
 
 @interface FoodData : NSObject
 
-@property  NSString *title;
+@property   NSString *title;
 @property   NSString *imageUrl;
 @property   NSString *foodDescription;
+@property   NSString *building;
 @property   BOOL isOpenNow;
 @property   NSString *mondayOpen;
 @property   NSString *mondayClose;
