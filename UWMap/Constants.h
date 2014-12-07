@@ -11,3 +11,6 @@ FOUNDATION_EXPORT CGFloat const kMapImageHeight;
 FOUNDATION_EXPORT CGFloat const kXMapStartPosition;
 FOUNDATION_EXPORT CGFloat const kYMapStartPosition;
 FOUNDATION_EXPORT CGFloat const kScaleForFood;
+FOUNDATION_EXPORT CGFloat const kMaxDistanceToAnimate;
+
+

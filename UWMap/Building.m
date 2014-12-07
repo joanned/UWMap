@@ -22,7 +22,7 @@
     
     self = [super init];
     if (self) {
-        _buildingName = buildingName;
+        _title = buildingName;
         _shortform = shortform;
         _positionX = positionX;
         _positionY = positionY;

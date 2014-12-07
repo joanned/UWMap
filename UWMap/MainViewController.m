@@ -22,6 +22,7 @@
 #import "FoodDetailsView.h"
 #import "FoodDataFetcher.h"
 #import "FoodData.h"
+#import "Constants.h"
 
 const float kWhiteOverlayOpacity = 0.75f;
 
@@ -38,8 +39,9 @@ const float kWhiteOverlayOpacity = 0.75f;
 @property (nonatomic, weak) IBOutlet UIView *whiteView;
 @property (nonatomic, weak) IBOutlet UIImageView *iconImage;
 
-@property (nonatomic, assign) BOOL showFullList;
+@property (nonatomic, assign) BOOL showFullList; //TODO: can just use isonmapview?
 @property (nonatomic, assign) BOOL isOnMapView;
+@property (nonatomic, assign) BOOL showCombinedList;
 
 @property (nonatomic, assign) CGFloat screenWidth;
 @property (nonatomic, assign) CGFloat screenHeight;
@@ -66,6 +68,7 @@ const float kWhiteOverlayOpacity = 0.75f;
     self.mapViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:NSStringFromClass([MapViewController class])];
     
     self.isOnMapView = YES;
+    self.showCombinedList = YES;
 
     UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self
                                                                                 action:@selector(tappedIcon:)];
@@ -128,6 +131,8 @@ const float kWhiteOverlayOpacity = 0.75f;
     [self.buildingListViewController removeFromParentViewController];
     
     self.isOnMapView = YES;
+    self.showCombinedList = YES;
+    
     [self.searchBar resignFirstResponder];
     
     [self animateToTableview:NO];
@@ -155,6 +160,7 @@ const float kWhiteOverlayOpacity = 0.75f;
     if (self.isOnMapView == YES) {
         [self hideFoodDetailsView];
         self.showFullList = YES;
+        self.showCombinedList = NO;
         [self showTableView];
     } else {
         self.showFullList = NO;
@@ -187,26 +193,25 @@ const float kWhiteOverlayOpacity = 0.75f;
         
     CGPoint adjustedPoint = CGPointMake(adjustedX, adjustedY);
     
-    
     CGPoint currentOffset = self.mapViewController.scrollView.contentOffset;
     
     //if the distance to animate is too big, move the offset closer so the animation looks better
     CGFloat pointDistanceX = currentOffset.x - adjustedPoint.x;
-    if (abs(pointDistanceX) > 300) {
+    if (abs(pointDistanceX) > kMaxDistanceToAnimate) {
         if (pointDistanceX > 0) {
-            currentOffset.x -= currentOffset.x - adjustedPoint.x - 200;
-        } else if (pointDistanceX < 0) {
-            currentOffset.x += adjustedPoint.x - currentOffset.x - 200;
+            currentOffset.x -= currentOffset.x - adjustedPoint.x - kMaxDistanceToAnimate;
+        } else {
+            currentOffset.x += adjustedPoint.x - currentOffset.x - kMaxDistanceToAnimate;
         }
         self.mapViewController.scrollView.contentOffset = currentOffset;
     }
     
     CGFloat pointDistanceY = currentOffset.y - adjustedPoint.y;
-    if (abs(pointDistanceY) > 300) {
+    if (abs(pointDistanceY) > kMaxDistanceToAnimate) {
         if (pointDistanceY > 0) {
-            currentOffset.x -= currentOffset.x - adjustedPoint.x - 200;
-        } else if (pointDistanceY < 0) {
-            currentOffset.x += adjustedPoint.x - currentOffset.x - 200;
+            currentOffset.x -= currentOffset.x - adjustedPoint.x - kMaxDistanceToAnimate;
+        } else {
+            currentOffset.x += adjustedPoint.x - currentOffset.x - kMaxDistanceToAnimate;
         }
         self.mapViewController.scrollView.contentOffset = currentOffset;
     }
@@ -225,15 +230,15 @@ const float kWhiteOverlayOpacity = 0.75f;
     if (self.isOnMapView) {
         [self hideFoodDetailsView];
         [self showTableView];
-        [self.buildingListViewController reloadTableWithText:@"filler text for a blank search"];
+        [self.buildingListViewController reloadTableWithText:@"filler text for a blank search" showFullList:self.showCombinedList];
     }
 }
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
     if ([searchText length] == 0 && self.showFullList == NO) {
-        [self.buildingListViewController reloadTableWithText:@"filler text for a blank search"];
+        [self.buildingListViewController reloadTableWithText:@"filler text for a blank search" showFullList:self.showCombinedList];
     } else {
-        [self.buildingListViewController reloadTableWithText:searchText];
+        [self.buildingListViewController reloadTableWithText:searchText showFullList:self.showCombinedList];
     }
 }
 

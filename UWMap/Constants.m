@@ -14,3 +14,4 @@ CGFloat const kXMapStartPosition = -80.5630840688;
 CGFloat const kYMapStartPosition = 43.4627956455;
 //CGFloat const kScaleForFood = 143290.37149;
 CGFloat const kScaleForFood = 72000;
+CGFloat const kMaxDistanceToAnimate = 300;

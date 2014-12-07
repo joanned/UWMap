@@ -178,8 +178,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="buildingButtonTapped:" destination="QUy-BD-bpt" eventType="touchUpInside" id="r92-pi-0iy"/>
-                                    <action selector="foodButtonTapped:" destination="QUy-BD-bpt" eventType="touchUpInside" id="7vA-gG-TPR"/>
+                                    <action selector="buildingButtonTapped:" destination="QUy-BD-bpt" eventType="touchUpInside" id="biN-RK-h1c"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YD2-PB-qoT" userLabel="foodButton">
@@ -192,8 +191,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="buildingButtonTapped:" destination="QUy-BD-bpt" eventType="touchUpInside" id="Axf-bv-miX"/>
-                                    <action selector="foodButtonTapped:" destination="QUy-BD-bpt" eventType="touchUpInside" id="pVG-Nf-MQu"/>
+                                    <action selector="foodButtonTapped:" destination="QUy-BD-bpt" eventType="touchUpInside" id="3wn-13-ath"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -223,8 +221,8 @@
                     <nil key="simulatedStatusBarMetrics"/>
                     <connections>
                         <outlet property="blurredImageView" destination="fTT-dt-M3V" id="NzQ-2G-Xrx"/>
-                        <outlet property="buildingButton" destination="K83-aK-oat" id="wKH-QC-JPQ"/>
-                        <outlet property="foodButton" destination="YD2-PB-qoT" id="ZpU-bp-F24"/>
+                        <outlet property="buildingButton" destination="K83-aK-oat" id="880-YG-p8h"/>
+                        <outlet property="foodButton" destination="YD2-PB-qoT" id="wYG-Is-nGF"/>
                         <outlet property="tableView" destination="OYi-e8-I4B" id="WDv-fS-kmN"/>
                         <outlet property="whiteLayer" destination="q6C-dP-H9i" id="V0L-Zg-CTG"/>
                     </connections>

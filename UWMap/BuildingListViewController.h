@@ -23,7 +23,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 
-- (void)reloadTableWithText:(NSString *)searchText;
+- (void)reloadTableWithText:(NSString *)searchText showFullList:(BOOL)showFullList;
 - (void)foodDictionaryLoaded:(NSDictionary *)foodDictionary;
 
 @end

@@ -17,19 +17,23 @@
 //TODO: prob dont need to store dictionaries everywhere zz
 @property (nonatomic, strong) NSDictionary *foodDictionary;
 @property NSArray *foodTitlesArray;
+@property NSMutableArray *foodFilteredArray;
+
 @property NSDictionary *locationDictionary;
 @property NSArray *buildingsArray; //TODO: nonatimc
 @property NSMutableArray *filteredArray;
 
+@property NSArray *allLocationsArray;
+@property NSMutableArray *allLocationsFilteredArray;
 
-
-@property (weak, nonatomic) IBOutlet UIButton *foodButton;
 @property (weak, nonatomic) IBOutlet UIButton *buildingButton;
+@property (weak, nonatomic) IBOutlet UIButton *foodButton;
 
 @property (nonatomic, strong) UIColor *highlightedColor;
 @property (nonatomic, strong) UIColor *unhighlightedColor;
 
 @property (nonatomic, assign) BOOL isShowingBuildings;
+@property (nonatomic, assign) BOOL showCombinedList;
 
 @end
 
@@ -44,7 +48,7 @@
     self.locationDictionary = [DataProvider buildingDictionary];
     self.buildingsArray = [self.locationDictionary allValues];
     
-    NSSortDescriptor *valueDescriptor = [[NSSortDescriptor alloc] initWithKey:@"buildingName" ascending:YES];
+    NSSortDescriptor *valueDescriptor = [[NSSortDescriptor alloc] initWithKey:@"title" ascending:YES];
     NSArray *descriptors = [NSArray arrayWithObject:valueDescriptor];
     NSArray *sortedArray = [self.buildingsArray sortedArrayUsingDescriptors:descriptors];
     
@@ -59,6 +63,7 @@
     [super viewWillAppear:animated];
     
     self.filteredArray = [self.buildingsArray mutableCopy];
+    self.foodFilteredArray = [self.foodTitlesArray mutableCopy];
 }
 
 #pragma mark - Button stuff
@@ -67,8 +72,8 @@
     self.highlightedColor = [UIColor colorWithRed:52.0f/255 green:52.0f/255 blue:52.0f/255 alpha:1];
     self.unhighlightedColor = [UIColor colorWithRed:40.0f/255 green:40.0f/255 blue:40.0f/255 alpha:1];
     
-    self.buildingButton.backgroundColor = self.unhighlightedColor;
-    self.foodButton.backgroundColor = self.highlightedColor;
+    self.buildingButton.backgroundColor = self.highlightedColor;
+    self.foodButton.backgroundColor = self.unhighlightedColor;
     self.isShowingBuildings = YES;
 }
 
@@ -92,7 +97,10 @@
 
 - (void)foodDictionaryLoaded:(NSDictionary *)foodDictionary {
     self.foodDictionary = foodDictionary;
-    self.foodTitlesArray = [foodDictionary allValues];
+    self.foodTitlesArray = [foodDictionary allValues]; //TODO::needed?
+    
+    self.allLocationsArray = [self.foodTitlesArray arrayByAddingObjectsFromArray:self.buildingsArray];
+    self.allLocationsFilteredArray = [self.allLocationsArray mutableCopy]; //TODO: needed?
     
     NSSortDescriptor *valueDescriptor = [[NSSortDescriptor alloc] initWithKey:@"title" ascending:YES];
     NSArray *descriptors = [NSArray arrayWithObject:valueDescriptor];
@@ -102,10 +110,14 @@
 
 #pragma mark - <UITableViewDataSource, UITableViewDelegate>
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if (self.isShowingBuildings) {
-        return [self.filteredArray count];
+    if (self.showCombinedList) {
+        return [self.allLocationsFilteredArray count];
     } else {
-        return [self.foodTitlesArray count];
+        if (self.isShowingBuildings) {
+            return [self.filteredArray count];
+        } else {
+            return [self.foodFilteredArray count];
+        }
     }
 }
 
@@ -119,12 +131,22 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
     }
     
-    if (self.isShowingBuildings == YES) {
-        Building *building = [self.filteredArray objectAtIndex:indexPath.row];
-        cell.textLabel.text = building.buildingName;
+    if (self.showCombinedList) {
+        if ([[self.allLocationsFilteredArray objectAtIndex:indexPath.row] isKindOfClass:[Building class]]) {
+            Building *building = [self.allLocationsFilteredArray objectAtIndex:indexPath.row];
+            cell.textLabel.text = building.title;
+        } else {
+            FoodData *foodData = [self.allLocationsFilteredArray objectAtIndex:indexPath.row];
+            cell.textLabel.text = foodData.title;
+        }
     } else {
-        FoodData *foodData = [self.foodTitlesArray objectAtIndex:indexPath.row];
-        cell.textLabel.text = foodData.title;
+        if (self.isShowingBuildings == YES) {
+            Building *building = [self.filteredArray objectAtIndex:indexPath.row];
+            cell.textLabel.text = building.title;
+        } else {
+            FoodData *foodData = [self.foodFilteredArray objectAtIndex:indexPath.row];
+            cell.textLabel.text = foodData.title;
+        }
     }
     
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -143,21 +165,57 @@
 
 #pragma mark Content Filtering
 
--(void)filterForSearchText:(NSString*)searchText {
+-(void)filterForSearchText:(NSString*)searchText showFullList:(BOOL)showFullList {
     if ([searchText isEqualToString:@""]) { //not needed this if else
-        self.filteredArray = [self.buildingsArray mutableCopy];
+        if (self.isShowingBuildings) { //TODO: case when theres no foods
+            self.filteredArray = [self.buildingsArray mutableCopy];
+        } else {
+            self.foodFilteredArray = [self.foodTitlesArray mutableCopy];
+        }
 
     } else {
-        [self.filteredArray removeAllObjects];
-        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"buildingName CONTAINS[cd] %@ OR shortform BEGINSWITH[cd] %@",searchText, searchText];
-        
-        self.filteredArray = [NSMutableArray arrayWithArray:[self.buildingsArray filteredArrayUsingPredicate:predicate]];
+        if (showFullList && self.foodDictionary != nil) { //TODO: do more checks like this
+            [self.allLocationsFilteredArray removeAllObjects];
+            NSPredicate *predicate = [NSPredicate predicateWithBlock:^BOOL(id evaluatedObject, NSDictionary *bindings) {
+                if ([evaluatedObject isKindOfClass:[Building class]]) {
+                    Building *building = (Building *)evaluatedObject;
+                    if ([building.title rangeOfString:searchText].location != NSNotFound || [[building.shortform lowercaseString] hasPrefix:[searchText lowercaseString]]) {
+                        return YES;
+                    } else {
+                        return NO;
+                    }
+                } else {
+                    FoodData *foodData = (FoodData *)evaluatedObject;
+                    if ([foodData.title rangeOfString:searchText].location != NSNotFound) {
+                        return YES;
+                    } else {
+                        return NO;
+                    }
+                }
+            }];
+            
+            self.allLocationsFilteredArray = [NSMutableArray arrayWithArray:[self.allLocationsArray filteredArrayUsingPredicate:predicate]];
+            
+        } else {
+            if (self.isShowingBuildings) {
+                [self.filteredArray removeAllObjects];
+                NSPredicate *predicate = [NSPredicate predicateWithFormat:@"title CONTAINS[cd] %@ OR shortform BEGINSWITH[cd] %@",searchText, searchText];
+                
+                self.filteredArray = [NSMutableArray arrayWithArray:[self.buildingsArray filteredArrayUsingPredicate:predicate]];
+            } else {
+                [self.foodFilteredArray removeAllObjects];
+                NSPredicate *predicate = [NSPredicate predicateWithFormat:@"title CONTAINS[cd] %@",searchText];
+                
+                self.foodFilteredArray = [NSMutableArray arrayWithArray:[self.foodTitlesArray filteredArrayUsingPredicate:predicate]];
+            }
+        }
     }
 }
 
 
-- (void)reloadTableWithText:(NSString *)searchText {
-    [self filterForSearchText:searchText];
+- (void)reloadTableWithText:(NSString *)searchText showFullList:(BOOL)showFullList{
+    [self filterForSearchText:searchText showFullList:showFullList];
+    self.showCombinedList = showFullList;
     [self.tableView reloadData];
 }
 

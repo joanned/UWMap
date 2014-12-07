@@ -8,7 +8,7 @@
 
 @interface Building : NSObject
 
-@property (nonatomic, readonly) NSString *buildingName;
+@property (nonatomic, readonly) NSString *title;
 @property (nonatomic, readonly) NSString *shortform;
 @property (nonatomic, readonly) CGFloat positionX;
 @property (nonatomic, readonly) CGFloat positionY;
