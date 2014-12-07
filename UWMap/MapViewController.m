@@ -12,6 +12,7 @@
 #import "DataProvider.h"
 #import "Building.h"
 #import "Constants.h"
+#import "FoodData.h"
 
 @interface MapViewController () <UIScrollViewDelegate>
 
@@ -63,13 +64,13 @@ static const CGFloat kWidthOfPin = 50;
 //    if (self.isFirstLoad) {
         CGFloat heightScale = self.scrollView.frame.size.height / self.scrollView.contentSize.height;
 //    
-    self.scrollView.minimumZoomScale = heightScale;
-    self.scrollView.maximumZoomScale = 1.3f;
-    self.scrollView.zoomScale = heightScale + 0.4;
+//    self.scrollView.minimumZoomScale = heightScale;
+//    self.scrollView.maximumZoomScale = 1.3f;
+//    self.scrollView.zoomScale = heightScale + 0.4;
     
-//    self.scrollView.minimumZoomScale = 1;
-//    self.scrollView.maximumZoomScale = 1;
-//    self.scrollView.zoomScale = 1;
+    self.scrollView.minimumZoomScale = 1;
+    self.scrollView.maximumZoomScale = 1;
+    self.scrollView.zoomScale = 1;
 
     UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedScreen:)];
     [tapRecognizer setNumberOfTapsRequired:1];
@@ -136,14 +137,14 @@ static const CGFloat kWidthOfPin = 50;
 - (void)showDetails:(CGPoint)locationPoint withLabel:(NSString *)label {
     [self removePopupView];
     
-    self.popupView = [[PopupView alloc] initWithTitle:label detail:@""];
+    self.popupView = [[PopupView alloc] initWithTitle:label detail:@"" hasIcon:YES];
     
     self.popupView.transform = CGAffineTransformMakeScale(1.0/self.scrollView.zoomScale, 1.0/self.scrollView.zoomScale);
 
-    CGRect f = self.popupView.frame;
-    f.origin.x = locationPoint.x-self.popupView.frame.size.width/2 + kWidthOfPin/2;
-    f.origin.y = locationPoint.y-self.popupView.frame.size.height + 3;
-    self.popupView.frame = f;
+    CGRect frame = self.popupView.frame;
+    frame.origin.x = locationPoint.x-frame.size.width/2 + kWidthOfPin/2;
+    frame.origin.y = locationPoint.y-frame.size.height + 3;
+    self.popupView.frame = frame;
     
     NSLog(@"shown at point %f %f", locationPoint.x , locationPoint.y);
     NSLog(@"popup frame: %@", NSStringFromCGRect(self.popupView.frame));
@@ -192,6 +193,35 @@ static const CGFloat kWidthOfPin = 50;
     }
 
     self.scrollView.contentOffset = locationPoint;
+}
+
+- (void)showFoodIconsOnMap:(NSDictionary *)foodDictionary {
+    for (NSString *key in foodDictionary) {
+        FoodData *foodData = [foodDictionary objectForKey:key];
+        
+        UIImageView *foodIconView = [[UIImageView alloc] init];
+        UIImage *iconImage = nil;
+
+        if ([foodData.title rangeOfString:@"Tim Hortons"].location == NSNotFound) {
+            iconImage = [UIImage imageNamed:@"first"];
+        } else {
+            iconImage = [UIImage imageNamed:@"icon2"];
+        }
+        
+        [foodIconView setImage:iconImage];
+        
+        CGFloat  currentScale = self.scrollView.zoomScale;
+        CGFloat xPosition = (foodData.xPosition - kXMapStartPosition) * kScaleForFood ;
+        CGFloat yPosition = (foodData.yPosition - kYMapStartPosition) * kScaleForFood ;
+//        foodIconView.transform = CGAffineTransformMakeScale(1.0/self.scrollView.zoomScale, 1.0/self.scrollView.zoomScale);
+        
+        foodIconView.frame = CGRectMake(xPosition, yPosition, iconImage.size.width, iconImage.size.height);
+        
+        //TODO: animate
+        self.scrollView.zoomScale = 1;
+        [self.imageView addSubview:foodIconView];
+        self.scrollView.zoomScale = currentScale;
+    }
 }
 
 #pragma mark <UIScrollViewDelegate>

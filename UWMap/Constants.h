@@ -8,3 +8,6 @@
 
 FOUNDATION_EXPORT CGFloat const kMapImageWidth;
 FOUNDATION_EXPORT CGFloat const kMapImageHeight;
+FOUNDATION_EXPORT CGFloat const kXMapStartPosition;
+FOUNDATION_EXPORT CGFloat const kYMapStartPosition;
+FOUNDATION_EXPORT CGFloat const kScaleForFood;

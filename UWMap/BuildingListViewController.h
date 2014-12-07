@@ -24,5 +24,6 @@
 
 
 - (void)reloadTableWithText:(NSString *)searchText;
+- (void)foodDictionaryLoaded:(NSDictionary *)foodDictionary;
 
 @end

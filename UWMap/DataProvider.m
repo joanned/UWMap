@@ -544,6 +544,9 @@
         NSString *adjustedString =  [[foodDictionary valueForKey:@"outlet_name"] stringByReplacingOccurrencesOfString:@"U" withString:@"u"];//TODO:must change this later..
         
         [foodData setTitle:adjustedString];
+        [foodData setYPosition:[[foodDictionary valueForKey:@"latitude"] floatValue]];
+        [foodData setXPosition:[[foodDictionary valueForKey:@"longitude"] floatValue]];
+        
         [foodData setImageUrl:[foodDictionary valueForKey:@"logo"]];
         [foodData setBuilding:[foodDictionary valueForKey:@"building"]];
         [foodData setFoodDescription:[foodDictionary valueForKey:@"description"]];

@@ -11,6 +11,8 @@
 @interface FoodData : NSObject
 
 @property   NSString *title;
+@property   CGFloat xPosition;
+@property   CGFloat yPosition;
 @property   NSString *imageUrl;
 @property   NSString *foodDescription;
 @property   NSString *building;

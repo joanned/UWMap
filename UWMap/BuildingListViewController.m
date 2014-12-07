@@ -9,13 +9,27 @@
 #import "BuildingListViewController.h"
 #import "DataProvider.h"
 #import "Building.h"
+#import "FoodDataFetcher.h" //TODO: needed??
+#import "FoodData.h"
 
-@interface BuildingListViewController ()
+@interface BuildingListViewController () <FoodDataFetcherDelegate>
 
-
+//TODO: prob dont need to store dictionaries everywhere zz
+@property (nonatomic, strong) NSDictionary *foodDictionary;
+@property NSArray *foodTitlesArray;
 @property NSDictionary *locationDictionary;
-@property NSArray *buildingsArray;
+@property NSArray *buildingsArray; //TODO: nonatimc
 @property NSMutableArray *filteredArray;
+
+
+
+@property (weak, nonatomic) IBOutlet UIButton *foodButton;
+@property (weak, nonatomic) IBOutlet UIButton *buildingButton;
+
+@property (nonatomic, strong) UIColor *highlightedColor;
+@property (nonatomic, strong) UIColor *unhighlightedColor;
+
+@property (nonatomic, assign) BOOL isShowingBuildings;
 
 @end
 
@@ -37,7 +51,8 @@
     self.buildingsArray = sortedArray;
     
     self.whiteLayer.alpha = 0;
-
+    
+    [self setupButtons];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -46,9 +61,52 @@
     self.filteredArray = [self.buildingsArray mutableCopy];
 }
 
+#pragma mark - Button stuff
+
+- (void)setupButtons {
+    self.highlightedColor = [UIColor colorWithRed:52.0f/255 green:52.0f/255 blue:52.0f/255 alpha:1];
+    self.unhighlightedColor = [UIColor colorWithRed:40.0f/255 green:40.0f/255 blue:40.0f/255 alpha:1];
+    
+    self.buildingButton.backgroundColor = self.unhighlightedColor;
+    self.foodButton.backgroundColor = self.highlightedColor;
+    self.isShowingBuildings = YES;
+}
+
+- (IBAction)foodButtonTapped:(id)sender {
+    if (self.isShowingBuildings == YES) {
+        self.isShowingBuildings = NO;
+        self.buildingButton.backgroundColor = self.unhighlightedColor;
+        self.foodButton.backgroundColor = self.highlightedColor;
+        [self.tableView reloadData];
+    }
+}
+
+- (IBAction)buildingButtonTapped:(id)sender {
+    if (self.isShowingBuildings == NO) {
+        self.isShowingBuildings = YES;
+        self.buildingButton.backgroundColor = self.highlightedColor;
+        self.foodButton.backgroundColor = self.unhighlightedColor;
+        [self.tableView reloadData];
+    }
+}
+
+- (void)foodDictionaryLoaded:(NSDictionary *)foodDictionary {
+    self.foodDictionary = foodDictionary;
+    self.foodTitlesArray = [foodDictionary allValues];
+    
+    NSSortDescriptor *valueDescriptor = [[NSSortDescriptor alloc] initWithKey:@"title" ascending:YES];
+    NSArray *descriptors = [NSArray arrayWithObject:valueDescriptor];
+    self.foodTitlesArray = [self.foodTitlesArray sortedArrayUsingDescriptors:descriptors];
+}
+
+
 #pragma mark - <UITableViewDataSource, UITableViewDelegate>
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.filteredArray count];
+    if (self.isShowingBuildings) {
+        return [self.filteredArray count];
+    } else {
+        return [self.foodTitlesArray count];
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -61,8 +119,13 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
     }
     
-    Building *building = [self.filteredArray objectAtIndex:indexPath.row];
-    cell.textLabel.text = building.buildingName;
+    if (self.isShowingBuildings == YES) {
+        Building *building = [self.filteredArray objectAtIndex:indexPath.row];
+        cell.textLabel.text = building.buildingName;
+    } else {
+        FoodData *foodData = [self.foodTitlesArray objectAtIndex:indexPath.row];
+        cell.textLabel.text = foodData.title;
+    }
     
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     

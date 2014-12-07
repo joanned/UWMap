@@ -20,6 +20,7 @@
 //- (NSValue *)findPointFromKey:(NSString *)locationKey;
 - (void)adjustViewWithPoint:(CGPoint)locationPoint;
 - (void)setupData;
+- (void)showFoodIconsOnMap:(NSDictionary *)foodDictionary;
 
 
 @end

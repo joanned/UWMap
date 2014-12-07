@@ -13,8 +13,6 @@
 //fix unable to click points after zooming out a lot
 
 //second release:
-//fOOD tings
-//building hours
 //location service
 
 #import "MainViewController.h"
@@ -50,6 +48,7 @@ const float kWhiteOverlayOpacity = 0.75f;
 
 @property (nonatomic, strong) FoodDataFetcher *foodDataFetcher;
 @property (nonatomic, strong) NSDictionary *foodDictionary; //goes here or mapviewcontrooler?
+@property (nonatomic, strong) NSMutableArray *foodLocationsArray;
 
 @end
 
@@ -343,15 +342,23 @@ const float kWhiteOverlayOpacity = 0.75f;
 }
 
 - (void)foodDataFinishedLoading:(NSDictionary *)foodDictionary {
-    self.foodDictionary = foodDictionary;
+    self.foodDictionary = foodDictionary; //TODO: do we need to store the dictionary
     FoodData *foodData = [self.foodDictionary valueForKey:@"Bon App\u00e9tit - Davis Centre"];
     self.foodDetailsView.titleLabel.text = foodData.title;
     self.foodDetailsView.descriptionLabel.text = foodData.foodDescription;
+
+    [self sortFoodIntoArrays:foodDictionary];
     
     dispatch_async(dispatch_get_main_queue(), ^{
-        [self showFoodDetailsView];
+        [self.mapViewController showFoodIconsOnMap:self.foodDictionary];
+        [self.buildingListViewController foodDictionaryLoaded:foodDictionary];
     });
 
+}
+
+- (void)sortFoodIntoArrays:(NSDictionary *)foodDictionary {
+    self.foodLocationsArray = [[NSMutableArray alloc] init];
+    
 }
 
 @end

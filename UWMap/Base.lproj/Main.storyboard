@@ -150,7 +150,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <tableView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="OYi-e8-I4B">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="518"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -168,27 +168,63 @@
                                     <outlet property="delegate" destination="QUy-BD-bpt" id="hKT-8k-wpB"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K83-aK-oat" userLabel="buildingButton">
+                                <rect key="frame" x="0.0" y="518" width="160" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="a2D-FS-T1a"/>
+                                </constraints>
+                                <state key="normal" title="Buildings">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="buildingButtonTapped:" destination="QUy-BD-bpt" eventType="touchUpInside" id="r92-pi-0iy"/>
+                                    <action selector="foodButtonTapped:" destination="QUy-BD-bpt" eventType="touchUpInside" id="7vA-gG-TPR"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YD2-PB-qoT" userLabel="foodButton">
+                                <rect key="frame" x="160" y="518" width="160" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="lnL-2E-HjV"/>
+                                </constraints>
+                                <state key="normal" title="Food">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="buildingButtonTapped:" destination="QUy-BD-bpt" eventType="touchUpInside" id="Axf-bv-miX"/>
+                                    <action selector="foodButtonTapped:" destination="QUy-BD-bpt" eventType="touchUpInside" id="pVG-Nf-MQu"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.81553583559782605" green="0.81553583559782605" blue="0.81553583559782605" alpha="0.52000000000000002" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="q6C-dP-H9i" firstAttribute="leading" secondItem="gMD-aP-Fq6" secondAttribute="leading" id="9Uv-gE-ImE"/>
+                            <constraint firstItem="stI-4g-hlJ" firstAttribute="top" secondItem="K83-aK-oat" secondAttribute="bottom" id="Dpu-8u-Yns"/>
+                            <constraint firstItem="K83-aK-oat" firstAttribute="width" secondItem="YD2-PB-qoT" secondAttribute="width" id="Dxh-WX-ecS"/>
                             <constraint firstAttribute="trailing" secondItem="q6C-dP-H9i" secondAttribute="trailing" id="EqG-Ne-OXi"/>
-                            <constraint firstItem="stI-4g-hlJ" firstAttribute="top" secondItem="OYi-e8-I4B" secondAttribute="bottom" id="OdO-rF-C1E"/>
+                            <constraint firstAttribute="trailing" secondItem="YD2-PB-qoT" secondAttribute="trailing" id="Jeu-Su-f9k"/>
+                            <constraint firstItem="K83-aK-oat" firstAttribute="leading" secondItem="gMD-aP-Fq6" secondAttribute="leading" id="QGw-26-AUF"/>
                             <constraint firstItem="OYi-e8-I4B" firstAttribute="leading" secondItem="gMD-aP-Fq6" secondAttribute="leading" id="RCG-xO-MbY"/>
                             <constraint firstItem="OYi-e8-I4B" firstAttribute="top" secondItem="FgS-U6-xeU" secondAttribute="bottom" id="Wmu-ZT-1as"/>
                             <constraint firstItem="fTT-dt-M3V" firstAttribute="top" secondItem="FgS-U6-xeU" secondAttribute="bottom" constant="-20" id="YRU-Mq-0pu"/>
                             <constraint firstItem="stI-4g-hlJ" firstAttribute="top" secondItem="fTT-dt-M3V" secondAttribute="bottom" id="jCi-XB-pi5"/>
                             <constraint firstItem="fTT-dt-M3V" firstAttribute="leading" secondItem="gMD-aP-Fq6" secondAttribute="leading" id="jis-2d-kG5"/>
+                            <constraint firstItem="K83-aK-oat" firstAttribute="top" secondItem="OYi-e8-I4B" secondAttribute="bottom" id="mzB-VM-znn"/>
                             <constraint firstAttribute="trailing" secondItem="OYi-e8-I4B" secondAttribute="trailing" id="sJW-QA-rKH"/>
                             <constraint firstItem="q6C-dP-H9i" firstAttribute="top" secondItem="FgS-U6-xeU" secondAttribute="bottom" id="tRA-U1-WTp"/>
+                            <constraint firstItem="stI-4g-hlJ" firstAttribute="top" secondItem="YD2-PB-qoT" secondAttribute="bottom" id="vh7-1p-lXb"/>
                             <constraint firstItem="stI-4g-hlJ" firstAttribute="top" secondItem="q6C-dP-H9i" secondAttribute="bottom" id="yUZ-nZ-32d"/>
                             <constraint firstAttribute="trailing" secondItem="fTT-dt-M3V" secondAttribute="trailing" id="zUS-Vw-QnZ"/>
+                            <constraint firstItem="YD2-PB-qoT" firstAttribute="leading" secondItem="K83-aK-oat" secondAttribute="trailing" id="zq5-Yj-Y5J"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Second" image="second" id="Z7h-1E-pvt"/>
                     <nil key="simulatedStatusBarMetrics"/>
                     <connections>
                         <outlet property="blurredImageView" destination="fTT-dt-M3V" id="NzQ-2G-Xrx"/>
+                        <outlet property="buildingButton" destination="K83-aK-oat" id="wKH-QC-JPQ"/>
+                        <outlet property="foodButton" destination="YD2-PB-qoT" id="ZpU-bp-F24"/>
                         <outlet property="tableView" destination="OYi-e8-I4B" id="WDv-fS-kmN"/>
                         <outlet property="whiteLayer" destination="q6C-dP-H9i" id="V0L-Zg-CTG"/>
                     </connections>

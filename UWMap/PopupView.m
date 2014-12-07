@@ -43,23 +43,36 @@ static CGFloat maxHeight = 168.0;
     return [self initWithFrame:CGRectMake(0.0, 0.0, width, 98.0)];
 }
 
-- (id)initWithTitle:(NSString *)title detail:(NSString *)detail
-{
-    [self setupSubviewsWithTitle:title detail:detail];
+- (id)initWithTitle:(NSString *)title detail:(NSString *)detail hasIcon:(BOOL)hasIcon {
+//    NSMutableAttributedString *attributedTitle = [[NSMutableAttributedString alloc] initWithString:title];
+//    if (hasIcon) {
+        NSTextAttachment *attachment = [[NSTextAttachment alloc] init];
+    UIImage *image =[UIImage imageNamed:@"informationIcon"];
+    attachment.image = image;
+    attachment.bounds = (CGRect) {0, -3, attachment.image.size};
+    
+        
+        NSAttributedString *attachmentString = [NSAttributedString attributedStringWithAttachment:attachment];
+        
+        NSMutableAttributedString *attributedTitle= [[NSMutableAttributedString alloc] initWithString:title];
+        [attributedTitle appendAttributedString:attachmentString];
+//    }
+   
+    [self setupSubviewsWithTitle:attributedTitle detail:detail];
     
     self = [self initWithFrame:CGRectMake(0, 0, _titleLabel.frame.size.width+31, _titleLabel.frame.size.height +34)];
     [self addSubview:_titleLabel];
 
-    [self setupSubviewsWithTitle:title detail:detail];
+    [self setupSubviewsWithTitle:attributedTitle detail:detail];
     return self;
 }
 
-- (void) setupSubviewsWithTitle:(NSString *)title detail:(NSString *)detail {
+- (void) setupSubviewsWithTitle:(NSMutableAttributedString *)title detail:(NSString *)detail {
     self.backgroundColor = [UIColor clearColor];
     self.color = [UIColor blackColor];
     
     _titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(16, 13, 130, 500)];
-    [_titleLabel setText:title];
+    _titleLabel.attributedText = title;
     _titleLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     _titleLabel.backgroundColor = [UIColor clearColor];
     _titleLabel.textColor = [UIColor whiteColor];
@@ -103,6 +116,8 @@ static CGFloat maxHeight = 168.0;
     [self setNeedsDisplay];
 }
 
+
+//TODO: prob dont need these?
 - (void) setTitle:(NSString *)title {
     [_titleLabel setText:title];
 }
@@ -117,11 +132,11 @@ static CGFloat maxHeight = 168.0;
     return [_detailLabel text];
 }
 
-- (void) setWidth:(CGFloat)width {
-    CGRect f = self.frame;
-    f.size.width = width;
-    [self setFrame:f];
-}
+//- (void) setWidth:(CGFloat)width {
+//    CGRect f = self.frame;
+//    f.size.width = width;
+//    [self setFrame:f];
+//}
 - (CGFloat) width {
     return self.bounds.size.width;
 }
@@ -184,6 +199,8 @@ static CGFloat maxHeight = 168.0;
     [borderColor setStroke];
     popupPath.lineWidth = 1;
     [popupPath stroke];
+    
+    self.backgroundColor = [UIColor clearColor];
 }
 
 
