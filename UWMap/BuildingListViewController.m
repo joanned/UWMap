@@ -33,7 +33,8 @@
 @property (nonatomic, strong) UIColor *unhighlightedColor;
 
 @property (nonatomic, assign) BOOL isShowingBuildings;
-@property (nonatomic, assign) BOOL showCombinedList;
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *horizontalSpaceBetweenButtonAndTable;
 
 @end
 
@@ -52,6 +53,8 @@
     NSArray *descriptors = [NSArray arrayWithObject:valueDescriptor];
     NSArray *sortedArray = [self.buildingsArray sortedArrayUsingDescriptors:descriptors];
     
+    self.view.translatesAutoresizingMaskIntoConstraints = YES;
+    
     self.buildingsArray = sortedArray;
     
     self.whiteLayer.alpha = 0;
@@ -61,6 +64,16 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    
+    if (self.showCombinedList) {
+        self.foodButton.hidden = YES;
+        self.buildingButton.hidden = YES;
+        self.horizontalSpaceBetweenButtonAndTable.constant = -self.buildingButton.frame.size.height;
+    } else {
+        self.foodButton.hidden = NO;
+        self.buildingButton.hidden = NO;
+        self.horizontalSpaceBetweenButtonAndTable.constant = 0;
+    }
     
     self.filteredArray = [self.buildingsArray mutableCopy];
     self.foodFilteredArray = [self.foodTitlesArray mutableCopy];
@@ -160,6 +173,12 @@
     
     if ([self.delegate respondsToSelector:@selector(selectedCellWithLabel:)]) {
         [self.delegate selectedCellWithLabel:label];
+    }
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    if ([self.delegate respondsToSelector:@selector(dismissKeyboard)]) {
+        [self.delegate dismissKeyboard];
     }
 }
 

@@ -22,8 +22,11 @@
 @property (nonatomic, assign) CGPoint startingPoint;
 @property (nonatomic, assign) BOOL isFirstLoad;
 
-@property NSDictionary *locationDictionary;
-@property NSArray *buildingTitlesArray;
+@property (nonatomic, strong) NSMutableDictionary *shortformDictionary;
+@property NSMutableDictionary *locationDictionary;
+//@property NSArray *buildingTitlesArray;
+
+//@property NSMutableDictionary *allLocationsDictionary;
 
 @property (nonatomic, strong) PopupView *currentPopupView;
 @property (nonatomic ,assign) CGRect initialPopupFrame;
@@ -43,7 +46,7 @@ static const CGFloat kWidthOfPin = 50;
     self.scrollView.delegate = self;
     
     self.locationDictionary = [DataProvider buildingDictionary];
-    self.buildingTitlesArray = [self.locationDictionary allKeys];
+//    self.buildingTitlesArray = [self.locationDictionary allKeys];
     
     self.originalImageWidth = self.imageView.frame.size.width;
     self.originalImageHeight = self.imageView.frame.size.height;
@@ -87,7 +90,7 @@ static const CGFloat kWidthOfPin = 50;
 
 - (void)setupData {
     self.locationDictionary = [DataProvider buildingDictionary];
-    self.buildingTitlesArray = [self.locationDictionary allKeys];
+//    self.buildingTitlesArray = [self.locationDictionary allKeys];
 }
 
 - (void)tappedScreen:(UITapGestureRecognizer *)recognizer {
@@ -116,14 +119,26 @@ static const CGFloat kWidthOfPin = 50;
     if (isFromTable == YES) {
         self.scrollView.zoomScale = 1;
     }
+    
+    CGFloat scaledPositionX;
+    CGFloat scaledPositionY;
+    Building *building = nil;
    
-    Building *building = [self.locationDictionary objectForKey:locationKey];
-    CGFloat scaledPositionX = building.positionX * self.imageView.frame.size.width - kWidthOfPin/2;
-    CGFloat scaledPositionY = building.positionY * self.imageView.frame.size.height;
+    if ([[self.locationDictionary objectForKey:locationKey] isKindOfClass:[Building class]]) {
+        building = [self.locationDictionary objectForKey:locationKey];
+        scaledPositionX = building.positionX * self.imageView.frame.size.width - kWidthOfPin/2;
+        scaledPositionY = building.positionY * self.imageView.frame.size.height;
+    } else {
+        FoodData *foodData = [self.locationDictionary objectForKey:locationKey];
+        building = [self.shortformDictionary objectForKey:foodData.building];
+        scaledPositionX = building.positionX * self.imageView.frame.size.width + kWidthOfPin;
+        scaledPositionY = building.positionY * self.imageView.frame.size.height + kWidthOfPin;
+    }
     
     if (isFromTable == YES) {
         self.scrollView.zoomScale = currentScale;
     }
+    
     return CGPointMake(scaledPositionX, scaledPositionY);
 }
 
@@ -222,6 +237,16 @@ static const CGFloat kWidthOfPin = 50;
         [self.imageView addSubview:foodIconView];
         self.scrollView.zoomScale = currentScale;
     }
+    
+    self.shortformDictionary = [[NSMutableDictionary alloc] init];
+    for (NSString *key in self.locationDictionary) {
+        Building *building = [self.locationDictionary objectForKey:key];
+        [self.shortformDictionary setObject:building forKeyedSubscript:building.shortform];
+    }
+    
+    [self.locationDictionary addEntriesFromDictionary:foodDictionary];
+    
+   
 }
 
 #pragma mark <UIScrollViewDelegate>

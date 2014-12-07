@@ -11,6 +11,7 @@
 @protocol BuildingListViewControllerDelegate <NSObject>
 
 - (void)selectedCellWithLabel:(NSString *)label;
+- (void)dismissKeyboard;
 
 
 @end
@@ -21,6 +22,7 @@
 @property (weak, nonatomic) IBOutlet UIView *whiteLayer;
 @property (nonatomic, weak) id<BuildingListViewControllerDelegate> delegate;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (nonatomic, assign) BOOL showCombinedList;
 
 
 - (void)reloadTableWithText:(NSString *)searchText showFullList:(BOOL)showFullList;

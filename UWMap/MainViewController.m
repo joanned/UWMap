@@ -60,7 +60,7 @@ const float kWhiteOverlayOpacity = 0.75f;
     [super viewDidLoad];
     
     [self setupFetchingFoodData];
-    self.foodDictionary = [[NSDictionary alloc] init];
+//    self.foodDictionary = [[NSDictionary alloc] init];
     
     self.screenHeight = [[UIScreen mainScreen] bounds].size.height;
     self.screenWidth = [[UIScreen mainScreen] bounds].size.width;
@@ -75,6 +75,7 @@ const float kWhiteOverlayOpacity = 0.75f;
     [self.buildingIcon addGestureRecognizer:singleTap];
     
     self.buildingListViewController.delegate = self;
+    self.buildingListViewController.showCombinedList = YES;
     
     self.searchBar.delegate = self;
     self.searchBar.alpha = 0.93f;
@@ -161,9 +162,11 @@ const float kWhiteOverlayOpacity = 0.75f;
         [self hideFoodDetailsView];
         self.showFullList = YES;
         self.showCombinedList = NO;
+        self.buildingListViewController.showCombinedList = NO;
         [self showTableView];
     } else {
         self.showFullList = NO;
+        self.buildingListViewController.showCombinedList = YES;
         [self showMapView];
     }
 }
@@ -222,6 +225,10 @@ const float kWhiteOverlayOpacity = 0.75f;
                      animations:^{
                          [self.mapViewController adjustViewWithPoint:adjustedPoint];
                      } completion:nil];
+}
+
+- (void)dismissKeyboard {
+    [self.view endEditing:YES];
 }
 
 #pragma  mark - <UISearchBarDelegate>

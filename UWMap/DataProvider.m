@@ -13,7 +13,7 @@
 
 @implementation DataProvider
 
-+ (NSDictionary *)buildingDictionary {
++ (NSMutableDictionary *)buildingDictionary {
     NSString *al = @"Arts Lecture Hall";
     NSString *b1 = @"Biology 1";
     NSString *b2 = @"Biology 2";
@@ -457,77 +457,75 @@
                                                 positionY:1213.000000/kMapImageHeight
                                                     hours:@""];
  
-    
-    NSDictionary *buildingDictionary = @{
-                                         al : AL,
-                                         b1 : B1,
-                                         b2 : B2,
-                                         bcm : BCM,
-                                         brh : BRH,
-                                         c2 : C2,
-                                         cgr : CGR,
-                                         cif : CIF,
-                                         cln : CLN,
-                                         clv : CLV,
-                                         cog : COG,
-                                         com : COM,
-                                         cph : CPH,
-                                         csb : CSB,
-                                         dc : DC,
-                                         dwe : DWE,
-                                         e2 : E2,
-                                         e3 : E3,
-                                         e5 : E5,
-                                         e6 : E6,
-                                         ec1 : EC1,
-                                         ec2 : EC2,
-                                         ec3 : EC3,
-                                         ech : ECH,
-                                         eit : EIT,
-                                         erc : ERC,
-                                         ev1 : EV1,
-                                         ev2 : EV2,
-                                         ev3 : EV3,
-                                         esc : ESC,
-                                         fed : FED,
-                                         gh : GH,
-                                         gsc : GSC,
-                                         hh : HH,
-                                         hmn : HMN,
-                                         hs : HS,
-                                         kdc : KDC,
-                                         lhi : LHI,
-                                         dp : DP,
-                                         m3 : M3,
-                                         mc : MC,
-                                         mhr : MHR,
-                                         mkv : MKV,
-                                         ml : ML,
-                                         nh : NH,
-                                         opt : OPT,
-                                         pac : PAC,
-                                         pas : PAS,
-                                         phy : PHY,
-                                         qnc : QNC,
-                                         rch : RCH,
-                                         ren : REN,
-                                         rev : REV,
-                                         sch : SCH,
-                                         slc : SLC,
-                                         stj : STJ,
-                                         stp : STP,
-                                         tc : TC,
-                                         th : TH,
-                                         uc : UC,
-                                         wcp : WCP,
-                                         uwp : UWP,
-                                         v1 : V1
-                                         };
+    NSMutableDictionary *buildingDictionary = [[NSMutableDictionary alloc] init];
+    [buildingDictionary setValue:AL forKey:al];
+    [buildingDictionary setValue:B1 forKey:b1];
+    [buildingDictionary setValue:B2 forKey:b2];
+    [buildingDictionary setValue:BCM forKey:bcm];
+    [buildingDictionary setValue:BRH forKey:brh];
+    [buildingDictionary setValue:C2 forKey:c2];
+    [buildingDictionary setValue:CGR forKey:cgr];
+    [buildingDictionary setValue:CIF forKey:cif];
+    [buildingDictionary setValue:CLN forKey:cln];
+    [buildingDictionary setValue:CLV forKey:clv];
+    [buildingDictionary setValue:COG forKey:cog];
+    [buildingDictionary setValue:COM forKey:com];
+    [buildingDictionary setValue:CPH forKey:cph];
+    [buildingDictionary setValue:CSB forKey:csb];
+    [buildingDictionary setValue:DC forKey:dc];
+    [buildingDictionary setValue:DWE forKey:dwe];
+    [buildingDictionary setValue:E2 forKey:e2];
+    [buildingDictionary setValue:E3 forKey:e3];
+    [buildingDictionary setValue:E5 forKey:e5];
+    [buildingDictionary setValue:E6 forKey:e6];
+    [buildingDictionary setValue:EC1 forKey:ec1];
+    [buildingDictionary setValue:EC2 forKey:ec2];
+    [buildingDictionary setValue:EC3 forKey:ec3];
+    [buildingDictionary setValue:ECH forKey:ech];
+    [buildingDictionary setValue:EIT forKey:eit];
+    [buildingDictionary setValue:ERC forKey:erc];
+    [buildingDictionary setValue:EV1 forKey:ev1];
+    [buildingDictionary setValue:EV2 forKey:ev2];
+    [buildingDictionary setValue:EV3 forKey:ev3];
+    [buildingDictionary setValue:ESC forKey:esc];
+    [buildingDictionary setValue:FED forKey:fed];
+    [buildingDictionary setValue:GH forKey:gh];
+    [buildingDictionary setValue:GSC forKey:gsc];
+    [buildingDictionary setValue:HH forKey:hh];
+    [buildingDictionary setValue:HMN forKey:hmn];
+    [buildingDictionary setValue:HS forKey:hs];
+    [buildingDictionary setValue:KDC forKey:kdc];
+    [buildingDictionary setValue:LHI forKey:lhi];
+    [buildingDictionary setValue:DP forKey:dp];
+    [buildingDictionary setValue:M3 forKey:m3];
+    [buildingDictionary setValue:MC forKey:mc];
+    [buildingDictionary setValue:MHR forKey:mhr];
+    [buildingDictionary setValue:MKV forKey:mkv];
+    [buildingDictionary setValue:ML forKey:ml];
+    [buildingDictionary setValue:NH forKey:nh];
+    [buildingDictionary setValue:OPT forKey:opt];
+    [buildingDictionary setValue:PAC forKey:pac];
+    [buildingDictionary setValue:PAS forKey:pas];
+    [buildingDictionary setValue:PHY forKey:phy];
+    [buildingDictionary setValue:QNC forKey:qnc];
+    [buildingDictionary setValue:RCH forKey:rch];
+    [buildingDictionary setValue:REN forKey:ren];
+    [buildingDictionary setValue:REV forKey:rev];
+    [buildingDictionary setValue:SCH forKey:sch];
+    [buildingDictionary setValue:SLC forKey:slc];
+    [buildingDictionary setValue:STJ forKey:stj];
+    [buildingDictionary setValue:STP forKey:stp];
+    [buildingDictionary setValue:TC forKey:tc];
+    [buildingDictionary setValue:TH forKey:th];
+    [buildingDictionary setValue:UC forKey:uc];
+    [buildingDictionary setValue:WCP forKey:wcp];
+    [buildingDictionary setValue:UWP forKey:uwp];
+    [buildingDictionary setValue:V1 forKey:v1];
     
     return buildingDictionary;
 }
 
-+ (NSDictionary *)foodDictionaryFromJson:(NSData *)data error:(NSError **)error {
++ (NSMutableDictionary *)foodDictionaryFromJson:(NSData *)data error:(NSError **)error {
     NSError *localError = nil;
     NSDictionary *parsedObject = [NSJSONSerialization JSONObjectWithData:data options:0 error:&localError];
     
@@ -583,7 +581,6 @@
         [foodData setSundayClose:[sundayHours valueForKey:@"closing_hour"]];
         
         [foodDataDictionary setValue:foodData forKey:foodData.title];
-
     }
     return foodDataDictionary;
 }

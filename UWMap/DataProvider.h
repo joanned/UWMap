@@ -10,7 +10,7 @@
 
 @interface DataProvider : NSObject
 
-+ (NSDictionary *)buildingDictionary;
-+ (NSDictionary *)foodDictionaryFromJson:(NSData *)data error:(NSError **)error;
++ (NSMutableDictionary *)buildingDictionary;
++ (NSMutableDictionary *)foodDictionaryFromJson:(NSData *)data error:(NSError **)error;
 
 @end

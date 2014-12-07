@@ -223,6 +223,7 @@
                         <outlet property="blurredImageView" destination="fTT-dt-M3V" id="NzQ-2G-Xrx"/>
                         <outlet property="buildingButton" destination="K83-aK-oat" id="880-YG-p8h"/>
                         <outlet property="foodButton" destination="YD2-PB-qoT" id="wYG-Is-nGF"/>
+                        <outlet property="horizontalSpaceBetweenButtonAndTable" destination="mzB-VM-znn" id="xEZ-qt-e06"/>
                         <outlet property="tableView" destination="OYi-e8-I4B" id="WDv-fS-kmN"/>
                         <outlet property="whiteLayer" destination="q6C-dP-H9i" id="V0L-Zg-CTG"/>
                     </connections>
