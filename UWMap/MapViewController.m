@@ -22,7 +22,6 @@
 @property (nonatomic, assign) CGPoint startingPoint;
 @property (nonatomic, assign) BOOL isFirstLoad;
 
-@property (nonatomic, strong) NSMutableDictionary *shortformDictionary;
 @property NSMutableDictionary *locationDictionary;
 //@property NSArray *buildingTitlesArray;
 
@@ -47,6 +46,12 @@ static const CGFloat kWidthOfPin = 50;
     
     self.locationDictionary = [DataProvider buildingDictionary];
 //    self.buildingTitlesArray = [self.locationDictionary allKeys];
+    
+    self.shortformDictionary = [[NSMutableDictionary alloc] init];
+    for (NSString *key in self.locationDictionary) {
+        Building *building = [self.locationDictionary objectForKey:key];
+        [self.shortformDictionary setObject:building forKeyedSubscript:building.shortform];
+    }
     
     self.originalImageWidth = self.imageView.frame.size.width;
     self.originalImageHeight = self.imageView.frame.size.height;
@@ -131,8 +136,8 @@ static const CGFloat kWidthOfPin = 50;
     } else {
         FoodData *foodData = [self.locationDictionary objectForKey:locationKey];
         building = [self.shortformDictionary objectForKey:foodData.building];
-        scaledPositionX = building.positionX * self.imageView.frame.size.width + kWidthOfPin;
-        scaledPositionY = building.positionY * self.imageView.frame.size.height + kWidthOfPin;
+        scaledPositionX = building.positionX * self.imageView.frame.size.width - kWidthOfPin/2;
+        scaledPositionY = building.positionY * self.imageView.frame.size.height;
     }
     
     if (isFromTable == YES) {
@@ -211,40 +216,34 @@ static const CGFloat kWidthOfPin = 50;
 }
 
 - (void)showFoodIconsOnMap:(NSDictionary *)foodDictionary {
-    for (NSString *key in foodDictionary) {
-        FoodData *foodData = [foodDictionary objectForKey:key];
-        
-        UIImageView *foodIconView = [[UIImageView alloc] init];
-        UIImage *iconImage = nil;
-
-        if ([foodData.title rangeOfString:@"Tim Hortons"].location == NSNotFound) {
-            iconImage = [UIImage imageNamed:@"first"];
-        } else {
-            iconImage = [UIImage imageNamed:@"icon2"];
-        }
-        
-        [foodIconView setImage:iconImage];
-        
-        CGFloat  currentScale = self.scrollView.zoomScale;
-        CGFloat xPosition = (foodData.xPosition - kXMapStartPosition) * kScaleForFood ;
-        CGFloat yPosition = (foodData.yPosition - kYMapStartPosition) * kScaleForFood ;
-//        foodIconView.transform = CGAffineTransformMakeScale(1.0/self.scrollView.zoomScale, 1.0/self.scrollView.zoomScale);
-        
-        foodIconView.frame = CGRectMake(xPosition, yPosition, iconImage.size.width, iconImage.size.height);
-        
-        //TODO: animate
-        self.scrollView.zoomScale = 1;
-        [self.imageView addSubview:foodIconView];
-        self.scrollView.zoomScale = currentScale;
-    }
+//    for (NSString *key in foodDictionary) {
+//        FoodData *foodData = [foodDictionary objectForKey:key];
+//        
+//        UIImageView *foodIconView = [[UIImageView alloc] init];
+//        UIImage *iconImage = nil;
+//
+//        if ([foodData.title rangeOfString:@"Tim Hortons"].location == NSNotFound) {
+//            iconImage = [UIImage imageNamed:@"first"];
+//        } else {
+//            iconImage = [UIImage imageNamed:@"icon2"];
+//        }
+//        
+//        [foodIconView setImage:iconImage];
+//        
+//        CGFloat  currentScale = self.scrollView.zoomScale;
+//        CGFloat xPosition = (foodData.xPosition - kXMapStartPosition) * kScaleForFood ;
+//        CGFloat yPosition = (foodData.yPosition - kYMapStartPosition) * kScaleForFood ;
+////        foodIconView.transform = CGAffineTransformMakeScale(1.0/self.scrollView.zoomScale, 1.0/self.scrollView.zoomScale);
+//        
+//        foodIconView.frame = CGRectMake(xPosition, yPosition, iconImage.size.width, iconImage.size.height);
+//        
+//        //TODO: animate
+//        self.scrollView.zoomScale = 1;
+//        [self.imageView addSubview:foodIconView];
+//        self.scrollView.zoomScale = currentScale;
+//    }
     
-    self.shortformDictionary = [[NSMutableDictionary alloc] init];
-    for (NSString *key in self.locationDictionary) {
-        Building *building = [self.locationDictionary objectForKey:key];
-        [self.shortformDictionary setObject:building forKeyedSubscript:building.shortform];
-    }
-    
-    [self.locationDictionary addEntriesFromDictionary:foodDictionary];
+       [self.locationDictionary addEntriesFromDictionary:foodDictionary];
     
    
 }

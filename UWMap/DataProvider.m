@@ -525,7 +525,7 @@
     return buildingDictionary;
 }
 
-+ (NSMutableDictionary *)foodDictionaryFromJson:(NSData *)data error:(NSError **)error {
++ (NSMutableDictionary *)foodDictionaryFromJson:(NSData *)data shortformArray:(NSArray *)shortformArray error:(NSError **)error {
     NSError *localError = nil;
     NSDictionary *parsedObject = [NSJSONSerialization JSONObjectWithData:data options:0 error:&localError];
     
@@ -539,6 +539,14 @@
     
     for (NSDictionary *foodDictionary in foodsDictionary) {
         FoodData *foodData = [[FoodData alloc] init];
+        
+        //don't include this location if it's not on our map
+        NSString *building = [foodDictionary valueForKey:@"building"];
+        if (![shortformArray containsObject:building]) {
+            continue;
+        }
+        [foodData setBuilding:building];
+        
         NSString *adjustedString =  [[foodDictionary valueForKey:@"outlet_name"] stringByReplacingOccurrencesOfString:@"U" withString:@"u"];//TODO:must change this later..
         
         [foodData setTitle:adjustedString];
@@ -546,7 +554,6 @@
         [foodData setXPosition:[[foodDictionary valueForKey:@"longitude"] floatValue]];
         
         [foodData setImageUrl:[foodDictionary valueForKey:@"logo"]];
-        [foodData setBuilding:[foodDictionary valueForKey:@"building"]];
         [foodData setFoodDescription:[foodDictionary valueForKey:@"description"]];
         [foodData setIsOpenNow:[foodDictionary valueForKey:@"is_open_now"]];
 

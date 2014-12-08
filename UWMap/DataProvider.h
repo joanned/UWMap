@@ -11,6 +11,6 @@
 @interface DataProvider : NSObject
 
 + (NSMutableDictionary *)buildingDictionary;
-+ (NSMutableDictionary *)foodDictionaryFromJson:(NSData *)data error:(NSError **)error;
++ (NSMutableDictionary *)foodDictionaryFromJson:(NSData *)data shortformArray:(NSArray *)shortformArray error:(NSError **)error;
 
 @end

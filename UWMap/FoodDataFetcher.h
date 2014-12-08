@@ -10,7 +10,7 @@
 
 @protocol FoodDataFetcherDelegate <NSObject>
 
-- (void)foodDataFinishedLoading:(NSDictionary *)foodDictionary;
+- (void)foodDataFinishedLoading:(NSData *)foodData;
 
 @end
 

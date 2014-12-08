@@ -22,6 +22,7 @@
 #import "FoodDetailsView.h"
 #import "FoodDataFetcher.h"
 #import "FoodData.h"
+#import "DataProvider.h"
 #import "Constants.h"
 
 const float kWhiteOverlayOpacity = 0.75f;
@@ -50,7 +51,7 @@ const float kWhiteOverlayOpacity = 0.75f;
 
 @property (nonatomic, strong) FoodDataFetcher *foodDataFetcher;
 @property (nonatomic, strong) NSDictionary *foodDictionary; //goes here or mapviewcontrooler?
-@property (nonatomic, strong) NSMutableArray *foodLocationsArray;
+//@property (nonatomic, strong) NSMutableArray *foodLocationsArray;
 
 @end
 
@@ -59,7 +60,6 @@ const float kWhiteOverlayOpacity = 0.75f;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self setupFetchingFoodData];
 //    self.foodDictionary = [[NSDictionary alloc] init];
     
     self.screenHeight = [[UIScreen mainScreen] bounds].size.height;
@@ -86,6 +86,8 @@ const float kWhiteOverlayOpacity = 0.75f;
     self.whiteView.alpha = 0;
     
     [self showMapView];
+    
+    [self setupFetchingFoodData];
     
     [self setupFoodDetailsView];
 }
@@ -353,24 +355,41 @@ const float kWhiteOverlayOpacity = 0.75f;
     [self.foodDataFetcher getFoodData];
 }
 
-- (void)foodDataFinishedLoading:(NSDictionary *)foodDictionary {
-    self.foodDictionary = foodDictionary; //TODO: do we need to store the dictionary
-    FoodData *foodData = [self.foodDictionary valueForKey:@"Bon App\u00e9tit - Davis Centre"];
-    self.foodDetailsView.titleLabel.text = foodData.title;
-    self.foodDetailsView.descriptionLabel.text = foodData.foodDescription;
+- (void)foodDataFinishedLoading:(NSData *)foodData {
+    self.foodDictionary = [self parseData:foodData]; //TODO: do we need to store the dictionary
+    
+    
+//    
+//    FoodData *foodData = [self.foodDictionary valueForKey:@"Bon App\u00e9tit - Davis Centre"];
+//    self.foodDetailsView.titleLabel.text = foodData.title;
+//    self.foodDetailsView.descriptionLabel.text = foodData.foodDescription;
 
-    [self sortFoodIntoArrays:foodDictionary];
+//    [self sortFoodIntoArrays:foodDictionary];
     
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.mapViewController showFoodIconsOnMap:self.foodDictionary];
-        [self.buildingListViewController foodDictionaryLoaded:foodDictionary];
+        [self.buildingListViewController foodDictionaryLoaded:self.foodDictionary];
     });
 
 }
 
-- (void)sortFoodIntoArrays:(NSDictionary *)foodDictionary {
-    self.foodLocationsArray = [[NSMutableArray alloc] init];
+- (NSDictionary *)parseData:(NSData *)foodData {
+    NSArray *shortformArray = [self.mapViewController.shortformDictionary allKeys];
     
+    NSError *error = nil;
+    NSDictionary *foodDataDictionary = [DataProvider foodDictionaryFromJson:foodData shortformArray:shortformArray error:&error];
+    
+    if (error) {
+        NSLog(@"parsing data failed with error: %@", [error localizedDescription]); //TODO: show error on app
+        return nil;
+    } else {
+        return foodDataDictionary;
+    }
 }
+
+//- (void)sortFoodIntoArrays:(NSDictionary *)foodDictionary {
+//    self.foodLocationsArray = [[NSMutableArray alloc] init];
+//    
+//}
 
 @end
