@@ -14,7 +14,7 @@
 #import "Constants.h"
 #import "FoodData.h"
 
-@interface MapViewController () <UIScrollViewDelegate>
+@interface MapViewController () <UIScrollViewDelegate, UIGestureRecognizerDelegate> //todo: not needed
 
 @property (nonatomic, strong) IBOutlet UIImageView *imageView;
 @property (nonatomic, assign) CGFloat originalImageWidth;
@@ -81,8 +81,7 @@ static const CGFloat kWidthOfPin = 50;
     self.scrollView.zoomScale = 1;
 
     UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedScreen:)];
-    [tapRecognizer setNumberOfTapsRequired:1];
-    //    [tapRecognizer setDelegate:self];
+
     [self.scrollView addGestureRecognizer:tapRecognizer];
     
     if (self.isFirstLoad == YES) {
@@ -98,21 +97,35 @@ static const CGFloat kWidthOfPin = 50;
 //    self.buildingTitlesArray = [self.locationDictionary allKeys];
 }
 
-- (void)tappedScreen:(UITapGestureRecognizer *)recognizer {
-    if(recognizer.state == UIGestureRecognizerStateRecognized) {
-        [self removePopupView];
-        
-        CGPoint point = [recognizer locationInView:recognizer.view];
-        NSLog(@"~~~~~~IMAGEVIEW FRAME: %@", NSStringFromCGRect(self.imageView.frame));
+//- (void)tappedPopup:(UITapGestureRecognizer *)recognizer {
+//    if (recognizer.state == UIGestureRecognizerStateRecognized) {
+//        if ([self.delegate respondsToSelector:@selector(subviewTappedWithLabel:)]) {
+//            [self.delegate subviewTappedWithLabel:self.popupView.title];
+//        }
+//    }
+//}
 
-        NSLog(@"%f %f", point.x / self.imageView.frame.size.width, point.y / self.imageView.frame.size.height);
-        NSLog(@"%f %f", point.x*2, point.y*2 +10);
-        for (NSString *locationKey in self.locationDictionary) {
-            CGRect locationRect = [self makeRectFromBuildingKey:locationKey];
+- (void)tappedScreen:(UITapGestureRecognizer *)recognizer {
+    if (recognizer.state == UIGestureRecognizerStateRecognized) {
+        CGPoint point = [recognizer locationInView:recognizer.view];
+        
+        if (self.popupView != nil && CGRectContainsPoint(self.popupView.frame, point)) {
+            if ([self.delegate respondsToSelector:@selector(subviewTappedWithLabel:)]) {
+                [self.delegate subviewTappedWithLabel:self.popupView.title];
+            }
+        } else {
+            [self removePopupView];
             
-            if (CGRectContainsPoint(locationRect, point)) {
-                CGPoint realLocationPoint = [self makePointFromBuildingKey:locationKey isFromTable:YES];
-                [self showDetails:realLocationPoint withLabel:locationKey];
+            NSLog(@"%f %f", point.x / self.imageView.frame.size.width, point.y / self.imageView.frame.size.height);
+            NSLog(@"%f %f", point.x*2, point.y*2 +10);
+            
+            for (NSString *locationKey in self.locationDictionary) {
+                CGRect locationRect = [self makeRectFromBuildingKey:locationKey];
+                
+                if (CGRectContainsPoint(locationRect, point)) {
+                    CGPoint realLocationPoint = [self makePointFromBuildingKey:locationKey isFromTable:YES];
+                    [self showDetails:realLocationPoint withLabel:locationKey];
+                }
             }
         }
     }
@@ -157,7 +170,7 @@ static const CGFloat kWidthOfPin = 50;
 - (void)showDetails:(CGPoint)locationPoint withLabel:(NSString *)label {
     [self removePopupView];
     
-    self.popupView = [[PopupView alloc] initWithTitle:label detail:@"" hasIcon:YES];
+    self.popupView = [[PopupView alloc] initWithTitle:label detail:@"" hasIcon:NO];
     
     self.popupView.transform = CGAffineTransformMakeScale(1.0/self.scrollView.zoomScale, 1.0/self.scrollView.zoomScale);
 
@@ -200,7 +213,13 @@ static const CGFloat kWidthOfPin = 50;
                          self.scrollView.contentOffset = popupPoint;
                      } completion:nil];
     
-
+////TODO: if (isfOOOOOD) {
+//    self.popupView.userInteractionEnabled = YES;
+//    UITapGestureRecognizer *tapPopupRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedPopup:)];
+//    tapPopupRecognizer.numberOfTapsRequired = 1;
+////    tapPopupRecognizer.delegate = self.popupView;
+//    tapPopupRecognizer.cancelsTouchesInView = NO;
+//    [self.popupView addGestureRecognizer:tapPopupRecognizer];
     
 }
 

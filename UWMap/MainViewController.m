@@ -27,7 +27,7 @@
 
 const float kWhiteOverlayOpacity = 0.75f;
 
-@interface MainViewController () <BuildingListViewControllerDelegate, FoodDetailsViewDelegate, UISearchBarDelegate, FoodDataFetcherDelegate>
+@interface MainViewController () <BuildingListViewControllerDelegate, FoodDetailsViewDelegate, UISearchBarDelegate, FoodDataFetcherDelegate, MapViewControllerDelegate>
 
 @property (nonatomic, strong) BuildingListViewController *buildingListViewController;
 
@@ -75,6 +75,7 @@ const float kWhiteOverlayOpacity = 0.75f;
     [self.buildingIcon addGestureRecognizer:singleTap];
     
     self.buildingListViewController.delegate = self;
+    self.mapViewController.delegate = self;
     self.buildingListViewController.showCombinedList = YES;
     
     self.searchBar.delegate = self;
@@ -359,11 +360,6 @@ const float kWhiteOverlayOpacity = 0.75f;
     self.foodDictionary = [self parseData:foodData]; //TODO: do we need to store the dictionary
     
     
-//    
-//    FoodData *foodData = [self.foodDictionary valueForKey:@"Bon App\u00e9tit - Davis Centre"];
-//    self.foodDetailsView.titleLabel.text = foodData.title;
-//    self.foodDetailsView.descriptionLabel.text = foodData.foodDescription;
-
 //    [self sortFoodIntoArrays:foodDictionary];
     
     dispatch_async(dispatch_get_main_queue(), ^{
@@ -391,5 +387,25 @@ const float kWhiteOverlayOpacity = 0.75f;
 //    self.foodLocationsArray = [[NSMutableArray alloc] init];
 //    
 //}
+
+#pragma mark <MapViewControllerDelegate>
+
+- (void)subviewTappedWithLabel:(NSString *)label {
+    FoodData *foodData = [self.foodDictionary objectForKey:label];
+    
+    NSMutableArray *foodDataArray = [[NSMutableArray alloc] init];
+    [foodDataArray addObject:foodData];
+    
+    [self.foodDetailsView setupDataWithFoodData:foodDataArray];
+    
+//    self.foodDetailsView.titleLabel.text = foodData.title;
+//    
+//    if (foodData.foodDescription != nil) {
+//        self.foodDetailsView.descriptionLabel.text = foodData.foodDescription;
+//    } else {
+//        self.foodDetailsView.descriptionLabel.hidden = YES;
+//    }
+    [self showFoodDetailsView];
+}
 
 @end

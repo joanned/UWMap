@@ -46,33 +46,33 @@ static CGFloat maxHeight = 168.0;
 - (id)initWithTitle:(NSString *)title detail:(NSString *)detail hasIcon:(BOOL)hasIcon {
 //    NSMutableAttributedString *attributedTitle = [[NSMutableAttributedString alloc] initWithString:title];
 //    if (hasIcon) {
-        NSTextAttachment *attachment = [[NSTextAttachment alloc] init];
-    UIImage *image =[UIImage imageNamed:@"informationIcon"];
-    attachment.image = image;
-    attachment.bounds = (CGRect) {0, -3, attachment.image.size};
-    
-        
-        NSAttributedString *attachmentString = [NSAttributedString attributedStringWithAttachment:attachment];
-        
+//        NSTextAttachment *attachment = [[NSTextAttachment alloc] init];
+//    UIImage *image =[UIImage imageNamed:@"informationIcon"];
+//    attachment.image = image;
+//    attachment.bounds = (CGRect) {0, -3, attachment.image.size};
+//    
+//        
+//        NSAttributedString *attachmentString = [NSAttributedString attributedStringWithAttachment:attachment];
+//        
         NSMutableAttributedString *attributedTitle= [[NSMutableAttributedString alloc] initWithString:title];
-        [attributedTitle appendAttributedString:attachmentString];
+//        [attributedTitle appendAttributedString:attachmentString];
 //    }
    
-    [self setupSubviewsWithTitle:attributedTitle detail:detail];
+    [self setupSubviewsWithTitle:title detail:detail];
     
     self = [self initWithFrame:CGRectMake(0, 0, _titleLabel.frame.size.width+31, _titleLabel.frame.size.height +34)];
     [self addSubview:_titleLabel];
 
-    [self setupSubviewsWithTitle:attributedTitle detail:detail];
+    [self setupSubviewsWithTitle:title detail:detail];
     return self;
 }
 
-- (void) setupSubviewsWithTitle:(NSMutableAttributedString *)title detail:(NSString *)detail {
+- (void) setupSubviewsWithTitle:(NSString *)title detail:(NSString *)detail {
     self.backgroundColor = [UIColor clearColor];
     self.color = [UIColor blackColor];
     
     _titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(16, 13, 130, 500)];
-    _titleLabel.attributedText = title;
+    _titleLabel.text = title;
     _titleLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     _titleLabel.backgroundColor = [UIColor clearColor];
     _titleLabel.textColor = [UIColor whiteColor];

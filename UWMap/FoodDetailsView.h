@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FoodData.h"
 
 @protocol FoodDetailsViewDelegate <NSObject>
 
@@ -18,9 +19,6 @@
 
 @property (nonatomic, weak) id<FoodDetailsViewDelegate>delegate;
 
-@property (weak, nonatomic) IBOutlet UIImageView *imageView;
-@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
-@property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;
-@property (weak, nonatomic) IBOutlet UILabel *hoursLabel;
+- (void)setupDataWithFoodData:(NSMutableArray *)foodDataArray;
 
 @end

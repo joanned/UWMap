@@ -550,42 +550,126 @@
         NSString *adjustedString =  [[foodDictionary valueForKey:@"outlet_name"] stringByReplacingOccurrencesOfString:@"U" withString:@"u"];//TODO:must change this later..
         
         [foodData setTitle:adjustedString];
-        [foodData setYPosition:[[foodDictionary valueForKey:@"latitude"] floatValue]];
-        [foodData setXPosition:[[foodDictionary valueForKey:@"longitude"] floatValue]];
+//        [foodData setYPosition:[[foodDictionary valueForKey:@"latitude"] floatValue]];
+//        [foodData setXPosition:[[foodDictionary valueForKey:@"longitude"] floatValue]];
         
-        [foodData setImageUrl:[foodDictionary valueForKey:@"logo"]];
-        [foodData setFoodDescription:[foodDictionary valueForKey:@"description"]];
-        [foodData setIsOpenNow:[foodDictionary valueForKey:@"is_open_now"]];
-
+        if ([[foodDictionary valueForKey:@"logo"] isKindOfClass:[NSNull class]]) {
+            [foodData setImageUrl:nil];
+        } else {
+            [foodData setImageUrl:[foodDictionary valueForKey:@"logo"]];
+        }
+        
+        if ([[foodDictionary valueForKey:@"description"] isKindOfClass:[NSNull class]]) {
+            [foodData setFoodDescription:nil];
+        } else {
+            [foodData setFoodDescription:[foodDictionary valueForKey:@"description"]];
+        }
+        
+        if ([[foodDictionary valueForKey:@"is_open_now"] isKindOfClass:[NSNull class]]) {
+            [foodData setIsOpenNow:nil];
+        } else {
+            [foodData setIsOpenNow:[foodDictionary valueForKey:@"is_open_now"]];
+        }
+        
         NSDictionary *hoursDictionary = [foodDictionary valueForKey:@"opening_hours"];
         
         NSDictionary *mondayHours = [hoursDictionary valueForKey:@"monday"];
-        [foodData setMondayOpen:[mondayHours valueForKey:@"opening_hour"]];
-        [foodData setMondayClose:[mondayHours valueForKey:@"closing_hour"]];
+        
+        if ([[mondayHours valueForKey:@"opening_hour"] isKindOfClass:[NSNull class]]) {
+            [foodData setMondayOpen:nil];
+        } else {
+            [foodData setMondayOpen:[mondayHours valueForKey:@"opening_hour"]];
+        }
+        
+        if ([[mondayHours valueForKey:@"closing_hour"] isKindOfClass:[NSNull class]]) {
+            [foodData setMondayClose:nil];
+        } else {
+            [foodData setMondayClose:[mondayHours valueForKey:@"closing_hour"]];
+        }
         
         NSDictionary *tuesdayHours = [hoursDictionary valueForKey:@"tuesday"];
-        [foodData setTuesdayOpen:[tuesdayHours valueForKey:@"opening_hour"]];
-        [foodData setTuesdayClose:[tuesdayHours valueForKey:@"closing_hour"]];
+
+        if ([[tuesdayHours valueForKey:@"opening_hour"] isKindOfClass:[NSNull class]]) {
+            [foodData setTuesdayOpen:nil];
+        } else {
+            [foodData setTuesdayOpen:[tuesdayHours valueForKey:@"opening_hour"]];
+        }
         
+        if ([[tuesdayHours valueForKey:@"closing_hour"] isKindOfClass:[NSNull class]]) {
+            [foodData setTuesdayClose:nil];
+        } else {
+            [foodData setTuesdayClose:[tuesdayHours valueForKey:@"closing_hour"]];
+        }
+    
         NSDictionary *wednesdayHours = [hoursDictionary valueForKey:@"wednesday"];
-        [foodData setWednesdayOpen:[wednesdayHours valueForKey:@"opening_hour"]];
-        [foodData setWednesdayClose:[wednesdayHours valueForKey:@"closing_hour"]];
         
+        if ([[wednesdayHours valueForKey:@"opening_hour"] isKindOfClass:[NSNull class]]) {
+            [foodData setWednesdayOpen:nil];
+        } else {
+            [foodData setWednesdayOpen:[wednesdayHours valueForKey:@"opening_hour"]];
+        }
+    
+        if ([[wednesdayHours valueForKey:@"closing_hour"] isKindOfClass:[NSNull class]]) {
+            [foodData setWednesdayClose:nil];
+        } else {
+            [foodData setWednesdayClose:[wednesdayHours valueForKey:@"closing_hour"]];
+        }
+    
         NSDictionary *thursdayHours = [hoursDictionary valueForKey:@"thursday"];
-        [foodData setThursdayOpen:[thursdayHours valueForKey:@"opening_hour"]];
-        [foodData setThursdayClose:[thursdayHours valueForKey:@"closing_hour"]];
+
+        if ([[thursdayHours valueForKey:@"opening_hour"] isKindOfClass:[NSNull class]]) {
+            [foodData setThursdayOpen:nil];
+        } else {
+            [foodData setThursdayOpen:[thursdayHours valueForKey:@"opening_hour"]];
+        }
+        
+        if ([[thursdayHours valueForKey:@"closing_hour"] isKindOfClass:[NSNull class]]) {
+            [foodData setThursdayClose:nil];
+        } else {
+            [foodData setThursdayClose:[thursdayHours valueForKey:@"closing_hour"]];
+        }
         
         NSDictionary *fridayHours = [hoursDictionary valueForKey:@"friday"];
-        [foodData setFridayOpen:[fridayHours valueForKey:@"opening_hour"]];
-        [foodData setFridayClose:[fridayHours valueForKey:@"closing_hour"]];
+        
+        if ([[fridayHours valueForKey:@"opening_hour"] isKindOfClass:[NSNull class]]) {
+            [foodData setFridayOpen:nil];
+        } else {
+            [foodData setFridayOpen:[fridayHours valueForKey:@"opening_hour"]];
+        }
+        
+        if ([[fridayHours valueForKey:@"closing_hour"] isKindOfClass:[NSNull class]]) {
+            [foodData setFridayClose:nil];
+        } else {
+            [foodData setFridayClose:[fridayHours valueForKey:@"closing_hour"]];
+        }
         
         NSDictionary *saturdayHours = [hoursDictionary valueForKey:@"saturday"];
-        [foodData setSaturdayOpen:[saturdayHours valueForKey:@"opening_hour"]];
-        [foodData setSaturdayClose:[saturdayHours valueForKey:@"closing_hour"]];
+        
+        if ([[saturdayHours valueForKey:@"opening_hour"] isKindOfClass:[NSNull class]]) {
+            [foodData setSaturdayOpen:nil];
+        } else {
+            [foodData setSaturdayOpen:[saturdayHours valueForKey:@"opening_hour"]];
+        }
+        
+        if ([[saturdayHours valueForKey:@"closing_hour"] isKindOfClass:[NSNull class]]) {
+            [foodData setSaturdayClose:nil];
+        } else {
+            [foodData setSaturdayClose:[saturdayHours valueForKey:@"closing_hour"]];
+        }
                                     
         NSDictionary *sundayHours = [hoursDictionary valueForKey:@"sunday"];
-        [foodData setSundayOpen:[sundayHours valueForKey:@"opening_hour"]];
-        [foodData setSundayClose:[sundayHours valueForKey:@"closing_hour"]];
+        
+        if ([[sundayHours valueForKey:@"opening_hour"] isKindOfClass:[NSNull class]]) {
+            [foodData setSundayOpen:nil];
+        } else {
+            [foodData setSundayOpen:[sundayHours valueForKey:@"opening_hour"]];
+        }
+        
+        if ([[sundayHours valueForKey:@"closing_hour"] isKindOfClass:[NSNull class]]) {
+            [foodData setSundayClose:nil];
+        } else {
+            [foodData setSundayClose:[sundayHours valueForKey:@"closing_hour"]];
+        }
         
         [foodDataDictionary setValue:foodData forKey:foodData.title];
     }

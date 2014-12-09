@@ -9,10 +9,17 @@
 #import <UIKit/UIKit.h>
 #import "BuildingListViewController.h"
 
+@protocol MapViewControllerDelegate <NSObject>
+
+- (void)subviewTappedWithLabel:(NSString *)label;
+
+@end
+
 @interface MapViewController : UIViewController
 
 @property (nonatomic, strong) IBOutlet UIScrollView *scrollView;
 @property (nonatomic, strong) NSMutableDictionary *shortformDictionary;
+@property (nonatomic, weak) id<MapViewControllerDelegate> delegate;
 
 - (CGPoint)makePointFromBuildingKey:(NSString *)locationKey isFromTable:(BOOL)isFromTable;
 - (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView;

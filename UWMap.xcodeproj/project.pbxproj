@@ -17,6 +17,8 @@
 		47C7892B19F9FF4900C90436 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47C7892A19F9FF4900C90436 /* MainViewController.m */; };
 		47D854531A2D4CD7004D7BCB /* FoodDetailsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 47D854521A2D4CD7004D7BCB /* FoodDetailsView.m */; };
 		47D854551A2D4CEB004D7BCB /* FoodDetailsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47D854541A2D4CEB004D7BCB /* FoodDetailsView.xib */; };
+		47D8545F1A36854F004D7BCB /* FoodCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47D8545E1A36854F004D7BCB /* FoodCell.xib */; };
+		47D854621A36AB2A004D7BCB /* FoodCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 47D854611A36AB2A004D7BCB /* FoodCell.m */; };
 		47F37CCB19DCE4C6009577E9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47F37CCA19DCE4C6009577E9 /* Foundation.framework */; };
 		47F37CCD19DCE4C6009577E9 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47F37CCC19DCE4C6009577E9 /* CoreGraphics.framework */; };
 		47F37CCF19DCE4C6009577E9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47F37CCE19DCE4C6009577E9 /* UIKit.framework */; };
@@ -64,6 +66,9 @@
 		47D854511A2D4CD7004D7BCB /* FoodDetailsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodDetailsView.h; sourceTree = "<group>"; };
 		47D854521A2D4CD7004D7BCB /* FoodDetailsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodDetailsView.m; sourceTree = "<group>"; };
 		47D854541A2D4CEB004D7BCB /* FoodDetailsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FoodDetailsView.xib; sourceTree = "<group>"; };
+		47D8545E1A36854F004D7BCB /* FoodCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FoodCell.xib; sourceTree = "<group>"; };
+		47D854601A36AB2A004D7BCB /* FoodCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodCell.h; sourceTree = "<group>"; };
+		47D854611A36AB2A004D7BCB /* FoodCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodCell.m; sourceTree = "<group>"; };
 		47F37CC719DCE4C6009577E9 /* UWMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UWMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		47F37CCA19DCE4C6009577E9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		47F37CCC19DCE4C6009577E9 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -163,6 +168,16 @@
 			name = Constants;
 			sourceTree = "<group>";
 		};
+		47D8545A1A35FE28004D7BCB /* FoodCell */ = {
+			isa = PBXGroup;
+			children = (
+				47D8545E1A36854F004D7BCB /* FoodCell.xib */,
+				47D854601A36AB2A004D7BCB /* FoodCell.h */,
+				47D854611A36AB2A004D7BCB /* FoodCell.m */,
+			);
+			name = FoodCell;
+			sourceTree = "<group>";
+		};
 		47F37CBE19DCE4C6009577E9 = {
 			isa = PBXGroup;
 			children = (
@@ -196,6 +211,7 @@
 		47F37CD019DCE4C6009577E9 /* UWMap */ = {
 			isa = PBXGroup;
 			children = (
+				47D8545A1A35FE28004D7BCB /* FoodCell */,
 				47D854561A2E45F6004D7BCB /* Constants */,
 				47D8544D1A2D4C44004D7BCB /* Views */,
 				473AE8E91A2C37A900EE29F0 /* Networking */,
@@ -334,6 +350,7 @@
 			files = (
 				47F37CE619DCE4C6009577E9 /* Images.xcassets in Resources */,
 				47D854551A2D4CEB004D7BCB /* FoodDetailsView.xib in Resources */,
+				47D8545F1A36854F004D7BCB /* FoodCell.xib in Resources */,
 				47F37CD519DCE4C6009577E9 /* InfoPlist.strings in Resources */,
 				47F37CDE19DCE4C6009577E9 /* Main.storyboard in Resources */,
 			);
@@ -367,6 +384,7 @@
 				47D854531A2D4CD7004D7BCB /* FoodDetailsView.m in Sources */,
 				4701AE6B19FD7A9500F81F84 /* DataProvider.m in Sources */,
 				47110ACC19ECCABD009AEFF6 /* Building.m in Sources */,
+				47D854621A36AB2A004D7BCB /* FoodCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
