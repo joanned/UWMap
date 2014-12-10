@@ -8,85 +8,223 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FoodCell" rowHeight="218" id="wAr-gy-gkl" customClass="FoodCell">
-            <rect key="frame" x="0.0" y="0.0" width="317" height="218"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FoodCell" rowHeight="293" id="wAr-gy-gkl" customClass="FoodCell">
+            <rect key="frame" x="0.0" y="0.0" width="317" height="293"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wAr-gy-gkl" id="X7F-Ld-yAH">
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gGA-wh-Cxo" userLabel="Title">
-                        <rect key="frame" x="15" y="103" width="279" height="22"/>
-                        <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="19"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bbX-qZ-Df5" userLabel="description">
-                        <rect key="frame" x="15" y="128" width="279" height="18"/>
-                        <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="16"/>
-                        <color key="textColor" red="0.20350366710000001" green="0.20350366710000001" blue="0.20350366710000001" alpha="1" colorSpace="calibratedRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hours:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gFw-Yl-hZD" userLabel="Hours">
-                        <rect key="frame" x="15" y="160" width="263" height="19"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="46c-0D-N8k" userLabel="darkView">
+                        <rect key="frame" x="0.0" y="0.0" width="317" height="39"/>
+                        <color key="backgroundColor" red="0.20350366830825806" green="0.20350366830825806" blue="0.20350366830825806" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="760" verticalHuggingPriority="760" horizontalCompressionResistancePriority="760" verticalCompressionResistancePriority="760" text="Title" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gGA-wh-Cxo" userLabel="Title">
+                        <rect key="frame" x="15" y="10" width="232" height="19"/>
                         <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="759" verticalHuggingPriority="759" horizontalCompressionResistancePriority="759" verticalCompressionResistancePriority="759" text="Description" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bbX-qZ-Df5" userLabel="description">
+                        <rect key="frame" x="15" y="49" width="279" height="16"/>
+                        <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="14"/>
+                        <color key="textColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="758" verticalHuggingPriority="758" horizontalCompressionResistancePriority="758" verticalCompressionResistancePriority="758" text="Monday:" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NT5-TQ-SCO" userLabel="Monday hours">
+                        <rect key="frame" x="113" y="73" width="196" height="17"/>
+                        <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="15"/>
                         <color key="textColor" red="0.20350366710000001" green="0.20350366710000001" blue="0.20350366710000001" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lTU-o7-sCh">
-                        <rect key="frame" x="15" y="15" width="287" height="80"/>
-                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="757" verticalHuggingPriority="757" horizontalCompressionResistancePriority="757" verticalCompressionResistancePriority="757" text="Tuesday:" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ybd-u6-Obs" userLabel="Tuesday hours">
+                        <rect key="frame" x="113" y="90" width="196" height="17"/>
+                        <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="15"/>
+                        <color key="textColor" red="0.20350366710000001" green="0.20350366710000001" blue="0.20350366710000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="755" verticalHuggingPriority="756" horizontalCompressionResistancePriority="756" verticalCompressionResistancePriority="756" text="Wednesday:" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0iy-5F-Pnn" userLabel=" Wednesday hours">
+                        <rect key="frame" x="113" y="107" width="196" height="17"/>
+                        <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="15"/>
+                        <color key="textColor" red="0.20350366710000001" green="0.20350366710000001" blue="0.20350366710000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="755" verticalHuggingPriority="755" horizontalCompressionResistancePriority="755" verticalCompressionResistancePriority="755" text="Thursday:" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sCa-jn-KHY" userLabel="Thursday hours">
+                        <rect key="frame" x="113" y="124" width="196" height="17"/>
+                        <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="15"/>
+                        <color key="textColor" red="0.20350366710000001" green="0.20350366710000001" blue="0.20350366710000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="754" verticalHuggingPriority="754" horizontalCompressionResistancePriority="754" verticalCompressionResistancePriority="754" text="Friday:" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iBx-Lb-jPT" userLabel="Friday hours">
+                        <rect key="frame" x="113" y="141" width="196" height="17"/>
+                        <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="15"/>
+                        <color key="textColor" red="0.20350366710000001" green="0.20350366710000001" blue="0.20350366710000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="753" verticalHuggingPriority="753" horizontalCompressionResistancePriority="753" verticalCompressionResistancePriority="753" text="Saturday:" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jK7-IU-pBM" userLabel="Saturday hours">
+                        <rect key="frame" x="113" y="158" width="196" height="17"/>
+                        <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="15"/>
+                        <color key="textColor" red="0.20350366710000001" green="0.20350366710000001" blue="0.20350366710000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="752" verticalHuggingPriority="752" horizontalCompressionResistancePriority="752" verticalCompressionResistancePriority="752" text="Sunday:" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V3g-uk-twB" userLabel="Sunday hours">
+                        <rect key="frame" x="113" y="175" width="196" height="17"/>
+                        <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="15"/>
+                        <color key="textColor" red="0.20350366710000001" green="0.20350366710000001" blue="0.20350366710000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="753" verticalHuggingPriority="753" horizontalCompressionResistancePriority="753" verticalCompressionResistancePriority="753" text="Saturday:" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cQO-3W-A8G">
+                        <rect key="frame" x="15" y="158" width="90" height="17"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="80" id="EA1-yg-aKz"/>
-                            <constraint firstAttribute="height" constant="130" id="Gg4-He-mph"/>
-                            <constraint firstAttribute="height" constant="130" id="Zgu-Px-p3Z"/>
+                            <constraint firstAttribute="width" constant="90" id="K4Z-JF-77b"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="Gg4-He-mph"/>
-                                <exclude reference="Zgu-Px-p3Z"/>
-                            </mask>
-                        </variation>
-                    </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;monday-sunday hours>" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NT5-TQ-SCO" userLabel="&lt;monday-sunday hours>">
-                        <rect key="frame" x="15" y="176" width="287" height="18"/>
-                        <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="16"/>
+                        <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="15"/>
+                        <color key="textColor" red="0.20350366710000001" green="0.20350366710000001" blue="0.20350366710000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="756" verticalHuggingPriority="756" horizontalCompressionResistancePriority="756" verticalCompressionResistancePriority="756" text="Wednesday:" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oea-oV-JbR">
+                        <rect key="frame" x="15" y="107" width="90" height="17"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="90" id="wxl-08-76n"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="15"/>
+                        <color key="textColor" red="0.20350366710000001" green="0.20350366710000001" blue="0.20350366710000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="751" verticalHuggingPriority="752" horizontalCompressionResistancePriority="752" verticalCompressionResistancePriority="752" text="Sunday:" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rz0-ZK-tsN">
+                        <rect key="frame" x="15" y="175" width="90" height="17"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="90" id="fdr-u8-9QC"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="15"/>
+                        <color key="textColor" red="0.20350366710000001" green="0.20350366710000001" blue="0.20350366710000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="754" verticalHuggingPriority="754" horizontalCompressionResistancePriority="754" verticalCompressionResistancePriority="754" text="Friday:" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sk5-gw-v4g">
+                        <rect key="frame" x="15" y="141" width="90" height="17"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="90" id="mWb-7S-eHL"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="15"/>
+                        <color key="textColor" red="0.20350366710000001" green="0.20350366710000001" blue="0.20350366710000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="758" verticalHuggingPriority="758" horizontalCompressionResistancePriority="758" verticalCompressionResistancePriority="758" text="Monday:" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tpt-l0-EXL">
+                        <rect key="frame" x="15" y="73" width="90" height="17"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="90" id="1SN-nN-vCT"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="15"/>
+                        <color key="textColor" red="0.20350366710000001" green="0.20350366710000001" blue="0.20350366710000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="755" verticalHuggingPriority="755" horizontalCompressionResistancePriority="755" verticalCompressionResistancePriority="755" text="Thursday:" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ahd-tO-DKn">
+                        <rect key="frame" x="15" y="124" width="90" height="17"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="90" id="SiQ-R1-VvG"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="15"/>
+                        <color key="textColor" red="0.20350366710000001" green="0.20350366710000001" blue="0.20350366710000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="757" verticalHuggingPriority="757" horizontalCompressionResistancePriority="757" verticalCompressionResistancePriority="757" text="Tuesday:" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o0W-sr-5ox">
+                        <rect key="frame" x="15" y="90" width="90" height="17"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="90" id="5DZ-Oa-NhG"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="15"/>
                         <color key="textColor" red="0.20350366710000001" green="0.20350366710000001" blue="0.20350366710000001" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="gFw-Yl-hZD" firstAttribute="top" secondItem="bbX-qZ-Df5" secondAttribute="bottom" constant="14" id="84J-A2-CPN"/>
-                    <constraint firstItem="lTU-o7-sCh" firstAttribute="top" secondItem="X7F-Ld-yAH" secondAttribute="top" constant="15" id="KJf-uX-qkv"/>
-                    <constraint firstItem="NT5-TQ-SCO" firstAttribute="leading" secondItem="X7F-Ld-yAH" secondAttribute="leading" constant="15" id="NpF-Qm-18B"/>
-                    <constraint firstItem="NT5-TQ-SCO" firstAttribute="top" secondItem="gFw-Yl-hZD" secondAttribute="bottom" constant="-3" id="OJl-EM-7wD"/>
+                    <constraint firstItem="Rz0-ZK-tsN" firstAttribute="leading" secondItem="X7F-Ld-yAH" secondAttribute="leading" constant="15" id="1yf-Af-EcM"/>
+                    <constraint firstItem="46c-0D-N8k" firstAttribute="top" secondItem="X7F-Ld-yAH" secondAttribute="top" id="2Ah-Ea-IXT"/>
+                    <constraint firstItem="cQO-3W-A8G" firstAttribute="top" secondItem="Sk5-gw-v4g" secondAttribute="bottom" id="3Vl-ck-ZcQ"/>
+                    <constraint firstItem="jK7-IU-pBM" firstAttribute="leading" secondItem="cQO-3W-A8G" secondAttribute="trailing" constant="8" id="4QI-wj-ArP"/>
+                    <constraint firstAttribute="trailing" secondItem="sCa-jn-KHY" secondAttribute="trailing" constant="8" id="5wK-Ry-ahJ"/>
+                    <constraint firstItem="0iy-5F-Pnn" firstAttribute="leading" secondItem="X7F-Ld-yAH" secondAttribute="leading" constant="126" id="6nv-xi-uQE"/>
+                    <constraint firstItem="Sk5-gw-v4g" firstAttribute="leading" secondItem="X7F-Ld-yAH" secondAttribute="leading" constant="15" id="8BN-JQ-sl5"/>
+                    <constraint firstItem="Oea-oV-JbR" firstAttribute="top" secondItem="o0W-sr-5ox" secondAttribute="bottom" id="8Cw-fX-lhJ"/>
+                    <constraint firstItem="Sk5-gw-v4g" firstAttribute="top" secondItem="Ahd-tO-DKn" secondAttribute="bottom" id="8Xz-N2-sb0"/>
+                    <constraint firstAttribute="trailing" secondItem="V3g-uk-twB" secondAttribute="trailing" constant="8" id="8mO-6Y-nBH"/>
+                    <constraint firstAttribute="bottom" secondItem="Rz0-ZK-tsN" secondAttribute="bottom" priority="750" constant="15" id="9th-3C-9vs"/>
+                    <constraint firstItem="tpt-l0-EXL" firstAttribute="leading" secondItem="X7F-Ld-yAH" secondAttribute="leading" constant="15" id="ALe-C7-Udz"/>
+                    <constraint firstItem="ybd-u6-Obs" firstAttribute="leading" secondItem="o0W-sr-5ox" secondAttribute="trailing" constant="8" id="CTB-6H-mNP"/>
+                    <constraint firstItem="sCa-jn-KHY" firstAttribute="top" secondItem="0iy-5F-Pnn" secondAttribute="bottom" id="DY6-Z4-U6A"/>
+                    <constraint firstItem="46c-0D-N8k" firstAttribute="leading" secondItem="X7F-Ld-yAH" secondAttribute="leading" id="Dy1-Mv-PWV"/>
+                    <constraint firstAttribute="trailing" secondItem="46c-0D-N8k" secondAttribute="trailing" id="EjR-7u-0xe"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="NT5-TQ-SCO" secondAttribute="trailing" constant="10" id="FMc-aJ-KAe"/>
+                    <constraint firstAttribute="trailing" secondItem="jK7-IU-pBM" secondAttribute="trailing" constant="8" id="I1V-ns-EFv"/>
+                    <constraint firstItem="gGA-wh-Cxo" firstAttribute="top" secondItem="X7F-Ld-yAH" secondAttribute="top" constant="10" id="KB9-Qr-VfN"/>
+                    <constraint firstItem="NT5-TQ-SCO" firstAttribute="leading" secondItem="X7F-Ld-yAH" secondAttribute="leadingMargin" constant="22" id="Mg3-Wl-3JQ"/>
+                    <constraint firstItem="NT5-TQ-SCO" firstAttribute="leading" secondItem="X7F-Ld-yAH" secondAttribute="leading" constant="126" id="NpF-Qm-18B"/>
                     <constraint firstAttribute="trailingMargin" secondItem="bbX-qZ-Df5" secondAttribute="trailing" constant="15" id="OmI-IV-Zhi"/>
-                    <constraint firstAttribute="trailing" secondItem="NT5-TQ-SCO" secondAttribute="trailing" constant="15" id="Pcf-fi-47b"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="gFw-Yl-hZD" secondAttribute="trailing" constant="31" id="Rzh-0J-rUr"/>
-                    <constraint firstItem="gFw-Yl-hZD" firstAttribute="leading" secondItem="X7F-Ld-yAH" secondAttribute="leadingMargin" constant="7" id="SgO-ZD-LIs"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="gGA-wh-Cxo" secondAttribute="trailing" constant="15" id="WbX-dh-O7Z"/>
+                    <constraint firstAttribute="trailing" secondItem="NT5-TQ-SCO" secondAttribute="trailing" constant="8" id="Pcf-fi-47b"/>
+                    <constraint firstItem="ybd-u6-Obs" firstAttribute="leading" secondItem="X7F-Ld-yAH" secondAttribute="leading" constant="126" id="QAh-W3-hSW"/>
+                    <constraint firstItem="Ahd-tO-DKn" firstAttribute="top" secondItem="Oea-oV-JbR" secondAttribute="bottom" id="RDw-Ua-OYs"/>
+                    <constraint firstItem="NT5-TQ-SCO" firstAttribute="leading" secondItem="tpt-l0-EXL" secondAttribute="trailing" constant="8" id="Rz2-Js-3J0"/>
+                    <constraint firstAttribute="trailing" secondItem="0iy-5F-Pnn" secondAttribute="trailing" constant="8" id="SbK-mR-ibl"/>
+                    <constraint firstItem="iBx-Lb-jPT" firstAttribute="leading" secondItem="Sk5-gw-v4g" secondAttribute="trailing" constant="8" id="V91-oc-Tdb"/>
+                    <constraint firstAttribute="trailing" secondItem="gGA-wh-Cxo" secondAttribute="trailing" constant="70" id="WbX-dh-O7Z"/>
+                    <constraint firstItem="Oea-oV-JbR" firstAttribute="leading" secondItem="X7F-Ld-yAH" secondAttribute="leading" constant="15" id="XUK-Vb-Xwg"/>
+                    <constraint firstItem="iBx-Lb-jPT" firstAttribute="leading" secondItem="X7F-Ld-yAH" secondAttribute="leading" constant="126" id="Xtb-AP-Svv"/>
                     <constraint firstItem="gGA-wh-Cxo" firstAttribute="leading" secondItem="X7F-Ld-yAH" secondAttribute="leadingMargin" constant="7" id="Y99-Pv-3GF"/>
-                    <constraint firstItem="gGA-wh-Cxo" firstAttribute="top" secondItem="lTU-o7-sCh" secondAttribute="bottom" constant="8" id="Z3I-4W-L8L"/>
-                    <constraint firstItem="bbX-qZ-Df5" firstAttribute="top" secondItem="gGA-wh-Cxo" secondAttribute="bottom" constant="3" id="iTq-VO-83k"/>
+                    <constraint firstItem="sCa-jn-KHY" firstAttribute="leading" secondItem="Ahd-tO-DKn" secondAttribute="trailing" constant="8" id="Ykf-yK-9YP"/>
+                    <constraint firstItem="Rz0-ZK-tsN" firstAttribute="top" secondItem="cQO-3W-A8G" secondAttribute="bottom" id="alH-z4-Orq"/>
+                    <constraint firstItem="46c-0D-N8k" firstAttribute="bottom" secondItem="gGA-wh-Cxo" secondAttribute="bottom" constant="10" id="dXF-Sx-Zr1"/>
+                    <constraint firstItem="tpt-l0-EXL" firstAttribute="top" secondItem="bbX-qZ-Df5" secondAttribute="bottom" constant="8" id="enh-PK-dBB"/>
+                    <constraint firstItem="ybd-u6-Obs" firstAttribute="top" secondItem="NT5-TQ-SCO" secondAttribute="bottom" id="fPW-X4-ygd"/>
+                    <constraint firstItem="bbX-qZ-Df5" firstAttribute="top" secondItem="gGA-wh-Cxo" secondAttribute="bottom" constant="20" id="iTq-VO-83k"/>
                     <constraint firstAttribute="bottomMargin" secondItem="NT5-TQ-SCO" secondAttribute="bottom" constant="15" id="iqS-gm-Dhu"/>
+                    <constraint firstItem="0iy-5F-Pnn" firstAttribute="leading" secondItem="Oea-oV-JbR" secondAttribute="trailing" constant="8" id="jTB-PJ-Ydf"/>
+                    <constraint firstAttribute="trailing" secondItem="ybd-u6-Obs" secondAttribute="trailing" constant="8" id="kOs-qf-8wr"/>
+                    <constraint firstItem="cQO-3W-A8G" firstAttribute="leading" secondItem="X7F-Ld-yAH" secondAttribute="leading" constant="15" id="lac-s3-ue3"/>
+                    <constraint firstItem="jK7-IU-pBM" firstAttribute="top" secondItem="iBx-Lb-jPT" secondAttribute="bottom" id="mBX-8r-5To"/>
                     <constraint firstAttribute="bottomMargin" secondItem="NT5-TQ-SCO" secondAttribute="bottom" constant="191" id="nak-Zn-5zm"/>
-                    <constraint firstItem="lTU-o7-sCh" firstAttribute="leading" secondItem="X7F-Ld-yAH" secondAttribute="leading" constant="15" id="s2B-uM-1hn"/>
-                    <constraint firstItem="bbX-qZ-Df5" firstAttribute="leading" secondItem="X7F-Ld-yAH" secondAttribute="leadingMargin" constant="7" id="uP5-Ev-mEZ"/>
-                    <constraint firstAttribute="trailing" secondItem="lTU-o7-sCh" secondAttribute="trailing" constant="15" id="zsj-g4-nuR"/>
+                    <constraint firstItem="NT5-TQ-SCO" firstAttribute="top" secondItem="bbX-qZ-Df5" secondAttribute="bottom" constant="8" id="nwp-ZF-hG2"/>
+                    <constraint firstItem="V3g-uk-twB" firstAttribute="top" secondItem="jK7-IU-pBM" secondAttribute="bottom" id="o7D-cQ-n42"/>
+                    <constraint firstItem="sCa-jn-KHY" firstAttribute="leading" secondItem="X7F-Ld-yAH" secondAttribute="leading" constant="126" id="pQg-17-whI"/>
+                    <constraint firstItem="iBx-Lb-jPT" firstAttribute="top" secondItem="sCa-jn-KHY" secondAttribute="bottom" id="phG-ZU-aDp"/>
+                    <constraint firstAttribute="trailing" secondItem="iBx-Lb-jPT" secondAttribute="trailing" constant="8" id="qRD-It-lbe"/>
+                    <constraint firstItem="jK7-IU-pBM" firstAttribute="leading" secondItem="X7F-Ld-yAH" secondAttribute="leading" constant="126" id="sEP-Jr-qih"/>
+                    <constraint firstItem="V3g-uk-twB" firstAttribute="leading" secondItem="Rz0-ZK-tsN" secondAttribute="trailing" constant="8" id="stQ-fK-SY4"/>
+                    <constraint firstItem="Ahd-tO-DKn" firstAttribute="leading" secondItem="X7F-Ld-yAH" secondAttribute="leading" constant="15" id="szT-k4-YYW"/>
+                    <constraint firstItem="V3g-uk-twB" firstAttribute="leading" secondItem="X7F-Ld-yAH" secondAttribute="leading" constant="126" id="uBy-SI-C5o"/>
+                    <constraint firstItem="bbX-qZ-Df5" firstAttribute="leading" secondItem="X7F-Ld-yAH" secondAttribute="leading" constant="15" id="uP5-Ev-mEZ"/>
+                    <constraint firstItem="o0W-sr-5ox" firstAttribute="leading" secondItem="X7F-Ld-yAH" secondAttribute="leading" constant="15" id="uko-HO-TxO"/>
+                    <constraint firstItem="o0W-sr-5ox" firstAttribute="top" secondItem="tpt-l0-EXL" secondAttribute="bottom" id="vQU-MO-fyu"/>
+                    <constraint firstAttribute="bottom" secondItem="V3g-uk-twB" secondAttribute="bottom" priority="750" constant="15" id="waL-0y-tc5"/>
+                    <constraint firstItem="0iy-5F-Pnn" firstAttribute="top" secondItem="ybd-u6-Obs" secondAttribute="bottom" id="yhB-de-Df7"/>
                 </constraints>
                 <variation key="default">
                     <mask key="constraints">
+                        <exclude reference="FMc-aJ-KAe"/>
+                        <exclude reference="Mg3-Wl-3JQ"/>
+                        <exclude reference="NpF-Qm-18B"/>
+                        <exclude reference="iqS-gm-Dhu"/>
                         <exclude reference="nak-Zn-5zm"/>
+                        <exclude reference="QAh-W3-hSW"/>
+                        <exclude reference="6nv-xi-uQE"/>
+                        <exclude reference="pQg-17-whI"/>
+                        <exclude reference="Xtb-AP-Svv"/>
+                        <exclude reference="sEP-Jr-qih"/>
+                        <exclude reference="uBy-SI-C5o"/>
                     </mask>
                 </variation>
             </tableViewCellContentView>
             <connections>
                 <outlet property="descriptionLabel" destination="bbX-qZ-Df5" id="Zy2-er-LnV"/>
-                <outlet property="foodImageView" destination="lTU-o7-sCh" id="dn8-Qg-P02"/>
-                <outlet property="hoursLabel" destination="NT5-TQ-SCO" id="N20-Ck-Jg4"/>
-                <outlet property="imageView" destination="lTU-o7-sCh" id="Hdk-kY-Cg3"/>
+                <outlet property="fridayLabel" destination="iBx-Lb-jPT" id="qAe-6M-vHA"/>
+                <outlet property="headerView" destination="46c-0D-N8k" id="1VI-Ee-Hr7"/>
+                <outlet property="mondayLabel" destination="NT5-TQ-SCO" id="JG2-Nj-ga9"/>
+                <outlet property="saturdayLabel" destination="jK7-IU-pBM" id="1kC-2g-HJL"/>
+                <outlet property="sundayLabel" destination="V3g-uk-twB" id="Fv9-VT-cgz"/>
+                <outlet property="thursdayLabel" destination="sCa-jn-KHY" id="BG4-ZD-Hnb"/>
                 <outlet property="titleLabel" destination="gGA-wh-Cxo" id="RfU-mH-6yU"/>
+                <outlet property="tuesdayLabel" destination="ybd-u6-Obs" id="0FO-nc-a8n"/>
+                <outlet property="wednesdayLabel" destination="0iy-5F-Pnn" id="Gt3-fN-snf"/>
             </connections>
-            <point key="canvasLocation" x="353.5" y="298"/>
+            <point key="canvasLocation" x="-31.5" y="363.5"/>
         </tableViewCell>
     </objects>
 </document>

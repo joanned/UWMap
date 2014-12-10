@@ -10,9 +10,14 @@
 
 @interface FoodCell : UITableViewCell
 
-@property (weak, nonatomic) IBOutlet UIImageView *foodImageView;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;
-@property (weak, nonatomic) IBOutlet UILabel *hoursLabel;
+@property (weak, nonatomic) IBOutlet UILabel *mondayLabel;
+@property (weak, nonatomic) IBOutlet UILabel *tuesdayLabel;
+@property (weak, nonatomic) IBOutlet UILabel *wednesdayLabel;
+@property (weak, nonatomic) IBOutlet UILabel *thursdayLabel;
+@property (weak, nonatomic) IBOutlet UILabel *fridayLabel;
+@property (weak, nonatomic) IBOutlet UILabel *saturdayLabel;
+@property (weak, nonatomic) IBOutlet UILabel *sundayLabel;
 
 @end

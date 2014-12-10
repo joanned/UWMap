@@ -69,6 +69,16 @@
 		47D8545E1A36854F004D7BCB /* FoodCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FoodCell.xib; sourceTree = "<group>"; };
 		47D854601A36AB2A004D7BCB /* FoodCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodCell.h; sourceTree = "<group>"; };
 		47D854611A36AB2A004D7BCB /* FoodCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodCell.m; sourceTree = "<group>"; };
+		47D854641A376BFA004D7BCB /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OpenSans-Bold.ttf"; path = "../../../Downloads/Open_Sans/OpenSans-Bold.ttf"; sourceTree = "<group>"; };
+		47D854651A376BFA004D7BCB /* OpenSans-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OpenSans-BoldItalic.ttf"; path = "../../../Downloads/Open_Sans/OpenSans-BoldItalic.ttf"; sourceTree = "<group>"; };
+		47D854661A376BFA004D7BCB /* OpenSans-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OpenSans-ExtraBold.ttf"; path = "../../../Downloads/Open_Sans/OpenSans-ExtraBold.ttf"; sourceTree = "<group>"; };
+		47D854671A376BFA004D7BCB /* OpenSans-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OpenSans-ExtraBoldItalic.ttf"; path = "../../../Downloads/Open_Sans/OpenSans-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
+		47D854681A376BFA004D7BCB /* OpenSans-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OpenSans-Italic.ttf"; path = "../../../Downloads/Open_Sans/OpenSans-Italic.ttf"; sourceTree = "<group>"; };
+		47D854691A376BFA004D7BCB /* OpenSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OpenSans-Light.ttf"; path = "../../../Downloads/Open_Sans/OpenSans-Light.ttf"; sourceTree = "<group>"; };
+		47D8546A1A376BFA004D7BCB /* OpenSans-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OpenSans-LightItalic.ttf"; path = "../../../Downloads/Open_Sans/OpenSans-LightItalic.ttf"; sourceTree = "<group>"; };
+		47D8546B1A376BFA004D7BCB /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OpenSans-Regular.ttf"; path = "../../../Downloads/Open_Sans/OpenSans-Regular.ttf"; sourceTree = "<group>"; };
+		47D8546C1A376BFA004D7BCB /* OpenSans-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OpenSans-Semibold.ttf"; path = "../../../Downloads/Open_Sans/OpenSans-Semibold.ttf"; sourceTree = "<group>"; };
+		47D8546D1A376BFA004D7BCB /* OpenSans-SemiboldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OpenSans-SemiboldItalic.ttf"; path = "../../../Downloads/Open_Sans/OpenSans-SemiboldItalic.ttf"; sourceTree = "<group>"; };
 		47F37CC719DCE4C6009577E9 /* UWMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UWMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		47F37CCA19DCE4C6009577E9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		47F37CCC19DCE4C6009577E9 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -178,6 +188,23 @@
 			name = FoodCell;
 			sourceTree = "<group>";
 		};
+		47D854631A376BE8004D7BCB /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				47D854641A376BFA004D7BCB /* OpenSans-Bold.ttf */,
+				47D854651A376BFA004D7BCB /* OpenSans-BoldItalic.ttf */,
+				47D854661A376BFA004D7BCB /* OpenSans-ExtraBold.ttf */,
+				47D854671A376BFA004D7BCB /* OpenSans-ExtraBoldItalic.ttf */,
+				47D854681A376BFA004D7BCB /* OpenSans-Italic.ttf */,
+				47D854691A376BFA004D7BCB /* OpenSans-Light.ttf */,
+				47D8546A1A376BFA004D7BCB /* OpenSans-LightItalic.ttf */,
+				47D8546B1A376BFA004D7BCB /* OpenSans-Regular.ttf */,
+				47D8546C1A376BFA004D7BCB /* OpenSans-Semibold.ttf */,
+				47D8546D1A376BFA004D7BCB /* OpenSans-SemiboldItalic.ttf */,
+			);
+			name = Fonts;
+			sourceTree = "<group>";
+		};
 		47F37CBE19DCE4C6009577E9 = {
 			isa = PBXGroup;
 			children = (
@@ -211,6 +238,7 @@
 		47F37CD019DCE4C6009577E9 /* UWMap */ = {
 			isa = PBXGroup;
 			children = (
+				47D854631A376BE8004D7BCB /* Fonts */,
 				47D8545A1A35FE28004D7BCB /* FoodCell */,
 				47D854561A2E45F6004D7BCB /* Constants */,
 				47D8544D1A2D4C44004D7BCB /* Views */,

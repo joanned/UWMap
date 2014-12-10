@@ -331,15 +331,7 @@ const float kWhiteOverlayOpacity = 0.75f;
     self.foodDetailsView.frame = CGRectMake(20, 84, self.screenWidth - 40, self.screenHeight - 84 - 20); //TODO
     self.foodDetailsView.delegate = self;
     
-    [self setupShadowsForFoodDetails];
-}
-
-- (void)setupShadowsForFoodDetails {
-    self.foodDetailsView.layer.shadowColor = [[UIColor blackColor] CGColor];
-    self.foodDetailsView.layer.shadowOpacity = 0.4f;
-    self.foodDetailsView.layer.shadowRadius = 5.0f;
-    self.foodDetailsView.layer.shadowOffset = CGSizeMake(0, 3.0f);
-    self.foodDetailsView.layer.shadowPath = [UIBezierPath bezierPathWithRect:self.foodDetailsView.bounds].CGPath;
+    [self.foodDetailsView setupShadowsForFoodDetails];
 }
 
 #pragma mark - <FoodDetailsViewDelegate>
@@ -369,7 +361,7 @@ const float kWhiteOverlayOpacity = 0.75f;
 
 }
 
-- (NSDictionary *)parseData:(NSData *)foodData {
+- (NSDictionary *)parseData:(NSData *)foodData { //TODO: put this elsewhere
     NSArray *shortformArray = [self.mapViewController.shortformDictionary allKeys];
     
     NSError *error = nil;

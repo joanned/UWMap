@@ -8,21 +8,23 @@
 
 #import "FoodCell.h"
 
-@implementation FoodCell
+@interface FoodCell ()
 
-@synthesize foodImageView = _foodImageView;
-@synthesize titleLabel = _titleLabel;
-@synthesize descriptionLabel = _descriptionLabel;
-@synthesize hoursLabel = _hoursLabel;
+@property (weak, nonatomic) IBOutlet UIView *headerView;
+
+@end
+
+@implementation FoodCell
+//
+//@synthesize titleLabel = _titleLabel;
+//@synthesize descriptionLabel = _descriptionLabel;
 
 - (void)awakeFromNib {
-    // Initialization code
-}
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-    
-    // Configure the view for the selected state
+    self.headerView.layer.shadowColor = [[UIColor blackColor] CGColor]; //TODO: fix or remove
+    self.headerView.layer.shadowOpacity = 0.4f;
+    self.headerView.layer.shadowRadius = 2.5f;
+    self.headerView.layer.shadowOffset = CGSizeMake(0, 2.0f);
+    self.headerView.layer.shadowPath = [UIBezierPath bezierPathWithRect:self.headerView.bounds].CGPath;
 }
 
 @end
