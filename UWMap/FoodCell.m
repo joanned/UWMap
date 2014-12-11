@@ -15,9 +15,6 @@
 @end
 
 @implementation FoodCell
-//
-//@synthesize titleLabel = _titleLabel;
-//@synthesize descriptionLabel = _descriptionLabel;
 
 - (void)awakeFromNib {
     self.headerView.layer.shadowColor = [[UIColor blackColor] CGColor]; //TODO: fix or remove
@@ -25,6 +22,8 @@
     self.headerView.layer.shadowRadius = 2.5f;
     self.headerView.layer.shadowOffset = CGSizeMake(0, 2.0f);
     self.headerView.layer.shadowPath = [UIBezierPath bezierPathWithRect:self.headerView.bounds].CGPath;
+    
+//    self.backgroundColor = [UIColor clearColor];
 }
 
 @end

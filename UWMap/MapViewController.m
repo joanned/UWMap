@@ -72,20 +72,20 @@ static const CGFloat kWidthOfPin = 50;
 //    if (self.isFirstLoad) {
         CGFloat heightScale = self.scrollView.frame.size.height / self.scrollView.contentSize.height;
 //    
-//    self.scrollView.minimumZoomScale = heightScale;
-//    self.scrollView.maximumZoomScale = 1.3f;
-//    self.scrollView.zoomScale = heightScale + 0.4;
+    self.scrollView.minimumZoomScale = heightScale;
+    self.scrollView.maximumZoomScale = 1.3f;
+    self.scrollView.zoomScale = heightScale + 0.4;
     
-    self.scrollView.minimumZoomScale = 1;
-    self.scrollView.maximumZoomScale = 1;
-    self.scrollView.zoomScale = 1;
+//    self.scrollView.minimumZoomScale = 1;
+//    self.scrollView.maximumZoomScale = 1;
+//    self.scrollView.zoomScale = 1;
 
     UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedScreen:)];
 
     [self.scrollView addGestureRecognizer:tapRecognizer];
     
     if (self.isFirstLoad == YES) {
-        self.startingPoint = CGPointMake(2403/kMapImageWidth * self.imageView.frame.size.width, 900/kMapImageHeight * self.imageView.frame.size.height);
+        self.startingPoint = CGPointMake(2403/kMapImageWidth * self.imageView.frame.size.width, 900/kMapImageHeight * self.imageView.frame.size.height); //todo: store random numbers in contants ~~~~~~~~
         [self adjustViewWithPoint:self.startingPoint];
         self.isFirstLoad = NO;
     }
@@ -93,7 +93,7 @@ static const CGFloat kWidthOfPin = 50;
 }
 
 - (void)setupData {
-    self.locationDictionary = [DataProvider buildingDictionary];
+//    self.locationDictionary = [DataProvider buildingDictionary]; 
 //    self.buildingTitlesArray = [self.locationDictionary allKeys];
 }
 
@@ -134,7 +134,7 @@ static const CGFloat kWidthOfPin = 50;
 - (CGPoint)makePointFromBuildingKey:(NSString *)locationKey isFromTable:(BOOL)isFromTable {
     CGFloat  currentScale = self.scrollView.zoomScale;
 
-    if (isFromTable == YES) {
+    if (isFromTable == YES) { //todo: remove dis hackiness later . . e n e
         self.scrollView.zoomScale = 1;
     }
     
@@ -235,7 +235,7 @@ static const CGFloat kWidthOfPin = 50;
 }
 
 - (void)showFoodIconsOnMap:(NSDictionary *)foodDictionary {
-//    for (NSString *key in foodDictionary) {
+//    for (NSString *key in foodDictionary) { //todo: scrap
 //        FoodData *foodData = [foodDictionary objectForKey:key];
 //        
 //        UIImageView *foodIconView = [[UIImageView alloc] init];

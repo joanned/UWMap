@@ -20,6 +20,6 @@
 @property (nonatomic, weak) id<FoodDetailsViewDelegate>delegate;
 
 - (void)setupDataWithFoodData:(NSMutableArray *)foodDataArray;
-- (void)setupShadowsForFoodDetails;
+- (void)setupShadowsWithFrame:(CGRect)frame;
 
 @end

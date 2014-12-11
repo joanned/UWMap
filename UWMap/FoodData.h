@@ -11,8 +11,6 @@
 @interface FoodData : NSObject
 
 @property   NSString *title;
-@property   CGFloat xPosition;
-@property   CGFloat yPosition;
 @property   NSString *imageUrl;
 @property   NSString *foodDescription;
 @property   NSString *building;
@@ -31,27 +29,5 @@
 @property   NSString *saturdayClose;
 @property   NSString *sundayOpen;
 @property   NSString *sundayClose;
-
-//- (instancetype)initWithTitle:(NSString *)title
-//                        imageUrl:(NSURL *)imageUrl
-//                  description:(NSString *)description
-//                    isOpenNow:(BOOL)isOpenNow
-//                   mondayOpen:(NSString *)mondayOpen
-//                  mondayClose:(NSString *)mondayClose
-//                  tuesdayOpen:(NSString *)tuesdayOpen
-//                 tuesdayClose:(NSString *)tuesdayClose
-//                wednesdayOpen:(NSString *)wednesdayOpen
-//               wednesdayClose:(NSString *)wednesdayClose
-//                 thursdayOpen:(NSString *)thursdayOpen
-//                thursdayClose:(NSString *)thursdayClose
-//                   fridayOpen:(NSString *)fridayOpen
-//                  fridayClose:(NSString *)fridayClose
-//                 saturdayOpen:(NSString *)saturdayOpen
-//                saturdayClose:(NSString *)saturdayClose
-//                   sundayOpen:(NSString *)sundayOpen
-//                  sundayClose:(NSString *)sundayClose;
-//
-
-
 
 @end

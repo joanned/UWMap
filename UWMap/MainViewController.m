@@ -41,11 +41,8 @@ const float kWhiteOverlayOpacity = 0.75f;
 @property (nonatomic, weak) IBOutlet UIImageView *iconImage;
 
 @property (nonatomic, assign) BOOL showFullList; //TODO: can just use isonmapview?
-@property (nonatomic, assign) BOOL isOnMapView;
+@property (nonatomic, assign) BOOL isOnMapView; //get rid of these/make them states later.....D8
 @property (nonatomic, assign) BOOL showCombinedList;
-
-@property (nonatomic, assign) CGFloat screenWidth;
-@property (nonatomic, assign) CGFloat screenHeight;
 
 @property (nonatomic, strong) FoodDetailsView *foodDetailsView;
 
@@ -61,9 +58,6 @@ const float kWhiteOverlayOpacity = 0.75f;
     [super viewDidLoad];
     
 //    self.foodDictionary = [[NSDictionary alloc] init];
-    
-    self.screenHeight = [[UIScreen mainScreen] bounds].size.height;
-    self.screenWidth = [[UIScreen mainScreen] bounds].size.width;
     
     self.mapViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:NSStringFromClass([MapViewController class])];
     
@@ -163,7 +157,7 @@ const float kWhiteOverlayOpacity = 0.75f;
 - (void)tappedIcon:(UITapGestureRecognizer *)recognizer {
     if (self.isOnMapView == YES) {
         [self hideFoodDetailsView];
-        self.showFullList = YES;
+        self.showFullList = YES; //too many dumb bools..... TODO
         self.showCombinedList = NO;
         self.buildingListViewController.showCombinedList = NO;
         [self showTableView];
@@ -194,8 +188,8 @@ const float kWhiteOverlayOpacity = 0.75f;
     [self.mapViewController showDetails:locationPoint withLabel:label];
     
     CGFloat zoomScale = self.mapViewController.scrollView.zoomScale;
-    CGFloat adjustedX = locationPoint.x * zoomScale - self.screenWidth/ 2;
-    CGFloat adjustedY = locationPoint.y * zoomScale - self.screenHeight / 2;
+    CGFloat adjustedX = locationPoint.x * zoomScale - [[UIScreen mainScreen] bounds].size.width / 2;
+    CGFloat adjustedY = locationPoint.y * zoomScale - [[UIScreen mainScreen] bounds].size.height / 2;
         
     CGPoint adjustedPoint = CGPointMake(adjustedX, adjustedY);
     
@@ -328,10 +322,11 @@ const float kWhiteOverlayOpacity = 0.75f;
 - (void)setupFoodDetailsView {
     NSArray *subviewArray = [[NSBundle mainBundle] loadNibNamed:@"FoodDetailsView" owner:self options:nil];
     self.foodDetailsView = [subviewArray firstObject];
-    self.foodDetailsView.frame = CGRectMake(20, 84, self.screenWidth - 40, self.screenHeight - 84 - 20); //TODO
+#warning make dynamic ---
+    self.foodDetailsView.frame = CGRectMake(20, 84, [[UIScreen mainScreen] bounds].size.width - 40, [[UIScreen mainScreen] bounds].size.height - 84 - 20); //TODO
     self.foodDetailsView.delegate = self;
     
-    [self.foodDetailsView setupShadowsForFoodDetails];
+    [self.foodDetailsView setupShadowsWithFrame:CGRectZero];
 }
 
 #pragma mark - <FoodDetailsViewDelegate>

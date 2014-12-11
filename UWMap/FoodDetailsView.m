@@ -24,6 +24,7 @@
 - (void)awakeFromNib {
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    self.tableView.backgroundColor = [UIColor clearColor]; //todo: removie?
     [self bringSubviewToFront:self.closeButton];
 }
 
@@ -38,12 +39,17 @@
     [self.tableView reloadData];
 }
 
-- (void)setupShadowsForFoodDetails {
+- (void)setupShadowsWithFrame:(CGRect)frame {
     self.layer.shadowColor = [[UIColor blackColor] CGColor];
-    self.layer.shadowOpacity = 0.8f;
+    self.layer.shadowOpacity = 0.65f;
     self.layer.shadowRadius = 5.0f;
     self.layer.shadowOffset = CGSizeMake(0, 3.0f);
-    self.layer.shadowPath = [UIBezierPath bezierPathWithRect:self.bounds].CGPath;
+    
+//    if (CGRectEqualToRect(frame, CGRectZero)) {
+       self.layer.shadowPath = [UIBezierPath bezierPathWithRect:self.bounds].CGPath;
+//    } else {
+//        self.layer.shadowPath = [UIBezierPath bezierPathWithRect:frame].CGPath;
+//    }
 }
 
 #pragma mark <UITableViewDataSource, UITableViewDelegate>
@@ -74,7 +80,7 @@
 
 - (CGFloat)heightForBasicCellAtIndexPath:(NSIndexPath *)indexPath {
     static FoodCell *sizingCell = nil;
-    static dispatch_once_t onceToken;
+//    static dispatch_once_t onceToken;
 //    dispatch_once(&onceToken, ^{
         sizingCell = [self.tableView dequeueReusableCellWithIdentifier:@"FoodCell"];
         if (sizingCell == nil) {
@@ -82,12 +88,12 @@
             sizingCell = [nib objectAtIndex:0];
         }
 //    });
-    
+//    [self setupShadowsWithFrame:sizingCell.bounds];
     [self configureCell:sizingCell atIndexPath:indexPath];
     return [self calculateHeightForConfiguredSizingCell:sizingCell];
 }
 
-- (CGFloat)calculateHeightForConfiguredSizingCell:(UITableViewCell *)sizingCell {
+- (CGFloat)calculateHeightForConfiguredSizingCell:(UITableViewCell *)sizingCell { //todo: prob dont need so many functions for this tings
     [sizingCell setNeedsLayout];
     [sizingCell layoutIfNeeded];
     

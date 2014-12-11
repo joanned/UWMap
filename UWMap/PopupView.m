@@ -23,7 +23,7 @@ static CGFloat maxHeight = 168.0;
     return self;
 }
 
-- (id) initWithFrame:(CGRect)frame {
+- (id) initWithFrame:(CGRect)frame { //todo: maybeeeee dont need all these
     self = [super initWithFrame:frame];
     if (self) {
 //        [self setupSubviews];
@@ -39,11 +39,11 @@ static CGFloat maxHeight = 168.0;
     return self;
 }
 
-- (id)initWithWidth:(CGFloat)width {
+- (id)initWithWidth:(CGFloat)width { //todo: dun need i THINK..
     return [self initWithFrame:CGRectMake(0.0, 0.0, width, 98.0)];
 }
 
-- (id)initWithTitle:(NSString *)title detail:(NSString *)detail hasIcon:(BOOL)hasIcon {
+- (id)initWithTitle:(NSString *)title detail:(NSString *)detail hasIcon:(BOOL)hasIcon { //todo: INFO ICON TINGS FIX
 //    NSMutableAttributedString *attributedTitle = [[NSMutableAttributedString alloc] initWithString:title];
 //    if (hasIcon) {
 //        NSTextAttachment *attachment = [[NSTextAttachment alloc] init];
