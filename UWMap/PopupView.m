@@ -8,39 +8,24 @@
 
 #import "PopupView.h"
 
-static CGFloat maxHeight = 168.0;
-
+static const CGFloat maxHeight = 168.0f;
 
 @implementation PopupView
 @synthesize color = _color;
 
-
-- (id) init {
-    self = [super init];
-    if (self) {
-//        [self setupSubviews];
-    }
+- (id)initWithNumberOfFoodLocations:(NSInteger)numberOfFoodLocations locationBuilding:(NSString *)locationBuilding {
+    self.color = [UIColor blackColor];
+    UIImageView *foodIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"foodIcon2"]];
+    self = [self initWithFrame:CGRectMake(0, 0, foodIconView.frame.size.width + 20, foodIconView.frame.size.height + 20)];
+    foodIconView.center = CGPointMake(self.frame.size.width / 2, self.frame.size.height / 2 - 2);
+    
+    [self addSubview:foodIconView];
+    
+    self.backgroundColor = [UIColor clearColor];
+    
+    self.locationBuilding = locationBuilding;
+    
     return self;
-}
-
-- (id) initWithFrame:(CGRect)frame { //todo: maybeeeee dont need all these
-    self = [super initWithFrame:frame];
-    if (self) {
-//        [self setupSubviews];
-    }
-    return self;
-}
-
-- (id) initWithCoder:(NSCoder *)aDecoder {
-    self = [super initWithCoder:aDecoder];
-    if (self) {
-//        [self setupSubviews];
-    }
-    return self;
-}
-
-- (id)initWithWidth:(CGFloat)width { //todo: dun need i THINK..
-    return [self initWithFrame:CGRectMake(0.0, 0.0, width, 98.0)];
 }
 
 - (id)initWithTitle:(NSString *)title detail:(NSString *)detail hasIcon:(BOOL)hasIcon { //todo: INFO ICON TINGS FIX
@@ -62,13 +47,12 @@ static CGFloat maxHeight = 168.0;
     
     self = [self initWithFrame:CGRectMake(0, 0, _titleLabel.frame.size.width+31, _titleLabel.frame.size.height +34)];
     [self addSubview:_titleLabel];
+    self.backgroundColor = [UIColor clearColor];
 
-    [self setupSubviewsWithTitle:title detail:detail];
     return self;
 }
 
 - (void) setupSubviewsWithTitle:(NSString *)title detail:(NSString *)detail {
-    self.backgroundColor = [UIColor clearColor];
     self.color = [UIColor blackColor];
     
     _titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(16, 13, 130, 500)];
@@ -76,7 +60,7 @@ static CGFloat maxHeight = 168.0;
     _titleLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     _titleLabel.backgroundColor = [UIColor clearColor];
     _titleLabel.textColor = [UIColor whiteColor];
-    _titleLabel.shadowColor = [UIColor blackColor];
+    _titleLabel.shadowColor = [UIColor blackColor]; //todo: need these?
     _titleLabel.shadowOffset = CGSizeMake(0.0, 1.0);
     _titleLabel.textAlignment = NSTextAlignmentCenter;
     _titleLabel.font = [UIFont boldSystemFontOfSize:15.0];

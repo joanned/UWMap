@@ -64,9 +64,9 @@ const float kWhiteOverlayOpacity = 0.75f;
     self.isOnMapView = YES;
     self.showCombinedList = YES;
 
-    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self
+    UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self
                                                                                 action:@selector(tappedIcon:)];
-    [self.buildingIcon addGestureRecognizer:singleTap];
+    [self.buildingIcon addGestureRecognizer:tapRecognizer];
     
     self.buildingListViewController.delegate = self;
     self.mapViewController.delegate = self;
@@ -100,7 +100,6 @@ const float kWhiteOverlayOpacity = 0.75f;
         
         [self.containerView addSubview:self.buildingListViewController.view];
     } completion:nil];
-    
     
     [self.buildingListViewController didMoveToParentViewController:self];
     

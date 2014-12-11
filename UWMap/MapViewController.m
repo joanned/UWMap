@@ -23,6 +23,7 @@
 @property (nonatomic, assign) BOOL isFirstLoad;
 
 @property NSMutableDictionary *locationDictionary;
+@property NSMutableDictionary *foodAtLocationDictionary;
 //@property NSArray *buildingTitlesArray;
 
 //@property NSMutableDictionary *allLocationsDictionary;
@@ -57,6 +58,7 @@ static const CGFloat kWidthOfPin = 50;
     self.originalImageHeight = self.imageView.frame.size.height;
     
     self.isFirstLoad = YES;
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -235,35 +237,45 @@ static const CGFloat kWidthOfPin = 50;
 }
 
 - (void)showFoodIconsOnMap:(NSDictionary *)foodDictionary {
-//    for (NSString *key in foodDictionary) { //todo: scrap
-//        FoodData *foodData = [foodDictionary objectForKey:key];
-//        
-//        UIImageView *foodIconView = [[UIImageView alloc] init];
-//        UIImage *iconImage = nil;
-//
-//        if ([foodData.title rangeOfString:@"Tim Hortons"].location == NSNotFound) {
-//            iconImage = [UIImage imageNamed:@"first"];
-//        } else {
-//            iconImage = [UIImage imageNamed:@"icon2"];
-//        }
-//        
-//        [foodIconView setImage:iconImage];
-//        
-//        CGFloat  currentScale = self.scrollView.zoomScale;
-//        CGFloat xPosition = (foodData.xPosition - kXMapStartPosition) * kScaleForFood ;
-//        CGFloat yPosition = (foodData.yPosition - kYMapStartPosition) * kScaleForFood ;
-////        foodIconView.transform = CGAffineTransformMakeScale(1.0/self.scrollView.zoomScale, 1.0/self.scrollView.zoomScale);
-//        
-//        foodIconView.frame = CGRectMake(xPosition, yPosition, iconImage.size.width, iconImage.size.height);
-//        
-//        //TODO: animate
-//        self.scrollView.zoomScale = 1;
-//        [self.imageView addSubview:foodIconView];
-//        self.scrollView.zoomScale = currentScale;
-//    }
+    self.foodAtLocationDictionary = [[NSMutableDictionary alloc] init];
     
-       [self.locationDictionary addEntriesFromDictionary:foodDictionary];
+    for (NSString *key in foodDictionary) {
+        FoodData *foodData = [foodDictionary objectForKey:key];
+        NSMutableArray *foodArray = [self.foodAtLocationDictionary objectForKey:foodData.building];
+        
+        if (foodArray == nil) {
+            foodArray = [[NSMutableArray alloc] init];
+            [foodArray addObject:foodData];
+            [self.foodAtLocationDictionary setObject:foodArray forKey:foodData.building];
+        } else {
+            [foodArray addObject:foodData];
+            [self.foodAtLocationDictionary setObject:foodArray forKey:foodData.building];
+        }
+    }
     
+    for (NSString *key in self.foodAtLocationDictionary) {
+        NSMutableArray *foodArray = [self.foodAtLocationDictionary objectForKey:key];
+        PopupView *foodPopupView = [[PopupView alloc] initWithNumberOfFoodLocations:[foodArray count] locationBuilding:key];
+        
+        Building *buildingForFood = [self.shortformDictionary objectForKey:key];
+        
+        CGFloat currentZoomScale = self.scrollView.zoomScale;
+        
+        self.scrollView.zoomScale = 1;
+        CGFloat positionX = buildingForFood.positionX * self.imageView.frame.size.width - kWidthOfPin / 2; //todo: make helper for this stuff, also used in showdetails
+        CGFloat positionY = buildingForFood.positionY * self.imageView.frame.size.height - foodPopupView.frame.size.height;
+        
+        foodPopupView.frame = CGRectMake(positionX, positionY, foodPopupView.frame.size.width, foodPopupView.frame.size.height);
+        [self.imageView addSubview:foodPopupView];
+        self.scrollView.zoomScale = currentZoomScale;
+    }
+    
+    [self.locationDictionary addEntriesFromDictionary:foodDictionary];
+    
+    
+//    PopupView *testView = [[PopupView alloc] initWithNumberOfFoodLocations:0];
+//    testView.frame = CGRectMake(500, 500, testView.frame.size.width, testView.frame.size.height);
+//    [self.imageView addSubview:testView];
    
 }
 
