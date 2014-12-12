@@ -266,7 +266,11 @@ static const CGFloat kWidthOfPin = 50;
         CGFloat positionY = buildingForFood.positionY * self.imageView.frame.size.height - foodPopupView.frame.size.height;
         
         foodPopupView.frame = CGRectMake(positionX, positionY, foodPopupView.frame.size.width, foodPopupView.frame.size.height);
-        [self.imageView addSubview:foodPopupView];
+        
+        [UIView transitionWithView:self.imageView duration:0.2f options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
+            [self.imageView addSubview:foodPopupView];
+        } completion:nil];
+        
         self.scrollView.zoomScale = currentZoomScale;
     }
     
@@ -282,14 +286,15 @@ static const CGFloat kWidthOfPin = 50;
 #pragma mark <UIScrollViewDelegate>
 
 - (void)scrollViewDidZoom:(UIScrollView *)aScrollView {
-    for (UIView *subview in self.imageView.subviews ) {
-        CGRect oldFrame = subview.frame;
+//    for (UIView *subview in self.imageView.subviews ) {
+    if (self.popupView != nil) {
+        CGRect oldFrame = self.popupView.frame;
         // 0.5 means the anchor is centered on the x axis. 1 means the anchor is at the bottom of the view. If you comment out this line, the pin's center will stay where it is regardless of how much you zoom. I have it so that the bottom of the pin stays fixed. This should help user RomeoF.
-        [subview.layer setAnchorPoint:CGPointMake(0.5, 1)];
-        subview.frame = oldFrame;
+        [self.popupView.layer setAnchorPoint:CGPointMake(0.5, 1)];
+        self.popupView.frame = oldFrame;
         // When you zoom in on scrollView, it gets a larger zoom scale value.
         // You transform the pin by scaling it by the inverse of this value.
-        subview.transform = CGAffineTransformMakeScale(1.0/self.scrollView.zoomScale, 1.0/self.scrollView.zoomScale);
+        self.popupView.transform = CGAffineTransformMakeScale(1.0/self.scrollView.zoomScale, 1.0/self.scrollView.zoomScale);
     }
 }
 

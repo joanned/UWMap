@@ -8,18 +8,23 @@
 
 #import "PopupView.h"
 
-static const CGFloat maxHeight = 168.0f;
-
 @implementation PopupView
-@synthesize color = _color;
 
 - (id)initWithNumberOfFoodLocations:(NSInteger)numberOfFoodLocations locationBuilding:(NSString *)locationBuilding {
-    self.color = [UIColor blackColor];
+    self.color = [UIColor darkGrayColor];
+    
     UIImageView *foodIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"foodIcon2"]];
-    self = [self initWithFrame:CGRectMake(0, 0, foodIconView.frame.size.width + 20, foodIconView.frame.size.height + 20)];
-    foodIconView.center = CGPointMake(self.frame.size.width / 2, self.frame.size.height / 2 - 2);
+    self = [self initWithFrame:CGRectMake(0, 0, foodIconView.frame.size.width + 25, foodIconView.frame.size.height + 25)];
+    foodIconView.center = CGPointMake(self.frame.size.width / 2 - 3, self.frame.size.height / 2 - 2);
+    
+    NSString *numberOfLocationsString = [NSString stringWithFormat:@"%ld", numberOfFoodLocations];
+    UILabel *numberOfLocationsLabel = [[UILabel alloc] initWithFrame:CGRectMake(foodIconView.frame.size.width +8, 6, 20, 20)];
+    numberOfLocationsLabel.text = numberOfLocationsString;
+    numberOfLocationsLabel.textColor = [UIColor whiteColor];
+    numberOfLocationsLabel.font = [UIFont fontWithName:@"System-Bold" size:14];
     
     [self addSubview:foodIconView];
+    [self addSubview:numberOfLocationsLabel];
     
     self.backgroundColor = [UIColor clearColor];
     
@@ -148,7 +153,7 @@ static const CGFloat maxHeight = 168.0f;
     //top right
     [popupPath addArcWithCenter:CGPointMake(rectWidth - spaceToSide - radius, spaceToSide + radius) radius:radius startAngle:-M_PI/2 endAngle:0 clockwise:YES];
     [popupPath addLineToPoint:CGPointMake(rectWidth - spaceToSide, rectHeight - spaceToSide - roomForShadow - radius-arrowHeight)];
-    [popupPath addArcWithCenter:CGPointMake(rectWidth - spaceToSide - radius, rectHeight - roomForShadow - spaceToSide - radius-arrowHeight) radius:radius startAngle:0 endAngle:M_PI/2 clockwise:YES];
+    [popupPath addArcWithCenter:CGPointMake(rectWidth - spaceToSide - radius, rectHeight - roomForShadow - spaceToSide - radius - arrowHeight) radius:radius startAngle:0 endAngle:M_PI/2 clockwise:YES];
     
     //arrow part
     [popupPath addLineToPoint:CGPointMake(rectWidth/2 + arrowWidth, rectHeight - roomForShadow - spaceToSide-arrowHeight)];
@@ -174,7 +179,8 @@ static const CGFloat maxHeight = 168.0f;
 
     CGContextSetShadowWithColor(context, shadow2Offset, shadow2BlurRadius, shadow2.CGColor);
 
-    CGContextSetFillColorWithColor(context, [[UIColor colorWithRed:25/255.0f green:25/255.0f blue:25/255.0f alpha:1] colorWithAlphaComponent:0.55].CGColor);
+    CGContextSetFillColorWithColor(context, [UIColor colorWithRed:25/255.0f green:25/255.0f blue:25/255.0f alpha:0.55f].CGColor);
+    
     [popupPath fill];
     [popupPath addClip];
     
@@ -185,6 +191,21 @@ static const CGFloat maxHeight = 168.0f;
     [popupPath stroke];
     
     self.backgroundColor = [UIColor clearColor];
+    
+//    if (self.locationBuilding != nil) {
+//        CGContextRef bannerContext = UIGraphicsGetCurrentContext();
+//
+//        UIBezierPath *bannerPath = [UIBezierPath bezierPath];
+//        [bannerPath moveToPoint:CGPointMake(rectWidth / 2, spaceToSide)];
+//        [bannerPath addLineToPoint:CGPointMake(rectWidth - spaceToSide - radius, spaceToSide)];
+//        [bannerPath addArcWithCenter:CGPointMake(rectWidth - spaceToSide - radius, spaceToSide + radius) radius:radius startAngle:-M_PI/2 endAngle:0 clockwise:YES];
+//        [bannerPath addLineToPoint:CGPointMake(rectWidth - spaceToSide, rectHeight / 2)];
+//        [bannerPath closePath];
+//        
+//        CGContextSetFillColorWithColor(bannerContext, [UIColor colorWithRed:189.0f/255 green:16.0f/255 blue:16.0f/255 alpha:1].CGColor);
+//        [bannerPath fill];
+//    }
+    
 }
 
 
