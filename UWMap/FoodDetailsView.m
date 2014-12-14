@@ -16,18 +16,21 @@
 @property (weak, nonatomic) IBOutlet UIButton *closeButton;
 
 
-
 @end
 
 @implementation FoodDetailsView
 
 - (void)awakeFromNib {
+    [super awakeFromNib];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.backgroundColor = [UIColor clearColor]; //todo: removie?
     [self bringSubviewToFront:self.closeButton];
-    self.tableView.rowHeight = UITableViewAutomaticDimension;
-    [self.tableView reloadData];
+}
+
+-(void)didMoveToSuperview {
+    [super didMoveToSuperview];
+    [self adjustHeightOfTableview];
 }
 
 - (IBAction)closeButtonTapped:(id)sender {
@@ -41,17 +44,22 @@
     [self.tableView reloadData];
 }
 
-- (void)setupShadowsWithFrame:(CGRect)frame {
+- (void)setupShadows {
     self.layer.shadowColor = [[UIColor blackColor] CGColor];
     self.layer.shadowOpacity = 0.65f;
     self.layer.shadowRadius = 5.0f;
     self.layer.shadowOffset = CGSizeMake(0, 3.0f);
     
-//    if (CGRectEqualToRect(frame, CGRectZero)) {
-       self.layer.shadowPath = [UIBezierPath bezierPathWithRect:self.bounds].CGPath;
-//    } else {
-//        self.layer.shadowPath = [UIBezierPath bezierPathWithRect:frame].CGPath;
-//    }
+    self.layer.shadowPath = [UIBezierPath bezierPathWithRect:self.bounds].CGPath;
+}
+
+- (void)adjustHeightOfTableview {
+    CGFloat maxHeight = [[UIScreen mainScreen] bounds].size.height - 84 - 20;//todo:change numbers to something dynamic v__ v ~~~
+    CGFloat height = MIN(self.tableView.contentSize.height, maxHeight);
+
+    if ([self.delegate respondsToSelector:@selector(updateTableViewHeight:)]) {
+        [self.delegate updateTableViewHeight:height];
+    }
 }
 
 #pragma mark <UITableViewDataSource, UITableViewDelegate>
@@ -98,8 +106,11 @@
     sizingCell.bounds = CGRectMake(0.0f, 0.0f, CGRectGetWidth(self.tableView.bounds), CGRectGetHeight(sizingCell.bounds));
     [sizingCell setNeedsLayout];
     [sizingCell layoutIfNeeded];
-    CGFloat height = [sizingCell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;
-    return height + 1.0f;
+    CGFloat height = [sizingCell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height
+    
+    + 1.0f;
+    
+    return height;
 }
 
 //- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath

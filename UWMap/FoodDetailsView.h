@@ -12,6 +12,7 @@
 @protocol FoodDetailsViewDelegate <NSObject>
 
 - (void)foodDetailsCloseButtonTapped;
+- (void)updateTableViewHeight:(CGFloat)height;
 
 @end
 
@@ -20,6 +21,6 @@
 @property (nonatomic, weak) id<FoodDetailsViewDelegate>delegate;
 
 - (void)setupDataWithFoodData:(NSMutableArray *)foodDataArray;
-- (void)setupShadowsWithFrame:(CGRect)frame;
+- (void)setupShadows;
 
 @end

@@ -309,8 +309,9 @@ const float kWhiteOverlayOpacity = 0.75f;
         [UIView animateWithDuration:0.25f
                          animations:^{
                              self.foodDetailsView.alpha = 0;
-                             self.foodDetailsView.transform = CGAffineTransformMakeScale(0.7, 0.7); //TODO:moving down animation instead?
+                             self.foodDetailsView.transform = CGAffineTransformMakeScale(0.8, 0.8); //TODO:moving down animation instead?
                          } completion:^(BOOL finished) {
+                             self.foodDetailsView.transform = CGAffineTransformMakeScale(1.0f, 1.0f);
                              [self.foodDetailsView removeFromSuperview];
                          }];
     }
@@ -320,16 +321,19 @@ const float kWhiteOverlayOpacity = 0.75f;
     NSArray *subviewArray = [[NSBundle mainBundle] loadNibNamed:@"FoodDetailsView" owner:self options:nil];
     self.foodDetailsView = [subviewArray firstObject];
 #warning make dynamic ---
-    self.foodDetailsView.frame = CGRectMake(20, 84, [[UIScreen mainScreen] bounds].size.width - 40, [[UIScreen mainScreen] bounds].size.height - 84 - 20); //TODO
+//    self.foodDetailsView.frame = CGRectMake(20, 84, [[UIScreen mainScreen] bounds].size.width - 40, [[UIScreen mainScreen] bounds].size.height - 84 - 20); //TODO
     self.foodDetailsView.delegate = self;
-    
-    [self.foodDetailsView setupShadowsWithFrame:CGRectZero];
 }
 
 #pragma mark - <FoodDetailsViewDelegate>
 
 - (void)foodDetailsCloseButtonTapped {
     [self hideFoodDetailsView];
+}
+
+- (void)updateTableViewHeight:(CGFloat)height {
+    self.foodDetailsView.frame = CGRectMake(20, 84, [[UIScreen mainScreen] bounds].size.width - 40, height);
+    [self.foodDetailsView setupShadows];
 }
 
 #pragma mark - <FoodDataFetcherDelegate> and Helpers
