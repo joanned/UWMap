@@ -107,6 +107,7 @@
     FoodData *foodData = [self.foodDataArray objectAtIndex:indexPath.row];
     cell.titleLabel.text = foodData.title;
     cell.descriptionLabel.text = foodData.foodDescription;
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
     NSString *closedString = @"Closed";
     NSString *mondayHours = nil;
