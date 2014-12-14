@@ -7,15 +7,27 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="2WQ-21-ATg" customClass="FoodDetailsView">
+        <view opaque="NO" contentMode="scaleToFill" id="2WQ-21-ATg" customClass="FoodDetailsView">
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" indicatorStyle="white" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="NIC-02-Yi0">
+                <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LVP-zU-xOQ" userLabel="maskView">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                </tableView>
+                    <subviews>
+                        <tableView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" indicatorStyle="white" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="NIC-02-Yi0">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        </tableView>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="NIC-02-Yi0" firstAttribute="top" secondItem="LVP-zU-xOQ" secondAttribute="top" id="GPG-UP-yZX"/>
+                        <constraint firstAttribute="trailing" secondItem="NIC-02-Yi0" secondAttribute="trailing" id="Kbc-6S-tkE"/>
+                        <constraint firstAttribute="bottom" secondItem="NIC-02-Yi0" secondAttribute="bottom" id="eDd-E7-Ukd"/>
+                        <constraint firstItem="NIC-02-Yi0" firstAttribute="leading" secondItem="LVP-zU-xOQ" secondAttribute="leading" id="wrl-3e-7ix"/>
+                    </constraints>
+                </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gql-E3-3Ed">
                     <rect key="frame" x="282" y="5" width="30" height="30"/>
                     <constraints>
@@ -32,19 +44,20 @@
                     </connections>
                 </button>
             </subviews>
-            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="0.21922831240000001" green="0.21922831240000001" blue="0.21922831240000001" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
+                <constraint firstItem="LVP-zU-xOQ" firstAttribute="top" secondItem="2WQ-21-ATg" secondAttribute="top" id="6di-QZ-Wph"/>
+                <constraint firstAttribute="trailing" secondItem="LVP-zU-xOQ" secondAttribute="trailing" id="AJ2-To-deO"/>
+                <constraint firstItem="LVP-zU-xOQ" firstAttribute="leading" secondItem="2WQ-21-ATg" secondAttribute="leading" id="FPr-eN-oja"/>
                 <constraint firstAttribute="trailing" secondItem="gql-E3-3Ed" secondAttribute="trailing" constant="8" id="La9-5T-aHE"/>
-                <constraint firstItem="NIC-02-Yi0" firstAttribute="top" secondItem="2WQ-21-ATg" secondAttribute="top" id="VBw-km-unk"/>
+                <constraint firstAttribute="bottom" secondItem="LVP-zU-xOQ" secondAttribute="bottom" id="fpA-xM-vTP"/>
                 <constraint firstItem="gql-E3-3Ed" firstAttribute="top" secondItem="2WQ-21-ATg" secondAttribute="top" constant="5" id="fpV-wd-vjG"/>
-                <constraint firstAttribute="trailing" secondItem="NIC-02-Yi0" secondAttribute="trailing" id="k30-aU-q8w"/>
-                <constraint firstAttribute="bottom" secondItem="NIC-02-Yi0" secondAttribute="bottom" id="uaR-Ga-8SQ"/>
-                <constraint firstItem="NIC-02-Yi0" firstAttribute="leading" secondItem="2WQ-21-ATg" secondAttribute="leading" id="wMg-mh-h2X"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
             <connections>
                 <outlet property="closeButton" destination="gql-E3-3Ed" id="aqz-gZ-IRM"/>
+                <outlet property="maskView" destination="LVP-zU-xOQ" id="6xf-XU-JaA"/>
                 <outlet property="tableView" destination="NIC-02-Yi0" id="I7V-6z-ciC"/>
             </connections>
             <point key="canvasLocation" x="1007" y="256"/>

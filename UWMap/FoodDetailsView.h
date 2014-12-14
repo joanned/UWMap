@@ -22,5 +22,6 @@
 
 - (void)setupDataWithFoodData:(NSMutableArray *)foodDataArray;
 - (void)setupShadows;
+- (void)setupGradientMask;
 
 @end

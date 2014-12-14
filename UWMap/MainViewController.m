@@ -334,6 +334,7 @@ const float kWhiteOverlayOpacity = 0.75f;
 - (void)updateTableViewHeight:(CGFloat)height {
     self.foodDetailsView.frame = CGRectMake(20, 84, [[UIScreen mainScreen] bounds].size.width - 40, height);
     [self.foodDetailsView setupShadows];
+    [self.foodDetailsView setupGradientMask];
 }
 
 #pragma mark - <FoodDataFetcherDelegate> and Helpers

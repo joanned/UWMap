@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) NSMutableArray *foodDataArray;
 @property (weak, nonatomic) IBOutlet UIButton *closeButton;
+@property (weak, nonatomic) IBOutlet UIView *maskView;
 
 
 @end
@@ -24,7 +25,10 @@
     [super awakeFromNib];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    self.tableView.backgroundColor = [UIColor clearColor]; //todo: removie?
+    self.layer.cornerRadius = 5.0f;
+    self.layer.masksToBounds = YES;
+    self.backgroundColor = [UIColor colorWithRed:43.0f/255 green:43.0f/255 blue:43.0f/255 alpha:0.8f];
+
     [self bringSubviewToFront:self.closeButton];
 }
 
@@ -44,10 +48,20 @@
     [self.tableView reloadData];
 }
 
+- (void)setupGradientMask {
+    CAGradientLayer *gradient = [CAGradientLayer layer];
+    gradient.frame = self.bounds;
+    gradient.colors = @[(id)[[UIColor clearColor] CGColor], (id)[[UIColor whiteColor] CGColor], (id)[[UIColor whiteColor] CGColor], (id)[[UIColor clearColor] CGColor]];
+    gradient.startPoint = CGPointMake(0.5, 0.0);
+    gradient.endPoint = CGPointMake(0.5, 1.0);
+    gradient.locations = @[@0.0, @0.05, @0.9, @1.0];
+    self.maskView.layer.mask = gradient;
+}
+
 - (void)setupShadows {
     self.layer.shadowColor = [[UIColor blackColor] CGColor];
-    self.layer.shadowOpacity = 0.65f;
-    self.layer.shadowRadius = 5.0f;
+    self.layer.shadowOpacity = 0.75f;
+    self.layer.shadowRadius = 6.0f;
     self.layer.shadowOffset = CGSizeMake(0, 3.0f);
     
     self.layer.shadowPath = [UIBezierPath bezierPathWithRect:self.bounds].CGPath;
