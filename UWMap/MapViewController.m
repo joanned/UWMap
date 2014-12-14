@@ -14,7 +14,7 @@
 #import "Constants.h"
 #import "FoodData.h"
 
-@interface MapViewController () <UIScrollViewDelegate, UIGestureRecognizerDelegate> //todo: not needed
+@interface MapViewController () <UIScrollViewDelegate, UIGestureRecognizerDelegate, PopupViewDelegate> //todo: not needed
 
 @property (nonatomic, strong) IBOutlet UIImageView *imageView;
 @property (nonatomic, assign) CGFloat originalImageWidth;
@@ -28,7 +28,7 @@
 
 //@property NSMutableDictionary *allLocationsDictionary;
 
-@property (nonatomic, strong) PopupView *currentPopupView;
+//@property (nonatomic, strong) PopupView *currentPopupView;
 @property (nonatomic ,assign) CGRect initialPopupFrame;
 @property (nonatomic, assign) CGFloat initialMapScale;
 
@@ -99,23 +99,15 @@ static const CGFloat kWidthOfPin = 50;
 //    self.buildingTitlesArray = [self.locationDictionary allKeys];
 }
 
-//- (void)tappedPopup:(UITapGestureRecognizer *)recognizer {
-//    if (recognizer.state == UIGestureRecognizerStateRecognized) {
-//        if ([self.delegate respondsToSelector:@selector(subviewTappedWithLabel:)]) {
-//            [self.delegate subviewTappedWithLabel:self.popupView.title];
-//        }
-//    }
-//}
-
 - (void)tappedScreen:(UITapGestureRecognizer *)recognizer {
     if (recognizer.state == UIGestureRecognizerStateRecognized) {
         CGPoint point = [recognizer locationInView:recognizer.view];
         
-        if (self.popupView != nil && CGRectContainsPoint(self.popupView.frame, point)) {
-            if ([self.delegate respondsToSelector:@selector(subviewTappedWithLabel:)]) {
-                [self.delegate subviewTappedWithLabel:self.popupView.title];
-            }
-        } else {
+//        if (self.popupView != nil && CGRectContainsPoint(self.popupView.frame, point)) {
+//            if ([self.delegate respondsToSelector:@selector(subviewTappedWithLabel:)]) {
+//                [self.delegate subviewTappedWithLabel:self.popupView.title];
+//            }
+//        } else {
             [self removePopupView];
             
             NSLog(@"%f %f", point.x / self.imageView.frame.size.width, point.y / self.imageView.frame.size.height);
@@ -129,7 +121,7 @@ static const CGFloat kWidthOfPin = 50;
                     [self showDetails:realLocationPoint withLabel:locationKey];
                 }
             }
-        }
+//        }
     }
 }
 
@@ -188,6 +180,7 @@ static const CGFloat kWidthOfPin = 50;
 
     [UIView transitionWithView:self.imageView duration:0.2f options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
         [self.imageView addSubview:self.popupView];
+        self.popupView.delegate = self;
     } completion:nil];
     
     //adjust view if popup is cutoff
@@ -219,10 +212,11 @@ static const CGFloat kWidthOfPin = 50;
 //    self.popupView.userInteractionEnabled = YES;
 //    UITapGestureRecognizer *tapPopupRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedPopup:)];
 //    tapPopupRecognizer.numberOfTapsRequired = 1;
-////    tapPopupRecognizer.delegate = self.popupView;
-//    tapPopupRecognizer.cancelsTouchesInView = NO;
+//    tapPopupRecognizer.delegate = self.popupView;
+//    [tapPopupRecognizer setDelegate:self];
+//    [self.view bringSubviewToFront:self.popupView];
+//    [self.view.superview bringSubviewToFront:self.popupView];
 //    [self.popupView addGestureRecognizer:tapPopupRecognizer];
-    
 }
 
 - (void)adjustViewWithPoint:(CGPoint)locationPoint {
@@ -271,6 +265,8 @@ static const CGFloat kWidthOfPin = 50;
             [self.imageView addSubview:foodPopupView];
         } completion:nil];
         
+        foodPopupView.delegate = self;
+        
         self.scrollView.zoomScale = currentZoomScale;
     }
     
@@ -309,6 +305,19 @@ static const CGFloat kWidthOfPin = 50;
         [UIView transitionWithView:self.imageView duration:0.2f options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
             [self.popupView removeFromSuperview];
         } completion:nil];
+    }
+}
+
+#pragma mark - <PopupViewDelegate>
+
+- (void)popupTappedWithTitle:(NSString *)title {
+    if ([self.delegate respondsToSelector:@selector(foodPopupTappedWithTitle:)]) {
+        NSMutableArray *foodArray = [ self.foodAtLocationDictionary objectForKey:title];
+        if (foodArray != nil) { //todo: think of better way to do this instead of nil checking
+            [self.delegate foodPopupTappedWithArray:foodArray];
+        } else {
+            [self.delegate foodPopupTappedWithTitle:title];
+        }
     }
 }
 

@@ -12,6 +12,8 @@
 @protocol MapViewControllerDelegate <NSObject>
 
 - (void)subviewTappedWithLabel:(NSString *)label;
+- (void)foodPopupTappedWithTitle:(NSString *)title;
+- (void)foodPopupTappedWithArray:(NSMutableArray *)array;
 
 @end
 

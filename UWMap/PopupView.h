@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol PopupViewDelegate <NSObject>
+
+- (void)popupTappedWithTitle:(NSString *)title;
+
+@end
+
 @interface PopupView : UIView {
 //    UIImageView *_iconView;
     UILabel *_titleLabel;
@@ -16,8 +22,9 @@
     CGGradientRef _gradient;
 }
 
+@property (nonatomic, weak) id<PopupViewDelegate> delegate;
 @property (nonatomic, assign) UIImage *iconImage;
-@property (nonatomic, assign) NSString *title;
+@property (nonatomic, assign) NSString *popupTitle;
 @property (nonatomic, assign) NSString *detail;
 @property (nonatomic, assign) UIColor *color;
 

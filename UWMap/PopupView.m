@@ -11,6 +11,8 @@
 @implementation PopupView
 
 - (id)initWithNumberOfFoodLocations:(NSInteger)numberOfFoodLocations locationBuilding:(NSString *)locationBuilding {
+    self.userInteractionEnabled = YES;
+    
     self.color = [UIColor darkGrayColor];
     
     UIImageView *foodIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"foodIcon2"]];
@@ -28,7 +30,10 @@
     
     self.backgroundColor = [UIColor clearColor];
     
-    self.locationBuilding = locationBuilding;
+    self.locationBuilding = locationBuilding; //todo: dont need
+    self.popupTitle = locationBuilding; //todo: fix
+    
+    [self addGuestureRecognizer];
     
     return self;
 }
@@ -53,8 +58,26 @@
     self = [self initWithFrame:CGRectMake(0, 0, _titleLabel.frame.size.width+31, _titleLabel.frame.size.height +34)];
     [self addSubview:_titleLabel];
     self.backgroundColor = [UIColor clearColor];
-
+    
+    self.popupTitle = title;
+    
+    [self addGuestureRecognizer];
+    
     return self;
+}
+
+- (void)addGuestureRecognizer {
+    UITapGestureRecognizer *tapPopupRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedPopup:)];
+    tapPopupRecognizer.numberOfTapsRequired = 1;
+    [self addGestureRecognizer:tapPopupRecognizer];
+}
+
+- (void)tappedPopup:(UITapGestureRecognizer *)recognizer {
+    if (recognizer.state == UIGestureRecognizerStateRecognized) {
+        if ([self.delegate respondsToSelector:@selector(popupTappedWithTitle:)]) {
+            [self.delegate popupTappedWithTitle:self.popupTitle];
+        }
+    }
 }
 
 - (void) setupSubviewsWithTitle:(NSString *)title detail:(NSString *)detail {
@@ -105,21 +128,21 @@
     [self setNeedsDisplay];
 }
 
-
-//TODO: prob dont need these?
-- (void) setTitle:(NSString *)title {
-    [_titleLabel setText:title];
-}
-- (NSString *)title {
-    return [_titleLabel text];
-}
-
-- (void) setDetail:(NSString *)detail {
-    [_detailLabel setText:detail];
-}
-- (NSString*)detail {
-    return [_detailLabel text];
-}
+//
+////TODO: prob dont need these?
+//- (void) setPopupTitle:(NSString *)title {
+//    [_titleLabel setText:title];
+//}
+//- (NSString *)popupTitle {
+//    return [_titleLabel text];
+//}
+//
+//- (void) setDetail:(NSString *)detail {
+//    [_detailLabel setText:detail];
+//}
+//- (NSString*)detail {
+//    return [_detailLabel text];
+//}
 
 //- (void) setWidth:(CGFloat)width {
 //    CGRect f = self.frame;

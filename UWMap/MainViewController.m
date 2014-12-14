@@ -12,9 +12,6 @@
 //app icon and launch image
 //fix unable to click points after zooming out a lot
 
-//second release:
-//location service
-
 #import "MainViewController.h"
 #import "BuildingListViewController.h"
 #import "MapViewController.h"
@@ -24,6 +21,7 @@
 #import "FoodData.h"
 #import "DataProvider.h"
 #import "Constants.h"
+#import "PopupView.h"
 
 const float kWhiteOverlayOpacity = 0.75f;
 
@@ -135,7 +133,7 @@ const float kWhiteOverlayOpacity = 0.75f;
     [self animateToTableview:NO];
 }
 
-- (void)animateToTableview:(BOOL)animateToTable {
+- (void)animateToTableview:(BOOL)animateToTable { //todoL make this 2 diff methods
     if (animateToTable) {
         self.whiteView.hidden = YES;
         self.whiteView.alpha = kWhiteOverlayOpacity;
@@ -376,21 +374,20 @@ const float kWhiteOverlayOpacity = 0.75f;
 
 #pragma mark <MapViewControllerDelegate>
 
-- (void)subviewTappedWithLabel:(NSString *)label {
-    FoodData *foodData = [self.foodDictionary objectForKey:label];
+- (void)foodPopupTappedWithTitle:(NSString *)title {
+    FoodData *foodData = [self.foodDictionary objectForKey:title];
     
-    NSMutableArray *foodDataArray = [[NSMutableArray alloc] init];
-    [foodDataArray addObject:foodData];
-    
-    [self.foodDetailsView setupDataWithFoodData:foodDataArray];
-    
-//    self.foodDetailsView.titleLabel.text = foodData.title;
-//    
-//    if (foodData.foodDescription != nil) {
-//        self.foodDetailsView.descriptionLabel.text = foodData.foodDescription;
-//    } else {
-//        self.foodDetailsView.descriptionLabel.hidden = YES;
-//    }
+    if (foodData != nil) {
+        NSMutableArray *foodDataArray = [[NSMutableArray alloc] init];
+        [foodDataArray addObject:foodData];
+        
+        [self.foodDetailsView setupDataWithFoodData:foodDataArray];
+        [self showFoodDetailsView];
+    }
+}
+
+- (void)foodPopupTappedWithArray:(NSMutableArray *)foodArray {
+    [self.foodDetailsView setupDataWithFoodData:foodArray];
     [self showFoodDetailsView];
 }
 

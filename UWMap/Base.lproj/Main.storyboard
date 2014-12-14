@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Waterloo_map" translatesAutoresizingMaskIntoConstraints="NO" id="D4n-0K-QYT">
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Waterloo_map" translatesAutoresizingMaskIntoConstraints="NO" id="D4n-0K-QYT">
                                 <rect key="frame" x="0.0" y="-20" width="2194" height="1376"/>
                             </imageView>
                         </subviews>
@@ -67,6 +67,10 @@
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oAY-OV-2XF">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </containerView>
+                            <view hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y3d-b2-bJo" userLabel="whiteLayer">
+                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                             <view alpha="0.96999999999999997" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3fb-Eb-Kyi" userLabel="searchBarBackground">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
                                 <subviews>
@@ -96,10 +100,6 @@
                                     <constraint firstAttribute="bottom" secondItem="7Jp-ao-Q5s" secondAttribute="bottom" id="oUu-no-b4u"/>
                                     <constraint firstItem="6uD-YX-IT0" firstAttribute="leading" secondItem="7Jp-ao-Q5s" secondAttribute="trailing" constant="4" id="sSt-bP-5qv"/>
                                 </constraints>
-                            </view>
-                            <view hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y3d-b2-bJo" userLabel="whiteLayer">
-                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
