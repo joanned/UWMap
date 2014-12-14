@@ -32,7 +32,7 @@
                     </connections>
                 </button>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="gql-E3-3Ed" secondAttribute="trailing" constant="8" id="La9-5T-aHE"/>
                 <constraint firstItem="NIC-02-Yi0" firstAttribute="top" secondItem="2WQ-21-ATg" secondAttribute="top" id="VBw-km-unk"/>

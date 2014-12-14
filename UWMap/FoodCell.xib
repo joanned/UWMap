@@ -11,12 +11,12 @@
         <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FoodCell" rowHeight="293" id="wAr-gy-gkl" customClass="FoodCell">
             <rect key="frame" x="0.0" y="0.0" width="317" height="293"/>
             <autoresizingMask key="autoresizingMask"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wAr-gy-gkl" id="X7F-Ld-yAH">
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.80000000000000004" contentMode="center" tableViewCell="wAr-gy-gkl" id="X7F-Ld-yAH">
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="46c-0D-N8k" userLabel="darkView">
                         <rect key="frame" x="0.0" y="0.0" width="317" height="39"/>
-                        <color key="backgroundColor" red="0.23626833545918369" green="0.23626833545918369" blue="0.23626833545918369" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.13020169005102045" green="0.13020169005102045" blue="0.13020169005102045" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="760" verticalHuggingPriority="760" horizontalCompressionResistancePriority="760" verticalCompressionResistancePriority="760" text="Title" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gGA-wh-Cxo" userLabel="Title">
                         <rect key="frame" x="15" y="10" width="232" height="19"/>
@@ -27,49 +27,43 @@
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="759" verticalHuggingPriority="759" horizontalCompressionResistancePriority="759" verticalCompressionResistancePriority="759" text="Description" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bbX-qZ-Df5" userLabel="description">
                         <rect key="frame" x="15" y="49" width="279" height="16"/>
                         <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="14"/>
-                        <color key="textColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="textColor" red="0.81553583559999998" green="0.81553583559999998" blue="0.81553583559999998" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="758" verticalHuggingPriority="758" horizontalCompressionResistancePriority="758" verticalCompressionResistancePriority="758" text="Monday:" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NT5-TQ-SCO" userLabel="Monday hours">
                         <rect key="frame" x="113" y="73" width="196" height="17"/>
                         <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="15"/>
-                        <color key="textColor" red="0.20350366710000001" green="0.20350366710000001" blue="0.20350366710000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="757" verticalHuggingPriority="757" horizontalCompressionResistancePriority="757" verticalCompressionResistancePriority="757" text="Tuesday:" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ybd-u6-Obs" userLabel="Tuesday hours">
                         <rect key="frame" x="113" y="90" width="196" height="17"/>
                         <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="15"/>
-                        <color key="textColor" red="0.20350366710000001" green="0.20350366710000001" blue="0.20350366710000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="755" verticalHuggingPriority="756" horizontalCompressionResistancePriority="756" verticalCompressionResistancePriority="756" text="Wednesday:" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0iy-5F-Pnn" userLabel=" Wednesday hours">
                         <rect key="frame" x="113" y="107" width="196" height="17"/>
                         <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="15"/>
-                        <color key="textColor" red="0.20350366710000001" green="0.20350366710000001" blue="0.20350366710000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="755" verticalHuggingPriority="755" horizontalCompressionResistancePriority="755" verticalCompressionResistancePriority="755" text="Thursday:" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sCa-jn-KHY" userLabel="Thursday hours">
                         <rect key="frame" x="113" y="124" width="196" height="17"/>
                         <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="15"/>
-                        <color key="textColor" red="0.20350366710000001" green="0.20350366710000001" blue="0.20350366710000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="754" verticalHuggingPriority="754" horizontalCompressionResistancePriority="754" verticalCompressionResistancePriority="754" text="Friday:" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iBx-Lb-jPT" userLabel="Friday hours">
                         <rect key="frame" x="113" y="141" width="196" height="17"/>
                         <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="15"/>
-                        <color key="textColor" red="0.20350366710000001" green="0.20350366710000001" blue="0.20350366710000001" alpha="1" colorSpace="calibratedRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="753" verticalHuggingPriority="753" horizontalCompressionResistancePriority="753" verticalCompressionResistancePriority="753" text="Saturday:" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jK7-IU-pBM" userLabel="Saturday hours">
-                        <rect key="frame" x="113" y="158" width="196" height="17"/>
-                        <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="15"/>
-                        <color key="textColor" red="0.20350366710000001" green="0.20350366710000001" blue="0.20350366710000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="752" verticalHuggingPriority="752" horizontalCompressionResistancePriority="752" verticalCompressionResistancePriority="752" text="Sunday:" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V3g-uk-twB" userLabel="Sunday hours">
                         <rect key="frame" x="113" y="175" width="196" height="17"/>
                         <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="15"/>
-                        <color key="textColor" red="0.20350366710000001" green="0.20350366710000001" blue="0.20350366710000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="753" verticalHuggingPriority="753" horizontalCompressionResistancePriority="753" verticalCompressionResistancePriority="753" text="Saturday:" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cQO-3W-A8G">
@@ -78,7 +72,7 @@
                             <constraint firstAttribute="width" constant="90" id="K4Z-JF-77b"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="15"/>
-                        <color key="textColor" red="0.20350366710000001" green="0.20350366710000001" blue="0.20350366710000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="textColor" red="0.89520886479999995" green="0.89520886479999995" blue="0.89520886479999995" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="756" verticalHuggingPriority="756" horizontalCompressionResistancePriority="756" verticalCompressionResistancePriority="756" text="Wednesday:" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oea-oV-JbR">
@@ -87,7 +81,7 @@
                             <constraint firstAttribute="width" constant="90" id="wxl-08-76n"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="15"/>
-                        <color key="textColor" red="0.20350366710000001" green="0.20350366710000001" blue="0.20350366710000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="textColor" red="0.89520886479999995" green="0.89520886479999995" blue="0.89520886479999995" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="751" verticalHuggingPriority="752" horizontalCompressionResistancePriority="752" verticalCompressionResistancePriority="752" text="Sunday:" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rz0-ZK-tsN">
@@ -96,7 +90,7 @@
                             <constraint firstAttribute="width" constant="90" id="fdr-u8-9QC"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="15"/>
-                        <color key="textColor" red="0.20350366710000001" green="0.20350366710000001" blue="0.20350366710000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="textColor" red="0.89520886479999995" green="0.89520886479999995" blue="0.89520886479999995" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="754" verticalHuggingPriority="754" horizontalCompressionResistancePriority="754" verticalCompressionResistancePriority="754" text="Friday:" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sk5-gw-v4g">
@@ -105,7 +99,7 @@
                             <constraint firstAttribute="width" constant="90" id="mWb-7S-eHL"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="15"/>
-                        <color key="textColor" red="0.20350366710000001" green="0.20350366710000001" blue="0.20350366710000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="textColor" red="0.89520886479999995" green="0.89520886479999995" blue="0.89520886479999995" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="758" verticalHuggingPriority="758" horizontalCompressionResistancePriority="758" verticalCompressionResistancePriority="758" text="Monday:" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tpt-l0-EXL">
@@ -114,7 +108,7 @@
                             <constraint firstAttribute="width" constant="90" id="1SN-nN-vCT"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="15"/>
-                        <color key="textColor" red="0.20350366710000001" green="0.20350366710000001" blue="0.20350366710000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="textColor" red="0.89520886479591832" green="0.89520886479591832" blue="0.89520886479591832" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="755" verticalHuggingPriority="755" horizontalCompressionResistancePriority="755" verticalCompressionResistancePriority="755" text="Thursday:" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ahd-tO-DKn">
@@ -123,7 +117,7 @@
                             <constraint firstAttribute="width" constant="90" id="SiQ-R1-VvG"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="15"/>
-                        <color key="textColor" red="0.20350366710000001" green="0.20350366710000001" blue="0.20350366710000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="textColor" red="0.89520886479999995" green="0.89520886479999995" blue="0.89520886479999995" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="757" verticalHuggingPriority="757" horizontalCompressionResistancePriority="757" verticalCompressionResistancePriority="757" text="Tuesday:" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o0W-sr-5ox">
@@ -132,11 +126,17 @@
                             <constraint firstAttribute="width" constant="90" id="5DZ-Oa-NhG"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="15"/>
-                        <color key="textColor" red="0.20350366710000001" green="0.20350366710000001" blue="0.20350366710000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="textColor" red="0.89520886479999995" green="0.89520886479999995" blue="0.89520886479999995" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="753" verticalHuggingPriority="753" horizontalCompressionResistancePriority="753" verticalCompressionResistancePriority="753" text="Saturday:" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jK7-IU-pBM" userLabel="Saturday hours">
+                        <rect key="frame" x="113" y="158" width="196" height="17"/>
+                        <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="15"/>
+                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
-                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                <color key="backgroundColor" red="0.20350366830825806" green="0.20350366830825806" blue="0.20350366830825806" alpha="1" colorSpace="calibratedRGB"/>
                 <constraints>
                     <constraint firstItem="Rz0-ZK-tsN" firstAttribute="leading" secondItem="X7F-Ld-yAH" secondAttribute="leading" constant="15" id="1yf-Af-EcM"/>
                     <constraint firstItem="46c-0D-N8k" firstAttribute="top" secondItem="X7F-Ld-yAH" secondAttribute="top" id="2Ah-Ea-IXT"/>
@@ -213,6 +213,7 @@
                     </mask>
                 </variation>
             </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
                 <outlet property="descriptionLabel" destination="bbX-qZ-Df5" id="Zy2-er-LnV"/>
                 <outlet property="fridayLabel" destination="iBx-Lb-jPT" id="qAe-6M-vHA"/>

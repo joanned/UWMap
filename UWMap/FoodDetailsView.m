@@ -26,6 +26,8 @@
     self.tableView.dataSource = self;
     self.tableView.backgroundColor = [UIColor clearColor]; //todo: removie?
     [self bringSubviewToFront:self.closeButton];
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
+    [self.tableView reloadData];
 }
 
 - (IBAction)closeButtonTapped:(id)sender {
@@ -80,26 +82,30 @@
 
 - (CGFloat)heightForBasicCellAtIndexPath:(NSIndexPath *)indexPath {
     static FoodCell *sizingCell = nil;
-//    static dispatch_once_t onceToken;
-//    dispatch_once(&onceToken, ^{
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
         sizingCell = [self.tableView dequeueReusableCellWithIdentifier:@"FoodCell"];
         if (sizingCell == nil) {
             NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"FoodCell" owner:self options:nil];
             sizingCell = [nib objectAtIndex:0];
         }
-//    });
+    });
 //    [self setupShadowsWithFrame:sizingCell.bounds];
     [self configureCell:sizingCell atIndexPath:indexPath];
-    return [self calculateHeightForConfiguredSizingCell:sizingCell];
-}
-
-- (CGFloat)calculateHeightForConfiguredSizingCell:(UITableViewCell *)sizingCell { //todo: prob dont need so many functions for this tings
+    
+    [sizingCell setNeedsUpdateConstraints];
+    [sizingCell updateConstraintsIfNeeded];
+    sizingCell.bounds = CGRectMake(0.0f, 0.0f, CGRectGetWidth(self.tableView.bounds), CGRectGetHeight(sizingCell.bounds));
     [sizingCell setNeedsLayout];
     [sizingCell layoutIfNeeded];
-    
-//    CGSize size = [sizingCell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
-    return sizingCell.frame.size.height + 1.0f; // Add 1.0f for the cell separator height
+    CGFloat height = [sizingCell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;
+    return height + 1.0f;
 }
+
+//- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    return UITableViewAutomaticDimension;
+//}
 
 #pragma mark - Helpers
 
