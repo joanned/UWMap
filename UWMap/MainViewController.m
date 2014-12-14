@@ -293,7 +293,7 @@ const float kWhiteOverlayOpacity = 0.75f;
     self.foodDetailsView.transform = CGAffineTransformMakeScale(0.8, 0.8); //UP DOWN INSTEAD???
     
     [UIView animateWithDuration:0.25f delay:0.0f options:UIViewAnimationOptionBeginFromCurrentState animations:^{
-        self.whiteView.alpha = 0.6f;
+//        self.whiteView.alpha = 0.6f;
         self.foodDetailsView.alpha = 1.0f;
         self.foodDetailsView.transform = CGAffineTransformMakeScale(1.0f, 1.0f);
     } completion:nil];
@@ -301,9 +301,9 @@ const float kWhiteOverlayOpacity = 0.75f;
 }
 
 - (void)hideFoodDetailsView {
-    [UIView animateWithDuration:0.25f delay:0.0f options:UIViewAnimationOptionBeginFromCurrentState animations:^{
-        self.whiteView.alpha = 0;
-    } completion:nil];
+//    [UIView animateWithDuration:0.25f delay:0.0f options:UIViewAnimationOptionBeginFromCurrentState animations:^{
+//        self.whiteView.alpha = 0;
+//    } completion:nil];
     
     if (self.foodDetailsView) {
         [UIView animateWithDuration:0.25f

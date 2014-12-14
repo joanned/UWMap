@@ -8,225 +8,228 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FoodCell" rowHeight="293" id="wAr-gy-gkl" customClass="FoodCell">
-            <rect key="frame" x="0.0" y="0.0" width="317" height="293"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FoodCell" rowHeight="244" id="wAr-gy-gkl" customClass="FoodCell">
+            <rect key="frame" x="0.0" y="0.0" width="317" height="244"/>
             <autoresizingMask key="autoresizingMask"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.80000000000000004" contentMode="center" tableViewCell="wAr-gy-gkl" id="X7F-Ld-yAH">
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.90000000000000002" contentMode="center" tableViewCell="wAr-gy-gkl" id="X7F-Ld-yAH">
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="46c-0D-N8k" userLabel="darkView">
-                        <rect key="frame" x="0.0" y="0.0" width="317" height="39"/>
-                        <color key="backgroundColor" red="0.13020169005102045" green="0.13020169005102045" blue="0.13020169005102045" alpha="1" colorSpace="calibratedRGB"/>
+                    <view contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="46c-0D-N8k" userLabel="darkView">
+                        <rect key="frame" x="0.0" y="0.0" width="317" height="70"/>
+                        <color key="backgroundColor" red="0.076749840561224469" green="0.076749840561224469" blue="0.076749840561224469" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="760" verticalHuggingPriority="760" horizontalCompressionResistancePriority="760" verticalCompressionResistancePriority="760" text="Title" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gGA-wh-Cxo" userLabel="Title">
-                        <rect key="frame" x="15" y="10" width="232" height="19"/>
-                        <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="17"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="249" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="Title" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="227" translatesAutoresizingMaskIntoConstraints="NO" id="6L7-yi-tTg" userLabel="title">
+                        <rect key="frame" x="15" y="10" width="262" height="50"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Description" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="287" translatesAutoresizingMaskIntoConstraints="NO" id="6IK-UH-igM" userLabel="description">
+                        <rect key="frame" x="15" y="76" width="287" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.89520886479999995" green="0.89520886479999995" blue="0.89520886479999995" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="Monday:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M1C-mW-c0j" userLabel="Monday:">
+                        <rect key="frame" x="15" y="96" width="90" height="18"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="90" id="glh-sA-Hhm"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="&lt;monday hours>" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="abe-1f-5bl" userLabel="&lt;monday hours>">
+                        <rect key="frame" x="113" y="96" width="189" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="759" verticalHuggingPriority="759" horizontalCompressionResistancePriority="759" verticalCompressionResistancePriority="759" text="Description" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bbX-qZ-Df5" userLabel="description">
-                        <rect key="frame" x="15" y="49" width="279" height="16"/>
-                        <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="14"/>
-                        <color key="textColor" red="0.81553583559999998" green="0.81553583559999998" blue="0.81553583559999998" alpha="1" colorSpace="calibratedRGB"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tuesday:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yPf-wy-ZzY">
+                        <rect key="frame" x="15" y="114" width="90" height="18"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="90" id="fge-E2-smF"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" white="1" alpha="0.96999999999999997" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="758" verticalHuggingPriority="758" horizontalCompressionResistancePriority="758" verticalCompressionResistancePriority="758" text="Monday:" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NT5-TQ-SCO" userLabel="Monday hours">
-                        <rect key="frame" x="113" y="73" width="196" height="17"/>
-                        <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="15"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;tuesday hours>" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7AJ-Zp-HTO" userLabel="&lt;tuesday hours>">
+                        <rect key="frame" x="113" y="114" width="189" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="757" verticalHuggingPriority="757" horizontalCompressionResistancePriority="757" verticalCompressionResistancePriority="757" text="Tuesday:" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ybd-u6-Obs" userLabel="Tuesday hours">
-                        <rect key="frame" x="113" y="90" width="196" height="17"/>
-                        <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="15"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wednesday:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yDR-12-T94">
+                        <rect key="frame" x="15" y="132" width="90" height="18"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="90" id="yvo-tV-SGK"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="755" verticalHuggingPriority="756" horizontalCompressionResistancePriority="756" verticalCompressionResistancePriority="756" text="Wednesday:" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0iy-5F-Pnn" userLabel=" Wednesday hours">
-                        <rect key="frame" x="113" y="107" width="196" height="17"/>
-                        <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="15"/>
-                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;wednesday hours>" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DjN-vt-qMM">
+                        <rect key="frame" x="113" y="132" width="189" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" white="1" alpha="0.96999999999999997" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="755" verticalHuggingPriority="755" horizontalCompressionResistancePriority="755" verticalCompressionResistancePriority="755" text="Thursday:" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sCa-jn-KHY" userLabel="Thursday hours">
-                        <rect key="frame" x="113" y="124" width="196" height="17"/>
-                        <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="15"/>
-                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="754" verticalHuggingPriority="754" horizontalCompressionResistancePriority="754" verticalCompressionResistancePriority="754" text="Friday:" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iBx-Lb-jPT" userLabel="Friday hours">
-                        <rect key="frame" x="113" y="141" width="196" height="17"/>
-                        <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="15"/>
-                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="752" verticalHuggingPriority="752" horizontalCompressionResistancePriority="752" verticalCompressionResistancePriority="752" text="Sunday:" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V3g-uk-twB" userLabel="Sunday hours">
-                        <rect key="frame" x="113" y="175" width="196" height="17"/>
-                        <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="15"/>
-                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="753" verticalHuggingPriority="753" horizontalCompressionResistancePriority="753" verticalCompressionResistancePriority="753" text="Saturday:" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cQO-3W-A8G">
-                        <rect key="frame" x="15" y="158" width="90" height="17"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thursday:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yfs-5G-AOc">
+                        <rect key="frame" x="15" y="150" width="90" height="18"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="90" id="K4Z-JF-77b"/>
+                            <constraint firstAttribute="width" constant="90" id="qFG-iu-3Qa"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="15"/>
-                        <color key="textColor" red="0.89520886479999995" green="0.89520886479999995" blue="0.89520886479999995" alpha="1" colorSpace="calibratedRGB"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" white="1" alpha="0.96999999999999997" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="756" verticalHuggingPriority="756" horizontalCompressionResistancePriority="756" verticalCompressionResistancePriority="756" text="Wednesday:" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oea-oV-JbR">
-                        <rect key="frame" x="15" y="107" width="90" height="17"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;thursday hours>" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1bF-Xz-iYX">
+                        <rect key="frame" x="113" y="150" width="189" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" white="1" alpha="0.96999999999999997" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Friday:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oKO-em-EZL">
+                        <rect key="frame" x="15" y="168" width="90" height="18"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="90" id="wxl-08-76n"/>
+                            <constraint firstAttribute="width" constant="90" id="Ycl-rA-46Z"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="15"/>
-                        <color key="textColor" red="0.89520886479999995" green="0.89520886479999995" blue="0.89520886479999995" alpha="1" colorSpace="calibratedRGB"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" white="1" alpha="0.96999999999999997" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="751" verticalHuggingPriority="752" horizontalCompressionResistancePriority="752" verticalCompressionResistancePriority="752" text="Sunday:" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rz0-ZK-tsN">
-                        <rect key="frame" x="15" y="175" width="90" height="17"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;friday hours>" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Obi-sZ-JWQ">
+                        <rect key="frame" x="113" y="169" width="189" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" white="1" alpha="0.96999999999999997" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Saturday:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aVR-jf-M1n">
+                        <rect key="frame" x="15" y="186" width="90" height="18"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="90" id="fdr-u8-9QC"/>
+                            <constraint firstAttribute="width" constant="90" id="0zW-kH-Bqp"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="15"/>
-                        <color key="textColor" red="0.89520886479999995" green="0.89520886479999995" blue="0.89520886479999995" alpha="1" colorSpace="calibratedRGB"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" white="1" alpha="0.96999999999999997" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="754" verticalHuggingPriority="754" horizontalCompressionResistancePriority="754" verticalCompressionResistancePriority="754" text="Friday:" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sk5-gw-v4g">
-                        <rect key="frame" x="15" y="141" width="90" height="17"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;saturday hours>" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n1H-bV-sOi">
+                        <rect key="frame" x="113" y="186" width="189" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" white="1" alpha="0.96999999999999997" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sunday:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vFg-mf-DBq">
+                        <rect key="frame" x="15" y="202" width="90" height="18"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="90" id="mWb-7S-eHL"/>
+                            <constraint firstAttribute="width" constant="90" id="rih-Lj-Rvu"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="15"/>
-                        <color key="textColor" red="0.89520886479999995" green="0.89520886479999995" blue="0.89520886479999995" alpha="1" colorSpace="calibratedRGB"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" white="1" alpha="0.96999999999999997" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="758" verticalHuggingPriority="758" horizontalCompressionResistancePriority="758" verticalCompressionResistancePriority="758" text="Monday:" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tpt-l0-EXL">
-                        <rect key="frame" x="15" y="73" width="90" height="17"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="90" id="1SN-nN-vCT"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="15"/>
-                        <color key="textColor" red="0.89520886479591832" green="0.89520886479591832" blue="0.89520886479591832" alpha="1" colorSpace="calibratedRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="755" verticalHuggingPriority="755" horizontalCompressionResistancePriority="755" verticalCompressionResistancePriority="755" text="Thursday:" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ahd-tO-DKn">
-                        <rect key="frame" x="15" y="124" width="90" height="17"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="90" id="SiQ-R1-VvG"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="15"/>
-                        <color key="textColor" red="0.89520886479999995" green="0.89520886479999995" blue="0.89520886479999995" alpha="1" colorSpace="calibratedRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="757" verticalHuggingPriority="757" horizontalCompressionResistancePriority="757" verticalCompressionResistancePriority="757" text="Tuesday:" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o0W-sr-5ox">
-                        <rect key="frame" x="15" y="90" width="90" height="17"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="90" id="5DZ-Oa-NhG"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="15"/>
-                        <color key="textColor" red="0.89520886479999995" green="0.89520886479999995" blue="0.89520886479999995" alpha="1" colorSpace="calibratedRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="753" verticalHuggingPriority="753" horizontalCompressionResistancePriority="753" verticalCompressionResistancePriority="753" text="Saturday:" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jK7-IU-pBM" userLabel="Saturday hours">
-                        <rect key="frame" x="113" y="158" width="196" height="17"/>
-                        <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="15"/>
-                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;sunday hours>" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xkn-nw-zog">
+                        <rect key="frame" x="113" y="202" width="189" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" white="1" alpha="0.96999999999999997" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <color key="backgroundColor" red="0.20350366830825806" green="0.20350366830825806" blue="0.20350366830825806" alpha="1" colorSpace="calibratedRGB"/>
                 <constraints>
-                    <constraint firstItem="Rz0-ZK-tsN" firstAttribute="leading" secondItem="X7F-Ld-yAH" secondAttribute="leading" constant="15" id="1yf-Af-EcM"/>
+                    <constraint firstItem="xkn-nw-zog" firstAttribute="leading" secondItem="vFg-mf-DBq" secondAttribute="trailing" constant="8" id="0Kn-d0-8BH"/>
+                    <constraint firstAttribute="trailing" secondItem="1bF-Xz-iYX" secondAttribute="trailing" constant="15" id="0TB-k6-9QQ"/>
                     <constraint firstItem="46c-0D-N8k" firstAttribute="top" secondItem="X7F-Ld-yAH" secondAttribute="top" id="2Ah-Ea-IXT"/>
-                    <constraint firstItem="cQO-3W-A8G" firstAttribute="top" secondItem="Sk5-gw-v4g" secondAttribute="bottom" id="3Vl-ck-ZcQ"/>
-                    <constraint firstItem="jK7-IU-pBM" firstAttribute="leading" secondItem="cQO-3W-A8G" secondAttribute="trailing" constant="8" id="4QI-wj-ArP"/>
-                    <constraint firstAttribute="trailing" secondItem="sCa-jn-KHY" secondAttribute="trailing" constant="8" id="5wK-Ry-ahJ"/>
-                    <constraint firstItem="0iy-5F-Pnn" firstAttribute="leading" secondItem="X7F-Ld-yAH" secondAttribute="leading" constant="126" id="6nv-xi-uQE"/>
-                    <constraint firstItem="Sk5-gw-v4g" firstAttribute="leading" secondItem="X7F-Ld-yAH" secondAttribute="leading" constant="15" id="8BN-JQ-sl5"/>
-                    <constraint firstItem="Oea-oV-JbR" firstAttribute="top" secondItem="o0W-sr-5ox" secondAttribute="bottom" id="8Cw-fX-lhJ"/>
-                    <constraint firstItem="Sk5-gw-v4g" firstAttribute="top" secondItem="Ahd-tO-DKn" secondAttribute="bottom" id="8Xz-N2-sb0"/>
-                    <constraint firstAttribute="trailing" secondItem="V3g-uk-twB" secondAttribute="trailing" constant="8" id="8mO-6Y-nBH"/>
-                    <constraint firstAttribute="bottom" secondItem="Rz0-ZK-tsN" secondAttribute="bottom" priority="750" constant="15" id="9th-3C-9vs"/>
-                    <constraint firstItem="tpt-l0-EXL" firstAttribute="leading" secondItem="X7F-Ld-yAH" secondAttribute="leading" constant="15" id="ALe-C7-Udz"/>
-                    <constraint firstItem="ybd-u6-Obs" firstAttribute="leading" secondItem="o0W-sr-5ox" secondAttribute="trailing" constant="8" id="CTB-6H-mNP"/>
-                    <constraint firstItem="sCa-jn-KHY" firstAttribute="top" secondItem="0iy-5F-Pnn" secondAttribute="bottom" id="DY6-Z4-U6A"/>
+                    <constraint firstItem="46c-0D-N8k" firstAttribute="bottom" secondItem="6L7-yi-tTg" secondAttribute="bottom" constant="10" id="3Jy-rJ-6Qi"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="M1C-mW-c0j" secondAttribute="bottom" constant="20" id="3vH-sJ-yOT"/>
+                    <constraint firstAttribute="trailing" secondItem="DjN-vt-qMM" secondAttribute="trailing" constant="15" id="4Mp-fD-82U"/>
+                    <constraint firstItem="oKO-em-EZL" firstAttribute="top" secondItem="yfs-5G-AOc" secondAttribute="bottom" id="62f-K3-l5g"/>
+                    <constraint firstItem="M1C-mW-c0j" firstAttribute="top" secondItem="6IK-UH-igM" secondAttribute="bottom" constant="3" id="6E6-XX-olS"/>
+                    <constraint firstAttribute="trailing" secondItem="n1H-bV-sOi" secondAttribute="trailing" constant="15" id="9zv-ow-ZfZ"/>
+                    <constraint firstItem="Obi-sZ-JWQ" firstAttribute="leading" secondItem="oKO-em-EZL" secondAttribute="trailing" constant="8" id="D6A-aO-6rY"/>
                     <constraint firstItem="46c-0D-N8k" firstAttribute="leading" secondItem="X7F-Ld-yAH" secondAttribute="leading" id="Dy1-Mv-PWV"/>
+                    <constraint firstItem="yfs-5G-AOc" firstAttribute="top" secondItem="yPf-wy-ZzY" secondAttribute="bottom" id="E3b-Yd-6Kg"/>
                     <constraint firstAttribute="trailing" secondItem="46c-0D-N8k" secondAttribute="trailing" id="EjR-7u-0xe"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="NT5-TQ-SCO" secondAttribute="trailing" constant="10" id="FMc-aJ-KAe"/>
-                    <constraint firstAttribute="trailing" secondItem="jK7-IU-pBM" secondAttribute="trailing" constant="8" id="I1V-ns-EFv"/>
-                    <constraint firstItem="gGA-wh-Cxo" firstAttribute="top" secondItem="X7F-Ld-yAH" secondAttribute="top" constant="10" id="KB9-Qr-VfN"/>
-                    <constraint firstItem="NT5-TQ-SCO" firstAttribute="leading" secondItem="X7F-Ld-yAH" secondAttribute="leadingMargin" constant="22" id="Mg3-Wl-3JQ"/>
-                    <constraint firstItem="NT5-TQ-SCO" firstAttribute="leading" secondItem="X7F-Ld-yAH" secondAttribute="leading" constant="126" id="NpF-Qm-18B"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="bbX-qZ-Df5" secondAttribute="trailing" constant="15" id="OmI-IV-Zhi"/>
-                    <constraint firstAttribute="trailing" secondItem="NT5-TQ-SCO" secondAttribute="trailing" constant="8" id="Pcf-fi-47b"/>
-                    <constraint firstItem="ybd-u6-Obs" firstAttribute="leading" secondItem="X7F-Ld-yAH" secondAttribute="leading" constant="126" id="QAh-W3-hSW"/>
-                    <constraint firstItem="Ahd-tO-DKn" firstAttribute="top" secondItem="Oea-oV-JbR" secondAttribute="bottom" id="RDw-Ua-OYs"/>
-                    <constraint firstItem="NT5-TQ-SCO" firstAttribute="leading" secondItem="tpt-l0-EXL" secondAttribute="trailing" constant="8" id="Rz2-Js-3J0"/>
-                    <constraint firstAttribute="trailing" secondItem="0iy-5F-Pnn" secondAttribute="trailing" constant="8" id="SbK-mR-ibl"/>
-                    <constraint firstItem="iBx-Lb-jPT" firstAttribute="leading" secondItem="Sk5-gw-v4g" secondAttribute="trailing" constant="8" id="V91-oc-Tdb"/>
-                    <constraint firstAttribute="trailing" secondItem="gGA-wh-Cxo" secondAttribute="trailing" constant="70" id="WbX-dh-O7Z"/>
-                    <constraint firstItem="Oea-oV-JbR" firstAttribute="leading" secondItem="X7F-Ld-yAH" secondAttribute="leading" constant="15" id="XUK-Vb-Xwg"/>
-                    <constraint firstItem="iBx-Lb-jPT" firstAttribute="leading" secondItem="X7F-Ld-yAH" secondAttribute="leading" constant="126" id="Xtb-AP-Svv"/>
-                    <constraint firstItem="gGA-wh-Cxo" firstAttribute="leading" secondItem="X7F-Ld-yAH" secondAttribute="leadingMargin" constant="7" id="Y99-Pv-3GF"/>
-                    <constraint firstItem="sCa-jn-KHY" firstAttribute="leading" secondItem="Ahd-tO-DKn" secondAttribute="trailing" constant="8" id="Ykf-yK-9YP"/>
-                    <constraint firstItem="Rz0-ZK-tsN" firstAttribute="top" secondItem="cQO-3W-A8G" secondAttribute="bottom" id="alH-z4-Orq"/>
-                    <constraint firstItem="46c-0D-N8k" firstAttribute="bottom" secondItem="gGA-wh-Cxo" secondAttribute="bottom" constant="10" id="dXF-Sx-Zr1"/>
-                    <constraint firstItem="tpt-l0-EXL" firstAttribute="top" secondItem="bbX-qZ-Df5" secondAttribute="bottom" constant="8" id="enh-PK-dBB"/>
-                    <constraint firstItem="ybd-u6-Obs" firstAttribute="top" secondItem="NT5-TQ-SCO" secondAttribute="bottom" id="fPW-X4-ygd"/>
-                    <constraint firstItem="bbX-qZ-Df5" firstAttribute="top" secondItem="gGA-wh-Cxo" secondAttribute="bottom" constant="20" id="iTq-VO-83k"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="NT5-TQ-SCO" secondAttribute="bottom" constant="15" id="iqS-gm-Dhu"/>
-                    <constraint firstItem="0iy-5F-Pnn" firstAttribute="leading" secondItem="Oea-oV-JbR" secondAttribute="trailing" constant="8" id="jTB-PJ-Ydf"/>
-                    <constraint firstAttribute="trailing" secondItem="ybd-u6-Obs" secondAttribute="trailing" constant="8" id="kOs-qf-8wr"/>
-                    <constraint firstItem="cQO-3W-A8G" firstAttribute="leading" secondItem="X7F-Ld-yAH" secondAttribute="leading" constant="15" id="lac-s3-ue3"/>
-                    <constraint firstItem="jK7-IU-pBM" firstAttribute="top" secondItem="iBx-Lb-jPT" secondAttribute="bottom" id="mBX-8r-5To"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="NT5-TQ-SCO" secondAttribute="bottom" constant="191" id="nak-Zn-5zm"/>
-                    <constraint firstItem="NT5-TQ-SCO" firstAttribute="top" secondItem="bbX-qZ-Df5" secondAttribute="bottom" constant="8" id="nwp-ZF-hG2"/>
-                    <constraint firstItem="V3g-uk-twB" firstAttribute="top" secondItem="jK7-IU-pBM" secondAttribute="bottom" id="o7D-cQ-n42"/>
-                    <constraint firstItem="sCa-jn-KHY" firstAttribute="leading" secondItem="X7F-Ld-yAH" secondAttribute="leading" constant="126" id="pQg-17-whI"/>
-                    <constraint firstItem="iBx-Lb-jPT" firstAttribute="top" secondItem="sCa-jn-KHY" secondAttribute="bottom" id="phG-ZU-aDp"/>
-                    <constraint firstAttribute="trailing" secondItem="iBx-Lb-jPT" secondAttribute="trailing" constant="8" id="qRD-It-lbe"/>
-                    <constraint firstItem="jK7-IU-pBM" firstAttribute="leading" secondItem="X7F-Ld-yAH" secondAttribute="leading" constant="126" id="sEP-Jr-qih"/>
-                    <constraint firstItem="V3g-uk-twB" firstAttribute="leading" secondItem="Rz0-ZK-tsN" secondAttribute="trailing" constant="8" id="stQ-fK-SY4"/>
-                    <constraint firstItem="Ahd-tO-DKn" firstAttribute="leading" secondItem="X7F-Ld-yAH" secondAttribute="leading" constant="15" id="szT-k4-YYW"/>
-                    <constraint firstItem="V3g-uk-twB" firstAttribute="leading" secondItem="X7F-Ld-yAH" secondAttribute="leading" constant="126" id="uBy-SI-C5o"/>
-                    <constraint firstItem="bbX-qZ-Df5" firstAttribute="leading" secondItem="X7F-Ld-yAH" secondAttribute="leading" constant="15" id="uP5-Ev-mEZ"/>
-                    <constraint firstItem="o0W-sr-5ox" firstAttribute="leading" secondItem="X7F-Ld-yAH" secondAttribute="leading" constant="15" id="uko-HO-TxO"/>
-                    <constraint firstItem="o0W-sr-5ox" firstAttribute="top" secondItem="tpt-l0-EXL" secondAttribute="bottom" id="vQU-MO-fyu"/>
-                    <constraint firstAttribute="bottom" secondItem="V3g-uk-twB" secondAttribute="bottom" priority="750" constant="15" id="waL-0y-tc5"/>
-                    <constraint firstItem="0iy-5F-Pnn" firstAttribute="top" secondItem="ybd-u6-Obs" secondAttribute="bottom" id="yhB-de-Df7"/>
+                    <constraint firstAttribute="trailing" secondItem="6IK-UH-igM" secondAttribute="trailing" constant="15" id="GBn-ho-zpX"/>
+                    <constraint firstItem="6L7-yi-tTg" firstAttribute="leading" secondItem="X7F-Ld-yAH" secondAttribute="leadingMargin" constant="29" id="GH0-be-bhJ"/>
+                    <constraint firstItem="abe-1f-5bl" firstAttribute="leading" secondItem="M1C-mW-c0j" secondAttribute="trailing" constant="8" id="Hr6-ym-VZH"/>
+                    <constraint firstItem="DjN-vt-qMM" firstAttribute="top" secondItem="abe-1f-5bl" secondAttribute="bottom" id="Il5-jP-gbk"/>
+                    <constraint firstItem="vFg-mf-DBq" firstAttribute="top" secondItem="aVR-jf-M1n" secondAttribute="bottom" constant="-2" id="M4x-Ow-3Z3"/>
+                    <constraint firstItem="aVR-jf-M1n" firstAttribute="top" secondItem="yfs-5G-AOc" secondAttribute="bottom" constant="17" id="N0Q-WE-Ghn"/>
+                    <constraint firstItem="DjN-vt-qMM" firstAttribute="leading" secondItem="yDR-12-T94" secondAttribute="trailing" constant="8" id="OBa-Y7-4R1"/>
+                    <constraint firstItem="6L7-yi-tTg" firstAttribute="top" secondItem="X7F-Ld-yAH" secondAttribute="top" constant="10" id="QIL-ur-tDJ"/>
+                    <constraint firstAttribute="trailing" secondItem="Obi-sZ-JWQ" secondAttribute="trailing" constant="15" id="QQc-a7-avC"/>
+                    <constraint firstItem="yfs-5G-AOc" firstAttribute="top" secondItem="yDR-12-T94" secondAttribute="bottom" id="XCq-WF-9zP"/>
+                    <constraint firstItem="xkn-nw-zog" firstAttribute="leading" secondItem="vFg-mf-DBq" secondAttribute="trailing" constant="15" id="Yip-18-XdK"/>
+                    <constraint firstItem="6IK-UH-igM" firstAttribute="top" secondItem="46c-0D-N8k" secondAttribute="bottom" constant="6" id="YtH-zC-ico"/>
+                    <constraint firstItem="yDR-12-T94" firstAttribute="top" secondItem="yPf-wy-ZzY" secondAttribute="bottom" id="Z3r-jS-bB7"/>
+                    <constraint firstAttribute="trailing" secondItem="abe-1f-5bl" secondAttribute="trailing" constant="15" id="aaU-QF-rZJ"/>
+                    <constraint firstItem="6L7-yi-tTg" firstAttribute="leading" secondItem="X7F-Ld-yAH" secondAttribute="leading" constant="15" id="ba7-76-Ow6"/>
+                    <constraint firstItem="vFg-mf-DBq" firstAttribute="bottom" secondItem="xkn-nw-zog" secondAttribute="bottom" id="bpr-Ug-X9f"/>
+                    <constraint firstItem="abe-1f-5bl" firstAttribute="bottom" secondItem="M1C-mW-c0j" secondAttribute="bottom" id="bqi-9j-Oef"/>
+                    <constraint firstItem="n1H-bV-sOi" firstAttribute="leading" secondItem="aVR-jf-M1n" secondAttribute="trailing" constant="8" id="cEw-oo-16a"/>
+                    <constraint firstAttribute="trailing" secondItem="aVR-jf-M1n" secondAttribute="trailing" constant="203" id="csZ-zG-t1u"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="vFg-mf-DBq" secondAttribute="bottom" constant="15" id="ctM-xp-YvZ"/>
+                    <constraint firstItem="yDR-12-T94" firstAttribute="leading" secondItem="X7F-Ld-yAH" secondAttribute="leading" constant="15" id="dY3-PH-vot"/>
+                    <constraint firstItem="yfs-5G-AOc" firstAttribute="leading" secondItem="X7F-Ld-yAH" secondAttribute="leading" constant="15" id="f5c-54-EhN"/>
+                    <constraint firstItem="7AJ-Zp-HTO" firstAttribute="leading" secondItem="yPf-wy-ZzY" secondAttribute="trailing" constant="8" id="frE-bs-tkk"/>
+                    <constraint firstItem="yfs-5G-AOc" firstAttribute="bottom" secondItem="1bF-Xz-iYX" secondAttribute="bottom" id="gEP-fj-ZLD"/>
+                    <constraint firstItem="yPf-wy-ZzY" firstAttribute="leading" secondItem="X7F-Ld-yAH" secondAttribute="leading" constant="15" id="gVs-fX-aMO"/>
+                    <constraint firstItem="DjN-vt-qMM" firstAttribute="top" secondItem="7AJ-Zp-HTO" secondAttribute="bottom" id="iiS-Bg-2WI"/>
+                    <constraint firstItem="7AJ-Zp-HTO" firstAttribute="top" secondItem="abe-1f-5bl" secondAttribute="bottom" id="il9-9R-N5P"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="yPf-wy-ZzY" secondAttribute="bottom" constant="113" id="j2R-9i-bvn"/>
+                    <constraint firstItem="DjN-vt-qMM" firstAttribute="bottom" secondItem="yDR-12-T94" secondAttribute="bottom" id="j37-TF-dEd"/>
+                    <constraint firstItem="aVR-jf-M1n" firstAttribute="leading" secondItem="X7F-Ld-yAH" secondAttribute="leading" constant="15" id="jvG-As-2hI"/>
+                    <constraint firstItem="vFg-mf-DBq" firstAttribute="leading" secondItem="X7F-Ld-yAH" secondAttribute="leading" constant="15" id="oHb-5k-tGk"/>
+                    <constraint firstItem="oKO-em-EZL" firstAttribute="leading" secondItem="X7F-Ld-yAH" secondAttribute="leading" constant="15" id="ox1-Ap-bft"/>
+                    <constraint firstItem="aVR-jf-M1n" firstAttribute="bottom" secondItem="n1H-bV-sOi" secondAttribute="bottom" id="pDX-tH-cTm"/>
+                    <constraint firstAttribute="trailing" secondItem="7AJ-Zp-HTO" secondAttribute="trailing" constant="15" id="pUg-2t-u0t"/>
+                    <constraint firstItem="yDR-12-T94" firstAttribute="top" secondItem="M1C-mW-c0j" secondAttribute="bottom" constant="21" id="pyQ-H7-plb"/>
+                    <constraint firstAttribute="trailing" secondItem="xkn-nw-zog" secondAttribute="trailing" constant="15" id="qQn-jx-6cw"/>
+                    <constraint firstItem="xkn-nw-zog" firstAttribute="leading" secondItem="vFg-mf-DBq" secondAttribute="trailing" constant="15" id="sNR-Uc-bOH"/>
+                    <constraint firstItem="Obi-sZ-JWQ" firstAttribute="bottom" secondItem="oKO-em-EZL" secondAttribute="bottom" constant="1" id="t98-Ou-yfU"/>
+                    <constraint firstAttribute="trailing" secondItem="6L7-yi-tTg" secondAttribute="trailing" constant="40" id="vdE-Vm-KaE"/>
+                    <constraint firstItem="M1C-mW-c0j" firstAttribute="leading" secondItem="X7F-Ld-yAH" secondAttribute="leading" constant="15" id="vx5-Fm-ibI"/>
+                    <constraint firstItem="yPf-wy-ZzY" firstAttribute="top" secondItem="M1C-mW-c0j" secondAttribute="bottom" id="wks-Jh-clD"/>
+                    <constraint firstItem="aVR-jf-M1n" firstAttribute="top" secondItem="oKO-em-EZL" secondAttribute="bottom" id="xDJ-dj-7Mu"/>
+                    <constraint firstItem="n1H-bV-sOi" firstAttribute="leading" secondItem="aVR-jf-M1n" secondAttribute="trailing" constant="-1" id="ybg-Vs-PvC"/>
+                    <constraint firstItem="1bF-Xz-iYX" firstAttribute="leading" secondItem="yfs-5G-AOc" secondAttribute="trailing" constant="8" id="zFn-aT-cEn"/>
+                    <constraint firstItem="6IK-UH-igM" firstAttribute="leading" secondItem="X7F-Ld-yAH" secondAttribute="leading" constant="15" id="zaA-4B-xen"/>
+                    <constraint firstItem="yPf-wy-ZzY" firstAttribute="bottom" secondItem="7AJ-Zp-HTO" secondAttribute="bottom" id="znO-Qe-ali"/>
                 </constraints>
                 <variation key="default">
                     <mask key="constraints">
-                        <exclude reference="FMc-aJ-KAe"/>
-                        <exclude reference="Mg3-Wl-3JQ"/>
-                        <exclude reference="NpF-Qm-18B"/>
-                        <exclude reference="iqS-gm-Dhu"/>
-                        <exclude reference="nak-Zn-5zm"/>
-                        <exclude reference="QAh-W3-hSW"/>
-                        <exclude reference="6nv-xi-uQE"/>
-                        <exclude reference="pQg-17-whI"/>
-                        <exclude reference="Xtb-AP-Svv"/>
-                        <exclude reference="sEP-Jr-qih"/>
-                        <exclude reference="uBy-SI-C5o"/>
+                        <exclude reference="GH0-be-bhJ"/>
+                        <exclude reference="3vH-sJ-yOT"/>
+                        <exclude reference="j2R-9i-bvn"/>
+                        <exclude reference="pyQ-H7-plb"/>
+                        <exclude reference="E3b-Yd-6Kg"/>
+                        <exclude reference="il9-9R-N5P"/>
+                        <exclude reference="Il5-jP-gbk"/>
+                        <exclude reference="iiS-Bg-2WI"/>
+                        <exclude reference="N0Q-WE-Ghn"/>
+                        <exclude reference="csZ-zG-t1u"/>
+                        <exclude reference="ybg-Vs-PvC"/>
+                        <exclude reference="Yip-18-XdK"/>
+                        <exclude reference="sNR-Uc-bOH"/>
                     </mask>
                 </variation>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
-                <outlet property="descriptionLabel" destination="bbX-qZ-Df5" id="Zy2-er-LnV"/>
-                <outlet property="fridayLabel" destination="iBx-Lb-jPT" id="qAe-6M-vHA"/>
+                <outlet property="descriptionLabel" destination="6IK-UH-igM" id="9zc-J8-gH4"/>
+                <outlet property="fridayLabel" destination="Obi-sZ-JWQ" id="GrK-0b-9Wh"/>
                 <outlet property="headerView" destination="46c-0D-N8k" id="1VI-Ee-Hr7"/>
-                <outlet property="mondayLabel" destination="NT5-TQ-SCO" id="JG2-Nj-ga9"/>
-                <outlet property="saturdayLabel" destination="jK7-IU-pBM" id="1kC-2g-HJL"/>
-                <outlet property="sundayLabel" destination="V3g-uk-twB" id="Fv9-VT-cgz"/>
-                <outlet property="thursdayLabel" destination="sCa-jn-KHY" id="BG4-ZD-Hnb"/>
-                <outlet property="titleLabel" destination="gGA-wh-Cxo" id="RfU-mH-6yU"/>
-                <outlet property="tuesdayLabel" destination="ybd-u6-Obs" id="0FO-nc-a8n"/>
-                <outlet property="wednesdayLabel" destination="0iy-5F-Pnn" id="Gt3-fN-snf"/>
+                <outlet property="mondayLabel" destination="abe-1f-5bl" id="99a-zq-RVc"/>
+                <outlet property="saturdayLabel" destination="n1H-bV-sOi" id="fwe-6r-JRW"/>
+                <outlet property="sundayLabel" destination="xkn-nw-zog" id="c24-Sn-FXv"/>
+                <outlet property="thursdayLabel" destination="1bF-Xz-iYX" id="cyY-IN-yHM"/>
+                <outlet property="titleLabel" destination="6L7-yi-tTg" id="0eW-Hm-nir"/>
+                <outlet property="tuesdayLabel" destination="7AJ-Zp-HTO" id="Ndi-99-BVU"/>
+                <outlet property="wednesdayLabel" destination="DjN-vt-qMM" id="iBR-Ce-RK0"/>
             </connections>
-            <point key="canvasLocation" x="-31.5" y="363.5"/>
+            <point key="canvasLocation" x="-31.5" y="322"/>
         </tableViewCell>
     </objects>
 </document>
