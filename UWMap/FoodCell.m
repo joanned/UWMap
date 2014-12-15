@@ -11,12 +11,16 @@
 @interface FoodCell ()
 
 @property (weak, nonatomic) IBOutlet UIView *headerView;
+@property (weak, nonatomic) IBOutlet UIView *hoursView;
 
 @end
 
 @implementation FoodCell
 
 - (void)awakeFromNib {
+    [super awakeFromNib];
+    self.hoursView.layer.cornerRadius = 5.0f;
+    self.hoursView.layer.masksToBounds = YES;
 //    self.headerView.layer.shadowColor = [[UIColor blackColor] CGColor]; //TODO: fix or remove
 //    self.headerView.layer.shadowOpacity = 0.4f;
 //    self.headerView.layer.shadowRadius = 5.5f;
