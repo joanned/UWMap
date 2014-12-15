@@ -304,12 +304,13 @@ const float kWhiteOverlayOpacity = 0.75f;
 //    [UIView animateWithDuration:0.25f delay:0.0f options:UIViewAnimationOptionBeginFromCurrentState animations:^{
 //        self.whiteView.alpha = 0;
 //    } completion:nil];
+    CGRect currentFoodViewFrame = self.foodDetailsView.frame;
     
     if (self.foodDetailsView) {
         [UIView animateWithDuration:0.25f
                          animations:^{
                              self.foodDetailsView.alpha = 0;
-                             self.foodDetailsView.transform = CGAffineTransformMakeScale(0.8, 0.8); //TODO:moving down animation instead?
+                             self.foodDetailsView.frame = CGRectMake(currentFoodViewFrame.origin.x, currentFoodViewFrame.origin.y + 12.0f, currentFoodViewFrame.size.width, currentFoodViewFrame.size.height);
                          } completion:^(BOOL finished) {
                              self.foodDetailsView.transform = CGAffineTransformMakeScale(1.0f, 1.0f);
                              [self.foodDetailsView removeFromSuperview];
@@ -320,8 +321,7 @@ const float kWhiteOverlayOpacity = 0.75f;
 - (void)setupFoodDetailsView {
     NSArray *subviewArray = [[NSBundle mainBundle] loadNibNamed:@"FoodDetailsView" owner:self options:nil];
     self.foodDetailsView = [subviewArray firstObject];
-#warning make dynamic ---
-//    self.foodDetailsView.frame = CGRectMake(20, 84, [[UIScreen mainScreen] bounds].size.width - 40, [[UIScreen mainScreen] bounds].size.height - 84 - 20); //TODO
+    
     self.foodDetailsView.delegate = self;
 }
 
