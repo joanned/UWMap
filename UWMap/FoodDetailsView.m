@@ -36,6 +36,7 @@
 }
 
 - (IBAction)closeButtonTapped:(id)sender {
+    [self.tableView scrollRectToVisible:CGRectMake(0, 0, 1, 1) animated:YES];
     if ([self.delegate respondsToSelector:@selector(foodDetailsCloseButtonTapped)]) {
         [self.delegate foodDetailsCloseButtonTapped];
     }
