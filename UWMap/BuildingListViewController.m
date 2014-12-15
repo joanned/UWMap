@@ -35,8 +35,11 @@
 @property (nonatomic, assign) BOOL isShowingBuildings;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *horizontalSpaceBetweenButtonAndTable;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *sliderConstraint;
 
 @end
+
+const CGFloat kOpacityForUnselectedButton = 0.5f;
 
 @implementation BuildingListViewController
 
@@ -82,19 +85,26 @@
 #pragma mark - Button stuff
 
 - (void)setupButtons {
-    self.highlightedColor = [UIColor colorWithRed:52.0f/255 green:52.0f/255 blue:52.0f/255 alpha:1];
-    self.unhighlightedColor = [UIColor colorWithRed:40.0f/255 green:40.0f/255 blue:40.0f/255 alpha:1];
-    
-    self.buildingButton.backgroundColor = self.highlightedColor;
-    self.foodButton.backgroundColor = self.unhighlightedColor;
+//    self.highlightedColor = [UIColor colorWithRed:52.0f/255 green:52.0f/255 blue:52.0f/255 alpha:1];
+//    self.unhighlightedColor = [UIColor colorWithRed:40.0f/255 green:40.0f/255 blue:40.0f/255 alpha:1];
+//    
+//    self.buildingButton.backgroundColor = self.highlightedColor;
+//    self.foodButton.backgroundColor = self.unhighlightedColor;
+    self.foodButton.alpha = kOpacityForUnselectedButton;
     self.isShowingBuildings = YES;
 }
 
 - (IBAction)foodButtonTapped:(id)sender {
     if (self.isShowingBuildings == YES) {
         self.isShowingBuildings = NO;
-        self.buildingButton.backgroundColor = self.unhighlightedColor;
-        self.foodButton.backgroundColor = self.highlightedColor;
+        
+        self.sliderConstraint.constant = self.foodButton.frame.size.width;
+        [UIView animateWithDuration:0.2f animations:^{
+            [self.view layoutIfNeeded];
+            self.foodButton.alpha = 1.0f;
+            self.buildingButton.alpha = kOpacityForUnselectedButton;
+        }];
+        
         [self.tableView reloadData];
     }
 }
@@ -102,8 +112,14 @@
 - (IBAction)buildingButtonTapped:(id)sender {
     if (self.isShowingBuildings == NO) {
         self.isShowingBuildings = YES;
-        self.buildingButton.backgroundColor = self.highlightedColor;
-        self.foodButton.backgroundColor = self.unhighlightedColor;
+        
+        self.sliderConstraint.constant = 0;
+        [UIView animateWithDuration:0.2f animations:^{
+            [self.view layoutIfNeeded];
+            self.foodButton.alpha = kOpacityForUnselectedButton;
+            self.buildingButton.alpha = 1.0f;
+        }];
+        
         [self.tableView reloadData];
     }
 }

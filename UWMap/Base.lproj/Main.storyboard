@@ -149,8 +149,8 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <tableView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="OYi-e8-I4B">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="474"/>
+                            <tableView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="OYi-e8-I4B">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="518"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -168,6 +168,14 @@
                                     <outlet property="delegate" destination="QUy-BD-bpt" id="hKT-8k-wpB"/>
                                 </connections>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g3p-5c-615" userLabel="buttonBackgroundView">
+                                <rect key="frame" x="0.0" y="518" width="320" height="50"/>
+                                <color key="backgroundColor" red="0.13020169009999999" green="0.13020169009999999" blue="0.13020169009999999" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HdN-q5-DwK" userLabel="sliderView">
+                                <rect key="frame" x="0.0" y="518" width="160" height="50"/>
+                                <color key="backgroundColor" red="0.19176498724489799" green="0.19176498724489799" blue="0.19176498724489799" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K83-aK-oat" userLabel="buildingButton">
                                 <rect key="frame" x="0.0" y="518" width="160" height="50"/>
                                 <constraints>
@@ -181,8 +189,8 @@
                                     <action selector="buildingButtonTapped:" destination="QUy-BD-bpt" eventType="touchUpInside" id="biN-RK-h1c"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YD2-PB-qoT" userLabel="foodButton">
-                                <rect key="frame" x="128" y="440" width="128" height="128"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YD2-PB-qoT" userLabel="foodButton">
+                                <rect key="frame" x="160" y="518" width="160" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="lnL-2E-HjV"/>
                                 </constraints>
@@ -197,19 +205,27 @@
                         </subviews>
                         <color key="backgroundColor" red="0.81553583559782605" green="0.81553583559782605" blue="0.81553583559782605" alpha="0.52000000000000002" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="g3p-5c-615" secondAttribute="trailing" id="3pY-Ai-hky"/>
                             <constraint firstItem="q6C-dP-H9i" firstAttribute="leading" secondItem="gMD-aP-Fq6" secondAttribute="leading" id="9Uv-gE-ImE"/>
+                            <constraint firstItem="K83-aK-oat" firstAttribute="height" secondItem="HdN-q5-DwK" secondAttribute="height" id="9rD-J3-nBG"/>
+                            <constraint firstItem="stI-4g-hlJ" firstAttribute="top" secondItem="HdN-q5-DwK" secondAttribute="bottom" id="CYs-vp-Ikj"/>
                             <constraint firstItem="stI-4g-hlJ" firstAttribute="top" secondItem="K83-aK-oat" secondAttribute="bottom" id="Dpu-8u-Yns"/>
                             <constraint firstItem="K83-aK-oat" firstAttribute="width" secondItem="YD2-PB-qoT" secondAttribute="width" id="Dxh-WX-ecS"/>
                             <constraint firstAttribute="trailing" secondItem="q6C-dP-H9i" secondAttribute="trailing" id="EqG-Ne-OXi"/>
+                            <constraint firstItem="stI-4g-hlJ" firstAttribute="top" secondItem="g3p-5c-615" secondAttribute="bottom" id="JIP-VH-okk"/>
                             <constraint firstAttribute="trailing" secondItem="YD2-PB-qoT" secondAttribute="trailing" id="Jeu-Su-f9k"/>
                             <constraint firstItem="K83-aK-oat" firstAttribute="leading" secondItem="gMD-aP-Fq6" secondAttribute="leading" id="QGw-26-AUF"/>
                             <constraint firstItem="OYi-e8-I4B" firstAttribute="leading" secondItem="gMD-aP-Fq6" secondAttribute="leading" id="RCG-xO-MbY"/>
                             <constraint firstItem="OYi-e8-I4B" firstAttribute="top" secondItem="FgS-U6-xeU" secondAttribute="bottom" id="Wmu-ZT-1as"/>
                             <constraint firstItem="fTT-dt-M3V" firstAttribute="top" secondItem="FgS-U6-xeU" secondAttribute="bottom" constant="-20" id="YRU-Mq-0pu"/>
+                            <constraint firstItem="K83-aK-oat" firstAttribute="width" secondItem="HdN-q5-DwK" secondAttribute="width" id="bfQ-av-MtA"/>
+                            <constraint firstItem="g3p-5c-615" firstAttribute="leading" secondItem="gMD-aP-Fq6" secondAttribute="leading" id="f1d-S0-8tb"/>
+                            <constraint firstItem="HdN-q5-DwK" firstAttribute="leading" secondItem="gMD-aP-Fq6" secondAttribute="leading" id="hNG-of-fa2"/>
                             <constraint firstItem="stI-4g-hlJ" firstAttribute="top" secondItem="fTT-dt-M3V" secondAttribute="bottom" id="jCi-XB-pi5"/>
                             <constraint firstItem="fTT-dt-M3V" firstAttribute="leading" secondItem="gMD-aP-Fq6" secondAttribute="leading" id="jis-2d-kG5"/>
                             <constraint firstItem="K83-aK-oat" firstAttribute="top" secondItem="OYi-e8-I4B" secondAttribute="bottom" id="mzB-VM-znn"/>
                             <constraint firstAttribute="trailing" secondItem="OYi-e8-I4B" secondAttribute="trailing" id="sJW-QA-rKH"/>
+                            <constraint firstItem="g3p-5c-615" firstAttribute="height" secondItem="K83-aK-oat" secondAttribute="height" id="sSu-ia-rkx"/>
                             <constraint firstItem="q6C-dP-H9i" firstAttribute="top" secondItem="FgS-U6-xeU" secondAttribute="bottom" id="tRA-U1-WTp"/>
                             <constraint firstItem="stI-4g-hlJ" firstAttribute="top" secondItem="YD2-PB-qoT" secondAttribute="bottom" id="vh7-1p-lXb"/>
                             <constraint firstItem="stI-4g-hlJ" firstAttribute="top" secondItem="q6C-dP-H9i" secondAttribute="bottom" id="yUZ-nZ-32d"/>
@@ -224,6 +240,7 @@
                         <outlet property="buildingButton" destination="K83-aK-oat" id="880-YG-p8h"/>
                         <outlet property="foodButton" destination="YD2-PB-qoT" id="wYG-Is-nGF"/>
                         <outlet property="horizontalSpaceBetweenButtonAndTable" destination="mzB-VM-znn" id="xEZ-qt-e06"/>
+                        <outlet property="sliderConstraint" destination="hNG-of-fa2" id="HdI-0I-3HW"/>
                         <outlet property="tableView" destination="OYi-e8-I4B" id="WDv-fS-kmN"/>
                         <outlet property="whiteLayer" destination="q6C-dP-H9i" id="V0L-Zg-CTG"/>
                     </connections>
