@@ -44,7 +44,7 @@
                     </connections>
                 </button>
             </subviews>
-            <color key="backgroundColor" red="0.21922831240000001" green="0.21922831240000001" blue="0.21922831240000001" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" red="0.2493024553571429" green="0.2493024553571429" blue="0.2493024553571429" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="LVP-zU-xOQ" firstAttribute="top" secondItem="2WQ-21-ATg" secondAttribute="top" id="6di-QZ-Wph"/>
                 <constraint firstAttribute="trailing" secondItem="LVP-zU-xOQ" secondAttribute="trailing" id="AJ2-To-deO"/>

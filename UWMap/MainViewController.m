@@ -22,10 +22,11 @@
 #import "DataProvider.h"
 #import "Constants.h"
 #import "PopupView.h"
+#import "LoadingView.h"
 
 const float kWhiteOverlayOpacity = 0.75f;
 
-@interface MainViewController () <BuildingListViewControllerDelegate, FoodDetailsViewDelegate, UISearchBarDelegate, FoodDataFetcherDelegate, MapViewControllerDelegate>
+@interface MainViewController () <BuildingListViewControllerDelegate, FoodDetailsViewDelegate, UISearchBarDelegate, FoodDataFetcherDelegate, MapViewControllerDelegate, LoadingViewDelegate>
 
 @property (nonatomic, strong) BuildingListViewController *buildingListViewController;
 
@@ -47,6 +48,8 @@ const float kWhiteOverlayOpacity = 0.75f;
 @property (nonatomic, strong) FoodDataFetcher *foodDataFetcher;
 @property (nonatomic, strong) NSDictionary *foodDictionary; //goes here or mapviewcontrooler?
 //@property (nonatomic, strong) NSMutableArray *foodLocationsArray;
+
+@property (nonatomic, strong) LoadingView *loadingView;
 
 @end
 
@@ -81,8 +84,9 @@ const float kWhiteOverlayOpacity = 0.75f;
     [self showMapView];
     
     [self setupFetchingFoodData];
-    
     [self setupFoodDetailsView];
+    
+    [self setupLoadingView];
 }
 
 - (void)showTableView {
@@ -163,6 +167,31 @@ const float kWhiteOverlayOpacity = 0.75f;
         self.buildingListViewController.showCombinedList = YES;
         [self showMapView];
     }
+}
+
+#pragma mark - LoadingView helpers
+
+- (void)setupLoadingView {
+    NSArray *subviewArray = [[NSBundle mainBundle] loadNibNamed:@"LoadingView" owner:self options:nil];
+    self.loadingView = [subviewArray firstObject];
+    self.loadingView.delegate = self;
+    self.loadingView.center = CGPointMake(self.view.center.x, [[UIScreen mainScreen] bounds].size.height - self.loadingView.frame.size.height);
+    [self.view addSubview:self.loadingView];
+    [self showLoadingState];
+}
+
+- (void)showLoadingState {
+    self.loadingView.loadingLabel.text = @"Loading food content...";
+    [self.loadingView.loadingIndicator startAnimating];
+    self.loadingView.loadingIndicator.hidden = NO;
+    self.loadingView.refreshButton.hidden = YES;
+}
+
+- (void)showLoadingFailedState {
+    self.loadingView.loadingLabel.text = @"Failed to load content";
+    [self.loadingView.loadingIndicator stopAnimating];
+    self.loadingView.loadingIndicator.hidden = YES;
+    self.loadingView.refreshButton.hidden = NO;
 }
 
 #pragma mark - Childview controller override
@@ -343,19 +372,26 @@ const float kWhiteOverlayOpacity = 0.75f;
     self.foodDataFetcher = [[FoodDataFetcher alloc] init];
     self.foodDataFetcher.delegate = self;
     [self.foodDataFetcher getFoodData];
+    [self showLoadingState];
 }
 
 - (void)foodDataFinishedLoading:(NSData *)foodData {
     self.foodDictionary = [self parseData:foodData]; //TODO: do we need to store the dictionary
-    
     
 //    [self sortFoodIntoArrays:foodDictionary];
     
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.mapViewController showFoodIconsOnMap:self.foodDictionary];
         [self.buildingListViewController foodDictionaryLoaded:self.foodDictionary];
+        
+        [self.loadingView.loadingIndicator stopAnimating];
+        [self.loadingView removeFromSuperview];
     });
+}
 
+- (void)foodDataFailedToLoad {
+    self.buildingListViewController.failedToLoadFood = YES; //todo: change later
+    [self showLoadingFailedState];
 }
 
 - (NSDictionary *)parseData:(NSData *)foodData { //TODO: put this elsewhere
@@ -394,6 +430,13 @@ const float kWhiteOverlayOpacity = 0.75f;
 - (void)foodPopupTappedWithArray:(NSMutableArray *)foodArray {
     [self.foodDetailsView setupDataWithFoodData:foodArray];
     [self showFoodDetailsView];
+}
+
+#pragma mark - <LoadingViewDelegate>
+
+- (void)refreshButtonTapped {
+    [self.foodDataFetcher getFoodData];
+    [self showLoadingState];
 }
 
 @end

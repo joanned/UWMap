@@ -25,7 +25,7 @@
     [super awakeFromNib];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    self.backgroundColor = [UIColor colorWithRed:43.0f/255 green:43.0f/255 blue:43.0f/255 alpha:0.8f];
+    self.backgroundColor = [UIColor colorWithRed:48.0f/255 green:48.0f/255 blue:48.0f/255 alpha:0.8f];
 
     [self bringSubviewToFront:self.closeButton];
 }

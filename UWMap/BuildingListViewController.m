@@ -37,6 +37,8 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *horizontalSpaceBetweenButtonAndTable;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *sliderConstraint;
 
+@property (nonatomic, strong) UIActivityIndicatorView *spinner;
+
 @end
 
 const CGFloat kOpacityForUnselectedButton = 0.5f;
@@ -61,6 +63,10 @@ const CGFloat kOpacityForUnselectedButton = 0.5f;
     self.buildingsArray = sortedArray;
     
     self.whiteLayer.alpha = 0;
+    
+    self.spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    self.spinner.center = self.view.center;
+    self.spinner.hidesWhenStopped = YES;
     
     [self setupButtons];
 }
@@ -105,13 +111,20 @@ const CGFloat kOpacityForUnselectedButton = 0.5f;
             self.buildingButton.alpha = kOpacityForUnselectedButton;
         }];
         
-        [self.tableView reloadData];
+        if (self.foodDictionary != nil) {
+            [self.tableView reloadData];
+        } else if (self.failedToLoadFood == YES) {
+            self.tableView.hidden = YES;
+        } else {
+            [self showLoadingSpinner];
+        }
     }
 }
 
 - (IBAction)buildingButtonTapped:(id)sender {
     if (self.isShowingBuildings == NO) {
         self.isShowingBuildings = YES;
+        [self hideLoadingSpinner];
         
         self.sliderConstraint.constant = 0;
         [UIView animateWithDuration:0.2f animations:^{
@@ -124,6 +137,18 @@ const CGFloat kOpacityForUnselectedButton = 0.5f;
     }
 }
 
+- (void)showLoadingSpinner {
+    self.tableView.hidden = YES;
+    [self.view addSubview:self.spinner];
+    [self.spinner startAnimating];
+}
+
+- (void)hideLoadingSpinner {
+    self.tableView.hidden = NO;
+    [self.spinner stopAnimating];
+    [self.spinner removeFromSuperview];
+}
+
 - (void)foodDictionaryLoaded:(NSDictionary *)foodDictionary {
     self.foodDictionary = foodDictionary;
     self.foodTitlesArray = [foodDictionary allValues]; //TODO::needed?
@@ -134,6 +159,8 @@ const CGFloat kOpacityForUnselectedButton = 0.5f;
     NSSortDescriptor *valueDescriptor = [[NSSortDescriptor alloc] initWithKey:@"title" ascending:YES];
     NSArray *descriptors = [NSArray arrayWithObject:valueDescriptor];
     self.foodTitlesArray = [self.foodTitlesArray sortedArrayUsingDescriptors:descriptors];
+    
+    [self hideLoadingSpinner];
 }
 
 

@@ -19,6 +19,9 @@
     
     [NSURLConnection sendAsynchronousRequest:[[NSURLRequest alloc] initWithURL:url] queue:[[NSOperationQueue alloc] init] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
         if (connectionError) {
+            if ([self.delegate respondsToSelector:@selector(foodDataFailedToLoad)]) {
+                [self.delegate foodDataFailedToLoad];
+            }
             NSLog(@"fetching data failed with error: %@", [connectionError localizedDescription]);
         } else {
             if ([self.delegate respondsToSelector:@selector(foodDataFinishedLoading:)]) {

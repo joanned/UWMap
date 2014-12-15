@@ -11,6 +11,7 @@
 @protocol FoodDataFetcherDelegate <NSObject>
 
 - (void)foodDataFinishedLoading:(NSData *)foodData;
+- (void)foodDataFailedToLoad;
 
 @end
 

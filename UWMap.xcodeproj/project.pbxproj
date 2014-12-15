@@ -14,6 +14,8 @@
 		473AE8EC1A2C37D700EE29F0 /* FoodDataFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 473AE8EB1A2C37D700EE29F0 /* FoodDataFetcher.m */; };
 		47491AF01A3E911E00F68EED /* NSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 47491AEF1A3E911E00F68EED /* NSString+HTML.m */; };
 		47491AF31A3E913B00F68EED /* GTMNSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 47491AF21A3E913B00F68EED /* GTMNSString+HTML.m */; };
+		47491AF51A3F2AF200F68EED /* LoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47491AF41A3F2AF200F68EED /* LoadingView.xib */; };
+		47491AF81A3F2C3400F68EED /* LoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 47491AF71A3F2C3400F68EED /* LoadingView.m */; };
 		475ED4321A0737B40033F485 /* PopupView.m in Sources */ = {isa = PBXBuildFile; fileRef = 475ED4311A0737B40033F485 /* PopupView.m */; };
 		47A7103C1A1A66300050B715 /* UIImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 47A7103B1A1A66300050B715 /* UIImageEffects.m */; };
 		47C7892B19F9FF4900C90436 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47C7892A19F9FF4900C90436 /* MainViewController.m */; };
@@ -63,6 +65,9 @@
 		47491AEF1A3E911E00F68EED /* NSString+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+HTML.m"; sourceTree = "<group>"; };
 		47491AF11A3E913B00F68EED /* GTMNSString+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GTMNSString+HTML.h"; sourceTree = "<group>"; };
 		47491AF21A3E913B00F68EED /* GTMNSString+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GTMNSString+HTML.m"; sourceTree = "<group>"; };
+		47491AF41A3F2AF200F68EED /* LoadingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadingView.xib; sourceTree = "<group>"; };
+		47491AF61A3F2C3400F68EED /* LoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingView.h; sourceTree = "<group>"; };
+		47491AF71A3F2C3400F68EED /* LoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingView.m; sourceTree = "<group>"; };
 		475ED4301A0737B40033F485 /* PopupView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopupView.h; sourceTree = "<group>"; };
 		475ED4311A0737B40033F485 /* PopupView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopupView.m; sourceTree = "<group>"; };
 		47A7103A1A1A66300050B715 /* UIImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIImageEffects.h; sourceTree = "<group>"; };
@@ -182,6 +187,9 @@
 				47D854511A2D4CD7004D7BCB /* FoodDetailsView.h */,
 				47D854521A2D4CD7004D7BCB /* FoodDetailsView.m */,
 				47D854541A2D4CEB004D7BCB /* FoodDetailsView.xib */,
+				47491AF41A3F2AF200F68EED /* LoadingView.xib */,
+				47491AF61A3F2C3400F68EED /* LoadingView.h */,
+				47491AF71A3F2C3400F68EED /* LoadingView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -397,6 +405,7 @@
 				47F37CE619DCE4C6009577E9 /* Images.xcassets in Resources */,
 				47D854551A2D4CEB004D7BCB /* FoodDetailsView.xib in Resources */,
 				47D8545F1A36854F004D7BCB /* FoodCell.xib in Resources */,
+				47491AF51A3F2AF200F68EED /* LoadingView.xib in Resources */,
 				47F37CD519DCE4C6009577E9 /* InfoPlist.strings in Resources */,
 				47F37CDE19DCE4C6009577E9 /* Main.storyboard in Resources */,
 			);
@@ -418,6 +427,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				473AE8E81A2C330400EE29F0 /* FoodData.m in Sources */,
+				47491AF81A3F2C3400F68EED /* LoadingView.m in Sources */,
 				47F37CE419DCE4C6009577E9 /* BuildingListViewController.m in Sources */,
 				47F37CDB19DCE4C6009577E9 /* AppDelegate.m in Sources */,
 				473AE8EC1A2C37D700EE29F0 /* FoodDataFetcher.m in Sources */,

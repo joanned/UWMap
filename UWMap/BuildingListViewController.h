@@ -23,7 +23,7 @@
 @property (nonatomic, weak) id<BuildingListViewControllerDelegate> delegate;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, assign) BOOL showCombinedList;
-
+@property (nonatomic, assign) BOOL failedToLoadFood;
 
 - (void)reloadTableWithText:(NSString *)searchText showFullList:(BOOL)showFullList;
 - (void)foodDictionaryLoaded:(NSDictionary *)foodDictionary;
