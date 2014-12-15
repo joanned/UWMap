@@ -10,6 +10,7 @@
 #import "Building.h"
 #import "Constants.h"
 #import "FoodData.h"
+#import "NSString+HTML.h"
 
 @implementation DataProvider
 
@@ -525,6 +526,7 @@
     return buildingDictionary;
 }
 
+//todo: move this elsewhere
 + (NSMutableDictionary *)foodDictionaryFromJson:(NSData *)data shortformArray:(NSArray *)shortformArray error:(NSError **)error {
     NSError *localError = nil;
     NSDictionary *parsedObject = [NSJSONSerialization JSONObjectWithData:data options:0 error:&localError];
@@ -550,9 +552,7 @@
         NSString *adjustedString =  [[foodDictionary valueForKey:@"outlet_name"] stringByReplacingOccurrencesOfString:@"U" withString:@"u"];//TODO:must change this later..
         
         [foodData setTitle:adjustedString];
-//        [foodData setYPosition:[[foodDictionary valueForKey:@"latitude"] floatValue]];
-//        [foodData setXPosition:[[foodDictionary valueForKey:@"longitude"] floatValue]];
-        
+
         if ([[foodDictionary valueForKey:@"logo"] isKindOfClass:[NSNull class]]) {
             [foodData setImageUrl:nil];
         } else {
@@ -562,7 +562,9 @@
         if ([[foodDictionary valueForKey:@"description"] isKindOfClass:[NSNull class]]) {
             [foodData setFoodDescription:nil];
         } else {
-            [foodData setFoodDescription:[foodDictionary valueForKey:@"description"]];
+            NSString *foodDescription = [foodDictionary valueForKey:@"description"];
+            foodDescription = [foodDescription stringByDecodingHTMLEntities];
+            [foodData setFoodDescription:foodDescription];
         }
         
         if ([[foodDictionary valueForKey:@"is_open_now"] isKindOfClass:[NSNull class]]) {
