@@ -24,6 +24,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, assign) BOOL showCombinedList;
 @property (nonatomic, assign) BOOL failedToLoadFood;
+@property (nonatomic, assign) BOOL isShowingBuildings;
 
 - (void)reloadTableWithText:(NSString *)searchText showFullList:(BOOL)showFullList;
 - (void)foodDictionaryLoaded:(NSDictionary *)foodDictionary;

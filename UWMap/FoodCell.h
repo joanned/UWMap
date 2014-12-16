@@ -19,5 +19,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *fridayLabel;
 @property (weak, nonatomic) IBOutlet UILabel *saturdayLabel;
 @property (weak, nonatomic) IBOutlet UILabel *sundayLabel;
+@property (weak, nonatomic) IBOutlet UILabel *noticeLabel;
 
 @end

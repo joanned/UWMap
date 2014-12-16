@@ -4,6 +4,11 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="OpenSans-Regular.ttf">
+            <string>OpenSans</string>
+        </mutableArray>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -12,11 +17,11 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading food content..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C9x-yM-BQv">
-                    <rect key="frame" x="8" y="8" width="142" height="21"/>
+                    <rect key="frame" x="8" y="9" width="142" height="18"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="142" id="IVN-VO-fIV"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="13"/>
                     <color key="textColor" red="0.86730707910000004" green="0.86730707910000004" blue="0.86730707910000004" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
@@ -41,11 +46,12 @@
                     </connections>
                 </button>
             </subviews>
-            <color key="backgroundColor" red="0.20350366830825806" green="0.20350366830825806" blue="0.20350366830825806" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" red="0.13873166454081631" green="0.13873166454081631" blue="0.13873166454081631" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="n9r-Sx-bhk" secondAttribute="bottom" constant="8" id="6bG-E3-p35"/>
                 <constraint firstItem="n9r-Sx-bhk" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="6o0-zb-H8l"/>
                 <constraint firstAttribute="trailing" secondItem="n9r-Sx-bhk" secondAttribute="trailing" constant="8" id="A4d-ez-MlE"/>
+                <constraint firstAttribute="centerY" secondItem="C9x-yM-BQv" secondAttribute="centerY" id="AX9-lV-kda"/>
                 <constraint firstAttribute="bottom" secondItem="z33-Xl-f2q" secondAttribute="bottom" id="D9F-cU-j3Q"/>
                 <constraint firstItem="C9x-yM-BQv" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="Fit-BT-jaV"/>
                 <constraint firstAttribute="trailing" secondItem="z33-Xl-f2q" secondAttribute="trailing" id="dya-Bl-QXU"/>
@@ -55,6 +61,12 @@
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="Fit-BT-jaV"/>
+                    <exclude reference="h91-Ob-zrv"/>
+                </mask>
+            </variation>
             <connections>
                 <outlet property="loadingIndicator" destination="n9r-Sx-bhk" id="Ppu-dV-P8Z"/>
                 <outlet property="loadingLabel" destination="C9x-yM-BQv" id="0Qc-To-KK8"/>

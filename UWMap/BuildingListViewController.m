@@ -32,8 +32,6 @@
 @property (nonatomic, strong) UIColor *highlightedColor;
 @property (nonatomic, strong) UIColor *unhighlightedColor;
 
-@property (nonatomic, assign) BOOL isShowingBuildings;
-
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *horizontalSpaceBetweenButtonAndTable;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *sliderConstraint;
 
@@ -115,6 +113,7 @@ const CGFloat kOpacityForUnselectedButton = 0.5f;
             [self.tableView reloadData];
         } else if (self.failedToLoadFood == YES) {
             self.tableView.hidden = YES;
+            //SHOW SOME TEXT AND REFRESH BUTTON OR SOMETHING ~~~~~~ OR USE THE LOADING NIB TODOTODO
         } else {
             [self showLoadingSpinner];
         }
@@ -205,6 +204,7 @@ const CGFloat kOpacityForUnselectedButton = 0.5f;
         }
     }
     
+    cell.textLabel.font = [UIFont fontWithName:@"OpenSans" size:17];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
     return cell;

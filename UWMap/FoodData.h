@@ -15,6 +15,7 @@
 @property   NSString *foodDescription;
 @property   NSString *building;
 @property   BOOL isOpenNow;
+@property   NSString *notice;
 @property   NSString *mondayOpen;
 @property   NSString *mondayClose;
 @property   NSString *tuesdayOpen;

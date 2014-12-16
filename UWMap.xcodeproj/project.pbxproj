@@ -16,6 +16,9 @@
 		47491AF31A3E913B00F68EED /* GTMNSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 47491AF21A3E913B00F68EED /* GTMNSString+HTML.m */; };
 		47491AF51A3F2AF200F68EED /* LoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47491AF41A3F2AF200F68EED /* LoadingView.xib */; };
 		47491AF81A3F2C3400F68EED /* LoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 47491AF71A3F2C3400F68EED /* LoadingView.m */; };
+		47491AF91A3F4C9600F68EED /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 47D8546B1A376BFA004D7BCB /* OpenSans-Regular.ttf */; };
+		47491AFA1A3F4C9A00F68EED /* OpenSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 47D854691A376BFA004D7BCB /* OpenSans-Light.ttf */; };
+		47491AFB1A3F4C9E00F68EED /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 47D854641A376BFA004D7BCB /* OpenSans-Bold.ttf */; };
 		475ED4321A0737B40033F485 /* PopupView.m in Sources */ = {isa = PBXBuildFile; fileRef = 475ED4311A0737B40033F485 /* PopupView.m */; };
 		47A7103C1A1A66300050B715 /* UIImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 47A7103B1A1A66300050B715 /* UIImageEffects.m */; };
 		47C7892B19F9FF4900C90436 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47C7892A19F9FF4900C90436 /* MainViewController.m */; };
@@ -404,7 +407,10 @@
 			files = (
 				47F37CE619DCE4C6009577E9 /* Images.xcassets in Resources */,
 				47D854551A2D4CEB004D7BCB /* FoodDetailsView.xib in Resources */,
+				47491AFA1A3F4C9A00F68EED /* OpenSans-Light.ttf in Resources */,
 				47D8545F1A36854F004D7BCB /* FoodCell.xib in Resources */,
+				47491AF91A3F4C9600F68EED /* OpenSans-Regular.ttf in Resources */,
+				47491AFB1A3F4C9E00F68EED /* OpenSans-Bold.ttf in Resources */,
 				47491AF51A3F2AF200F68EED /* LoadingView.xib in Resources */,
 				47F37CD519DCE4C6009577E9 /* InfoPlist.strings in Resources */,
 				47F37CDE19DCE4C6009577E9 /* Main.storyboard in Resources */,

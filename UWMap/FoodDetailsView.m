@@ -135,6 +135,12 @@
     FoodData *foodData = [self.foodDataArray objectAtIndex:indexPath.row];
     cell.titleLabel.text = foodData.title;
     cell.descriptionLabel.text = foodData.foodDescription;
+    if (foodData.notice != nil) {
+        cell.noticeLabel.text = [NSString stringWithFormat:@"Notice: %@", foodData.notice];
+    } else {
+        cell.noticeLabel.text = nil;
+    }
+
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
     NSString *closedString = @"Closed";

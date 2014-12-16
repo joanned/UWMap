@@ -117,6 +117,7 @@ const float kWhiteOverlayOpacity = 0.75f;
 
 - (void)showMapView {
     [self.iconImage setImage:[UIImage imageNamed:@"list"]];
+    self.loadingView.hidden = NO;
 
     //show map view
     [self addChildViewController:self.mapViewController];
@@ -361,7 +362,7 @@ const float kWhiteOverlayOpacity = 0.75f;
 }
 
 - (void)updateTableViewHeight:(CGFloat)height {
-    self.foodDetailsView.frame = CGRectMake(20, 84, [[UIScreen mainScreen] bounds].size.width - 40, height);
+    self.foodDetailsView.frame = CGRectMake(15, 84, [[UIScreen mainScreen] bounds].size.width - 30, height);
     [self.foodDetailsView setupShadows];
     [self.foodDetailsView setupGradientMask];
 }

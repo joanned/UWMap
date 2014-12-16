@@ -5,136 +5,161 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="OpenSans-Bold.ttf">
+            <string>OpenSans-Bold</string>
+            <string>OpenSans-Bold</string>
+            <string>OpenSans-Bold</string>
+            <string>OpenSans-Bold</string>
+            <string>OpenSans-Bold</string>
+            <string>OpenSans-Bold</string>
+            <string>OpenSans-Bold</string>
+        </mutableArray>
+        <mutableArray key="OpenSans-Light.ttf">
+            <string>OpenSans-Light</string>
+            <string>OpenSans-Light</string>
+        </mutableArray>
+        <mutableArray key="OpenSans-Regular.ttf">
+            <string>OpenSans</string>
+            <string>OpenSans</string>
+            <string>OpenSans</string>
+            <string>OpenSans</string>
+            <string>OpenSans</string>
+            <string>OpenSans</string>
+            <string>OpenSans</string>
+            <string>OpenSans</string>
+        </mutableArray>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell opaque="NO" alpha="0.0" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FoodCell" rowHeight="244" id="wAr-gy-gkl" customClass="FoodCell">
-            <rect key="frame" x="0.0" y="0.0" width="317" height="244"/>
+        <tableViewCell opaque="NO" alpha="0.0" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FoodCell" rowHeight="308" id="wAr-gy-gkl" customClass="FoodCell">
+            <rect key="frame" x="0.0" y="0.0" width="280" height="308"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wAr-gy-gkl" id="X7F-Ld-yAH">
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view alpha="0.80000000000000004" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="46c-0D-N8k" userLabel="darkView">
-                        <rect key="frame" x="0.0" y="0.0" width="317" height="41"/>
+                    <view alpha="0.80000000000000004" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="46c-0D-N8k" userLabel="darkView">
+                        <rect key="frame" x="0.0" y="0.0" width="317" height="44"/>
                         <color key="backgroundColor" red="0.12228954081632648" green="0.12228954081632648" blue="0.12228954081632648" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="227" translatesAutoresizingMaskIntoConstraints="NO" id="6L7-yi-tTg" userLabel="title">
-                        <rect key="frame" x="15" y="10" width="262" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" misplaced="YES" text="Title" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="270" translatesAutoresizingMaskIntoConstraints="NO" id="6L7-yi-tTg" userLabel="title">
+                        <rect key="frame" x="15" y="10" width="262" height="24"/>
+                        <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="17"/>
                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="248" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" text="Description" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="287" translatesAutoresizingMaskIntoConstraints="NO" id="6IK-UH-igM" userLabel="description">
-                        <rect key="frame" x="25" y="47" width="277" height="10"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                        <color key="textColor" red="0.86730707908163263" green="0.86730707908163263" blue="0.86730707908163263" alpha="1" colorSpace="calibratedRGB"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="248" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" misplaced="YES" text="Description" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="270" translatesAutoresizingMaskIntoConstraints="NO" id="6IK-UH-igM" userLabel="description">
+                        <rect key="frame" x="25" y="50" width="277" height="25"/>
+                        <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="14"/>
+                        <color key="textColor" red="0.9748883928571429" green="0.9748883928571429" blue="0.9748883928571429" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iPp-cQ-eur" userLabel="hoursView">
-                        <rect key="frame" x="30" y="72" width="257" height="146"/>
+                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iPp-cQ-eur" userLabel="hoursView">
+                        <rect key="frame" x="28" y="90" width="262" height="167"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="Monday:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M1C-mW-c0j" userLabel="Monday:">
-                                <rect key="frame" x="14" y="10" width="90" height="18"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="Monday" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M1C-mW-c0j" userLabel="Monday:">
+                                <rect key="frame" x="14" y="10" width="90" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="90" id="glh-sA-Hhm"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="15"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="&lt;monday hours>" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="abe-1f-5bl" userLabel="&lt;monday hours>">
-                                <rect key="frame" x="109" y="11" width="134" height="17"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                <rect key="frame" x="109" y="11" width="139" height="20"/>
+                                <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="14"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;tuesday hours>" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7AJ-Zp-HTO" userLabel="&lt;tuesday hours>">
-                                <rect key="frame" x="109" y="29" width="134" height="17"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                <rect key="frame" x="109" y="32" width="139" height="20"/>
+                                <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="14"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wednesday:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yDR-12-T94">
-                                <rect key="frame" x="14" y="46" width="90" height="18"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wednesday" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yDR-12-T94">
+                                <rect key="frame" x="14" y="52" width="90" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="90" id="yvo-tV-SGK"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="15"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;wednesday hours>" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DjN-vt-qMM">
-                                <rect key="frame" x="109" y="47" width="134" height="17"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                <rect key="frame" x="109" y="53" width="139" height="20"/>
+                                <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="14"/>
                                 <color key="textColor" white="1" alpha="0.96999999999999997" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thursday:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yfs-5G-AOc">
-                                <rect key="frame" x="14" y="64" width="90" height="18"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thursday" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yfs-5G-AOc">
+                                <rect key="frame" x="14" y="73" width="90" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="90" id="qFG-iu-3Qa"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="15"/>
                                 <color key="textColor" white="1" alpha="0.96999999999999997" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;saturday hours>" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n1H-bV-sOi">
-                                <rect key="frame" x="109" y="101" width="134" height="17"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                <rect key="frame" x="109" y="116" width="139" height="20"/>
+                                <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="14"/>
                                 <color key="textColor" white="1" alpha="0.96999999999999997" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;sunday hours>" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xkn-nw-zog">
-                                <rect key="frame" x="109" y="119" width="134" height="17"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                <rect key="frame" x="109" y="137" width="139" height="20"/>
+                                <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="14"/>
                                 <color key="textColor" white="1" alpha="0.96999999999999997" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sunday:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vFg-mf-DBq">
-                                <rect key="frame" x="14" y="118" width="90" height="18"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sunday" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vFg-mf-DBq">
+                                <rect key="frame" x="14" y="136" width="90" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="90" id="rih-Lj-Rvu"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="15"/>
                                 <color key="textColor" white="1" alpha="0.96999999999999997" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Saturday:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aVR-jf-M1n">
-                                <rect key="frame" x="14" y="100" width="90" height="18"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Saturday" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aVR-jf-M1n">
+                                <rect key="frame" x="14" y="115" width="90" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="90" id="0zW-kH-Bqp"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="15"/>
                                 <color key="textColor" white="1" alpha="0.96999999999999997" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;friday hours>" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Obi-sZ-JWQ">
-                                <rect key="frame" x="109" y="83" width="134" height="17"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                <rect key="frame" x="109" y="95" width="139" height="20"/>
+                                <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="14"/>
                                 <color key="textColor" white="1" alpha="0.96999999999999997" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Friday:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oKO-em-EZL">
-                                <rect key="frame" x="14" y="82" width="90" height="18"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Friday" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oKO-em-EZL">
+                                <rect key="frame" x="14" y="94" width="90" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="90" id="Ycl-rA-46Z"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="15"/>
                                 <color key="textColor" white="1" alpha="0.96999999999999997" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;thursday hours>" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1bF-Xz-iYX">
-                                <rect key="frame" x="109" y="65" width="134" height="17"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                <rect key="frame" x="109" y="74" width="139" height="20"/>
+                                <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="14"/>
                                 <color key="textColor" white="1" alpha="0.96999999999999997" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tuesday:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yPf-wy-ZzY">
-                                <rect key="frame" x="14" y="28" width="90" height="18"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tuesday" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yPf-wy-ZzY">
+                                <rect key="frame" x="14" y="31" width="90" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="90" id="fge-E2-smF"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="15"/>
                                 <color key="textColor" white="1" alpha="0.96999999999999997" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -205,6 +230,12 @@
                             </mask>
                         </variation>
                     </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" misplaced="YES" text="&lt;notice>" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="270" translatesAutoresizingMaskIntoConstraints="NO" id="rjy-gi-8nZ">
+                        <rect key="frame" x="25" y="267" width="277" height="20"/>
+                        <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="14"/>
+                        <color key="textColor" red="0.92329001909999997" green="0.92329001909999997" blue="0.92329001909999997" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 <constraints>
@@ -217,15 +248,20 @@
                     <constraint firstAttribute="trailing" secondItem="46c-0D-N8k" secondAttribute="trailing" id="EjR-7u-0xe"/>
                     <constraint firstAttribute="trailing" secondItem="6IK-UH-igM" secondAttribute="trailing" constant="15" id="GBn-ho-zpX"/>
                     <constraint firstItem="6L7-yi-tTg" firstAttribute="leading" secondItem="X7F-Ld-yAH" secondAttribute="leadingMargin" constant="29" id="GH0-be-bhJ"/>
+                    <constraint firstItem="rjy-gi-8nZ" firstAttribute="top" secondItem="iPp-cQ-eur" secondAttribute="bottom" constant="10" id="I6t-eN-f6W"/>
+                    <constraint firstAttribute="bottom" secondItem="rjy-gi-8nZ" secondAttribute="bottom" constant="20" id="ILv-ko-iVB"/>
                     <constraint firstItem="6L7-yi-tTg" firstAttribute="top" secondItem="X7F-Ld-yAH" secondAttribute="top" constant="10" id="QIL-ur-tDJ"/>
                     <constraint firstItem="6IK-UH-igM" firstAttribute="top" secondItem="46c-0D-N8k" secondAttribute="bottom" constant="6" id="YtH-zC-ico"/>
                     <constraint firstItem="6L7-yi-tTg" firstAttribute="leading" secondItem="X7F-Ld-yAH" secondAttribute="leading" constant="15" id="ba7-76-Ow6"/>
+                    <constraint firstItem="rjy-gi-8nZ" firstAttribute="leading" secondItem="X7F-Ld-yAH" secondAttribute="leading" constant="25" id="dUf-0t-eOH"/>
+                    <constraint firstAttribute="trailing" secondItem="rjy-gi-8nZ" secondAttribute="trailing" constant="15" id="q9B-hb-jyp"/>
                     <constraint firstAttribute="trailing" secondItem="6L7-yi-tTg" secondAttribute="trailing" constant="40" id="vdE-Vm-KaE"/>
                     <constraint firstItem="6IK-UH-igM" firstAttribute="leading" secondItem="X7F-Ld-yAH" secondAttribute="leading" constant="25" id="zaA-4B-xen"/>
                 </constraints>
                 <variation key="default">
                     <mask key="constraints">
                         <exclude reference="GH0-be-bhJ"/>
+                        <exclude reference="0Nz-Eu-fEZ"/>
                     </mask>
                 </variation>
             </tableViewCellContentView>
@@ -236,14 +272,15 @@
                 <outlet property="headerView" destination="46c-0D-N8k" id="1VI-Ee-Hr7"/>
                 <outlet property="hoursView" destination="iPp-cQ-eur" id="dPH-Bb-ofu"/>
                 <outlet property="mondayLabel" destination="abe-1f-5bl" id="99a-zq-RVc"/>
+                <outlet property="noticeLabel" destination="rjy-gi-8nZ" id="13E-CB-CK3"/>
                 <outlet property="saturdayLabel" destination="n1H-bV-sOi" id="fwe-6r-JRW"/>
                 <outlet property="sundayLabel" destination="xkn-nw-zog" id="c24-Sn-FXv"/>
                 <outlet property="thursdayLabel" destination="1bF-Xz-iYX" id="cyY-IN-yHM"/>
-                <outlet property="titleLabel" destination="6L7-yi-tTg" id="0eW-Hm-nir"/>
+                <outlet property="titleLabel" destination="6L7-yi-tTg" id="DUo-A5-glz"/>
                 <outlet property="tuesdayLabel" destination="7AJ-Zp-HTO" id="Ndi-99-BVU"/>
                 <outlet property="wednesdayLabel" destination="DjN-vt-qMM" id="iBR-Ce-RK0"/>
             </connections>
-            <point key="canvasLocation" x="-31.5" y="318"/>
+            <point key="canvasLocation" x="-31.5" y="348"/>
         </tableViewCell>
     </objects>
 </document>

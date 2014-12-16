@@ -567,6 +567,14 @@
             [foodData setFoodDescription:foodDescription];
         }
         
+        if ([[foodDictionary valueForKey:@"notice"] isKindOfClass:[NSNull class]]) {
+            [foodData setNotice:nil];
+        } else {
+            NSString *foodNotice = [foodDictionary valueForKey:@"notice"];
+            foodNotice = [foodNotice stringByDecodingHTMLEntities];
+            [foodData setNotice:foodNotice];
+        }
+        
         if ([[foodDictionary valueForKey:@"is_open_now"] isKindOfClass:[NSNull class]]) {
             [foodData setIsOpenNow:nil];
         } else {
