@@ -19,10 +19,10 @@
 #import "FoodDetailsView.h"
 #import "FoodDataFetcher.h"
 #import "FoodData.h"
-#import "DataProvider.h"
 #import "Constants.h"
 #import "PopupView.h"
 #import "LoadingView.h"
+#import "FoodDataParser.h"
 
 const float kWhiteOverlayOpacity = 0.75f;
 
@@ -399,7 +399,8 @@ const float kWhiteOverlayOpacity = 0.75f;
     NSArray *shortformArray = [self.mapViewController.shortformDictionary allKeys];
     
     NSError *error = nil;
-    NSDictionary *foodDataDictionary = [DataProvider foodDictionaryFromJson:foodData shortformArray:shortformArray error:&error];
+    
+    NSDictionary *foodDataDictionary = [FoodDataParser foodDictionaryFromJson:foodData shortformArray:shortformArray error:&error];
     
     if (error) {
         NSLog(@"parsing data failed with error: %@", [error localizedDescription]); //TODO: show error on app

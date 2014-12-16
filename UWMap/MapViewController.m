@@ -9,7 +9,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import "MapViewController.h"
 #import "PopupView.h"
-#import "DataProvider.h"
+#import "BuildingDataProvider.h"
 #import "Building.h"
 #import "Constants.h"
 #import "FoodData.h"
@@ -45,7 +45,7 @@ static const CGFloat kWidthOfPin = 50;
     
     self.scrollView.delegate = self;
     
-    self.locationDictionary = [DataProvider buildingDictionary];
+    self.locationDictionary = [BuildingDataProvider buildingDictionary];
 //    self.buildingTitlesArray = [self.locationDictionary allKeys];
     
     self.shortformDictionary = [[NSMutableDictionary alloc] init];
@@ -95,7 +95,7 @@ static const CGFloat kWidthOfPin = 50;
 }
 
 - (void)setupData {
-//    self.locationDictionary = [DataProvider buildingDictionary]; 
+//    self.locationDictionary = [BuildingDataProvider buildingDictionary]; 
 //    self.buildingTitlesArray = [self.locationDictionary allKeys];
 }
 

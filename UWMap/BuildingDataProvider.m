@@ -1,18 +1,16 @@
 //
-//  DataProvider.m
+//  BuildingDataProvider.m
 //  UWMap
 //
 //  Created by DEV FLOATER 119 on 10/23/14.
 //  Copyright (c) 2014 Joanne Deng. All rights reserved.
 //
 
-#import "DataProvider.h"
+#import "BuildingDataProvider.h"
 #import "Building.h"
 #import "Constants.h"
-#import "FoodData.h"
-#import "NSString+HTML.h"
 
-@implementation DataProvider
+@implementation BuildingDataProvider
 
 + (NSMutableDictionary *)buildingDictionary {
     NSString *al = @"Arts Lecture Hall";
@@ -111,9 +109,9 @@
     
     Building *BRH = [[Building alloc] initWithBuildingName:brh
                                                  shortform:@"BRH"
-                                                positionX:1940/kMapImageWidth
-                                                positionY:431/kMapImageHeight
-                                                    hours:@""];
+                                                 positionX:1940/kMapImageWidth
+                                                 positionY:431/kMapImageHeight
+                                                     hours:@""];
     
     Building *CGR = [[Building alloc] initWithBuildingName:cgr
                                                  shortform:@"CGR"
@@ -164,22 +162,22 @@
                                                      hours:@""];
     
     Building *DC = [[Building alloc] initWithBuildingName:dc
-                                                 shortform:@"DC"
-                                                 positionX:2960/kMapImageWidth
-                                                 positionY:1501/kMapImageHeight
-                                                     hours:@""];
-    
-    Building *DWE = [[Building alloc] initWithBuildingName:dwe
-                                                shortform:@"DWE"
-                                                positionX:3007/kMapImageWidth
-                                                positionY:2064/kMapImageHeight
+                                                shortform:@"DC"
+                                                positionX:2960/kMapImageWidth
+                                                positionY:1501/kMapImageHeight
                                                     hours:@""];
     
-    Building *E2 = [[Building alloc] initWithBuildingName:e2
-                                                 shortform:@"E2"
-                                                 positionX:3058/kMapImageWidth
-                                                 positionY:1936/kMapImageHeight
+    Building *DWE = [[Building alloc] initWithBuildingName:dwe
+                                                 shortform:@"DWE"
+                                                 positionX:3007/kMapImageWidth
+                                                 positionY:2064/kMapImageHeight
                                                      hours:@""];
+    
+    Building *E2 = [[Building alloc] initWithBuildingName:e2
+                                                shortform:@"E2"
+                                                positionX:3058/kMapImageWidth
+                                                positionY:1936/kMapImageHeight
+                                                    hours:@""];
     
     Building *E3 = [[Building alloc] initWithBuildingName:e3
                                                 shortform:@"E3"
@@ -200,10 +198,10 @@
                                                     hours:@""];
     
     Building *EC1 = [[Building alloc] initWithBuildingName:ec1
-                                                shortform:@"EC1"
-                                                positionX:3482/kMapImageWidth
-                                                positionY:1031/kMapImageHeight
-                                                    hours:@""];
+                                                 shortform:@"EC1"
+                                                 positionX:3482/kMapImageWidth
+                                                 positionY:1031/kMapImageHeight
+                                                     hours:@""];
     
     Building *EC2 = [[Building alloc] initWithBuildingName:ec2
                                                  shortform:@"EC2"
@@ -266,10 +264,10 @@
                                                      hours:@""];
     
     Building *GH = [[Building alloc] initWithBuildingName:gh
-                                                 shortform:@"GH"
-                                                 positionX:2864.000000/kMapImageWidth
-                                                 positionY:2033.000000/kMapImageHeight
-                                                     hours:@""];
+                                                shortform:@"GH"
+                                                positionX:2864.000000/kMapImageWidth
+                                                positionY:2033.000000/kMapImageHeight
+                                                    hours:@""];
     
     Building *GSC = [[Building alloc] initWithBuildingName:gsc
                                                  shortform:@"GSC"
@@ -278,10 +276,10 @@
                                                      hours:@""];
     
     Building *HH = [[Building alloc] initWithBuildingName:hh
-                                                 shortform:@"HH"
-                                                 positionX:2649.000000/kMapImageWidth
-                                                 positionY:2331.000000/kMapImageHeight
-                                                     hours:@""];
+                                                shortform:@"HH"
+                                                positionX:2649.000000/kMapImageWidth
+                                                positionY:2331.000000/kMapImageHeight
+                                                    hours:@""];
     
     Building *HMN = [[Building alloc] initWithBuildingName:hmn
                                                  shortform:@"HMN"
@@ -290,10 +288,10 @@
                                                      hours:@""];
     
     Building *HS = [[Building alloc] initWithBuildingName:hs
-                                                 shortform:@"HS"
-                                                 positionX:2280.000000/kMapImageWidth
-                                                 positionY:1575.000000/kMapImageHeight
-                                                     hours:@""];
+                                                shortform:@"HS"
+                                                positionX:2280.000000/kMapImageWidth
+                                                positionY:1575.000000/kMapImageHeight
+                                                    hours:@""];
     
     Building *KDC = [[Building alloc] initWithBuildingName:kdc
                                                  shortform:@"KDC"
@@ -308,22 +306,22 @@
                                                      hours:@""];
     
     Building *DP = [[Building alloc] initWithBuildingName:dp
-                                                 shortform:@"DP"
-                                                 positionX:2709.000000/kMapImageWidth
-                                                 positionY:1957.000000/kMapImageHeight
-                                                     hours:@""];
+                                                shortform:@"DP"
+                                                positionX:2709.000000/kMapImageWidth
+                                                positionY:1957.000000/kMapImageHeight
+                                                    hours:@""];
     
     Building *M3 = [[Building alloc] initWithBuildingName:m3
-                                                 shortform:@"M3"
-                                                 positionX:2758.000000/kMapImageWidth
-                                                 positionY:1319.000000/kMapImageHeight
-                                                     hours:@""];
+                                                shortform:@"M3"
+                                                positionX:2758.000000/kMapImageWidth
+                                                positionY:1319.000000/kMapImageHeight
+                                                    hours:@""];
     
     Building *MC = [[Building alloc] initWithBuildingName:mc
-                                                 shortform:@"MC"
-                                                 positionX:2708.000000/kMapImageWidth
-                                                 positionY:1502.000000/kMapImageHeight
-                                                     hours:@""];
+                                                shortform:@"MC"
+                                                positionX:2708.000000/kMapImageWidth
+                                                positionY:1502.000000/kMapImageHeight
+                                                    hours:@""];
     
     Building *MHR = [[Building alloc] initWithBuildingName:mhr
                                                  shortform:@"MHR"
@@ -338,16 +336,16 @@
                                                      hours:@""];
     
     Building *ML = [[Building alloc] initWithBuildingName:ml
-                                                 shortform:@"ML"
-                                                 positionX:2612.000000/kMapImageWidth
-                                                 positionY:2032.000000/kMapImageHeight
-                                                     hours:@""];
+                                                shortform:@"ML"
+                                                positionX:2612.000000/kMapImageWidth
+                                                positionY:2032.000000/kMapImageHeight
+                                                    hours:@""];
     
     Building *NH = [[Building alloc] initWithBuildingName:nh
-                                                 shortform:@"NH"
-                                                 positionX:2529.000000/kMapImageWidth
-                                                 positionY:1941.000000/kMapImageHeight
-                                                     hours:@""];
+                                                shortform:@"NH"
+                                                positionX:2529.000000/kMapImageWidth
+                                                positionY:1941.000000/kMapImageHeight
+                                                    hours:@""];
     
     Building *OPT = [[Building alloc] initWithBuildingName:opt
                                                  shortform:@"OPT"
@@ -422,42 +420,42 @@
                                                      hours:@""];
     
     Building *TC = [[Building alloc] initWithBuildingName:tc
-                                                 shortform:@"TC"
-                                                 positionX:2788.000000/kMapImageWidth
-                                                 positionY:2104.000000/kMapImageHeight
-                                                     hours:@""];
-    
-    Building *TH = [[Building alloc] initWithBuildingName:th
-                                                 shortform:@"TH"
-                                                 positionX:1536.000000/kMapImageWidth
-                                                 positionY:1266.000000/kMapImageHeight
-                                                     hours:@""];
-    
-    Building *WCP = [[Building alloc] initWithBuildingName:wcp
-                                                shortform:@"WCP"
-                                                positionX:4205.000000/kMapImageWidth
-                                                positionY:2119.000000/kMapImageHeight
+                                                shortform:@"TC"
+                                                positionX:2788.000000/kMapImageWidth
+                                                positionY:2104.000000/kMapImageHeight
                                                     hours:@""];
     
-    Building *UC = [[Building alloc] initWithBuildingName:uc
-                                                 shortform:@"UC"
-                                                 positionX:2321.000000/kMapImageWidth
-                                                 positionY:1217.000000/kMapImageHeight
+    Building *TH = [[Building alloc] initWithBuildingName:th
+                                                shortform:@"TH"
+                                                positionX:1536.000000/kMapImageWidth
+                                                positionY:1266.000000/kMapImageHeight
+                                                    hours:@""];
+    
+    Building *WCP = [[Building alloc] initWithBuildingName:wcp
+                                                 shortform:@"WCP"
+                                                 positionX:4205.000000/kMapImageWidth
+                                                 positionY:2119.000000/kMapImageHeight
                                                      hours:@""];
+    
+    Building *UC = [[Building alloc] initWithBuildingName:uc
+                                                shortform:@"UC"
+                                                positionX:2321.000000/kMapImageWidth
+                                                positionY:1217.000000/kMapImageHeight
+                                                    hours:@""];
     
     
     Building *UWP = [[Building alloc] initWithBuildingName:uwp
-                                                shortform:@"UWP"
-                                                positionX:3662.000000/kMapImageWidth
-                                                positionY:2197.000000/kMapImageHeight
-                                                    hours:@""];
+                                                 shortform:@"UWP"
+                                                 positionX:3662.000000/kMapImageWidth
+                                                 positionY:2197.000000/kMapImageHeight
+                                                     hours:@""];
     
     Building *V1 = [[Building alloc] initWithBuildingName:v1
                                                 shortform:@"V1"
                                                 positionX:1923.000000/kMapImageWidth
                                                 positionY:1213.000000/kMapImageHeight
                                                     hours:@""];
- 
+    
     NSMutableDictionary *buildingDictionary = [[NSMutableDictionary alloc] init];
     [buildingDictionary setValue:AL forKey:al];
     [buildingDictionary setValue:B1 forKey:b1];
@@ -525,166 +523,5 @@
     
     return buildingDictionary;
 }
-
-//todo: move this elsewhere
-+ (NSMutableDictionary *)foodDictionaryFromJson:(NSData *)data shortformArray:(NSArray *)shortformArray error:(NSError **)error {
-    NSError *localError = nil;
-    NSDictionary *parsedObject = [NSJSONSerialization JSONObjectWithData:data options:0 error:&localError];
-    
-    if (localError != nil) {
-        *error = localError;
-        return nil;
-    }
-    
-    NSMutableDictionary *foodDataDictionary = [[NSMutableDictionary alloc] init];
-    NSDictionary *foodsDictionary = [parsedObject valueForKey:@"data"];
-    
-    for (NSDictionary *foodDictionary in foodsDictionary) {
-        FoodData *foodData = [[FoodData alloc] init];
-        
-        //don't include this location if it's not on our map
-        NSString *building = [foodDictionary valueForKey:@"building"];
-        if (![shortformArray containsObject:building]) {
-            continue;
-        }
-        [foodData setBuilding:building];
-        
-        NSString *adjustedString =  [[foodDictionary valueForKey:@"outlet_name"] stringByReplacingOccurrencesOfString:@"U" withString:@"u"];//TODO:must change this later..
-        
-        [foodData setTitle:adjustedString];
-
-        if ([[foodDictionary valueForKey:@"logo"] isKindOfClass:[NSNull class]]) {
-            [foodData setImageUrl:nil];
-        } else {
-            [foodData setImageUrl:[foodDictionary valueForKey:@"logo"]];
-        }
-        
-        if ([[foodDictionary valueForKey:@"description"] isKindOfClass:[NSNull class]]) {
-            [foodData setFoodDescription:nil];
-        } else {
-            NSString *foodDescription = [foodDictionary valueForKey:@"description"];
-            foodDescription = [foodDescription stringByDecodingHTMLEntities];
-            [foodData setFoodDescription:foodDescription];
-        }
-        
-        if ([[foodDictionary valueForKey:@"notice"] isKindOfClass:[NSNull class]]) {
-            [foodData setNotice:nil];
-        } else {
-            NSString *foodNotice = [foodDictionary valueForKey:@"notice"];
-            foodNotice = [foodNotice stringByDecodingHTMLEntities];
-            [foodData setNotice:foodNotice];
-        }
-        
-        if ([[foodDictionary valueForKey:@"is_open_now"] isKindOfClass:[NSNull class]]) {
-            [foodData setIsOpenNow:nil];
-        } else {
-            [foodData setIsOpenNow:[foodDictionary valueForKey:@"is_open_now"]];
-        }
-        
-        NSDictionary *hoursDictionary = [foodDictionary valueForKey:@"opening_hours"];
-        
-        NSDictionary *mondayHours = [hoursDictionary valueForKey:@"monday"];
-        
-        if ([[mondayHours valueForKey:@"opening_hour"] isKindOfClass:[NSNull class]]) {
-            [foodData setMondayOpen:nil];
-        } else {
-            [foodData setMondayOpen:[mondayHours valueForKey:@"opening_hour"]];
-        }
-        
-        if ([[mondayHours valueForKey:@"closing_hour"] isKindOfClass:[NSNull class]]) {
-            [foodData setMondayClose:nil];
-        } else {
-            [foodData setMondayClose:[mondayHours valueForKey:@"closing_hour"]];
-        }
-        
-        NSDictionary *tuesdayHours = [hoursDictionary valueForKey:@"tuesday"];
-
-        if ([[tuesdayHours valueForKey:@"opening_hour"] isKindOfClass:[NSNull class]]) {
-            [foodData setTuesdayOpen:nil];
-        } else {
-            [foodData setTuesdayOpen:[tuesdayHours valueForKey:@"opening_hour"]];
-        }
-        
-        if ([[tuesdayHours valueForKey:@"closing_hour"] isKindOfClass:[NSNull class]]) {
-            [foodData setTuesdayClose:nil];
-        } else {
-            [foodData setTuesdayClose:[tuesdayHours valueForKey:@"closing_hour"]];
-        }
-    
-        NSDictionary *wednesdayHours = [hoursDictionary valueForKey:@"wednesday"];
-        
-        if ([[wednesdayHours valueForKey:@"opening_hour"] isKindOfClass:[NSNull class]]) {
-            [foodData setWednesdayOpen:nil];
-        } else {
-            [foodData setWednesdayOpen:[wednesdayHours valueForKey:@"opening_hour"]];
-        }
-    
-        if ([[wednesdayHours valueForKey:@"closing_hour"] isKindOfClass:[NSNull class]]) {
-            [foodData setWednesdayClose:nil];
-        } else {
-            [foodData setWednesdayClose:[wednesdayHours valueForKey:@"closing_hour"]];
-        }
-    
-        NSDictionary *thursdayHours = [hoursDictionary valueForKey:@"thursday"];
-
-        if ([[thursdayHours valueForKey:@"opening_hour"] isKindOfClass:[NSNull class]]) {
-            [foodData setThursdayOpen:nil];
-        } else {
-            [foodData setThursdayOpen:[thursdayHours valueForKey:@"opening_hour"]];
-        }
-        
-        if ([[thursdayHours valueForKey:@"closing_hour"] isKindOfClass:[NSNull class]]) {
-            [foodData setThursdayClose:nil];
-        } else {
-            [foodData setThursdayClose:[thursdayHours valueForKey:@"closing_hour"]];
-        }
-        
-        NSDictionary *fridayHours = [hoursDictionary valueForKey:@"friday"];
-        
-        if ([[fridayHours valueForKey:@"opening_hour"] isKindOfClass:[NSNull class]]) {
-            [foodData setFridayOpen:nil];
-        } else {
-            [foodData setFridayOpen:[fridayHours valueForKey:@"opening_hour"]];
-        }
-        
-        if ([[fridayHours valueForKey:@"closing_hour"] isKindOfClass:[NSNull class]]) {
-            [foodData setFridayClose:nil];
-        } else {
-            [foodData setFridayClose:[fridayHours valueForKey:@"closing_hour"]];
-        }
-        
-        NSDictionary *saturdayHours = [hoursDictionary valueForKey:@"saturday"];
-        
-        if ([[saturdayHours valueForKey:@"opening_hour"] isKindOfClass:[NSNull class]]) {
-            [foodData setSaturdayOpen:nil];
-        } else {
-            [foodData setSaturdayOpen:[saturdayHours valueForKey:@"opening_hour"]];
-        }
-        
-        if ([[saturdayHours valueForKey:@"closing_hour"] isKindOfClass:[NSNull class]]) {
-            [foodData setSaturdayClose:nil];
-        } else {
-            [foodData setSaturdayClose:[saturdayHours valueForKey:@"closing_hour"]];
-        }
-                                    
-        NSDictionary *sundayHours = [hoursDictionary valueForKey:@"sunday"];
-        
-        if ([[sundayHours valueForKey:@"opening_hour"] isKindOfClass:[NSNull class]]) {
-            [foodData setSundayOpen:nil];
-        } else {
-            [foodData setSundayOpen:[sundayHours valueForKey:@"opening_hour"]];
-        }
-        
-        if ([[sundayHours valueForKey:@"closing_hour"] isKindOfClass:[NSNull class]]) {
-            [foodData setSundayClose:nil];
-        } else {
-            [foodData setSundayClose:[sundayHours valueForKey:@"closing_hour"]];
-        }
-        
-        [foodDataDictionary setValue:foodData forKey:foodData.title];
-    }
-    return foodDataDictionary;
-}
-
 
 @end

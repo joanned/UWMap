@@ -7,6 +7,7 @@
 		<string>OpenSans-Regular.ttf</string>
 		<string>OpenSans-Bold.ttf</string>
 		<string>OpenSans-Light.ttf</string>
+		<string>OpenSans-Semibold.ttf</string>
 	</array>
 	<key>CFBundleGetInfoString</key>
 	<string></string>

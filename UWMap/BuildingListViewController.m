@@ -7,7 +7,7 @@
 //
 
 #import "BuildingListViewController.h"
-#import "DataProvider.h"
+#import "BuildingDataProvider.h"
 #import "Building.h"
 #import "FoodDataFetcher.h" //TODO: needed??
 #import "FoodData.h"
@@ -49,7 +49,7 @@ const CGFloat kOpacityForUnselectedButton = 0.5f;
     
     self.tableView.contentInset = UIEdgeInsetsMake(50, 0, 0, 0); //TODO: change 50 to dynamic number
     
-    self.locationDictionary = [DataProvider buildingDictionary];
+    self.locationDictionary = [BuildingDataProvider buildingDictionary];
     self.buildingsArray = [self.locationDictionary allValues];
     
     NSSortDescriptor *valueDescriptor = [[NSSortDescriptor alloc] initWithKey:@"title" ascending:YES];
