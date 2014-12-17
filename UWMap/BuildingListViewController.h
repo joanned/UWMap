@@ -28,5 +28,6 @@
 
 - (void)reloadTableWithText:(NSString *)searchText showFullList:(BOOL)showFullList;
 - (void)foodDictionaryLoaded:(NSDictionary *)foodDictionary;
+- (void)foodLoadingFailed;
 
 @end

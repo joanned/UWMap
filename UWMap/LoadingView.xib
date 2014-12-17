@@ -13,36 +13,36 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" restorationIdentifier="LoadingView" id="iN0-l3-epB" customClass="LoadingView">
-            <rect key="frame" x="0.0" y="0.0" width="185" height="35"/>
+            <rect key="frame" x="0.0" y="0.0" width="219" height="35"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading food content..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C9x-yM-BQv">
-                    <rect key="frame" x="8" y="9" width="142" height="18"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unable to load food content" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C9x-yM-BQv">
+                    <rect key="frame" x="10" y="9" width="178" height="18"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="142" id="IVN-VO-fIV"/>
+                        <constraint firstAttribute="width" constant="178" id="IVN-VO-fIV"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="13"/>
                     <color key="textColor" red="0.86730707910000004" green="0.86730707910000004" blue="0.86730707910000004" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="n9r-Sx-bhk">
-                    <rect key="frame" x="157" y="8" width="20" height="19"/>
+                    <rect key="frame" x="191" y="8" width="20" height="19"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="20" id="pK5-Se-FBK"/>
                     </constraints>
                 </activityIndicatorView>
                 <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z33-Xl-f2q">
-                    <rect key="frame" x="157" y="0.0" width="28" height="35"/>
+                    <rect key="frame" x="187" y="0.0" width="28" height="35"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="28" id="PaX-Lh-RtN"/>
                     </constraints>
-                    <state key="normal" image="refresh">
+                    <state key="normal" image="closesmall">
                         <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <color key="titleShadowColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
-                        <action selector="refreshButtonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="Aze-sN-Gpw"/>
+                        <action selector="closeButtonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="Aze-sN-Gpw"/>
                     </connections>
                 </button>
             </subviews>
@@ -54,10 +54,10 @@
                 <constraint firstAttribute="centerY" secondItem="C9x-yM-BQv" secondAttribute="centerY" id="AX9-lV-kda"/>
                 <constraint firstAttribute="bottom" secondItem="z33-Xl-f2q" secondAttribute="bottom" id="D9F-cU-j3Q"/>
                 <constraint firstItem="C9x-yM-BQv" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="Fit-BT-jaV"/>
-                <constraint firstAttribute="trailing" secondItem="z33-Xl-f2q" secondAttribute="trailing" id="dya-Bl-QXU"/>
+                <constraint firstAttribute="trailing" secondItem="z33-Xl-f2q" secondAttribute="trailing" constant="4" id="dya-Bl-QXU"/>
                 <constraint firstAttribute="bottom" secondItem="C9x-yM-BQv" secondAttribute="bottom" constant="6" id="h91-Ob-zrv"/>
                 <constraint firstItem="z33-Xl-f2q" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="oc3-kA-W4Q"/>
-                <constraint firstItem="C9x-yM-BQv" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="zwg-SY-jPp"/>
+                <constraint firstItem="C9x-yM-BQv" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="zwg-SY-jPp"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -72,10 +72,10 @@
                 <outlet property="loadingLabel" destination="C9x-yM-BQv" id="0Qc-To-KK8"/>
                 <outlet property="refreshButton" destination="z33-Xl-f2q" id="WzJ-2Y-Kpa"/>
             </connections>
-            <point key="canvasLocation" x="312.5" y="130.5"/>
+            <point key="canvasLocation" x="295.5" y="130.5"/>
         </view>
     </objects>
     <resources>
-        <image name="refresh" width="40" height="40"/>
+        <image name="closesmall" width="40" height="40"/>
     </resources>
 </document>

@@ -37,6 +37,8 @@
 
 @property (nonatomic, strong) UIActivityIndicatorView *spinner;
 
+@property (nonatomic, strong) UILabel *unableToLoadLabel;
+
 @end
 
 const CGFloat kOpacityForUnselectedButton = 0.5f;
@@ -102,6 +104,8 @@ const CGFloat kOpacityForUnselectedButton = 0.5f;
     if (self.isShowingBuildings == YES) {
         self.isShowingBuildings = NO;
         
+        [self.unableToLoadLabel setHidden:NO];
+        
         self.sliderConstraint.constant = self.foodButton.frame.size.width;
         [UIView animateWithDuration:0.2f animations:^{
             [self.view layoutIfNeeded];
@@ -111,11 +115,14 @@ const CGFloat kOpacityForUnselectedButton = 0.5f;
         
         if (self.foodDictionary != nil) {
             [self.tableView reloadData];
-        } else if (self.failedToLoadFood == YES) {
-            self.tableView.hidden = YES;
-            //SHOW SOME TEXT AND REFRESH BUTTON OR SOMETHING ~~~~~~ OR USE THE LOADING NIB TODOTODO
         } else {
-            [self showLoadingSpinner];
+            self.tableView.hidden = YES;
+            
+            if (self.unableToLoadLabel == nil) {
+                [self showLoadingSpinner];
+            } else {
+                [self.view addSubview:self.unableToLoadLabel];
+            }
         }
     }
 }
@@ -123,6 +130,9 @@ const CGFloat kOpacityForUnselectedButton = 0.5f;
 - (IBAction)buildingButtonTapped:(id)sender {
     if (self.isShowingBuildings == NO) {
         self.isShowingBuildings = YES;
+        
+        [self.unableToLoadLabel setHidden:YES];
+        
         [self hideLoadingSpinner];
         
         self.sliderConstraint.constant = 0;
@@ -160,6 +170,25 @@ const CGFloat kOpacityForUnselectedButton = 0.5f;
     self.foodTitlesArray = [self.foodTitlesArray sortedArrayUsingDescriptors:descriptors];
     
     [self hideLoadingSpinner];
+}
+
+- (void)foodLoadingFailed {
+    [self hideLoadingSpinner];
+    [self setupLoadingFailedLabel];
+}
+
+- (void)setupLoadingFailedLabel {
+    self.unableToLoadLabel = [[UILabel alloc] init];
+    NSString *loadingString = @"Unable to load food content";
+    UIFont *font = [UIFont fontWithName:@"OpenSans" size:16.0f];
+    
+    [self.unableToLoadLabel setText:loadingString];
+    [self.unableToLoadLabel setFont:font];
+    [self.unableToLoadLabel setTextColor:[UIColor grayColor]];
+    
+    CGSize stringSize =  [loadingString sizeWithAttributes:@{NSFontAttributeName : font}];
+    [self.unableToLoadLabel setFrame:CGRectMake(0, 0, stringSize.width, stringSize.height)];
+    [self.unableToLoadLabel setCenter:self.view.center];
 }
 
 

@@ -89,8 +89,19 @@ const float kWhiteOverlayOpacity = 0.75f;
     [self setupLoadingView];
 }
 
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    if (self.foodDictionary == nil) {
+        [self.foodDataFetcher getFoodData];
+        [self showLoadingState];
+    }
+}
+
 - (void)showTableView {
     [self setBlurredBackground];
+    
+    self.loadingView.hidden = YES;
     
     [self.iconImage setImage:[UIImage imageNamed:@"mapIcon"]];
 
@@ -98,10 +109,7 @@ const float kWhiteOverlayOpacity = 0.75f;
     [self addChildViewController:self.buildingListViewController];
     self.buildingListViewController.view.frame = [self.containerView bounds];
     
-    [UIView animateWithDuration:2 delay:0 options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
-        
-        [self.containerView addSubview:self.buildingListViewController.view];
-    } completion:nil];
+    [self.containerView addSubview:self.buildingListViewController.view];
     
     [self.buildingListViewController didMoveToParentViewController:self];
     
@@ -176,7 +184,7 @@ const float kWhiteOverlayOpacity = 0.75f;
     NSArray *subviewArray = [[NSBundle mainBundle] loadNibNamed:@"LoadingView" owner:self options:nil];
     self.loadingView = [subviewArray firstObject];
     self.loadingView.delegate = self;
-    self.loadingView.center = CGPointMake(self.view.center.x, [[UIScreen mainScreen] bounds].size.height - self.loadingView.frame.size.height);
+    self.loadingView.center = CGPointMake(self.view.center.x, [[UIScreen mainScreen] bounds].size.height - self.loadingView.frame.size.height / 2.0f);
     [self.view addSubview:self.loadingView];
     [self showLoadingState];
 }
@@ -189,7 +197,7 @@ const float kWhiteOverlayOpacity = 0.75f;
 }
 
 - (void)showLoadingFailedState {
-    self.loadingView.loadingLabel.text = @"Failed to load content";
+    self.loadingView.loadingLabel.text = @"Unable to load food content";
     [self.loadingView.loadingIndicator stopAnimating];
     self.loadingView.loadingIndicator.hidden = YES;
     self.loadingView.refreshButton.hidden = NO;
@@ -372,8 +380,8 @@ const float kWhiteOverlayOpacity = 0.75f;
 - (void)setupFetchingFoodData {
     self.foodDataFetcher = [[FoodDataFetcher alloc] init];
     self.foodDataFetcher.delegate = self;
-    [self.foodDataFetcher getFoodData];
-    [self showLoadingState];
+//    [self.foodDataFetcher getFoodData];todo
+//    [self showLoadingState];
 }
 
 - (void)foodDataFinishedLoading:(NSData *)foodData {
@@ -391,8 +399,10 @@ const float kWhiteOverlayOpacity = 0.75f;
 }
 
 - (void)foodDataFailedToLoad {
-    self.buildingListViewController.failedToLoadFood = YES; //todo: change later
-    [self showLoadingFailedState];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.buildingListViewController foodLoadingFailed];
+        [self showLoadingFailedState];
+    });
 }
 
 - (NSDictionary *)parseData:(NSData *)foodData { //TODO: put this elsewhere
@@ -436,9 +446,13 @@ const float kWhiteOverlayOpacity = 0.75f;
 
 #pragma mark - <LoadingViewDelegate>
 
-- (void)refreshButtonTapped {
-    [self.foodDataFetcher getFoodData];
-    [self showLoadingState];
+- (void)closeButtonTapped {
+    [UIView animateWithDuration:0.25f animations:^{
+        self.loadingView.alpha = 0;
+    } completion:^(BOOL finished) {
+        self.loadingView.alpha = 1.0f;
+        [self.loadingView removeFromSuperview];
+    }];
 }
 
 @end

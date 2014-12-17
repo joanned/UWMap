@@ -10,7 +10,7 @@
 
 @protocol LoadingViewDelegate <NSObject>
 
-- (void)refreshButtonTapped;
+- (void)closeButtonTapped;
 
 @end
 

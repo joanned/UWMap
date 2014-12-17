@@ -17,9 +17,9 @@
     self.layer.masksToBounds = YES;
 }
 
-- (IBAction)refreshButtonTapped:(id)sender {
-    if ([self.delegate respondsToSelector:@selector(refreshButtonTapped)]) {
-        [self.delegate refreshButtonTapped];
+- (IBAction)closeButtonTapped:(id)sender {
+    if ([self.delegate respondsToSelector:@selector(closeButtonTapped)]) {
+        [self.delegate closeButtonTapped];
     }
 }
 
