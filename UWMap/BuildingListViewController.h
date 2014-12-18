@@ -12,7 +12,7 @@
 
 - (void)selectedCellWithLabel:(NSString *)label;
 - (void)dismissKeyboard;
-
+- (void)reloadFoodData;
 
 @end
 

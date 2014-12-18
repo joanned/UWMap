@@ -9,10 +9,9 @@
 #import "BuildingListViewController.h"
 #import "BuildingDataProvider.h"
 #import "Building.h"
-#import "FoodDataFetcher.h" //TODO: needed??
 #import "FoodData.h"
 
-@interface BuildingListViewController () <FoodDataFetcherDelegate>
+@interface BuildingListViewController ()
 
 //TODO: prob dont need to store dictionaries everywhere zz
 @property (nonatomic, strong) NSDictionary *foodDictionary;
@@ -74,6 +73,11 @@ const CGFloat kOpacityForUnselectedButton = 0.5f;
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(viewDidBecomeActive:)
+                                                 name:UIApplicationDidBecomeActiveNotification
+                                               object:nil];
+    
     if (self.showCombinedList) {
         self.foodButton.hidden = YES;
         self.buildingButton.hidden = YES;
@@ -84,8 +88,29 @@ const CGFloat kOpacityForUnselectedButton = 0.5f;
         self.horizontalSpaceBetweenButtonAndTable.constant = 0;
     }
     
+    if (self.foodDictionary != nil) {
+        self.foodFilteredArray = [self.foodTitlesArray mutableCopy];
+    }
+    
     self.filteredArray = [self.buildingsArray mutableCopy];
-    self.foodFilteredArray = [self.foodTitlesArray mutableCopy];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (void)viewDidBecomeActive:(NSNotification *)notification {
+    if (self.foodDictionary == nil && !self.isShowingBuildings) {
+        [self.unableToLoadLabel removeFromSuperview];
+        
+        [self showLoadingSpinner];
+
+        if ([self.delegate respondsToSelector:@selector(reloadFoodData)]) {
+            [self.delegate reloadFoodData];
+        }
+    }
 }
 
 #pragma mark - Button stuff
@@ -117,12 +142,6 @@ const CGFloat kOpacityForUnselectedButton = 0.5f;
             [self.tableView reloadData];
         } else {
             self.tableView.hidden = YES;
-            
-            if (self.unableToLoadLabel == nil) {
-                [self showLoadingSpinner];
-            } else {
-                [self.view addSubview:self.unableToLoadLabel];
-            }
         }
     }
 }
@@ -142,6 +161,7 @@ const CGFloat kOpacityForUnselectedButton = 0.5f;
             self.buildingButton.alpha = 1.0f;
         }];
         
+        self.tableView.hidden = NO;
         [self.tableView reloadData];
     }
 }
@@ -150,10 +170,16 @@ const CGFloat kOpacityForUnselectedButton = 0.5f;
     self.tableView.hidden = YES;
     [self.view addSubview:self.spinner];
     [self.spinner startAnimating];
+    
+    self.unableToLoadLabel.hidden = YES;
 }
 
 - (void)hideLoadingSpinner {
-    self.tableView.hidden = NO;
+    if (self.foodDictionary != nil) {
+        self.tableView.hidden = NO;
+        [self.unableToLoadLabel removeFromSuperview];
+    }
+    
     [self.spinner stopAnimating];
     [self.spinner removeFromSuperview];
 }
@@ -169,26 +195,38 @@ const CGFloat kOpacityForUnselectedButton = 0.5f;
     NSArray *descriptors = [NSArray arrayWithObject:valueDescriptor];
     self.foodTitlesArray = [self.foodTitlesArray sortedArrayUsingDescriptors:descriptors];
     
+    self.foodFilteredArray = [self.foodTitlesArray mutableCopy];
+    
+    [self.tableView reloadData];
+    
     [self hideLoadingSpinner];
+    [self.unableToLoadLabel removeFromSuperview];
 }
 
 - (void)foodLoadingFailed {
     [self hideLoadingSpinner];
     [self setupLoadingFailedLabel];
+    [self.view addSubview:self.unableToLoadLabel];
+    
+    if (self.isShowingBuildings) {
+        self.unableToLoadLabel.hidden = YES;
+    }
 }
 
 - (void)setupLoadingFailedLabel {
-    self.unableToLoadLabel = [[UILabel alloc] init];
-    NSString *loadingString = @"Unable to load food content";
-    UIFont *font = [UIFont fontWithName:@"OpenSans" size:16.0f];
-    
-    [self.unableToLoadLabel setText:loadingString];
-    [self.unableToLoadLabel setFont:font];
-    [self.unableToLoadLabel setTextColor:[UIColor grayColor]];
-    
-    CGSize stringSize =  [loadingString sizeWithAttributes:@{NSFontAttributeName : font}];
-    [self.unableToLoadLabel setFrame:CGRectMake(0, 0, stringSize.width, stringSize.height)];
-    [self.unableToLoadLabel setCenter:self.view.center];
+    if (self.unableToLoadLabel == nil) {
+        self.unableToLoadLabel = [[UILabel alloc] init];
+        NSString *loadingString = @"Unable to load food content";
+        UIFont *font = [UIFont fontWithName:@"OpenSans" size:16.0f];
+        
+        [self.unableToLoadLabel setText:loadingString];
+        [self.unableToLoadLabel setFont:font];
+        [self.unableToLoadLabel setTextColor:[UIColor grayColor]];
+        
+        CGSize stringSize =  [loadingString sizeWithAttributes:@{NSFontAttributeName : font}];
+        [self.unableToLoadLabel setFrame:CGRectMake(0, 0, stringSize.width, stringSize.height)];
+        [self.unableToLoadLabel setCenter:self.view.center];
+    }
 }
 
 

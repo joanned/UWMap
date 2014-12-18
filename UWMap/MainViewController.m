@@ -89,15 +89,6 @@ const float kWhiteOverlayOpacity = 0.75f;
     [self setupLoadingView];
 }
 
--(void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    
-    if (self.foodDictionary == nil) {
-        [self.foodDataFetcher getFoodData];
-        [self showLoadingState];
-    }
-}
-
 - (void)showTableView {
     [self setBlurredBackground];
     
@@ -263,6 +254,10 @@ const float kWhiteOverlayOpacity = 0.75f;
     [self.view endEditing:YES];
 }
 
+- (void)reloadFoodData {
+    [self.foodDataFetcher getFoodData];
+}
+
 #pragma  mark - <UISearchBarDelegate>
 
 - (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
@@ -380,8 +375,8 @@ const float kWhiteOverlayOpacity = 0.75f;
 - (void)setupFetchingFoodData {
     self.foodDataFetcher = [[FoodDataFetcher alloc] init];
     self.foodDataFetcher.delegate = self;
-//    [self.foodDataFetcher getFoodData];todo
-//    [self showLoadingState];
+    [self.foodDataFetcher getFoodData];
+    [self showLoadingState];
 }
 
 - (void)foodDataFinishedLoading:(NSData *)foodData {
