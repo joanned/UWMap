@@ -11,7 +11,6 @@
 
 @protocol MapViewControllerDelegate <NSObject>
 
-- (void)subviewTappedWithLabel:(NSString *)label;
 - (void)foodPopupTappedWithTitle:(NSString *)title;
 - (void)foodPopupTappedWithArray:(NSMutableArray *)array;
 
@@ -26,8 +25,6 @@
 - (CGPoint)makePointFromBuildingKey:(NSString *)locationKey isFromTable:(BOOL)isFromTable;
 - (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView;
 - (void)showDetails:(CGPoint)locationRect withLabel:(NSString *)label;
-//- (CGRect)findRectFromKey:(NSString *)locationKey;
-//- (NSValue *)findPointFromKey:(NSString *)locationKey;
 - (void)adjustViewWithPoint:(CGPoint)locationPoint;
 - (void)setupData;
 - (void)showFoodIconsOnMap:(NSDictionary *)foodDictionary;

@@ -58,8 +58,6 @@ const float kWhiteOverlayOpacity = 0.75f;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-//    self.foodDictionary = [[NSDictionary alloc] init];
-    
     self.mapViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:NSStringFromClass([MapViewController class])];
     
     self.isOnMapView = YES;
@@ -323,29 +321,21 @@ const float kWhiteOverlayOpacity = 0.75f;
     [self.view addSubview:self.foodDetailsView];
     
     self.foodDetailsView.alpha = 0;
-    self.foodDetailsView.transform = CGAffineTransformMakeScale(0.8, 0.8); //UP DOWN INSTEAD???
+    self.foodDetailsView.transform = CGAffineTransformMakeScale(0.8, 0.8);
     
     [UIView animateWithDuration:0.25f delay:0.0f options:UIViewAnimationOptionBeginFromCurrentState animations:^{
-//        self.whiteView.alpha = 0.6f;
         self.foodDetailsView.alpha = 1.0f;
         self.foodDetailsView.transform = CGAffineTransformMakeScale(1.0f, 1.0f);
     } completion:nil];
 
 }
 
-- (void)hideFoodDetailsView {
-//    [UIView animateWithDuration:0.25f delay:0.0f options:UIViewAnimationOptionBeginFromCurrentState animations:^{
-//        self.whiteView.alpha = 0;
-//    } completion:nil];
-    CGRect currentFoodViewFrame = self.foodDetailsView.frame;
-    
+- (void)hideFoodDetailsView {    
     if (self.foodDetailsView) {
         [UIView animateWithDuration:0.25f
                          animations:^{
                              self.foodDetailsView.alpha = 0;
-                             self.foodDetailsView.frame = CGRectMake(currentFoodViewFrame.origin.x, currentFoodViewFrame.origin.y + 12.0f, currentFoodViewFrame.size.width, currentFoodViewFrame.size.height);
                          } completion:^(BOOL finished) {
-                             self.foodDetailsView.transform = CGAffineTransformMakeScale(1.0f, 1.0f);
                              [self.foodDetailsView removeFromSuperview];
                          }];
     }

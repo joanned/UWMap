@@ -51,7 +51,7 @@
     CAGradientLayer *gradient = [CAGradientLayer layer];
     gradient.frame = self.bounds;
     gradient.colors = @[(id)[[UIColor clearColor] CGColor], (id)[[UIColor whiteColor] CGColor], (id)[[UIColor whiteColor] CGColor], (id)[[UIColor clearColor] CGColor]];
-    gradient.locations = @[@0.0, @0.03, @0.9, @1.0];
+    gradient.locations = @[@0.0, @0.02, @0.9, @1.0];
     self.maskView.layer.mask = gradient;
 }
 
@@ -86,7 +86,6 @@
     }
     
     [self configureCell:cell atIndexPath:indexPath];
-    ///TODO: image and others
     
     return cell;
 }
@@ -123,11 +122,6 @@
     
     return height;
 }
-
-//- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    return UITableViewAutomaticDimension;
-//}
 
 #pragma mark - Helpers
 
