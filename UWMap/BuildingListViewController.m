@@ -15,11 +15,11 @@
 
 //TODO: prob dont need to store dictionaries everywhere zz
 @property (nonatomic, strong) NSDictionary *foodDictionary;
-@property NSArray *foodTitlesArray;
-@property NSMutableArray *foodFilteredArray;
+@property (nonatomic, strong) NSArray *foodTitlesArray;
+@property (nonatomic, strong) NSMutableArray *foodFilteredArray;
 
-@property NSDictionary *locationDictionary;
-@property NSArray *buildingsArray; //TODO: nonatimc
+@property (nonatomic, strong) NSDictionary *locationDictionary;
+@property NSArray *buildingsArray;
 @property NSMutableArray *filteredArray;
 
 @property NSArray *allLocationsArray;

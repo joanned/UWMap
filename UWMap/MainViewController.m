@@ -7,11 +7,7 @@
 //
 
 //todo:
-//fix zoomscale when you go back to map
 //map jumps zoomscale in beginning
-//app icon and launch image
-//fix unable to click points after zooming out a lot
-//make buttons bigger 44x44
 
 #import "MainViewController.h"
 #import "BuildingListViewController.h"
@@ -365,8 +361,6 @@ const float kWhiteOverlayOpacity = 0.75f;
 
 - (void)foodDataFinishedLoading:(NSData *)foodData {
     self.foodDictionary = [self parseData:foodData]; //TODO: do we need to store the dictionary
-    
-//    [self sortFoodIntoArrays:foodDictionary];
     
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.mapViewController showFoodIconsOnMap:self.foodDictionary];

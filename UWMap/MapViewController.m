@@ -251,7 +251,6 @@ static const CGFloat kWidthOfPin = 50;
 #pragma mark <UIScrollViewDelegate>
 
 - (void)scrollViewDidZoom:(UIScrollView *)aScrollView {
-//    for (UIView *subview in self.imageView.subviews ) {
     if (self.popupView != nil) {
         CGRect oldFrame = self.popupView.frame;
         // 0.5 means the anchor is centered on the x axis. 1 means the anchor is at the bottom of the view. If you comment out this line, the pin's center will stay where it is regardless of how much you zoom. I have it so that the bottom of the pin stays fixed. This should help user RomeoF.
