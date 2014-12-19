@@ -148,9 +148,9 @@ static const CGFloat kWidthOfPin = 50;
 
 - (CGRect)makeRectFromBuildingKey:(NSString *)locationKey {
     CGPoint locationPoint = [self makePointFromBuildingKey:locationKey isFromTable:NO];
-    CGFloat rectWidth = self.imageView.frame.size.width / self.originalImageWidth * kWidthOfPin;
-    CGFloat rectHeight = self.imageView.frame.size.height / self.originalImageHeight * kWidthOfPin;
-    return CGRectMake(locationPoint.x, locationPoint.y, rectWidth, rectHeight);
+
+    CGFloat clickableArea = kWidthOfPin * self.scrollView.zoomScale + 15.0f;
+    return CGRectMake(locationPoint.x, locationPoint.y, clickableArea, clickableArea);
 }
 
 - (void)showDetails:(CGPoint)locationPoint withLabel:(NSString *)label {
