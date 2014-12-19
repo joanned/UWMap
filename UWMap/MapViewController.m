@@ -24,15 +24,14 @@
 
 @property NSMutableDictionary *locationDictionary;
 @property NSMutableDictionary *foodAtLocationDictionary;
-//@property NSArray *buildingTitlesArray;
 
-//@property NSMutableDictionary *allLocationsDictionary;
-
-//@property (nonatomic, strong) PopupView *currentPopupView;
 @property (nonatomic ,assign) CGRect initialPopupFrame;
 @property (nonatomic, assign) CGFloat initialMapScale;
 
 @property (nonatomic, strong) PopupView *popupView;
+
+@property (nonatomic, assign) CGFloat defaultZoomScale;
+@property (nonatomic, assign) CGFloat savedZoomScale;
 
 @end
 
@@ -46,7 +45,6 @@ static const CGFloat kWidthOfPin = 50;
     self.scrollView.delegate = self;
     
     self.locationDictionary = [BuildingDataProvider buildingDictionary];
-//    self.buildingTitlesArray = [self.locationDictionary allKeys];
     
     self.shortformDictionary = [[NSMutableDictionary alloc] init];
     for (NSString *key in self.locationDictionary) {
@@ -59,6 +57,7 @@ static const CGFloat kWidthOfPin = 50;
     
     self.isFirstLoad = YES;
     
+    self.savedZoomScale = 0;
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -69,18 +68,19 @@ static const CGFloat kWidthOfPin = 50;
     self.scrollView.contentSize = CGSizeMake ([image size].width, [image size].height);
     
     [self.scrollView setClipsToBounds:YES];
+
+    if (self.isFirstLoad) {
+        self.defaultZoomScale = self.scrollView.frame.size.height / self.scrollView.contentSize.height + 0.4f;
+    }
     
-    //TODO: FIX DIS LATER ........D8
-//    if (self.isFirstLoad) {
-        CGFloat heightScale = self.scrollView.frame.size.height / self.scrollView.contentSize.height;
-//    
-    self.scrollView.minimumZoomScale = heightScale;
+    self.scrollView.minimumZoomScale = self.defaultZoomScale - 0.4;
     self.scrollView.maximumZoomScale = 1.3f;
-    self.scrollView.zoomScale = heightScale + 0.4;
     
-//    self.scrollView.minimumZoomScale = 1;
-//    self.scrollView.maximumZoomScale = 1;
-//    self.scrollView.zoomScale = 1;
+    if (self.savedZoomScale == 0) {
+        self.scrollView.zoomScale = self.defaultZoomScale;
+    } else {
+        self.scrollView.zoomScale = self.savedZoomScale;
+    }
 
     UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedScreen:)];
 
@@ -94,34 +94,26 @@ static const CGFloat kWidthOfPin = 50;
     
 }
 
-- (void)setupData {
-//    self.locationDictionary = [BuildingDataProvider buildingDictionary]; 
-//    self.buildingTitlesArray = [self.locationDictionary allKeys];
+-(void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    
+    self.savedZoomScale = self.scrollView.zoomScale;
 }
 
 - (void)tappedScreen:(UITapGestureRecognizer *)recognizer {
     if (recognizer.state == UIGestureRecognizerStateRecognized) {
         CGPoint point = [recognizer locationInView:recognizer.view];
         
-//        if (self.popupView != nil && CGRectContainsPoint(self.popupView.frame, point)) {
-//            if ([self.delegate respondsToSelector:@selector(subviewTappedWithLabel:)]) {
-//                [self.delegate subviewTappedWithLabel:self.popupView.title];
-//            }
-//        } else {
-            [self removePopupView];
+        [self removePopupView];
+        
+        for (NSString *locationKey in self.locationDictionary) {
+            CGRect locationRect = [self makeRectFromBuildingKey:locationKey];
             
-            NSLog(@"%f %f", point.x / self.imageView.frame.size.width, point.y / self.imageView.frame.size.height);
-            NSLog(@"%f %f", point.x*2, point.y*2 +10);
-            
-            for (NSString *locationKey in self.locationDictionary) {
-                CGRect locationRect = [self makeRectFromBuildingKey:locationKey];
-                
-                if (CGRectContainsPoint(locationRect, point)) {
-                    CGPoint realLocationPoint = [self makePointFromBuildingKey:locationKey isFromTable:YES];
-                    [self showDetails:realLocationPoint withLabel:locationKey];
-                }
+            if (CGRectContainsPoint(locationRect, point)) {
+                CGPoint realLocationPoint = [self makePointFromBuildingKey:locationKey isFromTable:YES];
+                [self showDetails:realLocationPoint withLabel:locationKey];
             }
-//        }
+        }
     }
 }
 
@@ -172,11 +164,6 @@ static const CGFloat kWidthOfPin = 50;
     frame.origin.x = locationPoint.x-frame.size.width/2 + kWidthOfPin/2;
     frame.origin.y = locationPoint.y-frame.size.height + 3;
     self.popupView.frame = frame;
-    
-    NSLog(@"shown at point %f %f", locationPoint.x , locationPoint.y);
-    NSLog(@"popup frame: %@", NSStringFromCGRect(self.popupView.frame));
-    NSLog(@"~~~~~~IMAGEVIEW FRAME: %@", NSStringFromCGRect(self.imageView.frame));
-    NSLog(@"~~~~~~SCROLLVIEW FRAME: %@", NSStringFromCGSize([self.scrollView contentSize]));
 
     [UIView transitionWithView:self.imageView duration:0.2f options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
         [self.imageView addSubview:self.popupView];
@@ -185,15 +172,13 @@ static const CGFloat kWidthOfPin = 50;
     
     //adjust view if popup is cutoff
     CGRect popupRect = [self.popupView convertRect:self.popupView.bounds toView:self.view.superview];
-    NSLog(@"popup frame: %@", NSStringFromCGRect(self.popupView.frame));
-    NSLog(@"popup frame superview: %@", NSStringFromCGRect(popupRect));
     
     CGPoint popupPoint = self.scrollView.contentOffset;
     CGFloat positionX = popupRect.origin.x;
     if (positionX < 0) {
         popupPoint.x += positionX;
     } else if (positionX + self.popupView.width > [[UIScreen mainScreen] bounds].size.width) {
-        popupPoint.x += self.popupView.width - [[UIScreen mainScreen] bounds].size.width + positionX; //refactor later (save screenwidth size somewhere)
+        popupPoint.x += self.popupView.width - [[UIScreen mainScreen] bounds].size.width + positionX;
     }
     
     CGFloat positionY = popupRect.origin.y;
@@ -208,15 +193,7 @@ static const CGFloat kWidthOfPin = 50;
                          self.scrollView.contentOffset = popupPoint;
                      } completion:nil];
     
-////TODO: if (isfOOOOOD) {
-//    self.popupView.userInteractionEnabled = YES;
-//    UITapGestureRecognizer *tapPopupRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedPopup:)];
-//    tapPopupRecognizer.numberOfTapsRequired = 1;
-//    tapPopupRecognizer.delegate = self.popupView;
-//    [tapPopupRecognizer setDelegate:self];
-//    [self.view bringSubviewToFront:self.popupView];
-//    [self.view.superview bringSubviewToFront:self.popupView];
-//    [self.popupView addGestureRecognizer:tapPopupRecognizer];
+    self.savedZoomScale = self.defaultZoomScale;
 }
 
 - (void)adjustViewWithPoint:(CGPoint)locationPoint {
@@ -255,9 +232,8 @@ static const CGFloat kWidthOfPin = 50;
         
         CGFloat currentZoomScale = self.scrollView.zoomScale;
         
-        self.scrollView.zoomScale = 1;
-        CGFloat positionX = buildingForFood.positionX * self.imageView.frame.size.width - kWidthOfPin / 2; //todo: make helper for this stuff, also used in showdetails
-        CGFloat positionY = buildingForFood.positionY * self.imageView.frame.size.height - foodPopupView.frame.size.height;
+        CGFloat positionX = buildingForFood.positionX * self.imageView.frame.size.width / currentZoomScale - kWidthOfPin / 2; //todo: make helper for this stuff, also used in showdetails
+        CGFloat positionY = buildingForFood.positionY * self.imageView.frame.size.height / currentZoomScale - foodPopupView.frame.size.height;
         
         foodPopupView.frame = CGRectMake(positionX, positionY, foodPopupView.frame.size.width, foodPopupView.frame.size.height);
         
@@ -267,16 +243,9 @@ static const CGFloat kWidthOfPin = 50;
         
         foodPopupView.delegate = self;
         
-        self.scrollView.zoomScale = currentZoomScale;
     }
     
     [self.locationDictionary addEntriesFromDictionary:foodDictionary];
-    
-    
-//    PopupView *testView = [[PopupView alloc] initWithNumberOfFoodLocations:0];
-//    testView.frame = CGRectMake(500, 500, testView.frame.size.width, testView.frame.size.height);
-//    [self.imageView addSubview:testView];
-   
 }
 
 #pragma mark <UIScrollViewDelegate>

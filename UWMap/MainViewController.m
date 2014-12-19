@@ -11,6 +11,7 @@
 //map jumps zoomscale in beginning
 //app icon and launch image
 //fix unable to click points after zooming out a lot
+//make buttons bigger 44x44
 
 #import "MainViewController.h"
 #import "BuildingListViewController.h"
@@ -47,7 +48,6 @@ const float kWhiteOverlayOpacity = 0.75f;
 
 @property (nonatomic, strong) FoodDataFetcher *foodDataFetcher;
 @property (nonatomic, strong) NSDictionary *foodDictionary; //goes here or mapviewcontrooler?
-//@property (nonatomic, strong) NSMutableArray *foodLocationsArray;
 
 @property (nonatomic, strong) LoadingView *loadingView;
 
@@ -414,11 +414,6 @@ const float kWhiteOverlayOpacity = 0.75f;
         return foodDataDictionary;
     }
 }
-
-//- (void)sortFoodIntoArrays:(NSDictionary *)foodDictionary {
-//    self.foodLocationsArray = [[NSMutableArray alloc] init];
-//    
-//}
 
 #pragma mark <MapViewControllerDelegate>
 
