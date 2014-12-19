@@ -19,7 +19,7 @@
     self = [self initWithFrame:CGRectMake(0, 0, foodIconView.frame.size.width + 25, foodIconView.frame.size.height + 25)];
     foodIconView.center = CGPointMake(self.frame.size.width / 2 - 3, self.frame.size.height / 2 - 2);
     
-    NSString *numberOfLocationsString = [NSString stringWithFormat:@"%ld", numberOfFoodLocations];
+    NSString *numberOfLocationsString = [NSString stringWithFormat:@"%ld", (long)numberOfFoodLocations];
     UILabel *numberOfLocationsLabel = [[UILabel alloc] initWithFrame:CGRectMake(foodIconView.frame.size.width +8, 6, 20, 20)];
     numberOfLocationsLabel.text = numberOfLocationsString;
     numberOfLocationsLabel.textColor = [UIColor whiteColor];

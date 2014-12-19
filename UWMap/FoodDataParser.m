@@ -64,11 +64,11 @@
             [foodData setNotice:foodNotice];
         }
         
-        if ([[foodDictionary valueForKey:@"is_open_now"] isKindOfClass:[NSNull class]]) {
-            [foodData setIsOpenNow:nil];
-        } else {
-            [foodData setIsOpenNow:[foodDictionary valueForKey:@"is_open_now"]];
-        }
+//        if ([[foodDictionary valueForKey:@"is_open_now"] isKindOfClass:[NSNull class]]) {
+//            [foodData setIsOpenNow:nil];
+//        } else {
+//            [foodData setIsOpenNow:[foodDictionary valueForKey:@"is_open_now"]];
+//        }
         
         NSDictionary *hoursDictionary = [foodDictionary valueForKey:@"opening_hours"];
         
