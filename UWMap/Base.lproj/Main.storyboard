@@ -34,7 +34,6 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="568"/>
                     <connections>
-                        <outlet property="buildingIcon" destination="6uD-YX-IT0" id="mxT-wf-I1e"/>
                         <outlet property="imageView" destination="D4n-0K-QYT" id="Dca-35-vbe"/>
                         <outlet property="scrollView" destination="ahT-Pj-7Lw" id="0Ne-MK-cws"/>
                         <outlet property="searchDisplayController" destination="eIv-Zb-K9j" id="ETf-DG-6z3"/>
@@ -75,7 +74,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
                                 <subviews>
                                     <searchBar opaque="NO" contentMode="redraw" barStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="7Jp-ao-Q5s">
-                                        <rect key="frame" x="0.0" y="20" width="278" height="44"/>
+                                        <rect key="frame" x="0.0" y="20" width="276" height="44"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="uzh-2C-O2Z"/>
@@ -83,22 +82,29 @@
                                         <color key="barTintColor" red="0.20350366709183676" green="0.20350366709183676" blue="0.20350366709183676" alpha="1" colorSpace="calibratedRGB"/>
                                         <textInputTraits key="textInputTraits" keyboardAppearance="alert"/>
                                     </searchBar>
-                                    <imageView multipleTouchEnabled="YES" alpha="0.65000000000000002" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="list" translatesAutoresizingMaskIntoConstraints="NO" id="6uD-YX-IT0" userLabel="icon">
-                                        <rect key="frame" x="282" y="26" width="30" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZAu-2P-Eeh" userLabel="iconButton">
+                                        <rect key="frame" x="276" y="20" width="44" height="44"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="PRv-Md-dno"/>
-                                            <constraint firstAttribute="width" constant="30" id="qRD-NH-1U9"/>
+                                            <constraint firstAttribute="width" constant="44" id="9GF-A6-XhR"/>
+                                            <constraint firstAttribute="height" constant="44" id="RNc-nW-ggO"/>
                                         </constraints>
-                                    </imageView>
+                                        <inset key="contentEdgeInsets" minX="0.0" minY="2" maxX="6" maxY="2"/>
+                                        <state key="normal" image="list">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="iconButtonPressed:" destination="C14-Le-p61" eventType="touchUpInside" id="vPq-5n-D4z"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.20350366709183676" green="0.20350366709183676" blue="0.20350366709183676" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="7Jp-ao-Q5s" firstAttribute="leading" secondItem="3fb-Eb-Kyi" secondAttribute="leading" id="0LH-20-0Ny"/>
-                                    <constraint firstAttribute="trailing" secondItem="6uD-YX-IT0" secondAttribute="trailing" constant="8" id="Gpy-IX-4IX"/>
+                                    <constraint firstAttribute="trailing" secondItem="ZAu-2P-Eeh" secondAttribute="trailing" id="FmC-Us-bXw"/>
+                                    <constraint firstAttribute="bottom" secondItem="ZAu-2P-Eeh" secondAttribute="bottom" id="R7d-ar-NQ5"/>
                                     <constraint firstAttribute="height" constant="64" id="Srx-3G-fqr"/>
-                                    <constraint firstItem="6uD-YX-IT0" firstAttribute="top" secondItem="3fb-Eb-Kyi" secondAttribute="top" constant="26" id="euC-x0-SfW"/>
+                                    <constraint firstItem="ZAu-2P-Eeh" firstAttribute="leading" secondItem="7Jp-ao-Q5s" secondAttribute="trailing" id="YKu-o3-MsH"/>
                                     <constraint firstAttribute="bottom" secondItem="7Jp-ao-Q5s" secondAttribute="bottom" id="oUu-no-b4u"/>
-                                    <constraint firstItem="6uD-YX-IT0" firstAttribute="leading" secondItem="7Jp-ao-Q5s" secondAttribute="trailing" constant="4" id="sSt-bP-5qv"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -118,9 +124,8 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="buildingIcon" destination="6uD-YX-IT0" id="L5L-gM-tEv"/>
                         <outlet property="containerView" destination="oAY-OV-2XF" id="Ohx-I1-VL5"/>
-                        <outlet property="iconImage" destination="6uD-YX-IT0" id="Wqf-E9-LHo"/>
+                        <outlet property="iconButton" destination="ZAu-2P-Eeh" id="7Ef-8Z-NAj"/>
                         <outlet property="searchBar" destination="7Jp-ao-Q5s" id="WmT-7B-UN1"/>
                         <outlet property="searchBarView" destination="3fb-Eb-Kyi" id="Dcf-ae-izU"/>
                         <outlet property="whiteView" destination="Y3d-b2-bJo" id="Dvi-Lc-Uxy"/>
@@ -181,7 +186,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="a2D-FS-T1a"/>
                                 </constraints>
-                                <state key="normal" title="Buildings">
+                                <state key="normal" image="buildingIcon">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -194,7 +199,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="lnL-2E-HjV"/>
                                 </constraints>
-                                <state key="normal" title="Food">
+                                <state key="normal" image="coffeeIcon">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -252,6 +257,8 @@
     </scenes>
     <resources>
         <image name="Waterloo_map" width="2194" height="1376"/>
+        <image name="buildingIcon" width="35" height="30"/>
+        <image name="coffeeIcon" width="35" height="33"/>
         <image name="first" width="30" height="30"/>
         <image name="list" width="128" height="128"/>
         <image name="second" width="30" height="30"/>

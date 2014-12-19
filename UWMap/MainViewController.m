@@ -34,11 +34,10 @@ const float kWhiteOverlayOpacity = 0.75f;
 @property (nonatomic, strong) MapViewController *mapViewController;
 
 @property (nonatomic, weak) IBOutlet UISearchBar *searchBar;
-@property (nonatomic, weak) IBOutlet UIImageView *buildingIcon;
 @property (nonatomic, strong) IBOutlet UIView *containerView;
 @property (nonatomic, weak) IBOutlet UIView *searchBarView;
 @property (nonatomic, weak) IBOutlet UIView *whiteView;
-@property (nonatomic, weak) IBOutlet UIImageView *iconImage;
+@property (weak, nonatomic) IBOutlet UIButton *iconButton;
 
 @property (nonatomic, assign) BOOL showFullList; //TODO: can just use isonmapview?
 @property (nonatomic, assign) BOOL isOnMapView; //get rid of these/make them states later.....D8
@@ -62,10 +61,6 @@ const float kWhiteOverlayOpacity = 0.75f;
     
     self.isOnMapView = YES;
     self.showCombinedList = YES;
-
-    UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self
-                                                                                action:@selector(tappedIcon:)];
-    [self.buildingIcon addGestureRecognizer:tapRecognizer];
     
     self.buildingListViewController.delegate = self;
     self.mapViewController.delegate = self;
@@ -92,7 +87,7 @@ const float kWhiteOverlayOpacity = 0.75f;
     
     self.loadingView.hidden = YES;
     
-    [self.iconImage setImage:[UIImage imageNamed:@"mapIcon"]];
+    [self.iconButton setImage:[UIImage imageNamed:@"mapIcon"] forState:UIControlStateNormal];
 
     //show table view
     [self addChildViewController:self.buildingListViewController];
@@ -113,7 +108,7 @@ const float kWhiteOverlayOpacity = 0.75f;
 }
 
 - (void)showMapView {
-    [self.iconImage setImage:[UIImage imageNamed:@"list"]];
+    [self.iconButton setImage:[UIImage imageNamed:@"list"] forState:UIControlStateNormal];
     self.loadingView.hidden = NO;
 
     //show map view
@@ -152,8 +147,7 @@ const float kWhiteOverlayOpacity = 0.75f;
         } completion:nil];
     }
 }
-
-- (void)tappedIcon:(UITapGestureRecognizer *)recognizer {
+- (IBAction)iconButtonPressed:(id)sender {
     if (self.isOnMapView == YES) {
         [self hideFoodDetailsView];
         self.showFullList = YES; //too many dumb bools..... TODO

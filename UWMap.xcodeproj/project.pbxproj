@@ -22,6 +22,7 @@
 		47491B021A3FDF7B00F68EED /* FoodDataParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 47491B011A3FDF7B00F68EED /* FoodDataParser.m */; };
 		47491B051A3FE51300F68EED /* DateStringConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 47491B041A3FE51300F68EED /* DateStringConverter.m */; };
 		47491B061A3FEC2D00F68EED /* OpenSans-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 47D8546C1A376BFA004D7BCB /* OpenSans-Semibold.ttf */; };
+		47491B081A43CF7400F68EED /* IconCredits.m in Sources */ = {isa = PBXBuildFile; fileRef = 47491B071A43CF7400F68EED /* IconCredits.m */; };
 		475ED4321A0737B40033F485 /* PopupView.m in Sources */ = {isa = PBXBuildFile; fileRef = 475ED4311A0737B40033F485 /* PopupView.m */; };
 		47A7103C1A1A66300050B715 /* UIImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 47A7103B1A1A66300050B715 /* UIImageEffects.m */; };
 		47C7892B19F9FF4900C90436 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47C7892A19F9FF4900C90436 /* MainViewController.m */; };
@@ -78,6 +79,7 @@
 		47491B011A3FDF7B00F68EED /* FoodDataParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodDataParser.m; sourceTree = "<group>"; };
 		47491B031A3FE51300F68EED /* DateStringConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateStringConverter.h; sourceTree = "<group>"; };
 		47491B041A3FE51300F68EED /* DateStringConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateStringConverter.m; sourceTree = "<group>"; };
+		47491B071A43CF7400F68EED /* IconCredits.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IconCredits.m; sourceTree = "<group>"; };
 		475ED4301A0737B40033F485 /* PopupView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopupView.h; sourceTree = "<group>"; };
 		475ED4311A0737B40033F485 /* PopupView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopupView.m; sourceTree = "<group>"; };
 		47A7103A1A1A66300050B715 /* UIImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIImageEffects.h; sourceTree = "<group>"; };
@@ -285,7 +287,6 @@
 			isa = PBXGroup;
 			children = (
 				47491AFC1A3FDD3C00F68EED /* Parsing */,
-				47D854631A376BE8004D7BCB /* Fonts */,
 				47D8545A1A35FE28004D7BCB /* FoodCell */,
 				47D854561A2E45F6004D7BCB /* Constants */,
 				47D8544D1A2D4C44004D7BCB /* Views */,
@@ -306,10 +307,12 @@
 		47F37CD119DCE4C6009577E9 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				47D854631A376BE8004D7BCB /* Fonts */,
 				47F37CD219DCE4C6009577E9 /* UWMap-Info.plist */,
 				47F37CD319DCE4C6009577E9 /* InfoPlist.strings */,
 				47F37CD619DCE4C6009577E9 /* main.m */,
 				47F37CD819DCE4C6009577E9 /* UWMap-Prefix.pch */,
+				47491B071A43CF7400F68EED /* IconCredits.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -471,6 +474,7 @@
 				47110ACC19ECCABD009AEFF6 /* Building.m in Sources */,
 				47491B021A3FDF7B00F68EED /* FoodDataParser.m in Sources */,
 				47D854621A36AB2A004D7BCB /* FoodCell.m in Sources */,
+				47491B081A43CF7400F68EED /* IconCredits.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
