@@ -102,14 +102,14 @@
 		47D8546B1A376BFA004D7BCB /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OpenSans-Regular.ttf"; path = "../../../Downloads/Open_Sans/OpenSans-Regular.ttf"; sourceTree = "<group>"; };
 		47D8546C1A376BFA004D7BCB /* OpenSans-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OpenSans-Semibold.ttf"; path = "../../../Downloads/Open_Sans/OpenSans-Semibold.ttf"; sourceTree = "<group>"; };
 		47D8546D1A376BFA004D7BCB /* OpenSans-SemiboldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OpenSans-SemiboldItalic.ttf"; path = "../../../Downloads/Open_Sans/OpenSans-SemiboldItalic.ttf"; sourceTree = "<group>"; };
-		47F37CC719DCE4C6009577E9 /* UWMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UWMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		47F37CC719DCE4C6009577E9 /* UW Map.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "UW Map.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		47F37CCA19DCE4C6009577E9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		47F37CCC19DCE4C6009577E9 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		47F37CCE19DCE4C6009577E9 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		47F37CD219DCE4C6009577E9 /* UWMap-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "UWMap-Info.plist"; sourceTree = "<group>"; };
+		47F37CD219DCE4C6009577E9 /* UW Map-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "UW Map-Info.plist"; sourceTree = "<group>"; };
 		47F37CD419DCE4C6009577E9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		47F37CD619DCE4C6009577E9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		47F37CD819DCE4C6009577E9 /* UWMap-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UWMap-Prefix.pch"; sourceTree = "<group>"; };
+		47F37CD819DCE4C6009577E9 /* UW Map-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UW Map-Prefix.pch"; sourceTree = "<group>"; };
 		47F37CD919DCE4C6009577E9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		47F37CDA19DCE4C6009577E9 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		47F37CDD19DCE4C6009577E9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -118,9 +118,9 @@
 		47F37CE219DCE4C6009577E9 /* BuildingListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BuildingListViewController.h; sourceTree = "<group>"; };
 		47F37CE319DCE4C6009577E9 /* BuildingListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BuildingListViewController.m; sourceTree = "<group>"; };
 		47F37CE519DCE4C6009577E9 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		47F37CEB19DCE4C6009577E9 /* UWMapTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UWMapTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		47F37CEB19DCE4C6009577E9 /* UW MapTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "UW MapTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		47F37CEC19DCE4C6009577E9 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		47F37CF419DCE4C6009577E9 /* UWMapTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "UWMapTests-Info.plist"; sourceTree = "<group>"; };
+		47F37CF419DCE4C6009577E9 /* UW MapTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "UW MapTests-Info.plist"; sourceTree = "<group>"; };
 		47F37CF619DCE4C6009577E9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		47F37CF819DCE4C6009577E9 /* UWMapTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UWMapTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -266,8 +266,8 @@
 		47F37CC819DCE4C6009577E9 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				47F37CC719DCE4C6009577E9 /* UWMap.app */,
-				47F37CEB19DCE4C6009577E9 /* UWMapTests.xctest */,
+				47F37CC719DCE4C6009577E9 /* UW Map.app */,
+				47F37CEB19DCE4C6009577E9 /* UW MapTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -308,10 +308,10 @@
 			isa = PBXGroup;
 			children = (
 				47D854631A376BE8004D7BCB /* Fonts */,
-				47F37CD219DCE4C6009577E9 /* UWMap-Info.plist */,
+				47F37CD219DCE4C6009577E9 /* UW Map-Info.plist */,
 				47F37CD319DCE4C6009577E9 /* InfoPlist.strings */,
 				47F37CD619DCE4C6009577E9 /* main.m */,
-				47F37CD819DCE4C6009577E9 /* UWMap-Prefix.pch */,
+				47F37CD819DCE4C6009577E9 /* UW Map-Prefix.pch */,
 				47491B071A43CF7400F68EED /* IconCredits.m */,
 			);
 			name = "Supporting Files";
@@ -329,7 +329,7 @@
 		47F37CF319DCE4C6009577E9 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				47F37CF419DCE4C6009577E9 /* UWMapTests-Info.plist */,
+				47F37CF419DCE4C6009577E9 /* UW MapTests-Info.plist */,
 				47F37CF519DCE4C6009577E9 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
@@ -351,9 +351,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		47F37CC619DCE4C6009577E9 /* UWMap */ = {
+		47F37CC619DCE4C6009577E9 /* UW Map */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 47F37CFC19DCE4C6009577E9 /* Build configuration list for PBXNativeTarget "UWMap" */;
+			buildConfigurationList = 47F37CFC19DCE4C6009577E9 /* Build configuration list for PBXNativeTarget "UW Map" */;
 			buildPhases = (
 				47F37CC319DCE4C6009577E9 /* Sources */,
 				47F37CC419DCE4C6009577E9 /* Frameworks */,
@@ -363,14 +363,14 @@
 			);
 			dependencies = (
 			);
-			name = UWMap;
+			name = "UW Map";
 			productName = UWMap;
-			productReference = 47F37CC719DCE4C6009577E9 /* UWMap.app */;
+			productReference = 47F37CC719DCE4C6009577E9 /* UW Map.app */;
 			productType = "com.apple.product-type.application";
 		};
-		47F37CEA19DCE4C6009577E9 /* UWMapTests */ = {
+		47F37CEA19DCE4C6009577E9 /* UW MapTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 47F37CFF19DCE4C6009577E9 /* Build configuration list for PBXNativeTarget "UWMapTests" */;
+			buildConfigurationList = 47F37CFF19DCE4C6009577E9 /* Build configuration list for PBXNativeTarget "UW MapTests" */;
 			buildPhases = (
 				47F37CE719DCE4C6009577E9 /* Sources */,
 				47F37CE819DCE4C6009577E9 /* Frameworks */,
@@ -381,9 +381,9 @@
 			dependencies = (
 				47F37CF119DCE4C6009577E9 /* PBXTargetDependency */,
 			);
-			name = UWMapTests;
+			name = "UW MapTests";
 			productName = UWMapTests;
-			productReference = 47F37CEB19DCE4C6009577E9 /* UWMapTests.xctest */;
+			productReference = 47F37CEB19DCE4C6009577E9 /* UW MapTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -403,7 +403,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 47F37CC219DCE4C6009577E9 /* Build configuration list for PBXProject "UWMap" */;
+			buildConfigurationList = 47F37CC219DCE4C6009577E9 /* Build configuration list for PBXProject "UW Map" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -416,8 +416,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				47F37CC619DCE4C6009577E9 /* UWMap */,
-				47F37CEA19DCE4C6009577E9 /* UWMapTests */,
+				47F37CC619DCE4C6009577E9 /* UW Map */,
+				47F37CEA19DCE4C6009577E9 /* UW MapTests */,
 			);
 		};
 /* End PBXProject section */
@@ -491,7 +491,7 @@
 /* Begin PBXTargetDependency section */
 		47F37CF119DCE4C6009577E9 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 47F37CC619DCE4C6009577E9 /* UWMap */;
+			target = 47F37CC619DCE4C6009577E9 /* UW Map */;
 			targetProxy = 47F37CF019DCE4C6009577E9 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -600,9 +600,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "UWMap/UWMap-Prefix.pch";
-				INFOPLIST_FILE = "UWMap/UWMap-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "UWMap/UW Map-Prefix.pch";
+				INFOPLIST_FILE = "UWMap/UW Map-Info.plist";
+				PRODUCT_NAME = "UW Map";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -613,9 +613,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "UWMap/UWMap-Prefix.pch";
-				INFOPLIST_FILE = "UWMap/UWMap-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "UWMap/UW Map-Prefix.pch";
+				INFOPLIST_FILE = "UWMap/UW Map-Info.plist";
+				PRODUCT_NAME = "UW Map";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -635,8 +635,8 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "UWMapTests/UWMapTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "UWMapTests/UW MapTests-Info.plist";
+				PRODUCT_NAME = "UW MapTests";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -653,8 +653,8 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "UWMap/UWMap-Prefix.pch";
-				INFOPLIST_FILE = "UWMapTests/UWMapTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "UWMapTests/UW MapTests-Info.plist";
+				PRODUCT_NAME = "UW MapTests";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -663,7 +663,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		47F37CC219DCE4C6009577E9 /* Build configuration list for PBXProject "UWMap" */ = {
+		47F37CC219DCE4C6009577E9 /* Build configuration list for PBXProject "UW Map" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				47F37CFA19DCE4C6009577E9 /* Debug */,
@@ -672,7 +672,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		47F37CFC19DCE4C6009577E9 /* Build configuration list for PBXNativeTarget "UWMap" */ = {
+		47F37CFC19DCE4C6009577E9 /* Build configuration list for PBXNativeTarget "UW Map" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				47F37CFD19DCE4C6009577E9 /* Debug */,
@@ -681,7 +681,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		47F37CFF19DCE4C6009577E9 /* Build configuration list for PBXNativeTarget "UWMapTests" */ = {
+		47F37CFF19DCE4C6009577E9 /* Build configuration list for PBXNativeTarget "UW MapTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				47F37D0019DCE4C6009577E9 /* Debug */,

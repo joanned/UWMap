@@ -32,9 +32,7 @@
 
 @property (nonatomic, assign) NSString *locationBuilding; //todo; suppposed to be assign or w0t
 
-- (id)initWithWidth:(CGFloat)width;
 - (id)initWithTitle:(NSString *)title detail:(NSString *)detail hasIcon:(BOOL)hasIcon;
-- (UIColor *)lightenColor:(UIColor *)oldColor value:(float)value; //todo: needed?
 - (id)initWithNumberOfFoodLocations:(NSInteger)numberOfFoodLocations locationBuilding:(NSString *)locationBuilding;
 
 

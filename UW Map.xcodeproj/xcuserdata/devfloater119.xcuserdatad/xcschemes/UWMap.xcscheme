@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "47F37CC619DCE4C6009577E9"
-               BuildableName = "UWMap.app"
-               BlueprintName = "UWMap"
-               ReferencedContainer = "container:UWMap.xcodeproj">
+               BuildableName = "Waterloo Campus Map.app"
+               BlueprintName = "UW Map"
+               ReferencedContainer = "container:UW Map.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "47F37CEA19DCE4C6009577E9"
-               BuildableName = "UWMapTests.xctest"
-               BlueprintName = "UWMapTests"
-               ReferencedContainer = "container:UWMap.xcodeproj">
+               BuildableName = "Waterloo Campus MapTests.xctest"
+               BlueprintName = "UW MapTests"
+               ReferencedContainer = "container:UW Map.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -43,9 +43,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "47F37CC619DCE4C6009577E9"
-            BuildableName = "UWMap.app"
-            BlueprintName = "UWMap"
-            ReferencedContainer = "container:UWMap.xcodeproj">
+            BuildableName = "Waterloo Campus Map.app"
+            BlueprintName = "UW Map"
+            ReferencedContainer = "container:UW Map.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -62,9 +62,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "47F37CC619DCE4C6009577E9"
-            BuildableName = "UWMap.app"
-            BlueprintName = "UWMap"
-            ReferencedContainer = "container:UWMap.xcodeproj">
+            BuildableName = "Waterloo Campus Map.app"
+            BlueprintName = "UW Map"
+            ReferencedContainer = "container:UW Map.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -80,9 +80,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "47F37CC619DCE4C6009577E9"
-            BuildableName = "UWMap.app"
-            BlueprintName = "UWMap"
-            ReferencedContainer = "container:UWMap.xcodeproj">
+            BuildableName = "Waterloo Campus Map.app"
+            BlueprintName = "UW Map"
+            ReferencedContainer = "container:UW Map.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

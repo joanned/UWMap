@@ -26,7 +26,6 @@
 - (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView;
 - (void)showDetails:(CGPoint)locationRect withLabel:(NSString *)label;
 - (void)adjustViewWithPoint:(CGPoint)locationPoint;
-- (void)setupData;
 - (void)showFoodIconsOnMap:(NSDictionary *)foodDictionary;
 
 

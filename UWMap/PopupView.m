@@ -38,7 +38,7 @@
     return self;
 }
 
-- (id)initWithTitle:(NSString *)title detail:(NSString *)detail hasIcon:(BOOL)hasIcon { //todo: INFO ICON TINGS FIX
+- (id)initWithTitle:(NSString *)title detail:(NSString *)detail hasIcon:(BOOL)hasIcon { //todo: INFO ICON TINGS
 //    NSMutableAttributedString *attributedTitle = [[NSMutableAttributedString alloc] initWithString:title];
 //    if (hasIcon) {
 //        NSTextAttachment *attachment = [[NSTextAttachment alloc] init];
@@ -49,7 +49,7 @@
 //        
 //        NSAttributedString *attachmentString = [NSAttributedString attributedStringWithAttachment:attachment];
 //        
-        NSMutableAttributedString *attributedTitle= [[NSMutableAttributedString alloc] initWithString:title];
+//        NSMutableAttributedString *attributedTitle= [[NSMutableAttributedString alloc] initWithString:title];
 //        [attributedTitle appendAttributedString:attachmentString];
 //    }
    
@@ -128,27 +128,6 @@
     [self setNeedsDisplay];
 }
 
-//
-////TODO: prob dont need these?
-//- (void) setPopupTitle:(NSString *)title {
-//    [_titleLabel setText:title];
-//}
-//- (NSString *)popupTitle {
-//    return [_titleLabel text];
-//}
-//
-//- (void) setDetail:(NSString *)detail {
-//    [_detailLabel setText:detail];
-//}
-//- (NSString*)detail {
-//    return [_detailLabel text];
-//}
-
-//- (void) setWidth:(CGFloat)width {
-//    CGRect f = self.frame;
-//    f.size.width = width;
-//    [self setFrame:f];
-//}
 - (CGFloat) width {
     return self.bounds.size.width;
 }
@@ -229,37 +208,6 @@
 //        [bannerPath fill];
 //    }
     
-}
-
-
-
-- (UIColor *)lightenColor:(UIColor *)oldColor value:(float)value {
-    int   totalComponents = CGColorGetNumberOfComponents(oldColor.CGColor);
-    bool  isGreyscale     = totalComponents == 2 ? YES : NO;
-    
-    CGFloat* oldComponents = (CGFloat *)CGColorGetComponents(oldColor.CGColor);
-    CGFloat newComponents[4];
-    
-    if (isGreyscale) {
-        newComponents[0] = oldComponents[0]+value > 1.0 ? 1.0 : oldComponents[0]+value;
-        newComponents[1] = oldComponents[0]+value > 1.0 ? 1.0 : oldComponents[0]+value;
-        newComponents[2] = oldComponents[0]+value > 1.0 ? 1.0 : oldComponents[0]+value;
-        newComponents[3] = oldComponents[1];
-    } else {
-        newComponents[0] = oldComponents[0]+value > 1.0 ? 1.0 : oldComponents[0]+value;
-        newComponents[1] = oldComponents[1]+value > 1.0 ? 1.0 : oldComponents[1]+value;
-        newComponents[2] = oldComponents[2]+value > 1.0 ? 1.0 : oldComponents[2]+value;
-        newComponents[3] = oldComponents[3];
-    }
-    
-    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
-    CGColorRef newColor = CGColorCreate(colorSpace, newComponents);
-    CGColorSpaceRelease(colorSpace);
-    
-    UIColor *retColor = [UIColor colorWithCGColor:newColor];
-    CGColorRelease(newColor);
-    
-    return retColor;
 }
 
 @end

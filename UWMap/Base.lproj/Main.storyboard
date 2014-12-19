@@ -29,7 +29,6 @@
                             <constraint firstAttribute="trailingMargin" secondItem="D4n-0K-QYT" secondAttribute="trailing" id="p5I-Om-FqO"/>
                         </constraints>
                     </scrollView>
-                    <tabBarItem key="tabBarItem" title="Map" image="first" id="u1e-5L-l1D"/>
                     <nil key="simulatedStatusBarMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="568"/>
@@ -238,7 +237,6 @@
                             <constraint firstItem="YD2-PB-qoT" firstAttribute="leading" secondItem="K83-aK-oat" secondAttribute="trailing" id="zq5-Yj-Y5J"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Second" image="second" id="Z7h-1E-pvt"/>
                     <nil key="simulatedStatusBarMetrics"/>
                     <connections>
                         <outlet property="blurredImageView" destination="fTT-dt-M3V" id="NzQ-2G-Xrx"/>
@@ -259,9 +257,7 @@
         <image name="Waterloo_map" width="2194" height="1376"/>
         <image name="buildingIcon" width="35" height="30"/>
         <image name="coffeeIcon" width="35" height="33"/>
-        <image name="first" width="30" height="30"/>
         <image name="list" width="128" height="128"/>
-        <image name="second" width="30" height="30"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
